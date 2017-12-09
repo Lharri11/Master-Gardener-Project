@@ -24,9 +24,9 @@ public class UploadServlet extends HttpServlet {
 
     private static final String DATA_DIRECTORY = "documents";
     private static final String PORTRAIT_DIRECTORY = "portraits";
-    String root_directory = "C:\\Users\\Logan_53e\\Documents\\York\\Fall 2017\\CS481\\Eclipse\\Master-Gardener-Pollinator-Monitoring\\Master_Gardener_Source\\war";
+    String root_directory = "C:\\Users\\Logan_53e\\Documents\\York\\Fall 2017\\CS481\\Eclipse\\Master-Gardener-Pollinator-Monitoring\\Master_Gardener_Source";
     private static final int MAX_MEMORY_SIZE = 1024 * 1024 * 2;
-    private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 2;
+    private static final int MAX_REQUEST_SIZE = 1024 * 1024;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -92,6 +92,32 @@ public class UploadServlet extends HttpServlet {
                 if (!item.isFormField()) {
                     String fileName = new File(item.getName()).getName();
 
+                    if (fileName.contains(".jpg") || fileName.contains(".jpeg") || fileName.contains(".png")) {
+                        // Specify portraits directory folder
+                        uploadFolder = root_directory + File.separator + PORTRAIT_DIRECTORY;
+
+                        // Acquire file path & extension
+                        String fileExtension = FilenameUtils.getExtension(fileName);
+                        String filePath = uploadFolder + File.separator + username + "." + fileExtension;
+                        File uploadedFile = new File(filePath);
+
+                        System.out.println("\nFile successfully uploaded to path:");
+                        System.out.println(filePath);
+                        // Saves the image to "portraits" directory w/ username
+                        item.write(uploadedFile);
+                        item.delete();
+
+                        EditUserPortraitController portraitController = new EditUserPortraitController();
+
+                        // Update if User has photo, Insert if not
+                        //if (portraitController.verifyUserHasPortrait(username)) {
+                            portraitController.updateUserPortraitbyUsername(username, filePath);
+                        //} else {
+                        //    portraitController.insertUserPortraitbyUsername(username, filePath);
+                        //}
+                        resp.sendRedirect(req.getContextPath() + "/user");
+                    } else {
+
                         garden_id = (int) req.getSession().getAttribute("GardenID");
 
                         if(garden_id != 0){
@@ -120,6 +146,7 @@ public class UploadServlet extends HttpServlet {
                             // Displays upload success page in general case after upload finished
                             req.getRequestDispatcher("/_view/message.jsp").forward(req, resp);
                         }
+                    }
                 }
             }
         } catch(FileUploadException ex){

@@ -63,36 +63,12 @@
     <servlet-class>servlet.UploadServlet</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>PortraitUploadServlet</servlet-name>
-    <servlet-class>servlet.PortraitUploadServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>DownloadServlet</servlet-name>
-    <servlet-class>servlet.DownloadServlet</servlet-class>
-  </servlet>
-  <servlet>
     <servlet-name>DocumentServlet</servlet-name>
     <servlet-class>servlet.DocumentServlet</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>pollVisitsByCountyServlet</servlet-name>
-    <servlet-class>servlet.pollVisitsByCountyServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>pollVisitsByPlantCoreopsisServlet</servlet-name>
-    <servlet-class>servlet.pollVisitsByPlantCoreopsisServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>pollVisitsByPlantMonardaServlet</servlet-name>
-    <servlet-class>servlet.pollVisitsByPlantMonardaServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>pollVisitsByPollTypeServlet</servlet-name>
-    <servlet-class>servlet.pollVisitsByPollTypeServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>ChartDirectoryServlet</servlet-name>
-    <servlet-class>servlet.ChartDirectoryServlet</servlet-class>
+    <servlet-name>ChartGenServlet</servlet-name>
+    <servlet-class>servlet.ChartGenServlet</servlet-class>
   </servlet>
 
   <!-- Servlet mappings -->
@@ -149,14 +125,6 @@
     <url-pattern>/upload</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>PortraitUploadServlet</servlet-name>
-    <url-pattern>/portraitUpload</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>DownloadServlet</servlet-name>
-    <url-pattern>/download</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
     <servlet-name>EditUserPortraitServlet</servlet-name>
     <url-pattern>/editUserPortrait</url-pattern>
   </servlet-mapping>
@@ -165,23 +133,11 @@
     <url-pattern>/documents</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>pollVisitsByCountyServlet</servlet-name>
-    <url-pattern>/pollVisits1</url-pattern>
+    <servlet-name>ChartGenServlet</servlet-name>
+    <url-pattern>/chartGen</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>pollVisitsByPlantCoreopsisServlet</servlet-name>
-    <url-pattern>/pollVisits2</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>pollVisitsByPlantMonardaServlet</servlet-name>
-    <url-pattern>/pollVisits3</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>pollVisitsByPollTypeServlet</servlet-name>
-    <url-pattern>/pollVisits4</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ChartDirectoryServlet</servlet-name>
-    <url-pattern>/chartDirectory</url-pattern>
-  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>home.jsp</welcome-file>
+  </welcome-file-list>
+
 </web-app>

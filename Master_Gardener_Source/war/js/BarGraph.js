@@ -1,6 +1,7 @@
 var pollinatorString = document.getElementById("pollinatorString").valueOf();
 var pollinatorLabels = init(pollinatorString);
 
+window.alert(pollinatorString);
 function init(jsonInitString) {
     var json = jsonInitString;
     var pollinatorNames = [];
@@ -11,10 +12,10 @@ function init(jsonInitString) {
     window.alert(pollinatorNames);
     return pollinatorNames;
 }
-
+/*
 $.getJSON('chartGen.jsp', function(jsonPollinator) {
 
-    $.each(jsonPollinator, function (index, jsonPollinator) {
+    $.each(jsonPollinator, function(index, jsonPollinator) {
 
         var pollinatorNames = [];
 
@@ -22,8 +23,7 @@ $.getJSON('chartGen.jsp', function(jsonPollinator) {
             pollinatorNames.push(jsonPollinator[i].pollinatorName);
         }
     });
-});
-/*
+
 $.getJSON("http://localhost:8081/Master-Gardener/chartGen", function(json) {
     $.each (json, function(i, json) {
         var pollinatorLabel = {"pollinatorName": json[i].pollinatorName}
@@ -35,11 +35,10 @@ $.getJSON("http://localhost:8081/Master-Gardener/chartGen", function(json) {
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: pollinatorLabels,
-            //labels: ["Black Beetle", "Honeybee", "Monarch", "Bumblebee"],
+            labels: ["Nigger", "Nigger", "Nigger"],
             datasets: [{
-                label: '# of Pollinator Visits by Species',
-                data: [50, 225, 150, 300],
+                label: '# of Pollinators',
+                data: [300, 400, 500],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -69,5 +68,5 @@ $.getJSON("http://localhost:8081/Master-Gardener/chartGen", function(json) {
             }
         }
     });
-
+});
 

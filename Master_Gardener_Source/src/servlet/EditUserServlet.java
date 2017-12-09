@@ -37,16 +37,17 @@ public class EditUserServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String username = (String)req.getSession().getAttribute("username");
 		String newusername = null;
-		String pass = null;
+		String bio = null;
 		String button = null;
 		button = req.getParameter("EditSubmit");
 
 		if(button != null){
 			newusername = req.getParameter("editName");
-			pass = req.getParameter("editPass");
+			bio = req.getParameter("editBio");
 
 			EditUserController controller = new EditUserController();
-			controller.updateUserCredentialsbyUsername(username, newusername, pass);
+			//controller.updateUserbyUsername(username , newusername, bio, inputStream);
+			controller.updateUserCredentialsbyUsername(username, newusername, bio);
 			req.getSession().setAttribute("username", newusername);
 
 			resp.sendRedirect(req.getContextPath() + "/user");

@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="generator"
 		  content="Script Eden ( http://scripteden.net/ ) Template Builder v2.0.0">
-	<title>${garden.garden_name}</title>
+	<title>${garden.garden_name} - Master Gardener</title>
 
 
 	<!--pageMeta-->
@@ -94,21 +94,20 @@
 
 			<div class="pageContent">
 				<div id="coverPhotoContainer">
-					<!-- COVER PHOTO JSP: $ { garden.img }-->
+					//<!-- COVER PHOTO JSP: $ { garden.img }-->
 					<img src="images/garden_greenhouse.jpg" id="coverPhoto">
 				</div>
 				<div class="pageInfo">
 					<p id="pageName">${garden.garden_name}</p>
-					<%--<div id="overlay" onclick="off()">
+					<div id="overlay" onclick="off()">
 						<div id="description">
 							<h1>Garden Description:</h1>
 							${garden.description}
 						</div>
 					</div>
 					<a>Members</a> |
-					<a onclick="on()">Description</a> |--%>
+					<a onclick="on()">Description</a> |
 					<form action="${pageContext.servletContext.contextPath}/garden" method="post">
-						<div id="intro2"></div>
 						<a><input type="Submit" value="Join Garden" name="memberSubmit" class="joinGarden"></a>
 					</form>
 				</div>
@@ -119,8 +118,8 @@
 						<form id="GardenGet" method="post">
 							<ul class="list-unstyled">
 								<li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/documents" style="color: white">Documents</a></li>
-								<li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/chartDirectory" style="color: white">Data Charts</a></li>
-								<br>
+								<li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/chartGen" style="color: white">Generate Chart</a></li>
+								<li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/createGarden" style="color: white">Create New Garden</a></li>
 								<li class="sidebarItem"><span>--------------- Your Gardens: ---------------</span></li>
 								<c:forEach items="${user_gardens}" var="user_garden">
 									<tr>
@@ -158,11 +157,11 @@
 			<!--/pageContent-->
 		</div>
 		<!-- /.wrapper -->
+
 	</header>
 	<!-- /.item -->
 </div>
 <!-- /#page -->
-
 <!-- Load JS here for greater good =============================-->
 <script src="js/jquery-1.8.3.min.js"></script>
 <script src="js/jquery-ui-1.10.3.custom.min.js"></script>

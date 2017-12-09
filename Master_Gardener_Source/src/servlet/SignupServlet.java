@@ -90,7 +90,7 @@ public class SignupServlet extends HttpServlet {
 			req.getRequestDispatcher("/_view/signup.jsp").forward(req, resp);
 		}
 		else{
-			User account = new User(user, pass1,-1,name, email, bio);
+			User account = new User(user,pass1,-1,name, email, bio, new byte[1024]);
 			SignupController controller = new SignupController();
 		
 			if(controller.createUser(account)){

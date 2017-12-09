@@ -88,13 +88,7 @@
                     <table id="userGroups">
                     <c:forEach items="${files}" var="file">
                         <tr class="groupList">
-                            <form action="download" method="get">
-                                <td class="groupListItem" style="color:white">
-                                    <input type="hidden" name="filename" value="${file.name}"/>
-                                    <input type="submit" value="${file.name}" />
-                                </td>
-                                <br>
-                            </form>
+                            <td class="groupListItem" style="color:white">${file.name}</td><br>
                         </tr>
                     </c:forEach>
                     </table>

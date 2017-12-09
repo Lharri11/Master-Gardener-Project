@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class AdminServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -18,7 +16,7 @@ public class AdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-    /*
+
         String user = (String) req.getSession().getAttribute("username");
         if (user == null) {
             System.out.println("User not logged in or session timed out");
@@ -28,33 +26,7 @@ public class AdminServlet extends HttpServlet {
             return;
         } else {
             req.getRequestDispatcher("/_view/admin.jsp").forward(req, resp);
-        } */
-
-        List<User> activeAccounts = new ArrayList<>();
-        AdminController controller = new AdminController();
-        controller = new AdminController();
-        try {
-            activeAccounts = controller.getAllUsernames();
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
-
-
- /*       List accounts = new ArrayList();
-        while (activeAccounts.listIterator().hasNext()) {
-            accounts.add(activeAccounts.getS)
-
-
-
-        }*/
-
-
-        System.out.println(activeAccounts);
-
-
-        req.setAttribute("activeAccounts", activeAccounts);
-        req.getRequestDispatcher("/_view/admin.jsp").forward(req, resp);
-
     }
 
     @Override
@@ -76,7 +48,7 @@ public class AdminServlet extends HttpServlet {
         buttonPress2 = req.getParameter("userDelete");
 
         if(buttonPress1 != null){
-            username = req.getParameter("userName");
+            username = req.getParameter("username");
             pass1 = req.getParameter("pass1");
             pass2 = req.getParameter("pass2");
             name = req.getParameter("name");
@@ -87,7 +59,7 @@ public class AdminServlet extends HttpServlet {
                 System.out.println(errorMessage);
                 username = null;
                 req.setAttribute("errorMessage", errorMessage);
-                resp.sendRedirect(req.getContextPath()+"/admin");
+                req.getRequestDispatcher("/_view/admin.jsp").forward(req, resp);
             } else if ("".equals(pass1) || pass1 == null) {
                 errorMessage = "Invalid password, please re-enter";
                 System.out.println(errorMessage);
@@ -119,7 +91,7 @@ public class AdminServlet extends HttpServlet {
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/admin.jsp").forward(req, resp);
             } else {
-                User user = new User(username, pass1, -1, name, email, null);
+                User user = new User(username, pass1, -1, name, email, "[Description]", new byte[1024]);
                 AdminController controller = new AdminController();
 
                 if (controller.createUser(user)) {
@@ -129,7 +101,7 @@ public class AdminServlet extends HttpServlet {
                 } else {
                     errorMessage = "Unexpected Error";
                     req.setAttribute("errorMessage", errorMessage);
-                    resp.sendRedirect(req.getContextPath()+"/admin");
+                    req.getRequestDispatcher("/_view/admin.jsp").forward(req, resp);
                 }
             }
         }
@@ -141,8 +113,7 @@ public class AdminServlet extends HttpServlet {
             try {
                 if (controller.deleteUserByUsername(user)) {
                     System.out.println("User Deleted");
-                    resp.sendRedirect(req.getContextPath()+"/admin");
-                    //req.getRequestDispatcher("/_view/admin.jsp").forward(req, resp);
+                    req.getRequestDispatcher("/_view/admin.jsp").forward(req, resp);
                 } else {
                     errorMessage2 = "Unexpected Error";
                     req.setAttribute("errorMessage", errorMessage2);
@@ -152,34 +123,6 @@ public class AdminServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
-        List<User> activeAccounts = new ArrayList<>();
-        AdminController controller = new AdminController();
-        controller = new AdminController();
-        try {
-            activeAccounts = controller.getAllUsernames();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
- /*       List accounts = new ArrayList();
-        while (activeAccounts.listIterator().hasNext()) {
-            accounts.add(activeAccounts.getS)
-
-
-
-        }*/
-
-
-        System.out.println(activeAccounts);
-
-
-        req.setAttribute("activeAccounts", activeAccounts);
-
-
-
-
-
     }
 }
 

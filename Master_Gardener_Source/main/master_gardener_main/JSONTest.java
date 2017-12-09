@@ -15,9 +15,9 @@ public class JSONTest {
 
         // Initialize a list of type DataObject
         List<Pollinator> pollinators = new ArrayList<>();
-        pollinators.add(new Pollinator(1, "Honey Bee", "Bee"));
-        pollinators.add(new Pollinator(2, "Bumblebee", "Bee"));
-        pollinators.add(new Pollinator(3, "Monarch", "Butterfly"));
+        pollinators.add(new Pollinator("Honey Bee", "Bee"));
+        pollinators.add(new Pollinator("Bumblebee", "Bee"));
+        pollinators.add(new Pollinator("Monarch", "Butterfly"));
 
         // Convert the object to a JSON string
         String json = new Gson().toJson(pollinators);

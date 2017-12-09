@@ -12,15 +12,27 @@ public class User {
 	private String name = null;
 	private String email = null;
 	private String description = null;
+	private byte[] portrait;
 	private Boolean moderator_status = false;
 
-	public User(String username, String password, int id, String name, String email, String description){
+	public User(String username, String password, int id, String name, String email, String description, byte[] portrait){
 		this.username = username;
 		this.password = password;
 		this.loginId = id;
 		this.name = name;
 		this.email = email;
 		this.description = description;
+		this.portrait = portrait;
+	}
+	
+	public User(){
+		this.username = "";
+		this.password = "";
+		this.loginId = 0;
+		this.name = "";
+		this.email = "";
+		this.description = "";
+		this.portrait = new byte[1024];
 	}
 	
 	public int getUserId() {
@@ -51,6 +63,10 @@ public class User {
 		return this.description;
 	}
 
+	public byte[] getPortrait() {
+		return portrait;
+	}
+	
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
@@ -87,6 +103,10 @@ public class User {
 	public void setModeratorStatus(Boolean status)
 	{
 		this.moderator_status = status;
+	}
+
+	public void setPortrait(byte[] portrait) {
+		this.portrait = portrait;
 	}
 
 	/*
