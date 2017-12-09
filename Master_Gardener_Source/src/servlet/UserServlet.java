@@ -41,7 +41,7 @@ public class UserServlet extends HttpServlet {
 		}
 		req.setAttribute("gardens", gardens);
 
-		User user = new User(null, null, 0,null,null, null);
+		User user = new User();
 		controller = new UserController();
 		user = controller.returnUserForUsername(username);
 		req.setAttribute("user", user);
@@ -56,7 +56,7 @@ public class UserServlet extends HttpServlet {
 		int portraitLength = 0;
 
 		String username = req.getSession().getAttribute("username").toString();
-		User user = new User(null, null, 0,null,null, null);
+		User user = new User();
 		controller = new UserController();
 		user = controller.returnUserForUsername(username);
 

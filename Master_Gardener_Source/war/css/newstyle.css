@@ -185,9 +185,8 @@ header.masthead>.overlay {
 .login {
     border-radius: 2px 2px 5px 5px;
     padding: 10px 20px 20px 20px;
-    width: 100%;
-    min-height: 28em;
-    max-width: 40em;
+    width: 90%;
+    max-width: 320px;
     background: #ffffff;
     position: relative;
     padding-bottom: 80px;
@@ -206,45 +205,26 @@ header.masthead>.overlay {
     margin: 1em auto auto;
 }
 
-.tab-group {
+.logmod__tabs {
     list-style: none;
     padding: 0;
-    margin: 0 0 40px 0;
+    margin: 0;
 }
 
-.tab-group:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.tab-group li a {
-    display: block;
-    text-decoration: none;
-    padding: 15px;
-    background: rgba(160, 179, 176, 0.25);
-    color: #a0b3b0;
-    font-size: 20px;
-    float: left;
+.logmod__tabs li a {
     width: 50%;
+    position: relative;
+    float: left;
     text-align: center;
+    background: #D2D8D8;
+    line-height: 72px;
+    height: 72px;
+    text-decoration: none;
+    color: #809191;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
     cursor: pointer;
-    -webkit-transition: .5s ease;
-    transition: .5s ease;
-}
-
-.tab-group li a:hover {
-    background: #00265D;
-    color: #ffffff;
-}
-
-.tab-group .active a {
-    background: #00265D;
-    color: #ffffff;
-}
-
-.tab-content > div:last-child {
-    display: none;
 }
 
 .login.loading button {

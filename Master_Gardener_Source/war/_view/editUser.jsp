@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Script Eden ( http://scripteden.net/ ) Template Builder v2.0.0">  
-    <title>Edit Account</title>
+    <title>Edit ${account.name} - Master Gardener</title>
     <!--pageMeta-->
 
     <!-- Loading Bootstrap -->
@@ -54,18 +54,29 @@
 							<input type="text" id="searchText" name="keyword" placeholder="Search..." required> 
 							<input type="image" src="images/search.png" value="Search" id="searchButton">
 						</form><br>
-
-						<div id="navbar-collapse-02" class="collapse navbar-collapse">
-							<ul class="nav navbar-nav navbar-right">
-								<li class="propClone">
-									<form action="${pageContext.servletContext.contextPath}/login" method="post">
-										<button name="loginSubmit" value="Logout" class="homeLinks-nav" type="submit"
-												alt="submit" title="Log Out">Logout
-										</button>
+	                    
+    					<div id="navbar-collapse-02" class="collapse navbar-collapse" >
+    						<ul class="nav navbar-nav navbar-right">
+    													<li class="propClone">
+									<form action="${pageContext.servletContext.contextPath}/data" method="get">
+  										<input name="buttonPress" type="image" value="Data" class="homeLinks" src="images/Data-Board.png" title="Data"/>
 									</form>
 								</li>
+								<li class="propClone">
+									<form action="${pageContext.servletContext.contextPath}/user" method="get">
+  										<input name="buttonPress" type="image" value="Account" class="homeLinks" src="images/user.png" title="My Account"/>
+									</form>
+								</li>
+								<li class="propClone">
+									<form action="${pageContext.servletContext.contextPath}/editUser" method="get">
+  										<input name="submit" type="image" value="submit" class="homeLinks" src="images/gear.png" title="Account Settings"/>
+									</form>
+								</li>
+								<li class="propClone">
+									<input type="image" value="Logout" id="logoutSubmit" name="logoutSubmit" class="homeLinks" src="images/logout.png" title="Log Out">
+								</li>
 							</ul>
-						</div>
+    					</div> 
     					<!--/.navbar-collapse -->
     				</div><!-- /.container -->
     			</nav>
@@ -75,8 +86,8 @@
     			<!--FORM FOR EDITS STARTS HERE-->
 				<form id="editUser" action="${pageContext.servletContext.contextPath}/editUser" method="post">
 					<div class="pageInfo" style="height:100px;">
-    					<input type="text" id="editName" placeholder="Change Your Username" name="editName"/>
-    					<input type="password" id="editBio" placeholder="Change Your Password" name="editPass"/>
+    					<input type="text" id="editName" placeholder="Change Your Name" name="editName"/>
+    					<input type="text" id="editBio" placeholder="Change Bio" name="editBio"/>
     				</div>
     			<button type="Submit" color="white" value="Save Changes" id="saveChanges" name="EditSubmit">
 					<span>Save Changes</span>

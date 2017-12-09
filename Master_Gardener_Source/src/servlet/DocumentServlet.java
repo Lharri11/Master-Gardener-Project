@@ -14,9 +14,9 @@ public class DocumentServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		File[] files = new File("C:\\Users\\Logan_53e\\Documents\\York\\Fall 2017\\CS481\\Eclipse\\Master-Gardener-Pollinator-Monitoring\\Master_Gardener_Source\\war\\documents").listFiles();
-		//File[] files = new File("C:\\Users\\Nick\\Desktop\\Nick\\Master_Gardener_Source\\war\\documents").listFiles();
 		System.out.println(files.toString());
 		req.setAttribute("files", files);
+
 		req.getRequestDispatcher("/_view/documents.jsp").forward(req, resp);
 	}
 

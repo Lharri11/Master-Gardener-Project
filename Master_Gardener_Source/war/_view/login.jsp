@@ -8,7 +8,7 @@
 	<link rel="icon" type="image/jpg" href="images/nittany_lions_logo.jpg">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Script Eden ( http://scripteden.net/ ) Template Builder v2.0.0">
+    <meta name="generator" content="Script Eden ( http://scripteden.net/ ) Template Builder v2.0.0">  
     <!--pageMeta-->
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
@@ -20,9 +20,9 @@
 
     <!-- Loading Flat UI -->
     <link href="css/flat-ui.css" rel="stylesheet">
-
+    
     <link href="css/style.css" rel="stylesheet">
-
+    
     <link href="css/login.css" rel="stylesheet">
 
 
@@ -32,20 +32,20 @@
 
 <body>
 <div id="page" class="page">
-
+        
     <header class="item header margin-top-0 header10" id="header10">
-
+    
     		<div class="wrapper">
-
+    	
     			<nav role="navigation" class="navbar navbar-blue navbar-embossed navbar-lg navbar-fixed-top">
-
+    					
     				<div class="container">
-
+    				
     					<div class="navbar-header">
     						<a href="home" class="navbar-brand brand"><img src="images/nittany_lions_logo.jpg" id="logo"></a>
    						</div>
-
-
+    					
+    					
     				</div><!-- /.container -->
     			</nav>
 
@@ -59,14 +59,14 @@
     <a href="#">Forgot your password?</a>
     <button type="Submit" value="Login" id="loginSubmit" name="loginSubmit">
       <span>Log in</span>
-
+      
     </button>
     <div id="errorMessage">
                 	<c:if test="${! empty errorMessage}">
 						<tr>${errorMessage}</tr>
 					</c:if>
 				</div>
-
+    
   </form>
 </div>
     	</header><!-- /.item --></div><!-- /#page -->
@@ -87,16 +87,16 @@
 
 	<script>
 	$(function(){
-
+		
 		if( $('#nivoSlider').size() > 0 ) {
-
+		
 	    	$('#nivoSlider').nivoSlider({
 	    		effect: 'random',
 				pauseTime: 5000
 	    	});
-
+		
 		}
-
+		
 	})
 	</script>
 

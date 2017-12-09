@@ -11,23 +11,23 @@ public class AccountTest {
 	public void setUp(){
     	//---------Same setup as BooksForSaleTest (all components needed)---------------------------------------------------------------
        
-	    this.a1 = new User("LoganH24", "abc12314", 1, "LogeyBear", "Logan.Harris1995@gmail.com", "555-555-5555");
-	    this.a2 = new User("Amcdevitt97", "def456123", 2, "Ally", "amcdevitt97@ycp.edu", "555-555-5555");
-	    this.a3 = new User("GRuths", "ghi789122", 3, "Garry", "gruths@ycp.edu", "555-555-5555");
+	    this.a1 = new User("LoganH24", "abc12314", 1, "LogeyBear", "Logan.Harris1995@gmail.com", "555-555-5555", new byte[1024]);
+	    this.a2 = new User("Amcdevitt97", "def456123", 2, "Ally", "amcdevitt97@ycp.edu", "555-555-5555", new byte[1024]);
+	    this.a3 = new User("GRuths", "ghi789122", 3, "Garry", "gruths@ycp.edu", "555-555-5555", new byte[1024]);
 	    
 	
 		//---------Same setup as BooksForSaleTest (all components needed)----------------------------------------------------------------
 	}
 
-	/*@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void illegalArgumentExceptionTest()
 	{
 		// Test password length
-		a4 = new User("ChugCroble", "1234567", 20, "Chug Croble", "chugcroble@gmail.com", "420-666-6969");
+		a4 = new User("ChugCroble", "1234567", 20, "Chug Croble", "chugcroble@gmail.com", "420-666-6969", new byte[1024]);
 
 		// Test literally anything else
-		a5 = new User("Memes&Cheese", "123456789", -1, "", "", "");
-	}*/
+		a5 = new User("Memes&Cheese", "123456789", -1, "", "", "", new byte[1024]);
+	}
 
 	@Test
 	public void getUsernameTest(){

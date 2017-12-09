@@ -53,7 +53,7 @@ public class GardenServlet extends HttpServlet {
 			 e.printStackTrace();
 		}
 		
-		User user;
+		User user = new User();
 		controller = new GardenController();
 		user = controller.returnUserForUsername(username);
 		
@@ -100,7 +100,7 @@ public class GardenServlet extends HttpServlet {
 			int thisgarden = (int) req.getSession().getAttribute("GardenID");
 			String user = (String)req.getSession().getAttribute("username");
 		
-			User account;
+			User account = new User();
 			UserController controller = new UserController();
 			account = controller.returnUserForUsername(user);
 		
