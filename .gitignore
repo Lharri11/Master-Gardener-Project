@@ -11,7 +11,6 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.ear
 *.zip
@@ -49,7 +48,3 @@ Derby/.classpath
 .recommenders
 Jetty
 
-
-RemoteSystemsTempFiles/.project
-Master_Gardener_Source/out/production/Master_Gardener_Source/database/persist/res/accounts.csv
-*.csv
