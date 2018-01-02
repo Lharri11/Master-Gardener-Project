@@ -1,0 +1,55 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+*.eml
+*.iml
+
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+Master_Gardener_Source/.classpath
+Master_Gardener_Source/.project
+Master_Gardener_Source/.settings
+Master_Gardener_Source/.settings
+Master_Gardener_Source/bin
+Master_Gardener_Source/.DS_Store
+Master_Gardener_Source/test.db
+Master_Gardener_Source/_classpath
+Master_Gardener_Source/_project
+Master_Gardener_Source/_DS_Store
+Derby/.classpath
+Derby/bin
+Derby/.project
+Derby/_classpath
+Jetty/.classpath
+Jetty/.project
+Jetty/bin
+Jetty/_project
+.metadata
+.idea
+Jetty/.classpath
+Derby/.classpath
+.recommenders
+Jetty
+
+
+RemoteSystemsTempFiles/.project
+Master_Gardener_Source/out/production/Master_Gardener_Source/database/persist/res/accounts.csv
+*.csv
