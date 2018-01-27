@@ -1,12 +1,10 @@
 package master_gardener_main;
 
 import com.google.gson.Gson;
-import java.util.List;
-import java.util.ArrayList;
-import com.google.gson.reflect.TypeToken;
 import model.Pollinator;
 
-import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class JSONTest {
@@ -15,9 +13,9 @@ public class JSONTest {
 
         // Initialize a list of type DataObject
         List<Pollinator> pollinators = new ArrayList<>();
-        pollinators.add(new Pollinator("Honey Bee", "Bee"));
-        pollinators.add(new Pollinator("Bumblebee", "Bee"));
-        pollinators.add(new Pollinator("Monarch", "Butterfly"));
+        pollinators.add(new Pollinator(0,"Honey Bee", "Bee"));
+        pollinators.add(new Pollinator(0,"Bumblebee", "Bee"));
+        pollinators.add(new Pollinator(0,"Monarch", "Butterfly"));
 
         // Convert the object to a JSON string
         String json = new Gson().toJson(pollinators);

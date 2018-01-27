@@ -1,12 +1,11 @@
 package database.core;
 
+import model.*;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-import model.*;
-import model.User;
 
 public class InitialData {
 	
@@ -147,7 +146,7 @@ public class InitialData {
 					break;
 				}
 				Iterator<String> i = tuple.iterator();
-				Pollinator pollinator = new Pollinator(null, null);
+				Pollinator pollinator = new Pollinator(0,null, null);
 				pollinator.setPollinatorID(pollinator_id++);
 				pollinator.setPollinatorName(i.next());
 				pollinator.setPollinatorType(i.next());

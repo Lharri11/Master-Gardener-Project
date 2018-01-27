@@ -1,13 +1,8 @@
 package servlet;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import model.Pollinator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,9 +21,9 @@ public class ChartGenServlet extends HttpServlet {
 
         // Initialize a list of type DataObject
         List<Pollinator> pollinators = new ArrayList<>();
-        pollinators.add(new Pollinator("Honey Bee", "Bee"));
-        pollinators.add(new Pollinator("Bumblebee", "Bee"));
-        pollinators.add(new Pollinator("Monarch", "Butterfly"));
+        pollinators.add(new Pollinator(0,"Honey Bee", "Bee"));
+        pollinators.add(new Pollinator(0,"Bumblebee", "Bee"));
+        pollinators.add(new Pollinator(0,"Monarch", "Butterfly"));
 
         // Convert the object to a JSON string
         String json = new Gson().toJson(pollinators);

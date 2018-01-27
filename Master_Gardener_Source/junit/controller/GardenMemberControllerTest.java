@@ -35,7 +35,7 @@ public class GardenMemberControllerTest {
 	
 	@Test
 	public void TestInsertNewGardenMemberIntoDataBase() throws SQLException{
-		User admin9 = new User("admin9", "password9", -1, "a_name9", "admin9@ycp.edu", "HEY GUYS I’M ADMIN n9ne LETS HAVE SOME FUN");
+		User admin9 = new User("admin9", "password9", -1, "a_name9", "admin9@ycp.edu", "HEY GUYS I’M ADMIN n9ne LETS HAVE SOME FUN", null);
 		Boolean test = thiscontroller.createUser(admin9);
 		assertEquals(true, test);
 		GardenMember garden = new GardenMember(1,someController1.returnUserForUsername("admin9").getUserId());
