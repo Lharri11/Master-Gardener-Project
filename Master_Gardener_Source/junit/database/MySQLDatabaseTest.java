@@ -16,7 +16,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class MySQLDatabaseTest {
     public static final int MAX_ATTEMPTS = 10;
@@ -374,7 +373,7 @@ public class MySQLDatabaseTest {
         ResultSet set = null;
         boolean success = false;
 
-        User user = new User( "Alex", "Alex", -1, "Alex@gmail", "name", "desc");
+        User user = new User("Alex", "Alex", -1, "Alex@gmail", "name", "desc", null);
         try {
             stmt = conn.prepareStatement("insert into mg_user (user_ID, userName, passWord, login_id, email, name, description)" +
                     " VALUES (-3, 'Alex', 'Alex', -1, 'Alex@gmail', 'name', 'desc')");

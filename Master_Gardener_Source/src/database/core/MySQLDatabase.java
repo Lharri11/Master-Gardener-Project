@@ -1,18 +1,19 @@
 package database.core;
 
-import java.io.*;
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+import model.*;
+
+import javax.sql.DataSource;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.servlet.http.Part;
-import javax.sql.DataSource;
-import javax.sql.rowset.serial.SerialBlob;
-
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
-import model.*;
 
 @SuppressWarnings("Duplicates")
 public class MySQLDatabase implements IDatabase {
@@ -3054,7 +3055,7 @@ public class MySQLDatabase implements IDatabase {
                         while (resultSet.next())
                         {
                             found = true;
-                            User user = new User(null,null, -1,null,null,null);
+                            User user = new User(null,null, -1,null,null,null,null);
                             user.setUsername(resultSet.getString(1));
                             user.setEmail(resultSet.getString(2));
                             user.setName(resultSet.getString(3));

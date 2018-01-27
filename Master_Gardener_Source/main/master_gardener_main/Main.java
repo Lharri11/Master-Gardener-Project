@@ -1,8 +1,8 @@
 package master_gardener_main;
 
-import java.io.File;
-
 import org.eclipse.jetty.server.Server;
+
+import java.io.File;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
@@ -12,6 +12,7 @@ public class Main {
 		Server server = launcher.launch(true, 8081, warFile.getAbsolutePath(), "/Master-Gardener");
 		server.start();
 		//server.dumpStdErr();
+		System.out.println("Web server started at http://localhost:8081/Master-Gardener/home");
 		server.join();
 	}
 }
