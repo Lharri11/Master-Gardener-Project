@@ -400,6 +400,7 @@ public class MySQLDatabase implements IDatabase {
             // Get all dataform IDs per county
             stmt = conn.prepareStatement("SELECT id FROM mg_data_form WHERE county_id = ? AND confirmed = ?");
             stmt.setInt(1, county.getCountyID());
+            // Use '1' as the argument so there's no chance of error when getting a confirmed or unconfirmed dataform
             stmt.setInt(2, 1);
             set = stmt.executeQuery();
 
@@ -462,8 +463,10 @@ public class MySQLDatabase implements IDatabase {
         try
         {
             // Get all dataform IDs per county
-            stmt = conn.prepareStatement("SELECT id FROM mg_data_form WHERE county_id = ?");
+            stmt = conn.prepareStatement("SELECT id FROM mg_data_form WHERE county_id = ? AND confirmed = ?");
             stmt.setInt(1, county.getCountyID());
+            // Use '1' as the argument so there's no chance of error when getting a confirmed or unconfirmed dataform
+            stmt.setInt(2, 1);
             set = stmt.executeQuery();
 
             while(set.next())
@@ -521,8 +524,10 @@ public class MySQLDatabase implements IDatabase {
         try
         {
             // Get all dataform IDs per county
-            stmt = conn.prepareStatement("SELECT id FROM mg_data_form WHERE county_id = ?");
+            stmt = conn.prepareStatement("SELECT id FROM mg_data_form WHERE county_id = ? AND confirmed = ?");
             stmt.setInt(1, county.getCountyID());
+            // Use '1' as the argument so there's no chance of error when getting a confirmed or unconfirmed dataform
+            stmt.setInt(2, 1);
             set = stmt.executeQuery();
 
             while(set.next())
@@ -962,6 +967,78 @@ public class MySQLDatabase implements IDatabase {
         }
     }
 
+    public List<Integer> getUnconfirmedDataformIDsByCounty(String county) throws SQLException
+    {
+        {
+            DataSource ds = getMySQLDataSource();
+            Connection conn = ds.getConnection();
+            int id = -1;
+            ArrayList<Integer> df_list = new ArrayList<Integer>();
+            PreparedStatement stmt1 = null;
+            PreparedStatement stmt2 = null;
+            ResultSet rs = null;
+            try {
+
+                stmt1 = conn.prepareStatement("SELECT county_ID FROM mg_county WHERE countyName = ?");
+                stmt1.setString(1, county);
+                rs = stmt1.executeQuery();
+
+                if(!rs.next())
+                {
+                    System.out.println("COULD NOT FIND COUNTY WITH NAME "+county+", STOPPING METHOD");
+                    return new ArrayList<Integer>();
+                }
+                else {
+                    // There can only be one county_id per name
+                    int county_id = rs.getInt(1);
+                    stmt2 = conn.prepareStatement(" SELECT id FROM mg_data_form WHERE county_id = ? AND confirmed = ?");
+                    stmt2.setInt(1, county_id);
+                    stmt2.setInt(2, 0);
+                    rs = stmt2.executeQuery();
+
+                    while (rs.next()) {
+                        df_list.add(rs.getInt(1));
+                    }
+                }
+            } finally {
+                DBUtil.closeQuietly(stmt1);
+                DBUtil.closeQuietly(stmt2);
+                DBUtil.closeQuietly(rs);
+            }
+            return df_list;
+        }
+    }
+
+    public List<String> getUnconfirmedDataByCounty(String county) throws SQLException
+    {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+
+        // Get list of county IDs
+        List<Integer> cids = getUnconfirmedDataformIDsByCounty(county);
+        ArrayList<ResultSet> df_list = new ArrayList<>();
+
+        ArrayList<String> result_list = new ArrayList<>();
+        PreparedStatement stmt1 = null;
+        ResultSet set1 = null;
+
+        try {
+            for (int i = 0; i < cids.size(); i++) {
+                stmt1 = conn.prepareStatement("SELECT * FROM mg_data_form WHERE id = ?");
+                stmt1.setInt(1, cids.get(i));
+                set1 = stmt1.executeQuery();
+                df_list.add(set1);
+            }
+        }
+        finally
+        {
+            DBUtil.closeQuietly(stmt1);
+            DBUtil.closeQuietly(set1);
+        }
+
+        return result_list;
+    }
+
 
     private boolean insertUserIntoUsers(Connection conn, User user) throws SQLException {
         DataSource ds = getMySQLDataSource();
@@ -1135,6 +1212,48 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(set);
         }
         return completed;
+    }
+
+    public boolean updatePassword(int user_id, String new_password) throws SQLException
+    {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt1 = null;
+        PreparedStatement stmt2 = null;
+        ResultSet rs = null;
+        boolean success = false;
+
+        try
+        {
+            stmt1 = conn.prepareStatement("UPDATE mg_user" +
+                    " SET passWord = ? " +
+                    " WHERE user_ID = ? ");
+
+            stmt1.setString(1, new_password);
+            stmt1.setInt(2, user_id);
+
+            stmt1.executeUpdate();
+
+            // Need to use username in SELECT so that we can use user_ID in the AND portion.
+            // If we use user_ID for SELECT, then the only argument for WHERE would be password,
+            // and multiple users could have the same password.
+            stmt2 = conn.prepareStatement("SELECT userName FROM mg_user WHERE passWord = ? AND user_ID = ?");
+            stmt2.setString(1, new_password);
+            stmt2.setInt(2, user_id);
+            rs = stmt2.executeQuery();
+
+            if(rs.next())
+            {
+                success = true;
+            }
+
+            return success;
+        }
+        finally
+        {
+            DBUtil.closeQuietly(stmt1);
+            DBUtil.closeQuietly(rs);
+        }
     }
 
     public boolean updatePollinatorTypeByName(final String pollinator_name, final String updated_type) throws SQLException {
@@ -2820,8 +2939,8 @@ public class MySQLDatabase implements IDatabase {
 
                 stmt1 = conn.prepareStatement("INSERT INTO mg_data_form " +
                         "(week_number, garden_id, county_id, generator_id, temperature, date_created, date_generated, monitor_start, monitor_stop," +
-                        "wind_status, cloud_status, comments)" +
-                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                        "wind_status, cloud_status, comments, confirmed)" +
+                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 stmt1.setInt(1, pdf.getWeek_number());
                 stmt1.setInt(2, pdf.getGarden_id());
                 stmt1.setInt(3, pdf.getCounty_id());
@@ -2835,13 +2954,16 @@ public class MySQLDatabase implements IDatabase {
                 stmt1.setString(10, pdf.getWind_status());
                 stmt1.setString(11, pdf.getCloud_status());
                 stmt1.setString(12, pdf.getComments());
+                // Use '0' as the argument so there's no chance of error when getting a confirmed or unconfirmed dataform
+                // inserting into dataform should always result in an unconfirmed dataform
+                stmt1.setInt(13, 0);
 
                 stmt1.executeUpdate();
 
                 stmt1 = conn.prepareStatement("select id from mg_data_form where week_number = ? AND garden_id = ? " +
                         "AND county_id = ? AND generator_id = ? AND temperature = ? AND date_created = ? AND date_generated = ? " +
                         "AND monitor_start = ? AND monitor_stop = ? AND wind_status = ? AND cloud_status = ? " +
-                        "AND comments = ? ");
+                        "AND comments = ? AND confirmed = ?");
                 stmt1.setInt(1, pdf.getWeek_number());
                 stmt1.setInt(2, pdf.getGarden_id());
                 stmt1.setInt(3, pdf.getCounty_id());
@@ -2854,6 +2976,8 @@ public class MySQLDatabase implements IDatabase {
                 stmt1.setString(10, pdf.getWind_status());
                 stmt1.setString(11, pdf.getCloud_status());
                 stmt1.setString(12, pdf.getComments());
+                // Not really necessary here but it's not bad to have another layer of checking
+                stmt1.setInt(13, 0);
 
                 set1 = stmt1.executeQuery();
 
