@@ -48,8 +48,11 @@ public interface IDatabase {
 	public Garden getGardenbyGardenID(int iD);
 	public  List<Pair<User, Post>> getPostsbyGardenID(int iD);
 	public int queryForLoginIdByUsername(String username);
-	//public User queryForUserAccountByUsername(String username); // TODO:: ADD this methods
+	//public User queryForUserAccountByUsername(String username); // TODO:: ADD this method
 	public String queryForPasswordByUsername(String username);
+	public List<Integer> getUnconfirmedDataformIDsByCounty(String county) throws SQLException;
+	public List<String> getUnconfirmedDataByCounty(String county) throws SQLException;
+
 	//========================================================================================================
 
 
@@ -72,6 +75,7 @@ public interface IDatabase {
 	public boolean updateXTupleFromYTable(final String table, final String[] column, final String[] col_value, final String[] where) throws SQLException;
 	// TODO: Create More Update Tables
 	// Maybe something like updatePlantStrainByPlant?
+	public boolean updatePassword(int user_id, String password) throws SQLException;
 	//========================================================================================================
 
 	//========================================================================================================
