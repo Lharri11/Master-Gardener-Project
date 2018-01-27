@@ -5,35 +5,53 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class PollinatorDataForm
-{
-	private int data_form_id, garden_id, county_id, generator_id, week_number, temperature;
+{private int data_form_id;
+	private int garden_id;
+	private int county_id;
+	private int generator_id;
+	private int researcher_id = -1;
+	private int week_number;
+	private int temperature;
+	private ArrayList<Plot> plot;
 
-	private LocalDate date_created, date_generated;
-	private LocalTime monitor_start, monitor_stop;
-	private String plant_vigor_notes, comments;
-	private char cloud_status, wind_status;
+	private LocalDate date_created;
+	private LocalDate date_generated;
+	private LocalDate date_approved;
+	private LocalTime monitor_start;
+	private LocalTime monitor_stop;
+	private String comments;
+	private String cloud_status;
+	private String wind_status;
+	private ArrayList<PollinatorVisitCount> pvc;
 	private ArrayList<User> gardeners;
 	private ArrayList<Pollinator> pollinators;
-	private ArrayList<Plant> plants;
+	private Plant plant;
 	private ArrayList<PlantStrain> plantStrains;
+	private int confirmed;
 
 	public PollinatorDataForm(int data_form_id, int garden_id, int county_id, int generator_id, int week_number, int temperature, LocalDate date_created, LocalDate date_generated,
-							  LocalTime monitor_start, LocalTime monitor_stop, String plant_vigor_notes, String comments, char cloud_status, char wind_status)
+							  LocalTime monitor_start, LocalTime monitor_stop, String comments, String cloud_status, String wind_status, ArrayList<Plot> plot, Plant plant, ArrayList<PlantStrain> strain,
+							  ArrayList<Pollinator> poll, ArrayList<PollinatorVisitCount> pvc)
 	{
-		this.setData_form_id(data_form_id);
-		this.setGarden_id(garden_id);
-		this.setCounty_id(county_id);
-		this.setGenerator_id(generator_id);
-		this.setWeek_number(week_number);
-		this.setTemperature(temperature);
-		this.setDate_created(date_created);
-		this.setDate_generated(date_generated);
-		this.setMonitor_start(monitor_start);
-		this.setMonitor_stop(monitor_stop);
-		this.setCloud_status(cloud_status);
-		this.setWind_status(wind_status);
-		this.setPlant_vigor_notes(plant_vigor_notes);
-		this.setComments(comments);
+		this.data_form_id = data_form_id;
+		this.garden_id = garden_id;
+		this.county_id = county_id;
+		this.generator_id = generator_id;
+		this.week_number = week_number;
+		this.temperature = temperature;
+		this.date_created = date_created;
+		this.date_generated = date_generated;
+		this.monitor_start = monitor_start;
+		this.monitor_stop = monitor_stop;
+		this.comments = comments;
+		this.cloud_status = cloud_status;
+		this.wind_status = wind_status;
+		this.plot = plot;
+		this.plant = plant;
+		this.plantStrains = strain;
+		this.pollinators = poll;
+		this.pvc = pvc;
+		this.confirmed = 0;
 	}
 
 	public int getData_form_id() {
@@ -66,6 +84,15 @@ public class PollinatorDataForm
 
 	public void setGenerator_id(int generator_id) {
 		this.generator_id = generator_id;
+	}
+
+	public int getResearcher_id(){
+		return this.researcher_id;
+	}
+
+	public void setResearcher_id(int researcher_id)
+	{
+		this.researcher_id = researcher_id;
 	}
 
 	public int getWeek_number() {
@@ -116,28 +143,20 @@ public class PollinatorDataForm
 		this.monitor_stop = monitor_stop;
 	}
 
-	public char getCloud_status() {
+	public String getCloud_status() {
 		return cloud_status;
 	}
 
-	public void setCloud_status(char cloud_status) {
+	public void setCloud_status(String cloud_status) {
 		this.cloud_status = cloud_status;
 	}
 
-	public char getWind_status() {
+	public String getWind_status() {
 		return wind_status;
 	}
 
-	public void setWind_status(char wind_status) {
+	public void setWind_status(String wind_status) {
 		this.wind_status = wind_status;
-	}
-
-	public String getPlant_vigor_notes() {
-		return plant_vigor_notes;
-	}
-
-	public void setPlant_vigor_notes(String plant_vigor_notes) {
-		this.plant_vigor_notes = plant_vigor_notes;
 	}
 
 	public String getComments() {
@@ -163,12 +182,12 @@ public class PollinatorDataForm
 		this.pollinators = pollinators;
 	}
 
-	public ArrayList<Plant> getPlants() {
-		return plants;
+	public Plant getPlant() {
+		return plant;
 	}
 
-	public void setPlants(ArrayList<Plant> plants) {
-		this.plants = plants;
+	public void setPlant(Plant plant) {
+		this.plant = plant;
 	}
 
 	public ArrayList<PlantStrain> getPlantStrains() {
@@ -178,4 +197,32 @@ public class PollinatorDataForm
 	public void setPlantStrains(ArrayList<PlantStrain> plantStrains) {
 		this.plantStrains = plantStrains;
 	}
+
+	public ArrayList<PollinatorVisitCount> getPollinatorVisitCounts() {
+		return pvc;
+	}
+
+	public void setPollinatorVisitCounts(ArrayList<PollinatorVisitCount> pvc) {
+		this.pvc = pvc;
+	}
+
+	public void setPlot(ArrayList<Plot> plot)
+	{
+		this.plot = plot;
+	}
+
+	public ArrayList<Plot> getPlot()
+	{
+		return this.plot;
+	}
+	public int getConfirmedStatus()
+	{
+		return this.confirmed;
+	}
+
+	public void setConfirmedStatus(int confirmed)
+	{
+		this.confirmed = confirmed;
+	}
+
 }
