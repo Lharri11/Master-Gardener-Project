@@ -19,14 +19,13 @@
 *.eml
 *.iml
 
+# Vim .swp files
+*.swp
+
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-Master_Gardener_Source/.classpath
-Master_Gardener_Source/.project
-Master_Gardener_Source/.settings
-Master_Gardener_Source/.settings
 Master_Gardener_Source/bin
 Master_Gardener_Source/.DS_Store
 Master_Gardener_Source/test.db
@@ -43,8 +42,5 @@ Jetty/bin
 Jetty/_project
 .metadata
 .idea
-Jetty/.classpath
 Derby/.classpath
 .recommenders
-Jetty
-

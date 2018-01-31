@@ -25,7 +25,8 @@ public class GardenTest {
 	public void setUp()
 	{
 		//testing variables
-		testAccount = new User("chorgy", "12345678", 1, "dude", "look", "lady");
+		// FIXME
+		testAccount = new User("chorgy", "12345678", 1, "dude", "look", "lady", null);
 
 		userlist = new ArrayList<User>();
 		userlist.add(testAccount);
@@ -94,7 +95,8 @@ public class GardenTest {
 	@Test
 	public void setMembersOfGardenTest()
 	{
-		User a2 = new User("Eggguy", "Dungle", 1, "Man", "dude@gmail.com", "crud");
+		// FIXME
+		User a2 = new User("Eggguy", "Dungle", 1, "Man", "dude@gmail.com", "crud", null);
 		// Add the account to userlist as well since userlist should = group.getMembers anyway.
 		userlist.add(a2);
 		group.setMembers(userlist);
