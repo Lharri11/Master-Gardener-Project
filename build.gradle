@@ -1,10 +1,38 @@
-task buildAll(
-	dependsOn: [':buildWebapp']) {
+// Support for building the Master Gardener webapp as a
+// deployable jarfile ("uberjar")
+
+task uberjar(
+	dependsOn: [
+		':copyWebappFiles',
+		':copyWebappJarFiles',
+		':buildLauncher']) {
 	
+}
+
+// Copy the webapp files (including classfiles) into the uberjar staging area
+task copyWebappFiles(
+	type: Copy,
+	dependsOn: [':buildWebapp']) {
+	from 'Master_Gardener_Source/war'
+	into 'build/uberjarStaging/war'
+	exclude '_DS_Store'
+}
+
+// Copy the jarfiles required by the webapp into the uberjar staging area
+task copyWebappJarFiles(
+	type: Copy) {
+	from 'lib'
+	into 'build/uberjarStaging/war/WEB-INF/lib'
+	include '*.jar'
+	exclude 'daemon*.jar', 'junit*.jar'
 }
 
 task buildWebapp(
 	dependsOn: [':Master_Gardener_Source:compileJava']) {
+}
+
+task buildLauncher(
+	dependsOn: [':Master_Gardener_Source:compileLauncherJava']) {
 }
 
 ///////////////////////////////////////////////////////////////////////
