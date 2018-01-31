@@ -35,7 +35,8 @@ public class AdminControllerTest {
 	
 	@Test
 	public void TestCreateAndDeleteAccount() throws SQLException{
-		User admin9 = new User("admin9", "password9", -1, "a_name9", "admin9@ycp.edu", "HEY GUYS I’M ADMIN n9ne LETS HAVE SOME FUN");
+		// FIXME
+		User admin9 = new User("admin9", "password9", -1, "a_name9", "admin9@ycp.edu", "HEY GUYS I’M ADMIN n9ne LETS HAVE SOME FUN", null);
 		Boolean test = thiscontroller.createUser(admin9);
 		assertEquals(true, test);
 

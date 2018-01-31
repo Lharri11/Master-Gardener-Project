@@ -10,7 +10,9 @@ public class PollinatorVisitCountTest {
     @Before
     public void setup()
     {
-        p1 = new PollinatorVisitCount(5, 3, 1, 4, 6,2);
+    	// FIXME
+        //p1 = new PollinatorVisitCount(5, 3, 1, 4, 6,2);
+    	p1 = new PollinatorVisitCount(5, 3, 1, 4, 6);
     }
 
     @Test

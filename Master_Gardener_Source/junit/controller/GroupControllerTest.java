@@ -32,7 +32,8 @@ public class GroupControllerTest {
 	
 	@Test
 	public void testreturnAccountForUsername(){
-		User admin = new User("admin1", "password1", -1, "a_name1", "admin1@ycp.edu", "HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN");
+		// FIXME
+		User admin = new User("admin1", "password1", -1, "a_name1", "admin1@ycp.edu", "HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN", null);
 		User test = thiscontroller.returnUserForUsername("admin1");
 		//User test = new User("admin1", "password1", -1, "a_name1", "admin1@ycp.edu", "HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN");
 
