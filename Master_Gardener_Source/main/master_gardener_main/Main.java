@@ -9,7 +9,7 @@ public class Main {
 		String webappCodeBase = "./war";
 		File warFile = new File(webappCodeBase);
 		Launcher launcher = new Launcher();
-		Server server = launcher.launch(true, 8081, warFile.getAbsolutePath(), "/Master-Gardener");
+		Server server = launcher.launch(8081, warFile.getAbsolutePath(), "/Master-Gardener");
 		server.start();
 		//server.dumpStdErr();
 		System.out.println("Web server started at http://localhost:8081/Master-Gardener/home");

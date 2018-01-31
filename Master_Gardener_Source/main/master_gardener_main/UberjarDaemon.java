@@ -76,7 +76,7 @@ public class UberjarDaemon implements IDaemon {
 		String webappUrl = "jar:" + codeBase + "!/war";
 		try {
 			Launcher launcher = new UberjarLauncher();
-			this.server = launcher.launch(false, PORT, webappUrl, "/Master-Gardener");
+			this.server = launcher.launch(PORT, webappUrl, "/Master-Gardener");
 			this.server.start();
 		} catch (Exception e) {
 			throw new IllegalStateException("Could not launch Jetty", e);

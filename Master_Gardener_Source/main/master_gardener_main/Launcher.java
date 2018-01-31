@@ -11,11 +11,10 @@ public class Launcher {
 	/**
 	 * Create a {@link Server}, but do not start it.
 	 * 
-	 * @param fromEclipse true if launching interactively (rather than from uberjar)
 	 * @param port which port to listen on
 	 * @param warUrl the URL of the webapp war directory
 	 */
-	public Server launch(boolean fromEclipse, int port, String warUrl, String contextPath) throws Exception {
+	public Server launch(int port, String warUrl, String contextPath) throws Exception {
 		// This is adapted from the Embedded Jetty example from Jetty 9.4.x:
 		//	    https://www.eclipse.org/jetty/documentation/9.4.x/embedded-examples.html#embedded-webapp-jsp
 		Server server = new Server(port);
