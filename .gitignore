@@ -28,6 +28,12 @@
 # Gradle build directory
 /build
 
+# Instance temp directories (when running from uberjar)
+/instance-*
+
+# Daemon log directory (when running from uberjar)
+/logs
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
