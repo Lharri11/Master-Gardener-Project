@@ -5,7 +5,8 @@ task uberjar(
 	dependsOn: [
 		':copyWebappFiles',
 		':copyWebappJarFiles',
-		':buildLauncher']) {
+		':copyLauncherClassFiles',
+		':copyJettyDeps']) {
 	
 }
 
@@ -25,6 +26,24 @@ task copyWebappJarFiles(
 	into 'build/uberjarStaging/war/WEB-INF/lib'
 	include '*.jar'
 	exclude 'daemon*.jar', 'junit*.jar'
+}
+
+// Copy class files for launcher
+task copyLauncherClassFiles(
+	type: Copy,
+	dependsOn: [':buildLauncher']) {
+	from 'Master_Gardener_Source/bin'
+	into 'build/uberjarStaging'
+}
+
+// Copy contents of required Jetty jarfiles (excluding META-INF)
+task copyJettyDeps(
+	type: Copy) {
+	// FIXME: this just copies the contents of ALL Jetty jarfiles
+	// We could probably narrow this down to a subset, but whatever.
+	from fileTree('Jetty9') { include '**/jetty-*.jar' }.collect { zipTree(it) }
+	into 'build/uberjarStaging'
+	exclude 'META-INF/**'
 }
 
 task buildWebapp(
