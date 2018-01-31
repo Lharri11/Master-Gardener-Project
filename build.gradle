@@ -1,0 +1,82 @@
+task buildAll(
+	dependsOn: [':buildWebapp']) {
+	
+}
+
+task buildWebapp(
+	dependsOn: [':Master_Gardener_Source:compileJava']) {
+}
+
+///////////////////////////////////////////////////////////////////////
+// Common methods
+///////////////////////////////////////////////////////////////////////
+
+// Read an Eclipse classpath and return a list of jarfiles
+// and directories.  See:
+//   http://stackoverflow.com/questions/31653796
+// I improved the basic technique so that referenced projects
+// are added to the classpath correctly.
+// WARNING: if there are projects with circular dependencies
+// this method will execute an infinite recursion.
+def parseEclipseClasspath(classpathFile, exportsOnly) {
+	def baseDir = classpathFile.parentFile
+	
+	//println "classpathFile=${classpathFile}"
+	def cpXml = new XmlParser().parse(classpathFile)
+	def libPaths = []
+	def addOutput = false
+	def outputDir
+	cpXml.classpathentry.each {
+		if ('lib' == it.@kind) {
+			// reference to jarfile
+			def libPath = it.@path
+			if (libPath.startsWith("/") && !exportsOnly) {
+				// Jar file from another project: is referenced relative
+				// to parent directory
+				def parentDir = baseDir.parentFile.absolutePath
+				libPaths.add(parentDir + libPath)
+			} else {
+				// Jar file is internal to this project
+				def isExport = it.@exported == 'true'
+				if (isExport || !exportsOnly) {
+					libPaths.add(baseDir.path + '/' + libPath)
+				}
+			}
+		} else if ('src' == it.@kind && !it.@path.startsWith('/') && exportsOnly) {
+			// reference to source directory of depended-on project:
+			// make a note to add the output directory
+			addOutput = true
+		} else if ('src' == it.@kind && it.@path.startsWith('/')) {
+			// reference to project
+			//println "Adding recursive dependencies from ${it.@path}"
+			def refProjBase = new File(baseDir.path + '/..' + it.@path).canonicalPath
+			//println "refProjBase=${refProjBase}"
+			def refLibPaths = parseEclipseClasspath(new File(refProjBase + '/.classpath'), true)
+			libPaths.addAll(refLibPaths)
+		} else if ('output' == it.@kind) {
+			outputDir = baseDir.path + '/' + it.@path
+		}
+	}
+	
+	if (addOutput) {
+		// Add the output directory (i.e., compiled classfiles for this project)
+		libPaths.add(outputDir)
+	}
+	
+	return libPaths
+}
+
+// Get compile-time dependencies for specified project
+def eclipseClasspath(p) {
+	def baseDir = p.projectDir.absolutePath
+	def classpathFile = new File(baseDir, '.classpath')
+	//println "baseDir=${baseDir}"
+	return parseEclipseClasspath(classpathFile, false)
+}
+
+// Get just the required jars for a project
+def requiredJars(p) {
+	return eclipseClasspath(p).findAll {
+		it.endsWith('.jar')
+	}
+}
