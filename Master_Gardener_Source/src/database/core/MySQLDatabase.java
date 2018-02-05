@@ -966,7 +966,7 @@ public class MySQLDatabase implements IDatabase {
             return id;
         }
     }
-
+    /** This is a backend helper method for the primary method getUnconfirmedDataformsByCounty**/
     public List<Integer> getUnconfirmedDataformIDsByCounty(String county) throws SQLException
     {
         {
@@ -1008,35 +1008,89 @@ public class MySQLDatabase implements IDatabase {
             return df_list;
         }
     }
-
-    public List<String> getUnconfirmedDataByCounty(String county) throws SQLException
+    /** Use this for frontend work, this is the primary method for getting unconfirmed dataforms **/
+    public List<String> getUnconfirmedDataformsByCounty(String county) throws SQLException
     {
         DataSource ds = getMySQLDataSource();
         Connection conn = ds.getConnection();
 
         // Get list of county IDs
         List<Integer> cids = getUnconfirmedDataformIDsByCounty(county);
-        ArrayList<ResultSet> df_list = new ArrayList<>();
 
-        ArrayList<String> result_list = new ArrayList<>();
+        ArrayList<String> return_list = new ArrayList<>();
         PreparedStatement stmt1 = null;
         ResultSet set1 = null;
+        ResultSet set2 = null;
 
         try {
             for (int i = 0; i < cids.size(); i++) {
-                stmt1 = conn.prepareStatement("SELECT * FROM mg_data_form WHERE id = ?");
+                // First, add the current ID to the result list
+                return_list.add(cids.get(i).toString());
+
+                // Then, get miscellaneous (easy) fields
+                stmt1 = conn.prepareStatement("SELECT temperature, date_created, date_generated, monitor_start, monitor_stop,"
+                        + " wind_status, cloud_status, comments FROM mg_data_form WHERE id = ?");
                 stmt1.setInt(1, cids.get(i));
+                // Hopefully, this loads 8 fields into the ResultSet from columns 1 to 8
                 set1 = stmt1.executeQuery();
-                df_list.add(set1);
+
+                // Get all of these fields as a string so we can add them to the return set
+                for (int j = 1; j < 9; j++) {
+                    return_list.add(set1.getString(j));
+                }
+
+                // Now, do the hard stuff
+                stmt1 = conn.prepareStatement("SELECT garden_id, plant_id, pollinator_id, visitcount_id FROM" +
+                        " mg_dataform_insert WHERE dataform_id = ?");
+                stmt1.setInt(1, cids.get(i));
+
+                // Load all of the IDs into the ResultSet so we can begin parsing them
+                set1 = stmt1.executeQuery();
+
+                // Start off by getting garden name
+                stmt1 = conn.prepareStatement("SELECT garden_name FROM mg_garden WHERE garden_ID = ?");
+                stmt1.setInt(1, set1.getInt(1));
+                set2 = stmt1.executeQuery();
+                return_list.add(set2.getString(1));
+
+                // Next, get Plant name. Seperate this from getting Strain name because it's easier to manage.
+                stmt1 = conn.prepareStatement("SELECT plantName FROM mg_plant WHERE plant_ID = ?");
+                stmt1.setInt(1, set1.getInt(2));
+                set2 = stmt1.executeQuery();
+                return_list.add(set2.getString(1));
+
+                // Next, get Strain name
+                stmt1 = conn.prepareStatement("SELECT strand_name FROM mg_plant_strain WHERE plant_id = ?");
+                stmt1.setInt(1, set1.getInt(2));
+                set2 = stmt1.executeQuery();
+                while (set2.next()) {
+                    return_list.add(set2.getString(1));
+                }
+
+                // Next, get Pollinator name
+                stmt1 = conn.prepareStatement("SELECT pollinatorName FROM mg_pollinator WHERE pollinator_ID = ?");
+                stmt1.setInt(1, set1.getInt(3));
+                set2 = stmt1.executeQuery();
+                return_list.add(set2.getString(1));
+
+                // Finally, get that Pollinator's visit count
+                stmt1 = conn.prepareStatement("SELECT visit_count FROM mg_pollinator_visit WHERE data_form_id = ? " +
+                        "AND pollinator_id = ? AND plant_id = ?");
+                stmt1.setInt(1, cids.get(i));
+                stmt1.setInt(2, set1.getInt(3));
+                stmt1.setInt(3, set1.getInt(2));
+                set2 = stmt1.executeQuery();
+                return_list.add(set2.getString(1));
             }
         }
         finally
         {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(set1);
+            DBUtil.closeQuietly(set2);
         }
 
-        return result_list;
+        return return_list;
     }
 
 
