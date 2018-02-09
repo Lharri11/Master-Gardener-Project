@@ -40,7 +40,7 @@ public class SearchControllerTest {
 	@Test
 	public void TestSearchFunctions() throws SQLException{
 
-		List<Garden> gardens = thiscontroller.getGardensLike("The Best");
+		List<Garden> gardens = thiscontroller.getGardensLike("Clinton County Garden");
 		//Garden Test = new Garden("The Best Garden Ever", "Hot Damn this is my favorite Garden");
 
 		assertNotNull(gardens);

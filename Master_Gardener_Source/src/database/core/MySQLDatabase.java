@@ -1214,7 +1214,7 @@ public class MySQLDatabase implements IDatabase {
         return completed;
     }
 
-    public boolean updatePassword(int user_id, String new_password) throws SQLException
+    public boolean updatePassword(String user_name, String old_password, String new_password) throws SQLException
     {
         DataSource ds = getMySQLDataSource();
         Connection conn = ds.getConnection();
@@ -1225,21 +1225,31 @@ public class MySQLDatabase implements IDatabase {
 
         try
         {
+            stmt1 = conn.prepareStatement("SELECT user_id FROM mg_user WHERE userName = ? AND passWord = ?");
+            stmt1.setString(1, user_name);
+            stmt1.setString(2, old_password);
+
+            rs = stmt1.executeQuery();
+
+            if(!rs.next())
+            {
+                System.out.println("Incorrect username or password.");
+                return false;
+            }
+
             stmt1 = conn.prepareStatement("UPDATE mg_user" +
                     " SET passWord = ? " +
-                    " WHERE user_ID = ? ");
+                    " WHERE userName = ? ");
 
             stmt1.setString(1, new_password);
-            stmt1.setInt(2, user_id);
+            stmt1.setString(2, user_name);
 
             stmt1.executeUpdate();
 
-            // Need to use username in SELECT so that we can use user_ID in the AND portion.
-            // If we use user_ID for SELECT, then the only argument for WHERE would be password,
-            // and multiple users could have the same password.
-            stmt2 = conn.prepareStatement("SELECT userName FROM mg_user WHERE passWord = ? AND user_ID = ?");
+            // Check to see if password updated
+            stmt2 = conn.prepareStatement("SELECT user_ID FROM mg_user WHERE passWord = ? AND userName = ?");
             stmt2.setString(1, new_password);
-            stmt2.setInt(2, user_id);
+            stmt2.setString(2, user_name);
             rs = stmt2.executeQuery();
 
             if(rs.next())

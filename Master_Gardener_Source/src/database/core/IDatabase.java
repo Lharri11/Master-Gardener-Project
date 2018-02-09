@@ -75,7 +75,7 @@ public interface IDatabase {
 	public boolean updateXTupleFromYTable(final String table, final String[] column, final String[] col_value, final String[] where) throws SQLException;
 	// TODO: Create More Update Tables
 	// Maybe something like updatePlantStrainByPlant?
-	public boolean updatePassword(int user_id, String password) throws SQLException;
+	public boolean updatePassword(String user_name, String old_password, String new_password) throws SQLException;
 	//========================================================================================================
 
 	//========================================================================================================

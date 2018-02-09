@@ -19,7 +19,7 @@ public class AccountTest {
 		//---------Same setup as BooksForSaleTest (all components needed)----------------------------------------------------------------
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	/*@Test(expected = IllegalArgumentException.class)
 	public void illegalArgumentExceptionTest()
 	{
 		// Test password length
@@ -27,7 +27,7 @@ public class AccountTest {
 
 		// Test literally anything else
 		a5 = new User("Memes&Cheese", "123456789", -1, "", "", "", new byte[1024]);
-	}
+	}*/
 
 	@Test
 	public void getUsernameTest(){
