@@ -1180,4 +1180,60 @@ public class MySQLDatabaseTest {
             DBUtil.closeQuietly(set);
         }
     }
+
+    @Test
+    public void updatePasswordTest() throws SQLException
+    {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+        boolean success = false;
+
+        try
+        {
+            stmt = conn.prepareStatement("INSERT INTO mg_user (user_id, userName, passWord, login_id, email, name, description)" +
+                    " VALUES (-1, 'Orange', 'creamyPie', -1, 'cykablyat@cheekibreeki.ivdamke', 'Ivan', 'i am of the russian man')");
+
+            stmt.executeUpdate();
+
+            stmt = conn.prepareStatement("SELECT userName FROM mg_user WHERE userName = ? AND passWord = ? AND email = ? ");
+            stmt.setString(1, "Orange");
+            stmt.setString(2, "creamyPie");
+            stmt.setString(3, "cykablyat@cheekibreeki.ivdamke");
+
+            set = stmt.executeQuery();
+
+            if(set.next())
+            {
+                success = db.updatePassword("Orange", "creamyPie", "mother_russiA");
+                stmt = conn.prepareStatement("DELETE FROM mg_user WHERE userName = ? AND passWord = ? AND email = ? AND user_ID = ?");
+
+                stmt.setString(1, "Orange");
+                stmt.setString(2, "mother_russiA");
+                stmt.setString(3, "cykablyat@cheekibreeki.ivdamke");
+                stmt.setInt(4, -1);
+
+                stmt.executeUpdate();
+            }
+            else
+            {
+                stmt = conn.prepareStatement("DELETE FROM mg_user WHERE userName = ? AND passWord = ? AND email = ? AND user_ID = ?");
+
+                stmt.setString(1, "Orange");
+                stmt.setString(2, "creamyPie");
+                stmt.setString(3, "cykablyat@cheekibreeki.ivdamke");
+                stmt.setInt(4, -1);
+
+                stmt.executeUpdate();
+            }
+
+            assertEquals(true, success);
+        }
+        finally
+        {
+            DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(set);
+        }
+    }
 }
