@@ -105,9 +105,9 @@
                     <div id="sideBar" style="right: -300px;">
                         <form id="userSidebar" method="post">
                             <ul class="list-unstyled">
-                                <li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/admin"
+                                <li class="sidebarItem"><a  href="${pageContext.servletContext.contextPath}/admin"
                                                            style="color: white">Administration</a></li>
-                                <li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/editUser"
+                                <li class="sidebarItem"><a href="/editUser"
                                                            style="color: white">Edit User Credentials</a></li>
                                 <li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/editUserPortrait"
                                                            style="color: white">Edit User Portrait</a></li>
