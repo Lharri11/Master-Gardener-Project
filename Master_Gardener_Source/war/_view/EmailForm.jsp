@@ -20,7 +20,7 @@
             <td><input type="text" name="recipient" size="50"/></td>
         </tr>
         <tr>
-            <td>Subject </td>
+            <td>Reason </td>
             <td><input type="text" name="subject" size="50"/></td>
         </tr>
         <tr>
