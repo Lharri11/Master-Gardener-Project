@@ -5,6 +5,7 @@
 	<classpathentry exported="true" kind="lib" path="daemon-0.8.jar" sourcepath="daemon-0.8.jar"/>
 	<classpathentry exported="true" kind="lib" path="gson-2.8.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="hamcrest-core-1.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="javax.mail.jar"/>
 	<classpathentry exported="true" kind="lib" path="json-20171018.jar"/>
 	<classpathentry kind="lib" path="junit-4.12.jar"/>
 	<classpathentry exported="true" kind="lib" path="mysql-connector-java-5.1.44-bin.jar"/>

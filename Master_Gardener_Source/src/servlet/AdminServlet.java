@@ -18,7 +18,7 @@ public class AdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-    /*
+
         String user = (String) req.getSession().getAttribute("username");
         if (user == null) {
             System.out.println("User not logged in or session timed out");
@@ -27,7 +27,7 @@ public class AdminServlet extends HttpServlet {
             return;
         } else {
             req.getRequestDispatcher("/_view/admin.jsp").forward(req, resp);
-        } */
+        }
 
         List<User> activeAccounts = new ArrayList<>();
         AdminController controller = new AdminController();
