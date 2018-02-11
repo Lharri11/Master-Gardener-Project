@@ -1,4 +1,4 @@
-package master_gardener_main;
+package model;
 
 import com.google.gson.Gson;
 import model.Pollinator;

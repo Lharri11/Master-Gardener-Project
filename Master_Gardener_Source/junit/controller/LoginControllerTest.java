@@ -44,12 +44,14 @@ public class LoginControllerTest {
 
 	@Test
 	public void testLogin()throws SQLException {
-		User admin = new User("admin1", "password1", -1, "a_name1", "admin1@ycp.edu", "HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN");
+		// FIXME
+		User admin = new User("admin1", "password1", -1, "a_name1", "admin1@ycp.edu", "HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN", null);
 		int test = thiscontroller.validateLogin(admin.getUsername(),admin.getLoginId());
 		assertEquals(test,admin.getLoginId());
 
 
-		User admin2 = new User("admin1", "password1", 5, "a_name1", "admin1@ycp.edu", "HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN");
+		// FIXME
+		User admin2 = new User("admin1", "password1", 5, "a_name1", "admin1@ycp.edu", "HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN", null);
 		int test2 = thiscontroller.validateLogin(admin.getUsername(),admin.getLoginId());
 		assertFalse(test2 != admin.getLoginId());
 
@@ -57,7 +59,8 @@ public class LoginControllerTest {
 
 	@Test
 	public void testFailedLogin()throws SQLException {
-		User admin = new User("admin1", "Butts", -1, "a_name1", "admin1@ycp.edu", "HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN");
+		// FIXME
+		User admin = new User("admin1", "Butts", -1, "a_name1", "admin1@ycp.edu", "HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN", null);
 		int test = thiscontroller.loginUser(admin.getUsername(),admin.getPassword());
 		assertEquals(test,-1);
 

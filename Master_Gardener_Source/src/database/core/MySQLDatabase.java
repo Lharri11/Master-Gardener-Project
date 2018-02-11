@@ -20,9 +20,9 @@ public class MySQLDatabase implements IDatabase {
 
     public static final int MAX_ATTEMPTS = 10;
     private static final String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String MYSQL_URL = "jdbc:mysql://localhost:3306/MasterGardener";
-    private static final String MYSQL_USERNAME = "root";
-    private static final String MYSQL_PASSWORD = "root";
+    private static final String MYSQL_URL = "jdbc:mysql://localhost:3306/mastergardener";
+    private static final String MYSQL_USERNAME = "gardener";
+    private static final String MYSQL_PASSWORD = "gardener";
 
     public static DataSource getMySQLDataSource() {
         MysqlDataSource mysqlDS;
