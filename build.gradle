@@ -1,0 +1,171 @@
+// Support for building the Master Gardener webapp as a
+// deployable jarfile ("uberjar").  This is adapted from the
+// Gradle script for PygmyMarmoset.
+
+// The default task is to build the uberjar
+defaultTasks 'uberjar'
+
+// Top-level task: builds the uberjar.
+task uberjar(
+	type: Jar,
+	dependsOn: [
+		':copyWebappFiles',
+		':copyWebappJarFiles',
+		':copyLauncherClassFiles',
+		':copyLauncherDeps',
+		':copyJettyDeps']) {
+	manifest {
+		attributes 'Main-Class' : 'master_gardener_main.UberjarMain'
+	}
+	baseName 'build/masterGardenerApp'
+	from 'build/uberjarStaging'
+}
+
+// Copy the webapp files (including classfiles) into the uberjar staging area
+task copyWebappFiles(
+	type: Copy,
+	dependsOn: [':buildWebapp', ':copyJstlTldFiles', ':copyJstlClassFiles']) {
+	from 'Master_Gardener_Source/war'
+	into 'build/uberjarStaging/war'
+	exclude '_DS_Store'
+}
+
+// Copy the jarfiles required by the webapp into the uberjar staging area
+task copyWebappJarFiles(
+	type: Copy) {
+	from 'lib'
+	into 'build/uberjarStaging/war/WEB-INF/lib'
+	include '*.jar'
+	exclude 'daemon*.jar', 'junit*.jar'
+}
+
+// Copy class files for launcher
+task copyLauncherClassFiles(
+	type: Copy,
+	dependsOn: [':buildLauncher']) {
+	from 'Master_Gardener_Source/bin'
+	into 'build/uberjarStaging'
+}
+
+// Copy the dependencies for the launcher (specifically, the daemon library)
+task copyLauncherDeps(
+	type: Copy) {
+	from zipTree('lib/daemon-0.8.jar')
+	into 'build/uberjarStaging'
+	exclude '**/*.java'
+}
+
+// Copy contents of required Jetty jarfiles (excluding META-INF)
+task copyJettyDeps(
+	type: Copy) {
+	// FIXME: this just copies the contents of ALL Jetty jarfiles
+	// We could probably narrow this down to a subset, but whatever.
+	from fileTree('Jetty9') { include '**/*.jar' }.collect { zipTree(it) }
+	into 'build/uberjarStaging'
+	exclude 'META-INF/**'
+}
+
+task buildWebapp(
+	dependsOn: [':Master_Gardener_Source:compileJava']) {
+}
+
+task buildLauncher(
+	dependsOn: [':Master_Gardener_Source:compileLauncherJava']) {
+}
+
+// Note: the following targets copy the .tld files and classfiles
+// for Apache JSTL into the webapp.  Getting them to resolve
+// correctly when running from the uberjar is complicated and
+// would involve classloader hacks.  This solution is easy
+// and works.
+
+task explodeJstl(type: Copy) {
+	from zipTree('Jetty9/lib/apache-jstl/org.apache.taglibs.taglibs-standard-impl-1.2.5.jar')
+	into 'build/apache-jstl'
+}
+
+task copyJstlTldFiles(type: Copy, dependsOn: [':explodeJstl']) {
+	from 'build/apache-jstl/META-INF'
+	into 'build/uberjarStaging/war/WEB-INF'
+	include '*.tld'
+}
+
+task copyJstlClassFiles(type: Copy, dependsOn: [':explodeJstl']) {
+	from 'build/apache-jstl'
+	into 'build/uberjarStaging/war/WEB-INF/classes'
+	include 'org/**'
+}
+
+///////////////////////////////////////////////////////////////////////
+// Common methods
+///////////////////////////////////////////////////////////////////////
+
+// Read an Eclipse classpath and return a list of jarfiles
+// and directories.  See:
+//   http://stackoverflow.com/questions/31653796
+// I improved the basic technique so that referenced projects
+// are added to the classpath correctly.
+// WARNING: if there are projects with circular dependencies
+// this method will execute an infinite recursion.
+def parseEclipseClasspath(classpathFile, exportsOnly) {
+	def baseDir = classpathFile.parentFile
+	
+	//println "classpathFile=${classpathFile}"
+	def cpXml = new XmlParser().parse(classpathFile)
+	def libPaths = []
+	def addOutput = false
+	def outputDir
+	cpXml.classpathentry.each {
+		if ('lib' == it.@kind) {
+			// reference to jarfile
+			def libPath = it.@path
+			if (libPath.startsWith("/") && !exportsOnly) {
+				// Jar file from another project: is referenced relative
+				// to parent directory
+				def parentDir = baseDir.parentFile.absolutePath
+				libPaths.add(parentDir + libPath)
+			} else {
+				// Jar file is internal to this project
+				def isExport = it.@exported == 'true'
+				if (isExport || !exportsOnly) {
+					libPaths.add(baseDir.path + '/' + libPath)
+				}
+			}
+		} else if ('src' == it.@kind && !it.@path.startsWith('/') && exportsOnly) {
+			// reference to source directory of depended-on project:
+			// make a note to add the output directory
+			addOutput = true
+		} else if ('src' == it.@kind && it.@path.startsWith('/')) {
+			// reference to project
+			//println "Adding recursive dependencies from ${it.@path}"
+			def refProjBase = new File(baseDir.path + '/..' + it.@path).canonicalPath
+			//println "refProjBase=${refProjBase}"
+			def refLibPaths = parseEclipseClasspath(new File(refProjBase + '/.classpath'), true)
+			libPaths.addAll(refLibPaths)
+		} else if ('output' == it.@kind) {
+			outputDir = baseDir.path + '/' + it.@path
+		}
+	}
+	
+	if (addOutput) {
+		// Add the output directory (i.e., compiled classfiles for this project)
+		libPaths.add(outputDir)
+	}
+	
+	return libPaths
+}
+
+// Get compile-time dependencies for specified project
+def eclipseClasspath(p) {
+	def baseDir = p.projectDir.absolutePath
+	def classpathFile = new File(baseDir, '.classpath')
+	//println "baseDir=${baseDir}"
+	return parseEclipseClasspath(classpathFile, false)
+}
+
+// Get just the required jars for a project
+def requiredJars(p) {
+	return eclipseClasspath(p).findAll {
+		it.endsWith('.jar')
+	}
+}

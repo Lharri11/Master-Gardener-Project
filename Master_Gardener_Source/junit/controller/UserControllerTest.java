@@ -35,7 +35,8 @@ public class UserControllerTest {
 	
 	@Test
 	public void testreturnaccountfromUsername(){
-		User admin1 = new User("admin1", "password1", -1, "a_name1", "admin1@ycp.edu", "HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN");
+		// FIXME
+		User admin1 = new User("admin1", "password1", -1, "a_name1", "admin1@ycp.edu", "HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN", null);
 		User test = thiscontroller.returnUserForUsername("admin1");
 		assertEquals(admin1.getName(), test.getName());
 		assertEquals(admin1.getEmail(), test.getEmail());
@@ -48,7 +49,8 @@ public class UserControllerTest {
 	
 	@Test
 	public void testgetusersgardens() throws SQLException{
-		User admin1 = new User("admin1", "password1", -1, "a_name1", "admin1@ycp.edu", "HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN");
+		// FIXME
+		User admin1 = new User("admin1", "password1", -1, "a_name1", "admin1@ycp.edu", "HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN", null);
 		List<Garden> gardens = new ArrayList<Garden>();
 		gardens = thiscontroller.getUsersGardens("admin1");
 
