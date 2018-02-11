@@ -17,7 +17,7 @@ public class SignupServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
+
 		req.getRequestDispatcher("/_view/signup.jsp").forward(req, resp);
 	}
 
@@ -90,9 +90,9 @@ public class SignupServlet extends HttpServlet {
 			req.getRequestDispatcher("/_view/signup.jsp").forward(req, resp);
 		}
 		else{
-			User account = new User(user,pass1,-1,name, email, bio, new byte[1024]);
+			User account = new User(user, pass1,-1,name, email,bio, new byte[1024]);
 			SignupController controller = new SignupController();
-		
+
 			if(controller.createUser(account)){
 				req.setAttribute("account", account);
 				req.getRequestDispatcher("/_view/home.jsp").forward(req, resp);
@@ -103,7 +103,7 @@ public class SignupServlet extends HttpServlet {
 				req.getRequestDispatcher("/_view/signup.jsp").forward(req, resp);
 			}
 		}
-		
+
 		req.setAttribute("username", user);
 		req.setAttribute("password", pass1);
 		req.setAttribute("name", name);
