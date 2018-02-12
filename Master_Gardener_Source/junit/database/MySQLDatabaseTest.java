@@ -14,6 +14,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -143,7 +145,10 @@ public class MySQLDatabaseTest {
                 success = true;
             }
 
-            stmt = conn.prepareStatement("DELETE FROM mg_garden WHERE garden_ID = -420 AND garden_name = 'Memes' AND description = 'Dank'");
+            stmt = conn.prepareStatement("DELETE FROM mg_garden WHERE garden_ID = ? AND garden_name = ? AND description = ?");
+            stmt.setInt(1, -420);
+            stmt.setString(2, "Memes");
+            stmt.setString(3, "Dank");
             stmt.executeUpdate();
 
             assertEquals(success, true);
@@ -1235,5 +1240,52 @@ public class MySQLDatabaseTest {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
         }
+    }
+
+    @Test
+    public void getUnconfirmedDataformsByCountyTest() throws SQLException
+    {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+        boolean success = false;
+        List<Integer> df_list_expected = new ArrayList<>();
+        List<Integer> df_list_actual = new ArrayList<>();
+        df_list_expected.add(-1);
+
+        try
+        {
+            stmt = conn.prepareStatement("INSERT INTO mg_data_form (id, week_number, garden_id, date_created, date_generated, county_id, comments, confirmed)" +
+                    " VALUES (-1, -1, 1, '1950-01-11', '1950-01-11', 4, 'This is a test dataform.', 0)");
+            stmt.executeUpdate();
+
+            df_list_actual = db.getUnconfirmedDataformIDsByCounty("Berks");
+
+            System.out.println("Deleting from data_form");
+
+            stmt = conn.prepareStatement("DELETE FROM mg_data_form WHERE id = ? AND week_number = ? AND garden_id = ? AND date_created = ?" +
+                    " AND date_generated = ? AND county_id = ? AND comments = ? AND confirmed = ?");
+            stmt.setInt(1, -1);
+            stmt.setInt(2, -1);
+            stmt.setInt(3, 1);
+            stmt.setString(4, "1950-01-11");
+            stmt.setString(5, "1950-01-11");
+            stmt.setInt(6, 4);
+            stmt.setString(7, "This is a test dataform.");
+            stmt.setInt(8,0);
+
+            stmt.executeUpdate();
+
+            System.out.println("Should be deleted from data form");
+
+            assertEquals(df_list_expected, df_list_actual);
+        }
+        finally
+        {
+            DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(set);
+        }
+
     }
 }
