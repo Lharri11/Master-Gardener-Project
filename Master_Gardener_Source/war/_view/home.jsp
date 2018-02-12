@@ -19,7 +19,7 @@
     <!-- Loading Flat UI -->
     <link href="css/flat-ui.css" rel="stylesheet">
 
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/newstyle.css" rel="stylesheet">
 
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
@@ -153,10 +153,61 @@
                 </div>
             </div>
         </div>
+
+
+
         <!-- /.container -->
         <!-- // End Content Block 1-5 v1 -->
     </header><!-- /.item -->
+
+    <div class="feedback">
+        <a id="feedback_button">Feedback</a>
+
+        <div class="form">
+            <form action="${pageContext.servletContext.contextPath}/EmailForm" method="post">
+                <table border="0" width="35%" align="center">
+                    <caption><h3>Bug or need a feature? Contact us here!</h3></caption>
+                    <tr>
+                        <td width="50%">Your Email Address</td>
+                        <td><input type="email" class="text-control" name="recipient" size="50" required autocomplete="off"/></td>
+                    </tr>
+                    <tr>
+                        <td>Reason </td>
+                        <td>
+                        <select class="form-control"
+                                name="subject" required autocomplete="off">
+                            <option style="display: none" value="">Select</option>
+                            <option value="Found a bug">Found a bug</option>
+                            <option value="Feature Request">Feature Request</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Content </td>
+                        <td><textarea class="text-control" rows="10" cols="39" name="content" required autocomplete="off"></textarea> </td>
+                    </tr>
+                    <tr>
+
+                        <td colspan="2" align="center"><input class="text-control" type="submit" value="Send"/></td>
+                    </tr>
+                </table>
+
+            </form>
+
+
+            <!--
+            <h2>Please Send Us Your Feedback</h2>
+            <span class="status"></span>
+            <textarea id="feedback_text"></textarea>
+            <input type="button" value="Send" id="submit_form" />
+            -->
+
+        </div>
+    </div>
 </div><!-- /#page -->
+
+
 
 
 <!-- Load JS here for greater good =============================-->
@@ -173,6 +224,9 @@
 <script src="js/jquery.nivo.slider.pack.js"></script>
 <script src="js/application.js"></script>
 <script src="js/over.js"></script>
+<script src="js/jquery-1.2.6.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+<script src="js/contact.js"></script>
 <script>
     $(function () {
 
@@ -187,6 +241,7 @@
 
     })
 </script>
+
 
 
 </body>
