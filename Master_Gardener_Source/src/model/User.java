@@ -13,7 +13,7 @@ public class User {
 	private String email = null;
 	private String description = null;
 	private byte[] portrait;
-	private Boolean moderator_status = false;
+	private int moderator_status = 0;
 
 	public User(String username, String password, int id, String name, String email, String description, byte[] portrait){
 		this.username = username;
@@ -23,6 +23,7 @@ public class User {
 		this.email = email;
 		this.description = description;
 		this.portrait = portrait;
+		this.moderator_status = 0;
 	}
 	
 	public User(){
@@ -33,6 +34,7 @@ public class User {
 		this.email = "";
 		this.description = "";
 		this.portrait = new byte[1024];
+		this.moderator_status = 0;
 	}
 	
 	public int getUserId() {
@@ -95,12 +97,12 @@ public class User {
 		this.description = description;
 	}
 
-	public Boolean getModeratorStatus()
+	public int getModeratorStatus()
 	{
 		return this.moderator_status;
 	}
 
-	public void setModeratorStatus(Boolean status)
+	public void setModeratorStatus(int status)
 	{
 		this.moderator_status = status;
 	}
