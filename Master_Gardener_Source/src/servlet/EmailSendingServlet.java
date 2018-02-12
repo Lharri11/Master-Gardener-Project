@@ -41,14 +41,15 @@ public class EmailSendingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req,
                           HttpServletResponse resp) throws ServletException, IOException {
         // reads form fields
-        String recipient = req.getParameter("recipient");
+       //String recipient = req.getParameter("recipient");
         String subject = req.getParameter("subject");
         String content = req.getParameter("content");
 
         String resultMessage = "";
+        String to = "nsarzyns@ycp.edu";
 
         try {
-            EmailUtility.sendEmail(host, port, user, pass, recipient, subject,
+            EmailUtility.sendEmail(host, port, user, pass, to, subject,
                     content);
             resultMessage = "The e-mail was sent successfully";
         } catch (Exception ex) {

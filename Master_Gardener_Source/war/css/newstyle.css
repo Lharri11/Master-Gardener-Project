@@ -108,6 +108,56 @@ html {
     height: 12rem;
 }
 
+
+
+/* Contact Form */
+.feedback{
+    position: fixed;
+    left:0;
+    bottom:0;
+}
+.feedback a {
+    display:block;
+    height:2em;
+    width:8em;
+    text-align:center;
+    background:#00265D;
+    border:2px solid #fff;
+    outline:1px solid #a1a1a1;
+    padding:5px;
+    float:left;
+    cursor:pointer;
+
+    /*Font*/
+    color:#FFF;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.feedback .form{
+    clear:both;
+    height: 27em;
+    width: 50em;
+    border:1px solid #000;
+    background:#fff;
+    padding:15px;
+    display: none;
+}
+.feedback .form textarea{
+    height:170px;
+    width:400px;
+    padding:5px;
+}
+.feedback .status{
+    font-size:16px;
+}
+
+
+
+
+
+
+
 /* Home Page */
 
 /*Header - Top Picture*/
