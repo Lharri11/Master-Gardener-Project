@@ -325,8 +325,7 @@ public class MySQLDatabase implements IDatabase {
         }
     }
 
-    public List<String> 
-        AllStrains() throws SQLException {
+    public List<String> getAllStrains() throws SQLException {
         DataSource ds = getMySQLDataSource();
         Connection conn = ds.getConnection();
         try {
@@ -3227,8 +3226,6 @@ public class MySQLDatabase implements IDatabase {
         Connection conn = ds.getConnection();
 
         try {
-            // TODO: IF THIS STILL DOESN'T WORK, WHICH IT PROBABLY DOES NOT THEN
-            // REMOVE THE doQueryLoop
             return doQueryLoop(new Query<List<User>>() {
                 @Override
                 //          (column probably does not exist in any tables
@@ -3238,9 +3235,8 @@ public class MySQLDatabase implements IDatabase {
                     ResultSet resultSet = null;
                     try {
                         stmt = conn.prepareStatement(
-                                "SELECT userName, email, name FROM mg_user WHERE moderator = ?");
-                        stmt.setInt(1, 0);
-                       
+                                " SELECT userName, email, name FROM mg_user ");
+
                         resultSet = stmt.executeQuery();
 
                         boolean found = false;
