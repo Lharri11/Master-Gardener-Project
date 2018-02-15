@@ -19,14 +19,13 @@ public class AdminServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
+
         String user = (String) req.getSession().getAttribute("username");
         if (user == null) {
             System.out.println("User not logged in or session timed out");
             // User is not logged in, or the session expired
             resp.sendRedirect(req.getContextPath() + "/login");
             return;
-        } else {
-            req.getRequestDispatcher("/_view/admin.jsp").forward(req, resp);
         }
 
         List<User> activeAccounts = new ArrayList<>();
@@ -37,12 +36,6 @@ public class AdminServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
- /*       List accounts = new ArrayList();
-        while (activeAccounts.listIterator().hasNext()) {
-            accounts.add(activeAccounts.getS)
-        }*/
 
 
         System.out.println(activeAccounts);
@@ -148,27 +141,6 @@ public class AdminServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
-        List<User> activeAccounts = new ArrayList<>();
-        AdminController controller = new AdminController();
-        controller = new AdminController();
-        try {
-            activeAccounts = controller.getAllUsernames();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
- /*       List accounts = new ArrayList();
-        while (activeAccounts.listIterator().hasNext()) {
-            accounts.add(activeAccounts.getS)
-        }*/
-
-
-        System.out.println(activeAccounts);
-
-
-        req.setAttribute("activeAccounts", activeAccounts);
-
 
 
 

@@ -67,7 +67,7 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li class="propClone">
-                    <form action="${pageContext.servletContext.contextPath}/dataInput" method="get">
+                    <form action="${pageContext.servletContext.contextPath}/dataForm" method="get">
                         <button class="homeLinks-nav" type="submit">Data Input</button>
                     </form>
                 </li>
@@ -236,7 +236,7 @@
                         <tr>
                             <td class="col-xs-3">${activeAccounts.username}</td>
                             <td class="col-xs-3">${activeAccounts.name}</td>
-                            <td class="col-xs-3"> ${activeAccounts.email}</td>
+                            <td class="col-xs-3">${activeAccounts.email}</td>
 
                         </tr>
                     </c:forEach>
@@ -272,15 +272,15 @@
         <div id="sideBar" style="right: -300px;">
             <form id="GroupGet" method="post">
                 <ul class="list-unstyled">
-                    <li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/createGarden"
+                    <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/createGarden"
                                                style="color: white">Add Garden</a></li>
-                    <li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/createGarden"
+                    <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/createGarden"
                                                style="color: white">Add Plant</a></li>
-                    <li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/createGarden"
+                    <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/createGarden"
                                                style="color: white">Add Plant Species</a></li>
-                    <li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/createGarden"
+                    <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/createGarden"
                                                style="color: white">Add Pollinator</a></li>
-                    <li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/editUser"
+                    <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/editUser"
                                                style="color: white">Account Settings</a></li>
                     <c:forEach items="${groups}" var="group">
                         <tr>

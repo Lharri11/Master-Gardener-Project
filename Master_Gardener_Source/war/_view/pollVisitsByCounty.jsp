@@ -169,9 +169,9 @@
                     <div id="sideBar" style="right: -300px;">
                         <form id="GardenGet" method="post">
                             <ul class="list-unstyled">
-                                <li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/documents" style="color: white">Documents</a></li>
-                                <li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/chartGen" style="color: white">Generate Chart</a></li>
-                                <li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/createGarden" style="color: white">Create New Garden</a></li>
+                                <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/documents" style="color: white">Documents</a></li>
+                                <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/chartGen" style="color: white">Generate Chart</a></li>
+                                <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/createGarden" style="color: white">Create New Garden</a></li>
                                 <li class="sidebarItem"><span>--------------- Your Gardens: ---------------</span></li>
                                 <c:forEach items="${user_gardens}" var="user_garden">
                                     <tr>

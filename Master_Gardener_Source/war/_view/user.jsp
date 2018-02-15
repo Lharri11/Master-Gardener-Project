@@ -107,9 +107,9 @@
                             <ul class="list-unstyled">
                                 <li class="sidebarItem"><a  href="${pageContext.servletContext.contextPath}/admin"
                                                            style="color: white">Administration</a></li>
-                                <li class="sidebarItem"><a href="/editUser"
+                                <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/editUser"
                                                            style="color: white">Edit User Credentials</a></li>
-                                <li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/editUserPortrait"
+                                <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/editUserPortrait"
                                                            style="color: white">Edit User Portrait</a></li>
                             </ul>
                         </form>

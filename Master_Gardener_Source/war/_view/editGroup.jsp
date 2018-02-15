@@ -96,7 +96,7 @@
 						<button onclick="toggleSideBar()" id="toggle" style="right: 0px;">Group Options</button>
 						<div id="sideBar" style="right: -300px;">
 							<ul class="list-unstyled">
-								<li class="sidebarItem"><a href="http://localhost:8081/Jamii/editGroup" style="color: white">Create New Group</a></li>
+								<li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/editGroup" style="color: white">Create New Group</a></li>
 								<form id="GroupGet" method="post">
 									<c:forEach items="${groups}" var="group">
 										<li><td class="groupListItem">
