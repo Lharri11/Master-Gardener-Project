@@ -13,7 +13,7 @@ public class User {
 	private String email = null;
 	private String description = null;
 	private byte[] portrait;
-	//private int moderator_status = 0;
+	private int moderator_status = 0;
 
 	public User(String username, String password, int id, String name, String email, String description, byte[] portrait){
 		this.username = username;
@@ -23,7 +23,7 @@ public class User {
 		this.email = email;
 		this.description = description;
 		this.portrait = portrait;
-		//this.moderator_status = 0;
+		this.moderator_status = 0;
 	}
 	
 	public User(){
@@ -34,7 +34,7 @@ public class User {
 		this.email = "";
 		this.description = "";
 		this.portrait = new byte[1024];
-		//this.moderator_status = 0;
+		this.moderator_status = 0;
 	}
 	
 	public int getUserId() {
@@ -97,7 +97,7 @@ public class User {
 		this.description = description;
 	}
 
-	/*public int getModeratorStatus()
+	public int getModeratorStatus()
 	{
 		return this.moderator_status;
 	}
@@ -105,7 +105,7 @@ public class User {
 	public void setModeratorStatus(int status)
 	{
 		this.moderator_status = status;
-	}*/
+	}
 
 	public void setPortrait(byte[] portrait) {
 		this.portrait = portrait;
