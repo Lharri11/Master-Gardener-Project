@@ -589,9 +589,9 @@ be greyed out except the plot size.
 				<div id="sideBar2" style="right: -300px;">
 					<form id="GroupGet" method="post">
 						<ul class="list-unstyled">
-							<li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/editUser"
+							<li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/editUser"
 													   style="color: white">Account Settings</a></li>
-							<li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/admin"
+							<li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/admin"
 													   style="color: white">Administration</a></li>
 							<c:forEach items="${gardens}" var="garden">
 								<tr>

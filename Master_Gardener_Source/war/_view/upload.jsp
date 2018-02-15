@@ -89,7 +89,7 @@
 					<button onclick="toggleSideBar()" id="toggle" style="right: 0px;color: white">Group Options</button>
 					<div id="sideBar" style="right: -300px;">
 						<ul class="list-unstyled">
-							<li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/createGarden" style="color: white">Create New Garden</a></li>
+							<li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/createGarden" style="color: white">Create New Garden</a></li>
 							<form id="GroupGet" method="post">
 								<c:forEach items="${gardens}" var="group">
 									<li><td class="groupListItem">

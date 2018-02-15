@@ -22,9 +22,9 @@ import static org.junit.Assert.assertEquals;
 public class MySQLDatabaseTest {
     public static final int MAX_ATTEMPTS = 10;
     private static final String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String MYSQL_URL = "jdbc:mysql://localhost:3306/MasterGardener";
-    private static final String MYSQL_USERNAME = "nsarzyns";
-    private static final String MYSQL_PASSWORD = "0100555";
+    private static final String MYSQL_URL = "jdbc:mysql://localhost:3306/mastergardener";
+    private static final String MYSQL_USERNAME = "gardener";
+    private static final String MYSQL_PASSWORD = "gardener";
 
     private IDatabase db = null;
 
@@ -1048,6 +1048,7 @@ public class MySQLDatabaseTest {
             DBUtil.closeQuietly(set);
         }
     }
+
     @Test
     public void updatePlotPercentCoverage( ) throws SQLException
     {

@@ -122,11 +122,11 @@
         <div id="sideBar" style="right: -300px;">
             <form id="GroupGet" method="post">
                 <ul class="list-unstyled">
-                    <li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/createGroup"
+                    <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/createGroup"
                                                style="color: white">Add Garden to County</a></li>
-                    <li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/counties"
+                    <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/counties"
                                                style="color: white">Available Gardens</a></li>
-                    <li class="sidebarItem"><a href="http://localhost:8081/Master-Gardener/editUser"
+                    <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/editUser"
                                                style="color: white">Account Settings</a></li>
                     <c:forEach items="${groups}" var="group">
                         <tr>
