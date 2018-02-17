@@ -709,7 +709,7 @@ public class MySQLDatabase implements IDatabase {
         try {
             stmt = conn.prepareStatement(
                     "UPDATE mg_user "
-                            + " SET username = ?, password = ? "
+                            + " SET name = ?, password = SHA2(?, 512) "
                             + " WHERE username = ? ");
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getPassword());
@@ -720,8 +720,9 @@ public class MySQLDatabase implements IDatabase {
             //get user_id
             stmt2 = conn.prepareStatement(
                     "SELECT user_id FROM mg_user "
-                            + " WHERE username = ?");
+                            + " WHERE name = ? AND username = ?");
             stmt2.setString(1, user.getUsername());
+            stmt2.setString(2, username);
             set = stmt2.executeQuery();
 
             success = true;
@@ -1105,7 +1106,7 @@ public class MySQLDatabase implements IDatabase {
 
         try {
             stmt1 = conn.prepareStatement(
-                    "INSERT INTO mg_user (userName, password, login_id, name, email, description) "
+                    "INSERT INTO mg_user (userName, SHA2(passWord, 512), login_id, name, email, description) "
                             + " VALUES(?,?,?,?,?,?)");
             stmt1.setString(1, user.getUsername());
             stmt1.setString(2, user.getPassword());
@@ -1279,7 +1280,7 @@ public class MySQLDatabase implements IDatabase {
 
         try
         {
-            stmt1 = conn.prepareStatement("SELECT user_id FROM mg_user WHERE userName = ? AND passWord = ?");
+            stmt1 = conn.prepareStatement("SELECT user_id FROM mg_user WHERE userName = ? AND passWord = SHA2(?, 512)");
             stmt1.setString(1, user_name);
             stmt1.setString(2, old_password);
 
@@ -1292,7 +1293,7 @@ public class MySQLDatabase implements IDatabase {
             }
 
             stmt1 = conn.prepareStatement("UPDATE mg_user" +
-                    " SET passWord = ? " +
+                    " SET passWord = SHA2(?, 512) " +
                     " WHERE userName = ? ");
 
             stmt1.setString(1, new_password);
@@ -1301,7 +1302,7 @@ public class MySQLDatabase implements IDatabase {
             stmt1.executeUpdate();
 
             // Check to see if password updated
-            stmt2 = conn.prepareStatement("SELECT user_ID FROM mg_user WHERE passWord = ? AND userName = ?");
+            stmt2 = conn.prepareStatement("SELECT user_ID FROM mg_user WHERE passWord = SHA2(?, 512) AND userName = ?");
             stmt2.setString(1, new_password);
             stmt2.setString(2, user_name);
             rs = stmt2.executeQuery();
