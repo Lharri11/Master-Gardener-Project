@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -45,7 +46,12 @@ public class EditUserServlet extends HttpServlet {
 			newusername = req.getParameter("editName");
 			bio = req.getParameter("editBio");
 
-			EditUserController controller = new EditUserController();
+			EditUserController controller = null;
+			try {
+				controller = new EditUserController();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			//controller.updateUserbyUsername(username , newusername, bio, inputStream);
 			controller.updateUserCredentialsbyUsername(username, newusername, bio);
 			req.getSession().setAttribute("username", newusername);

@@ -16,7 +16,7 @@ public class DataController {
 
 	private IDatabase database = null;
 
-	public DataController() {
+	public DataController() throws SQLException {
 
 		// creating DB instance here
 		DatabaseProvider.setInstance(new MySQLDatabase());

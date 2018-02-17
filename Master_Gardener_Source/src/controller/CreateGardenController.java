@@ -5,11 +5,13 @@ import database.core.MySQLDatabase;
 import database.core.IDatabase;
 import model.Garden;
 
+import java.sql.SQLException;
+
 public class CreateGardenController {
 	
 	private IDatabase database = null;
 
-	public CreateGardenController(){
+	public CreateGardenController() throws SQLException {
 		DatabaseProvider.setInstance(new MySQLDatabase());
 		database = DatabaseProvider.getInstance();
 	}

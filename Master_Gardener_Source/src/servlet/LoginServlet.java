@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +37,12 @@ public class LoginServlet extends HttpServlet {
 		String buttonPress = null;
 		boolean loggedin = false;
 		String errorMessage = null;
-		LoginController login = new LoginController();
+		LoginController login = null;
+		try {
+			login = new LoginController();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 		buttonPress = req.getParameter("loginSubmit");
 

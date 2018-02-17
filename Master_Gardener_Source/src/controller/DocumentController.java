@@ -13,7 +13,7 @@ public class DocumentController {
 
 	private IDatabase database = null;
 
-	public DocumentController() {
+	public DocumentController() throws SQLException {
 
 		// creating DB instance here
 		DatabaseProvider.setInstance(new MySQLDatabase());

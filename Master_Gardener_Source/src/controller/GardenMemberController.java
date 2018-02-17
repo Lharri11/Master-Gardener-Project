@@ -3,11 +3,13 @@ package controller;
 import database.core.*;
 import model.GardenMember;
 
+import java.sql.SQLException;
+
 public class GardenMemberController {
 	
 	private IDatabase database = null;
 
-	public GardenMemberController(){
+	public GardenMemberController() throws SQLException {
 		DatabaseProvider.setInstance(new MySQLDatabase());
 		database = DatabaseProvider.getInstance();
 	}
