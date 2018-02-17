@@ -42,7 +42,6 @@ public class MySQLDatabaseTest {
     public void setUp() throws Exception {
         DatabaseProvider.setInstance(new MySQLDatabase());
         db = DatabaseProvider.getInstance();
-        // TODO: Consider dropping/creating tables here (not using the DB methods, but the datagrip method)
     }
 
 
@@ -1198,12 +1197,12 @@ public class MySQLDatabaseTest {
 
         try
         {
-            stmt = conn.prepareStatement("INSERT INTO mg_user (user_id, userName, SHA2(passWord, 512), login_id, email, name, description)" +
-                    " VALUES (-1, 'Orange', 'creamyPie', -1, 'cykablyat@cheekibreeki.ivdamke', 'Ivan', 'i am of the russian man')");
+            stmt = conn.prepareStatement("INSERT INTO mg_user (user_id, userName, passWord, login_id, email, name, description)" +
+                    " VALUES (-42, 'Orange', SHA2('creamyPie', 512), -1, 'cykablyat@cheekibreeki.ivdamke', 'Ivan', 'i am of the russian man')");
 
             stmt.executeUpdate();
 
-            stmt = conn.prepareStatement("SELECT userName FROM mg_user WHERE userName = ? AND passWord = SHA2(?, 512), AND email = ? ");
+            stmt = conn.prepareStatement("SELECT userName FROM mg_user WHERE userName = ? AND passWord = SHA2(?, 512) AND email = ? ");
             stmt.setString(1, "Orange");
             stmt.setString(2, "creamyPie");
             stmt.setString(3, "cykablyat@cheekibreeki.ivdamke");
@@ -1218,7 +1217,7 @@ public class MySQLDatabaseTest {
                 stmt.setString(1, "Orange");
                 stmt.setString(2, "mother_russiA");
                 stmt.setString(3, "cykablyat@cheekibreeki.ivdamke");
-                stmt.setInt(4, -1);
+                stmt.setInt(4, -42);
 
                 stmt.executeUpdate();
             }
@@ -1229,7 +1228,7 @@ public class MySQLDatabaseTest {
                 stmt.setString(1, "Orange");
                 stmt.setString(2, "creamyPie");
                 stmt.setString(3, "cykablyat@cheekibreeki.ivdamke");
-                stmt.setInt(4, -1);
+                stmt.setInt(4, -42);
 
                 stmt.executeUpdate();
             }
