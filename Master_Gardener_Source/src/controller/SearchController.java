@@ -9,7 +9,7 @@ public class SearchController {
 
 	private IDatabase database = null;
 
-	public SearchController() {
+	public SearchController() throws SQLException {
 
 		// creating DB instance here
 		DatabaseProvider.setInstance(new MySQLDatabase());

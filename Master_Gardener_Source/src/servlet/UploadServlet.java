@@ -41,7 +41,12 @@ public class UploadServlet extends HttpServlet {
         String username = (String) req.getSession().getAttribute("username");
         String gardenname = req.getParameter("gardenname");
         int garden_id = 0;
-        UserController controller = new UserController();
+        UserController controller = null;
+        try {
+            controller = new UserController();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         if(gardenname != null){
             System.out.println("Garden Name != NULL");

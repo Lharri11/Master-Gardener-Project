@@ -22,8 +22,12 @@ public class SearchServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 		throws ServletException, IOException {
-				
-		controller = new SearchController();
+
+		try {
+			controller = new SearchController();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		String keyword;
 		keyword = (String) req.getSession().getAttribute("keyword");
 		List<Garden> gardens = null;
@@ -49,7 +53,12 @@ public class SearchServlet extends HttpServlet {
 		String buttonPress = req.getParameter("Submit");
 		
 		if(buttonPress != null){
-			SearchController controller = new SearchController();
+			SearchController controller = null;
+			try {
+				controller = new SearchController();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			gardenID = controller.getGardenIDbyGardenname(buttonPress);
 			req.getSession().setAttribute("GardenID", gardenID);
 			resp.sendRedirect(req.getContextPath()+"/garden");

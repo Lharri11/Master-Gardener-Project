@@ -19,7 +19,7 @@ public class UploadController {
 
 	private IDatabase database = null;
 
-	public UploadController() {
+	public UploadController() throws SQLException {
 
 		// creating DB instance here
 		DatabaseProvider.setInstance(new MySQLDatabase());

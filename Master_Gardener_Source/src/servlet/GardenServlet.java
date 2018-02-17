@@ -37,7 +37,11 @@ public class GardenServlet extends HttpServlet {
 		Garden garden = null;
 		List<Garden> user_gardens = null;
 		List<Pair<User, Post>> posts = null;
-		controller = new GardenController();
+		try {
+			controller = new GardenController();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		int thisgarden = 0;
 		thisgarden = (Integer)req.getSession().getAttribute("GardenID");
 		try {
@@ -54,7 +58,11 @@ public class GardenServlet extends HttpServlet {
 		}
 		
 		User user = new User();
-		controller = new GardenController();
+		try {
+			controller = new GardenController();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		user = controller.returnUserForUsername(username);
 		
 		req.setAttribute("garden", garden);
@@ -74,7 +82,12 @@ public class GardenServlet extends HttpServlet {
 		button = req.getParameter("postSubmit");
 		
 		if(button != null){
-			GardenController controller = new GardenController();
+			GardenController controller = null;
+			try {
+				controller = new GardenController();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			post = req.getParameter("newPost");
 			String user = (String)req.getSession().getAttribute("username");
 			int thisgarden = (int) req.getSession().getAttribute("GardenID");
@@ -101,19 +114,34 @@ public class GardenServlet extends HttpServlet {
 			String user = (String)req.getSession().getAttribute("username");
 		
 			User account = new User();
-			UserController controller = new UserController();
+			UserController controller = null;
+			try {
+				controller = new UserController();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			account = controller.returnUserForUsername(user);
 		
 			GardenMember gardenMember = new GardenMember(thisgarden, account.getUserId());
-			GardenMemberController controller2 = new GardenMemberController();
-		
+			GardenMemberController controller2 = null;
+			try {
+				controller2 = new GardenMemberController();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
 			if(controller2.addGardenMember(gardenMember)){
 				resp.sendRedirect(req.getContextPath()+"/user");
 			}
 		}
 		
 		int gardenID = 0;
-		UserController controller3 = new UserController();
+		UserController controller3 = null;
+		try {
+			controller3 = new UserController();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		String buttonPress = req.getParameter("Submit");
 		
 		if(buttonPress != null){

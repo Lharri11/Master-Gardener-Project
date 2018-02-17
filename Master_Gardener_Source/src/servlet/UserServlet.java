@@ -33,7 +33,11 @@ public class UserServlet extends HttpServlet {
 		}
 
 		List<Garden> gardens = null;
-		controller = new UserController();
+		try {
+			controller = new UserController();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		try {
 			gardens = controller.getUsersGardens(username);
 		} catch (SQLException e) {
@@ -42,7 +46,11 @@ public class UserServlet extends HttpServlet {
 		req.setAttribute("gardens", gardens);
 
 		User user = new User();
-		controller = new UserController();
+		try {
+			controller = new UserController();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		user = controller.returnUserForUsername(username);
 		req.setAttribute("user", user);
 
@@ -57,7 +65,11 @@ public class UserServlet extends HttpServlet {
 
 		String username = req.getSession().getAttribute("username").toString();
 		User user = new User();
-		controller = new UserController();
+		try {
+			controller = new UserController();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		user = controller.returnUserForUsername(username);
 
 		String buttonPress = req.getParameter("Submit");

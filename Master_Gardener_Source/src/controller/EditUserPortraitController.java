@@ -18,7 +18,7 @@ public class EditUserPortraitController {
 
 	private IDatabase database = null;
 
-	public EditUserPortraitController() {
+	public EditUserPortraitController() throws SQLException {
 
 		// creating DB instance here
 		DatabaseProvider.setInstance(new MySQLDatabase());

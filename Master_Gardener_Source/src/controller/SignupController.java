@@ -5,11 +5,13 @@ import database.core.MySQLDatabase;
 import database.core.IDatabase;
 import model.User;
 
+import java.sql.SQLException;
+
 public class SignupController {
 	
 	private IDatabase database = null;
 
-	public SignupController(){
+	public SignupController() throws SQLException {
 		DatabaseProvider.setInstance(new MySQLDatabase());
 		database = DatabaseProvider.getInstance();
 	}

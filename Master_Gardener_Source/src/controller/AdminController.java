@@ -12,7 +12,7 @@ public class AdminController {
 
     private IDatabase database = null;
 
-    public AdminController() {
+    public AdminController() throws SQLException {
         DatabaseProvider.setInstance(new MySQLDatabase());
         database = DatabaseProvider.getInstance();
     }
