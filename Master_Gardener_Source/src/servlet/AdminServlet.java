@@ -29,17 +29,8 @@ public class AdminServlet extends HttpServlet {
         }
 
         List<User> activeAccounts = new ArrayList<>();
-        AdminController controller = null;
-        try {
-            controller = new AdminController();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        try {
-            controller = new AdminController();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        AdminController controller = new AdminController();
+        controller = new AdminController();
         try {
             activeAccounts = controller.getAllUsernames();
         } catch (SQLException e) {
@@ -118,12 +109,7 @@ public class AdminServlet extends HttpServlet {
                 req.getRequestDispatcher("/_view/admin.jsp").forward(req, resp);
             } else {
                 User user = new User(username, pass1, -1, name, email,"[Description]", new byte[1024]);
-                AdminController controller = null;
-                try {
-                    controller = new AdminController();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+                AdminController controller = new AdminController();
 
                 if (controller.createUser(user)) {
                     req.setAttribute("account", user);
@@ -137,12 +123,7 @@ public class AdminServlet extends HttpServlet {
             }
         }
         if(buttonPress2 != null){
-            AdminController controller = null;
-            try {
-                controller = new AdminController();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            AdminController controller = new AdminController();
             username = req.getParameter("username2");
             User user = controller.findUserByUsername(username);
 

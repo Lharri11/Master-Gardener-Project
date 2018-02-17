@@ -12,7 +12,7 @@ public class GardenController {
 
 	private IDatabase database = null;
 
-	public GardenController() throws SQLException {
+	public GardenController() {
 		
 		DatabaseProvider.setInstance(new MySQLDatabase());
 		database = DatabaseProvider.getInstance();		

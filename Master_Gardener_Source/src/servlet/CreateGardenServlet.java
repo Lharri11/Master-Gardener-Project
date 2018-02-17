@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -60,12 +59,7 @@ public class CreateGardenServlet extends HttpServlet {
 		}
 		else{
 			Garden garden = new Garden(name, description);
-			CreateGardenController controller = null;
-			try {
-				controller = new CreateGardenController();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			CreateGardenController controller = new CreateGardenController();
 
 			if(controller.createGarden(garden)){
 				req.setAttribute("garden", garden);

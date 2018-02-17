@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -92,12 +91,7 @@ public class SignupServlet extends HttpServlet {
 		}
 		else{
 			User account = new User(user, pass1,-1,name, email,bio, new byte[1024]);
-			SignupController controller = null;
-			try {
-				controller = new SignupController();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			SignupController controller = new SignupController();
 
 			if(controller.createUser(account)){
 				req.setAttribute("account", account);

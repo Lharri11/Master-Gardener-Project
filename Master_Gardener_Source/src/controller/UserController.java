@@ -18,7 +18,7 @@ public class UserController {
 
 	private IDatabase database = null;
 
-	public UserController() throws SQLException {
+	public UserController() {
 		// creating DB instance here
 		DatabaseProvider.setInstance(new MySQLDatabase());
 		database = DatabaseProvider.getInstance();		

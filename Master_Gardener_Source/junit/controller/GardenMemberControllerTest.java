@@ -23,8 +23,6 @@ public class GardenMemberControllerTest {
 	private UserController someController1 = new UserController();
 	private GardenMemberController ThisGardenController = new GardenMemberController();
 
-	public GardenMemberControllerTest() throws SQLException {
-	}
 
 
 	@Before

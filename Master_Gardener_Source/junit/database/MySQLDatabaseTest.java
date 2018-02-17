@@ -27,8 +27,6 @@ public class MySQLDatabaseTest {
     private static final String MYSQL_PASSWORD = "gardener";
 
     private IDatabase db = null;
-    private Connection conn = null;
-    private DataSource ds = null;
 
     public static DataSource getMySQLDataSource() {
         MysqlDataSource mysqlDS;
@@ -45,8 +43,6 @@ public class MySQLDatabaseTest {
         DatabaseProvider.setInstance(new MySQLDatabase());
         db = DatabaseProvider.getInstance();
         // TODO: Consider dropping/creating tables here (not using the DB methods, but the datagrip method)
-        DataSource ds = getMySQLDataSource();
-        Connection conn = ds.getConnection();
     }
 
 
@@ -68,8 +64,8 @@ public class MySQLDatabaseTest {
 
     @Test
     public void updateXTupleByYTableTest() throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -103,8 +99,8 @@ public class MySQLDatabaseTest {
 
     @Test
     public void deleteXTupleByYTableTest() throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -135,8 +131,8 @@ public class MySQLDatabaseTest {
 
     @Test
     public void getGardenIDByGardenNameTest() throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -167,8 +163,8 @@ public class MySQLDatabaseTest {
 
     @Test
     public void getCountyIDByCountyNameTest() throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -196,8 +192,8 @@ public class MySQLDatabaseTest {
 
     @Test
     public void getPlantIDByPlantNameTest() throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -225,8 +221,8 @@ public class MySQLDatabaseTest {
 
     @Test
     public void getStrainIDByStrainNameTest() throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -254,8 +250,8 @@ public class MySQLDatabaseTest {
 
     @Test
     public void getPollinatorIDByPollinatorNameTest() throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -283,8 +279,8 @@ public class MySQLDatabaseTest {
 
     @Test
     public void getCountyByCountyIDTest() throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -314,8 +310,8 @@ public class MySQLDatabaseTest {
     @Test
     public void getCountyByStateNameTest() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -345,8 +341,8 @@ public class MySQLDatabaseTest {
     @Test
     public void getGardenAddressByGardenID() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -376,8 +372,8 @@ public class MySQLDatabaseTest {
     @Test
     public void deleteUserFromDatabaseTest() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -411,8 +407,8 @@ public class MySQLDatabaseTest {
     @Test
     public void deletePollinatorFromDatabaseTest () throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -447,8 +443,8 @@ public class MySQLDatabaseTest {
     @Test
     public void deleteStrainFromDatabaseTest() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -484,8 +480,8 @@ public class MySQLDatabaseTest {
     @Test
     public void deletePlantFromDatabaseTest() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -521,8 +517,8 @@ public class MySQLDatabaseTest {
     @Test
     public void deleteGardenFromDatabaseTest() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -559,8 +555,8 @@ public class MySQLDatabaseTest {
     @Test
     public void insertPollinatorIntoTable() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -604,8 +600,8 @@ public class MySQLDatabaseTest {
     @Test
     public void insertPlantStrainIntoTable() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -649,8 +645,8 @@ public class MySQLDatabaseTest {
     @Test
     public void insertPlantIntoTable() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -694,8 +690,8 @@ public class MySQLDatabaseTest {
     @Test
     public void updatePollinatorName() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -739,8 +735,8 @@ public class MySQLDatabaseTest {
     @Test
     public void updatePollinatorTypeByName() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -784,8 +780,8 @@ public class MySQLDatabaseTest {
     @Test
     public void updatePlantName() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -829,8 +825,8 @@ public class MySQLDatabaseTest {
     @Test
     public void updateGardenName() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -874,8 +870,8 @@ public class MySQLDatabaseTest {
     @Test
     public void updateGardenDescriptionByName() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -919,8 +915,8 @@ public class MySQLDatabaseTest {
     @Test
     public void updateStrainName() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -964,8 +960,8 @@ public class MySQLDatabaseTest {
     @Test
     public void updatePlotHeight() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -1010,8 +1006,8 @@ public class MySQLDatabaseTest {
     @Test
     public void updatePlotArea() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -1056,8 +1052,8 @@ public class MySQLDatabaseTest {
     @Test
     public void updatePlotPercentCoverage( ) throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -1102,8 +1098,8 @@ public class MySQLDatabaseTest {
     @Test
     public void updatePlotBloomsOpen() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -1148,8 +1144,8 @@ public class MySQLDatabaseTest {
     @Test
     public void updatePlotVigorStatus() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
@@ -1194,22 +1190,22 @@ public class MySQLDatabaseTest {
     @Test
     public void updatePasswordTest() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;
 
         try
         {
-            stmt = conn.prepareStatement("INSERT INTO mg_user (user_id, userName, passWord, login_id, email, name, description)" +
-                    " VALUES (-1, 'Orange', SHA2('creamyPie', 512), -1, 'cykablyat@cheekibreeki.ivdamke', 'Ivan', 'i am of the russian man')");
+            stmt = conn.prepareStatement("INSERT INTO mg_user (user_id, userName, SHA2(passWord, 512), login_id, email, name, description)" +
+                    " VALUES (-1, 'Orange', 'creamyPie', -1, 'cykablyat@cheekibreeki.ivdamke', 'Ivan', 'i am of the russian man')");
 
             stmt.executeUpdate();
 
-            stmt = conn.prepareStatement("SELECT userName FROM mg_user WHERE userName = ? AND passWord = ? AND email = ? ");
+            stmt = conn.prepareStatement("SELECT userName FROM mg_user WHERE userName = ? AND passWord = SHA2(?, 512), AND email = ? ");
             stmt.setString(1, "Orange");
-            stmt.setString(2, "SHA2('creamyPie', 512)");
+            stmt.setString(2, "creamyPie");
             stmt.setString(3, "cykablyat@cheekibreeki.ivdamke");
 
             set = stmt.executeQuery();
@@ -1217,10 +1213,10 @@ public class MySQLDatabaseTest {
             if(set.next())
             {
                 success = db.updatePassword("Orange", "creamyPie", "mother_russiA");
-                stmt = conn.prepareStatement("DELETE FROM mg_user WHERE userName = ? AND passWord = ? AND email = ? AND user_ID = ?");
+                stmt = conn.prepareStatement("DELETE FROM mg_user WHERE userName = ? AND passWord = SHA2(?, 512) AND email = ? AND user_ID = ?");
 
                 stmt.setString(1, "Orange");
-                stmt.setString(2, "SHA2('mother_russiA', 512)");
+                stmt.setString(2, "mother_russiA");
                 stmt.setString(3, "cykablyat@cheekibreeki.ivdamke");
                 stmt.setInt(4, -1);
 
@@ -1231,7 +1227,7 @@ public class MySQLDatabaseTest {
                 stmt = conn.prepareStatement("DELETE FROM mg_user WHERE userName = ? AND passWord = SHA2(?, 512) AND email = ? AND user_ID = ?");
 
                 stmt.setString(1, "Orange");
-                stmt.setString(2, "SHA2('creamyPie', 512)");
+                stmt.setString(2, "creamyPie");
                 stmt.setString(3, "cykablyat@cheekibreeki.ivdamke");
                 stmt.setInt(4, -1);
 
@@ -1250,8 +1246,8 @@ public class MySQLDatabaseTest {
     @Test
     public void getUnconfirmedDataformsByCountyTest() throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean success = false;

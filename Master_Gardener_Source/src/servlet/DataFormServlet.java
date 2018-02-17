@@ -692,12 +692,7 @@ public class DataFormServlet extends HttpServlet {
                 PollinatorDataForm pdf = new PollinatorDataForm(1, 1, 1, 1, 1, temperature,
                         dateCreated, dateGenerated, startTime, endTime, comments, cloudCover,
                         wind, plotData, new Plant(1, "yes"), strains, polls, pvcs);
-                DataFormController controller = null;
-                try {
-                    controller = new DataFormController();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+                DataFormController controller = new DataFormController();
                 try {
 
                     System.out.println("try");
