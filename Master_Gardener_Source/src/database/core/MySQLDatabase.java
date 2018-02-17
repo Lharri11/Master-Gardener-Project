@@ -23,13 +23,6 @@ public class MySQLDatabase implements IDatabase {
     private static final String MYSQL_URL = "jdbc:mysql://localhost:3306/mastergardener";
     private static final String MYSQL_USERNAME = "gardener";
     private static final String MYSQL_PASSWORD = "gardener";
-    private DataSource ds = getMySQLDataSource();
-    private Connection conn = ds.getConnection();
-
-
-    public MySQLDatabase() throws SQLException {
-        // Without this constructor, cannot instantiate the ds and conn variables (above this)
-    }
 
     public static DataSource getMySQLDataSource() {
         MysqlDataSource mysqlDS;
@@ -81,8 +74,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public ResultSet adHocQuery(final String[] select_array, final String[] from_array, final String[] where_array) throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         PreparedStatement stmt = null;
         ResultSet set = null;
@@ -193,8 +186,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public List<String> getAllPollinatorsPlantsGardenVisitCount() throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         try {
             return doQueryLoop(new Query<List<String>>() {
@@ -246,8 +239,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public List<String> getAllPollinators() throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
 
         try {
@@ -290,8 +283,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public List<String> getAllPlants() throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         try {
             return doQueryLoop(new Query<List<String>>() {
@@ -333,8 +326,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public List<String> getAllStrains() throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         try {
             return doQueryLoop(new Query<List<String>>() {
                 @Override
@@ -399,8 +392,8 @@ public class MySQLDatabase implements IDatabase {
         ResultSet set = null;
         ResultSet set2 = null;
         ResultSet set3 = null;
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         try
         {
@@ -464,8 +457,8 @@ public class MySQLDatabase implements IDatabase {
         ResultSet set = null;
         ResultSet set2 = null;
         ResultSet set3 = null;
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         try
         {
@@ -525,8 +518,8 @@ public class MySQLDatabase implements IDatabase {
         PreparedStatement stmt2 = null;
         ResultSet set = null;
         ResultSet set2 = null;
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         try
         {
@@ -572,7 +565,7 @@ public class MySQLDatabase implements IDatabase {
         return executeTransaction(new Transaction<String>() {
             @Override
             public String execute(Connection conn) throws SQLException {
-
+                DataSource ds = getMySQLDataSource();
                 conn = ds.getConnection();
 
                 PreparedStatement stmt1 = null;
@@ -643,7 +636,7 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public boolean deleteUserByUsername(Connection conn, User user) throws SQLException {
-
+        DataSource ds = getMySQLDataSource();
         conn = ds.getConnection();
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
@@ -706,8 +699,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     private boolean updateUserByUsername(String username, User user) throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         boolean success = false;
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
@@ -743,7 +736,7 @@ public class MySQLDatabase implements IDatabase {
     }
 
     private boolean insertUserPortraitByUsername(Connection conn, String username, User user, String filePath) throws SQLException {
-
+        DataSource ds = getMySQLDataSource();
         conn = ds.getConnection();
         boolean success = false;
         PreparedStatement stmt = null;
@@ -767,7 +760,7 @@ public class MySQLDatabase implements IDatabase {
     }
 
     private boolean updateUserPortraitByUsername(Connection conn, String username, User user, String filepath) throws SQLException {
-
+        DataSource ds = getMySQLDataSource();
         conn = ds.getConnection();
         boolean success = false;
         PreparedStatement stmt = null;
@@ -809,7 +802,7 @@ public class MySQLDatabase implements IDatabase {
     }
 
     private User getUserFromUsername(Connection conn, String username) throws SQLException {
-
+        DataSource ds = getMySQLDataSource();
         conn = ds.getConnection();
 
         User user;
@@ -835,7 +828,7 @@ public class MySQLDatabase implements IDatabase {
     }
 
     private String getPasswordByUsername(Connection conn, String username) throws SQLException {
-
+        DataSource ds = getMySQLDataSource();
         String password = null;
 
         PreparedStatement stmt = null;
@@ -857,8 +850,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public int getGardenIDByGardenName(final String garden_name) throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         int id = -1;
 
         PreparedStatement stmt = null;
@@ -880,8 +873,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public int getCountyIDByCountyName(final String county_name) throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         int id = -1;
 
         PreparedStatement stmt = null;
@@ -903,8 +896,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public int getPlantIDByPlantName(final String plant_name) throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         int id = -1;
 
         PreparedStatement stmt = null;
@@ -927,8 +920,8 @@ public class MySQLDatabase implements IDatabase {
 
     public int getStrainIDByStrainName(final String strain_name) throws SQLException {
         {
-
-
+            DataSource ds = getMySQLDataSource();
+            Connection conn = ds.getConnection();
             int id = -1;
 
             PreparedStatement stmt = null;
@@ -952,8 +945,8 @@ public class MySQLDatabase implements IDatabase {
 
     public int getPollinatorIDByPollinatorName(final String poll_name) throws SQLException {
         {
-
-
+            DataSource ds = getMySQLDataSource();
+            Connection conn = ds.getConnection();
             int id = -1;
 
             PreparedStatement stmt = null;
@@ -978,8 +971,8 @@ public class MySQLDatabase implements IDatabase {
     public List<Integer> getUnconfirmedDataformIDsByCounty(String county) throws SQLException
     {
         {
-
-
+            DataSource ds = getMySQLDataSource();
+            Connection conn = ds.getConnection();
             int id = -1;
             ArrayList<Integer> df_list = new ArrayList<Integer>();
             PreparedStatement stmt1 = null;
@@ -1019,8 +1012,8 @@ public class MySQLDatabase implements IDatabase {
     /** Use this for frontend work, this is the primary method for getting unconfirmed dataforms **/
     public List<String> getUnconfirmedDataformsByCounty(String county) throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         // Get list of county IDs
         List<Integer> cids = getUnconfirmedDataformIDsByCounty(county);
@@ -1103,7 +1096,7 @@ public class MySQLDatabase implements IDatabase {
 
 
     private boolean insertUserIntoUsers(Connection conn, User user) throws SQLException {
-
+        DataSource ds = getMySQLDataSource();
         conn = ds.getConnection();
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
@@ -1140,7 +1133,7 @@ public class MySQLDatabase implements IDatabase {
     }
 
     private boolean insertGardenintoGardens(Connection conn, Garden garden) throws SQLException {
-
+        DataSource ds = getMySQLDataSource();
         conn = ds.getConnection();
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
@@ -1172,7 +1165,7 @@ public class MySQLDatabase implements IDatabase {
     }
 
     private boolean insertPostintoPosts(Connection conn, Post post) throws SQLException {
-
+        DataSource ds = getMySQLDataSource();
         conn = ds.getConnection();
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
@@ -1205,7 +1198,7 @@ public class MySQLDatabase implements IDatabase {
     }
 
     private boolean insertGardenMemberintoGardenMembers(Connection conn, GardenMember groupMember) throws SQLException {
-
+        DataSource ds = getMySQLDataSource();
         conn = ds.getConnection();
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
@@ -1243,8 +1236,8 @@ public class MySQLDatabase implements IDatabase {
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
         ResultSet set = null;
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         boolean completed = false;
         try {
             stmt = conn.prepareStatement("UPDATE mg_pollinator " +
@@ -1278,8 +1271,8 @@ public class MySQLDatabase implements IDatabase {
 
     public boolean updatePassword(String user_name, String old_password, String new_password) throws SQLException
     {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
         ResultSet rs = null;
@@ -1333,8 +1326,8 @@ public class MySQLDatabase implements IDatabase {
             PreparedStatement stmt = null;
             PreparedStatement stmt2 = null;
             ResultSet set = null;
-
-
+            DataSource ds = getMySQLDataSource();
+            Connection conn = ds.getConnection();
             boolean completed = false;
             try {
                 stmt = conn.prepareStatement("UPDATE mg_pollinator " +
@@ -1372,8 +1365,8 @@ public class MySQLDatabase implements IDatabase {
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
         ResultSet set = null;
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         boolean completed = false;
         try {
@@ -1410,8 +1403,8 @@ public class MySQLDatabase implements IDatabase {
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
         ResultSet set = null;
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         boolean completed = false;
         try {
@@ -1449,8 +1442,8 @@ public class MySQLDatabase implements IDatabase {
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
         ResultSet set = null;
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         boolean completed = false;
         try {
@@ -1487,8 +1480,8 @@ public class MySQLDatabase implements IDatabase {
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
         ResultSet set = null;
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         boolean completed = false;
         try {
@@ -1525,8 +1518,8 @@ public class MySQLDatabase implements IDatabase {
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
         ResultSet set = null;
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         boolean completed = false;
         try {
@@ -1564,8 +1557,8 @@ public class MySQLDatabase implements IDatabase {
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
         ResultSet set = null;
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         boolean completed = false;
         try {
@@ -1603,8 +1596,8 @@ public class MySQLDatabase implements IDatabase {
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
         ResultSet set = null;
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         boolean completed = false;
         try {
@@ -1642,8 +1635,8 @@ public class MySQLDatabase implements IDatabase {
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
         ResultSet set = null;
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         boolean completed = false;
         try {
@@ -1681,8 +1674,8 @@ public class MySQLDatabase implements IDatabase {
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
         ResultSet set = null;
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         boolean completed = false;
         try {
@@ -1720,8 +1713,8 @@ public class MySQLDatabase implements IDatabase {
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
         ResultSet set = null;
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         boolean completed = false;
         try {
@@ -1775,8 +1768,8 @@ public class MySQLDatabase implements IDatabase {
             PreparedStatement stmt = null;
             PreparedStatement stmt2 = null;
             ResultSet set = null;
-
-
+            DataSource ds = getMySQLDataSource();
+            Connection conn = ds.getConnection();
 
             String prepared_statement = "UPDATE " + table + " SET ";
             String where_append = "";
@@ -1833,8 +1826,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public boolean insertPollinatorIntoTable(final Pollinator poll) throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
         ResultSet set = null;
@@ -1868,8 +1861,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public boolean insertPlantStrainIntoTable(final PlantStrain ps) throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
         ResultSet set = null;
@@ -1905,8 +1898,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public boolean insertPlantIntoTable(final Plant plant) throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
         ResultSet set = null;
@@ -1941,7 +1934,7 @@ public class MySQLDatabase implements IDatabase {
     }
 
     private boolean verifyUserExistsByUsername(Connection conn, String username) throws SQLException {
-
+        DataSource ds = getMySQLDataSource();
         conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
@@ -1963,7 +1956,7 @@ public class MySQLDatabase implements IDatabase {
 
     public boolean verifyUserHasPortrait(String username) throws SQLException {
         Connection conn;
-
+        DataSource ds = getMySQLDataSource();
         conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
@@ -1984,8 +1977,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public boolean deletePollinatorFromDatabase(final Pollinator poll) throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
         PreparedStatement stmt3 = null;
@@ -2019,8 +2012,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public boolean deleteStrainFromDatabase(final PlantStrain strain) throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
         ResultSet set = null;
@@ -2052,8 +2045,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public boolean deletePlantFromDatabase(final Plant plant) throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
         PreparedStatement stmt3 = null;
@@ -2091,8 +2084,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public boolean deleteGardenFromDatabase(final Garden garden) throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
         PreparedStatement stmt3 = null;
@@ -2136,8 +2129,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public boolean deleteDataformFromDatabase(final PollinatorDataForm pdf) throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
         PreparedStatement stmt3 = null;
@@ -2177,8 +2170,8 @@ public class MySQLDatabase implements IDatabase {
     public boolean deleteXTuplefromYTable(final String table, final String[] where)throws SQLException
     {
         boolean success = false;
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
 
@@ -2241,8 +2234,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public Connection connect() throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         // Set autocommit to false to allow execution of
         // multiple queries/statements as part of the same transaction.
@@ -2325,7 +2318,7 @@ public class MySQLDatabase implements IDatabase {
         return executeTransaction(new Transaction<List<Garden>>() {
             @Override
             public List<Garden> execute(Connection conn) throws SQLException {
-
+                DataSource ds = getMySQLDataSource();
                 conn = ds.getConnection();
 
                 PreparedStatement stmt1 = null;
@@ -2406,7 +2399,7 @@ public class MySQLDatabase implements IDatabase {
         return executeTransaction(new Transaction<List<Garden>>() {
             @Override
             public List<Garden> execute(Connection conn) throws SQLException {
-
+                DataSource ds = getMySQLDataSource();
                 conn = ds.getConnection();
 
                 PreparedStatement stmt1 = null;
@@ -2448,7 +2441,7 @@ public class MySQLDatabase implements IDatabase {
     public List<Garden> getGardenbyGardenName(final String name) {
         return executeTransaction(new Transaction<List<Garden>>() {
             public List<Garden> execute(Connection conn) throws SQLException {
-
+                DataSource ds = getMySQLDataSource();
                 conn = ds.getConnection();
 
                 PreparedStatement stmt1 = null;
@@ -2491,7 +2484,7 @@ public class MySQLDatabase implements IDatabase {
     public Garden getGardenbyGardenID(final int ID) {
         return executeTransaction(new Transaction<Garden>() {
             public Garden execute(Connection conn) throws SQLException {
-
+                DataSource ds = getMySQLDataSource();
                 conn = ds.getConnection();
                 PreparedStatement stmt1 = null;
                 ResultSet set = null;
@@ -2527,7 +2520,7 @@ public class MySQLDatabase implements IDatabase {
     public List<Pair<User, Post>> getPostsbyGardenID(final int ID) {
         return executeTransaction(new Transaction<List<Pair<User, Post>>>() {
             public List<Pair<User, Post>> execute(Connection conn) throws SQLException {
-
+                DataSource ds = getMySQLDataSource();
                 conn = ds.getConnection();
 
                 PreparedStatement stmt1 = null;
@@ -2793,8 +2786,8 @@ public class MySQLDatabase implements IDatabase {
 
     public boolean verifyGardenExistsbyGardenName(String garden_name) throws SQLException {
         boolean registered = false;
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
 
@@ -2904,8 +2897,8 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public boolean insertGardenDocument(String root, int root_id, String filepath) throws SQLException {
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         boolean success = false;
         PreparedStatement stmt = null;
         ResultSet set = null;
@@ -2934,8 +2927,8 @@ public class MySQLDatabase implements IDatabase {
         // It would have been 5x easier to understand if I simply took the time to write helper methods,
         // yet here we are.
 
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         boolean result = false;
 
@@ -3230,8 +3223,8 @@ public class MySQLDatabase implements IDatabase {
     public List<User> getAllUsernames() throws SQLException {
 
         List<User> result_set = new ArrayList<>();
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
 
         try {
             return doQueryLoop(new Query<List<User>>() {
@@ -3278,8 +3271,8 @@ public class MySQLDatabase implements IDatabase {
     public List<String> getStrainByPlant(final Plant plant) throws SQLException {
         List<String> result_set = new ArrayList<String>();
         List<Integer> id_set = new ArrayList<Integer>();
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
         ResultSet set = null;
@@ -3323,8 +3316,8 @@ public class MySQLDatabase implements IDatabase {
     public String getPlantNameByGarden(final Garden garden) throws SQLException {
         String result_set = "!!!ERROR!!!";
         int plant_id = -1;
-
-
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
         ResultSet set = null;

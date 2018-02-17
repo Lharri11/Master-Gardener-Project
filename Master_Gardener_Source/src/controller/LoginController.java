@@ -6,13 +6,11 @@ import database.core.*;
 import model.User;
 import model.ObjectHandler;
 
-import java.sql.SQLException;
-
 public class LoginController {
 	
 	private IDatabase database = null;
 
-	public LoginController() throws SQLException {
+	public LoginController(){
 		DatabaseProvider.setInstance(new MySQLDatabase());
 		database = DatabaseProvider.getInstance();
 	}

@@ -10,7 +10,7 @@ public class DataFormController
 {
 	private IDatabase database = null;
 
-	public DataFormController() throws SQLException {
+	public DataFormController() {
 		DatabaseProvider.setInstance(new MySQLDatabase());
 		database = DatabaseProvider.getInstance();
 	}

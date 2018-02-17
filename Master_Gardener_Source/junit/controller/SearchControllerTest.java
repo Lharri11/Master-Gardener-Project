@@ -27,8 +27,6 @@ public class SearchControllerTest {
 	private UserController someController1 = new UserController();
 	private GardenMemberController ThisGardenController = new GardenMemberController();
 
-	public SearchControllerTest() throws SQLException {
-	}
 
 
 	@Before

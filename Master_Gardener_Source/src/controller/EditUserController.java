@@ -19,7 +19,7 @@ public class EditUserController {
 
 	private IDatabase database = null;
 
-	public EditUserController() throws SQLException {
+	public EditUserController() {
 
 		// creating DB instance here
 		DatabaseProvider.setInstance(new MySQLDatabase());

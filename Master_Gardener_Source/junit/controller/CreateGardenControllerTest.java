@@ -21,9 +21,6 @@ public class CreateGardenControllerTest {
 	private IDatabase db = null;
 	private CreateGardenController ThisGardenController = new CreateGardenController();
 
-	public CreateGardenControllerTest() throws SQLException {
-	}
-
 	@Before
 	public void setUp() throws Exception {
 		
