@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -57,7 +58,12 @@ public class LoginServlet extends HttpServlet {
 					errorMessage = "Invalid username or password.";
 				}
 				else {
-					int loginId = login.loginUser(username, password);
+					int loginId = 0;
+					try {
+						loginId = login.loginUser(username, password);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
 					if(loginId >= 0){
 						req.getSession().setAttribute("username", username);
 						req.getSession().setAttribute("login_id", loginId);

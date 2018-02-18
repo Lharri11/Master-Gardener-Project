@@ -6,6 +6,8 @@ import database.core.*;
 import model.User;
 import model.ObjectHandler;
 
+import java.sql.SQLException;
+
 public class LoginController {
 	
 	private IDatabase database = null;
@@ -45,12 +47,13 @@ public class LoginController {
 	}
 
 	// Return new login id
-	public int loginUser(String username, String password){
+	public int loginUser(String username, String password) throws SQLException {
 		int loginId = -1;
+		String hash_pass = this.database.hashString(password);
 		String pass = this.database.queryForPasswordByUsername(username);
 		//System.out.println(pass);
-		if(pass!= null && password!=null){
-			if(pass.equals(password)){
+		if(pass!= null && hash_pass !=null){
+			if(pass.equals(hash_pass)){
 				User user = this.database.queryForUserByUsername(username);
 				System.out.println("User:\n" + user.getUsername());
 				//System.out.println(User.getUsername() + User.getPassword());
