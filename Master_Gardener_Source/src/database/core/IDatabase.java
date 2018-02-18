@@ -52,6 +52,7 @@ public interface IDatabase {
 	public String queryForPasswordByUsername(String username);
 	public List<Integer> getUnconfirmedDataformIDsByCounty(String county) throws SQLException;
 	public List<String> getUnconfirmedDataformsByCounty(String county) throws SQLException;
+	public String hashString(String password) throws SQLException;
 
 	//========================================================================================================
 

@@ -38,4 +38,9 @@ public class EditUserController {
 
 		return success;
 	}
+
+	public boolean updatePassword(String username, String old_password, String new_password) throws SQLException
+	{
+		return database.updatePassword(username, old_password, new_password);
+	}
 }

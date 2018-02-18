@@ -827,6 +827,33 @@ public class MySQLDatabase implements IDatabase {
         return user;
     }
 
+    public String hashString(String str) throws SQLException
+    {
+        // This is a workaround method for making sure that two hashed strings are the same
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+
+        try
+        {
+            stmt = conn.prepareStatement("SELECT SHA2(?, 512))");
+            stmt.setString(1, str);
+            set = stmt.executeQuery();
+            if(set.next())
+            {
+                return set.getString(1);
+            }
+            return null;
+        }
+        finally
+        {
+            DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(set);
+        }
+
+    }
+
     private String getPasswordByUsername(Connection conn, String username) throws SQLException {
         DataSource ds = getMySQLDataSource();
         String password = null;
