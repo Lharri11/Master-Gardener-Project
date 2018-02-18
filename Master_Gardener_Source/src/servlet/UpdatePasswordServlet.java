@@ -17,6 +17,7 @@ public class UpdatePasswordServlet extends HttpServlet
     {
         String username = null, old_password = null, old_pass_match = null, new_password = null, new_pass_match = null;
         String button = null;
+        Boolean ignore = false;
 
         button = req.getParameter("EditSubmit");
         if(button != null)
@@ -30,21 +31,28 @@ public class UpdatePasswordServlet extends HttpServlet
             if(!old_password.equals(old_pass_match))
             {
                 System.out.println("Current passwords do not match.");
+                ignore = true;
             }
             if(!new_password.equals(new_pass_match))
             {
                 System.out.println("New passwords do not match.");
+                ignore = true;
             }
 
-            EditUserController ctrl = new EditUserController();
+            if(!ignore) {
+                EditUserController ctrl = new EditUserController();
 
-            try {
-                ctrl.updatePassword(username, old_password, new_password);
-            } catch (SQLException e) {
-                e.printStackTrace();
+                try {
+                    ctrl.updatePassword(username, old_password, new_password);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                resp.sendRedirect(req.getContextPath() + "/user");
             }
-
-            resp.sendRedirect(req.getContextPath() + "/user");
+            else
+            {
+                resp.sendRedirect(req.getContextPath() + "/updatePassword");
+            }
         }
     }
 }
