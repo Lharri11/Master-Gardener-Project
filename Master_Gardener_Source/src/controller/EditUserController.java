@@ -30,10 +30,11 @@ public class EditUserController {
 	public boolean updateUserCredentialsbyUsername(String username, String newUserName, String description) throws IOException {
 
 		User user = database.queryForUserByUsername(username);
-		user.setUsername(newUserName);
+		user.setName(newUserName);
 		user.setDescription(description);
 
 		//boolean worked = database.updateUser(username, user, inputStream);
+		System.out.println("The username is: " + user.getUsername());
 		boolean success = database.updateUserCredentials(username, user);
 
 		return success;
