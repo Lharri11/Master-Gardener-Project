@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <html><head>
 	<link rel="icon" type="image/png" href="images/nittany_lions_logo.jpg">
     <meta charset="utf-8">
@@ -92,6 +93,10 @@
     					<input type="text" id="newPass1" placeholder="New password:" name="newPass1"/>
     					<input type="text" id="newPass2" placeholder="Retype new password:" name="newPass2"/>
     				</div>
+					<!-- ATTEMPT AT ADDING CAPTCHA HERE -->
+					<!-- https://captcha.com/doc/java/howto/jsp-captcha.html#traditional-api -->
+					<!-- END FUTILE ATTEMPT -->
+
     			<button type="Submit" color="white" value="Update Password" id="saveChanges" name="EditSubmit">
 					<span>Save Changes</span>
 				</button>
