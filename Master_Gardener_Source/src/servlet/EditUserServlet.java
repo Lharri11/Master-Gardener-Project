@@ -50,7 +50,8 @@ public class EditUserServlet extends HttpServlet {
 			controller.updateUserCredentialsbyUsername(username, newusername, bio);
 			req.getSession().setAttribute("username", newusername);
 
-			resp.sendRedirect(req.getContextPath() + "/user");
+			//resp.sendRedirect(req.getContextPath() + "/user");
+			req.getRequestDispatcher("/_view/user.jsp").forward(req, resp);
 		}
 	}
 }
