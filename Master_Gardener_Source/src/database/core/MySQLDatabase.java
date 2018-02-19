@@ -21,8 +21,8 @@ public class MySQLDatabase implements IDatabase {
     public static final int MAX_ATTEMPTS = 10;
     private static final String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
     private static final String MYSQL_URL = "jdbc:mysql://localhost:3306/mastergardener";
-    private static final String MYSQL_USERNAME = "gardener";
-    private static final String MYSQL_PASSWORD = "gardener";
+    private static final String MYSQL_USERNAME = "root";
+    private static final String MYSQL_PASSWORD = "root";
 
     public static DataSource getMySQLDataSource() {
         MysqlDataSource mysqlDS;
@@ -707,14 +707,24 @@ public class MySQLDatabase implements IDatabase {
         ResultSet set = null;
 
         try {
+            String password = null;
+
+            stmt = conn.prepareStatement("SELECT passWord FROM mg_user WHERE userName = ? ");
+            stmt.setString(1, user.getUsername());
+            //stmt.setString(2, user.getDescription());
+            set = stmt.executeQuery();
+            if(set.next()) {
+                password = set.getString(1);
+            }
             stmt = conn.prepareStatement(
                     "UPDATE mg_user "
-                            + " SET name = ?, password = SHA2(?, 512) "
-                            + " WHERE username = ? ");
-            stmt.setString(1, user.getUsername());
-            stmt.setString(2, user.getPassword());
+                            + " SET name = ?, description = ? "
+                            + " WHERE username = ? AND password = ?");
+            stmt.setString(1, user.getName());
+            stmt.setString(2, user.getDescription());
+            stmt.setString(3, user.getUsername());
             //stmt.setBlob(3, inputStream);
-            stmt.setString(3, username);
+            stmt.setString(4, password);
             stmt.executeUpdate();
 
             //get user_id
@@ -811,7 +821,7 @@ public class MySQLDatabase implements IDatabase {
         try {
             stmt = conn.prepareStatement(
                     " SELECT * FROM mg_user "
-                            + " WHERE username=?");
+                            + " WHERE userName=?");
             stmt.setString(1, username);
 
             set = stmt.executeQuery();
@@ -819,6 +829,7 @@ public class MySQLDatabase implements IDatabase {
 
             user = new User(username, username, 0, username, username, username, null);
             loadUser(user, set, 1);
+
 
         } finally {
             DBUtil.closeQuietly(stmt);
