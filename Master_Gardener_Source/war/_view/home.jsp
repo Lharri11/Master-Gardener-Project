@@ -64,7 +64,7 @@
                             </li>
 
                             <li class="propClone">
-                                <form action="${pageContext.servletContext.contextPath}/signup" method="get">
+                                <form href="/login/register" method="get">
                                     <button class="homeLinks-nav" type="submit">Create Account</button>
                                 </form>
                             </li>
