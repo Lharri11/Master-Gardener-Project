@@ -26,4 +26,5 @@ sourceSets {
 dependencies {
 	compile files(eclipseClasspath(project))
 	launcherCompile files(eclipseClasspath(project))
+    compile 'junit:junit:4.12'
 }

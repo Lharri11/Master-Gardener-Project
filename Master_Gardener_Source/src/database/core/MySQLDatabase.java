@@ -837,7 +837,7 @@ public class MySQLDatabase implements IDatabase {
 
         try
         {
-            stmt = conn.prepareStatement("SELECT SHA2(?, 512))");
+            stmt = conn.prepareStatement("SELECT SHA2(?, 512)");
             stmt.setString(1, str);
             set = stmt.executeQuery();
             if(set.next())
@@ -1133,8 +1133,8 @@ public class MySQLDatabase implements IDatabase {
 
         try {
             stmt1 = conn.prepareStatement(
-                    "INSERT INTO mg_user (userName, SHA2(passWord, 512), login_id, name, email, description) "
-                            + " VALUES(?,?,?,?,?,?)");
+                    "INSERT INTO mg_user (userName, passWord, login_id, name, email, description) "
+                            + " VALUES(?, SHA2(?, 512),?,?,?,?)");
             stmt1.setString(1, user.getUsername());
             stmt1.setString(2, user.getPassword());
             stmt1.setInt(3, user.getLoginId());

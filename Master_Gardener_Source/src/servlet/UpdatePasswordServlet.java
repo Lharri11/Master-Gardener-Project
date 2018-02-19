@@ -13,6 +13,13 @@ public class UpdatePasswordServlet extends HttpServlet
     private static final long serialVersionUID = 1L;
 
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
+        req.getRequestDispatcher("/_view/updatePassword.jsp").forward(req, resp);
+    }
+
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         String username = null, old_password = null, old_pass_match = null, new_password = null, new_pass_match = null;
@@ -40,8 +47,8 @@ public class UpdatePasswordServlet extends HttpServlet
             }
 
             if(!ignore) {
-                EditUserController ctrl = new EditUserController();
 
+                EditUserController ctrl = new EditUserController();
                 try {
                     ctrl.updatePassword(username, old_password, new_password);
                 } catch (SQLException e) {
