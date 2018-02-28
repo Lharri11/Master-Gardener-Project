@@ -53,6 +53,7 @@ public interface IDatabase {
 	public List<Integer> getUnconfirmedDataformIDsByCounty(String county) throws SQLException;
 	public List<String> getUnconfirmedDataformsByCounty(String county) throws SQLException;
 	public String hashString(String password) throws SQLException;
+	public int getModeratorStatusByUsername(String username) throws SQLException;
 
 	//========================================================================================================
 
