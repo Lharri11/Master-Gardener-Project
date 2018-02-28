@@ -1198,11 +1198,11 @@ public class MySQLDatabaseTest {
         try
         {
             stmt = conn.prepareStatement("INSERT INTO mg_user (user_id, userName, passWord, login_id, email, name, description)" +
-                    " VALUES (-42, 'Orange', SHA2('creamyPie', 512), -1, 'cykablyat@cheekibreeki.ivdamke', 'Ivan', 'i am of the russian man')");
+                    " VALUES (-42, 'Orange', SHA2(SHA2(SHA2('creamyPie', 512), 512), 512), -1, 'cykablyat@cheekibreeki.ivdamke', 'Ivan', 'i am of the russian man')");
 
             stmt.executeUpdate();
 
-            stmt = conn.prepareStatement("SELECT userName FROM mg_user WHERE userName = ? AND passWord = SHA2(?, 512) AND email = ? ");
+            stmt = conn.prepareStatement("SELECT userName FROM mg_user WHERE userName = ? AND passWord = SHA2(SHA2(SHA2(?, 512), 512), 512) AND email = ? ");
             stmt.setString(1, "Orange");
             stmt.setString(2, "creamyPie");
             stmt.setString(3, "cykablyat@cheekibreeki.ivdamke");
@@ -1212,7 +1212,7 @@ public class MySQLDatabaseTest {
             if(set.next())
             {
                 success = db.updatePassword("Orange", "creamyPie", "mother_russiA");
-                stmt = conn.prepareStatement("DELETE FROM mg_user WHERE userName = ? AND passWord = SHA2(?, 512) AND email = ? AND user_ID = ?");
+                stmt = conn.prepareStatement("DELETE FROM mg_user WHERE userName = ? AND passWord = SHA2(SHA2(SHA2(?, 512), 512), 512) AND email = ? AND user_ID = ?");
 
                 stmt.setString(1, "Orange");
                 stmt.setString(2, "mother_russiA");
@@ -1223,7 +1223,7 @@ public class MySQLDatabaseTest {
             }
             else
             {
-                stmt = conn.prepareStatement("DELETE FROM mg_user WHERE userName = ? AND passWord = SHA2(?, 512) AND email = ? AND user_ID = ?");
+                stmt = conn.prepareStatement("DELETE FROM mg_user WHERE userName = ? AND passWord = SHA2(SHA2(SHA2(?, 512), 512), 512) AND email = ? AND user_ID = ?");
 
                 stmt.setString(1, "Orange");
                 stmt.setString(2, "creamyPie");

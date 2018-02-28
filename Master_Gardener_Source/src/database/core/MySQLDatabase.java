@@ -848,7 +848,7 @@ public class MySQLDatabase implements IDatabase {
 
         try
         {
-            stmt = conn.prepareStatement("SELECT SHA2(?, 512)");
+            stmt = conn.prepareStatement("SELECT SHA2(SHA2(SHA2(?, 512), 512), 512)");
             stmt.setString(1, str);
             set = stmt.executeQuery();
             if(set.next())
@@ -1145,7 +1145,7 @@ public class MySQLDatabase implements IDatabase {
         try {
             stmt1 = conn.prepareStatement(
                     "INSERT INTO mg_user (userName, passWord, login_id, name, email, description) "
-                            + " VALUES(?, SHA2(?, 512),?,?,?,?)");
+                            + " VALUES(?, SHA2(SHA2(SHA2(?, 512), 512), 512),?,?,?,?)");
             stmt1.setString(1, user.getUsername());
             stmt1.setString(2, user.getPassword());
             stmt1.setInt(3, user.getLoginId());
@@ -1318,7 +1318,7 @@ public class MySQLDatabase implements IDatabase {
 
         try
         {
-            stmt1 = conn.prepareStatement("SELECT user_id FROM mg_user WHERE userName = ? AND passWord = SHA2(?, 512)");
+            stmt1 = conn.prepareStatement("SELECT user_id FROM mg_user WHERE userName = ? AND passWord = SHA2(SHA2(SHA2(?, 512), 512), 512)");
             stmt1.setString(1, user_name);
             stmt1.setString(2, old_password);
 
@@ -1331,7 +1331,7 @@ public class MySQLDatabase implements IDatabase {
             }
 
             stmt1 = conn.prepareStatement("UPDATE mg_user" +
-                    " SET passWord = SHA2(?, 512) " +
+                    " SET passWord = SHA2(SHA2(SHA2(?, 512), 512), 512) " +
                     " WHERE userName = ? ");
 
             stmt1.setString(1, new_password);
@@ -1340,7 +1340,7 @@ public class MySQLDatabase implements IDatabase {
             stmt1.executeUpdate();
 
             // Check to see if password updated
-            stmt2 = conn.prepareStatement("SELECT user_ID FROM mg_user WHERE passWord = SHA2(?, 512) AND userName = ?");
+            stmt2 = conn.prepareStatement("SELECT user_ID FROM mg_user WHERE passWord = SHA2(SHA2(SHA2(?, 512), 512), 512) AND userName = ?");
             stmt2.setString(1, new_password);
             stmt2.setString(2, user_name);
             rs = stmt2.executeQuery();
