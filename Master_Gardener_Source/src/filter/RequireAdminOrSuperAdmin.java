@@ -40,8 +40,13 @@ public class RequireAdminOrSuperAdmin extends AbstractLoginFilter implements Fil
         HttpServletResponse resp = (HttpServletResponse) resp_;
 
         String username = req.getSession().getAttribute("username").toString();
+        // Get username works!
+        //System.out.println("Username = " + username);
         User user = new User();
         user.setUsername(username);
+        // Set username works!
+        //System.out.println("Username = " + user.getUsername());
+
         UserController ctrl = new UserController();
         try {
             user.setModeratorStatus(ctrl.getUserModeratorStatus(user.getUsername()));
@@ -58,8 +63,11 @@ public class RequireAdminOrSuperAdmin extends AbstractLoginFilter implements Fil
             throw new ServletException("User is not logged in.");
         }
 
+        // Setting moderator status works!
+        //System.out.println("Moderator status: "+user.getModeratorStatus());
+
         //Ascertain what level of user we're dealing with.
-        if(user.getModeratorStatus() != 1 || user.getModeratorStatus() != 2)
+        if(user.getModeratorStatus() != 1 && user.getModeratorStatus() != 2)
         {
             ServletUtil.sendForbidden(req, resp, "Admin or superadmin privileges are required");
             return;

@@ -1144,7 +1144,10 @@ public class MySQLDatabase implements IDatabase {
             stmt1 = conn.prepareStatement("SELECT moderator FROM mg_user WHERE userName = ?");
             stmt1.setString(1, username);
             set = stmt1.executeQuery();
-            mod_status = set.getInt(1);
+            if(set.next())
+            {
+                mod_status = set.getInt(1);
+            }
         }
         finally
         {
