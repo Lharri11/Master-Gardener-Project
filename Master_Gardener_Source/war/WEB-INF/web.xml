@@ -189,7 +189,7 @@
 
 <filter-mapping>
 	<filter-name>RequireAdminOrSuperAdmin</filter-name>
-	<utl-pattern>/admin</url-pattern>
+	<url-pattern>/admin</url-pattern>
 </filter-mapping>
 
 </web-app>
