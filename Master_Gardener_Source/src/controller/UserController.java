@@ -56,4 +56,9 @@ public class UserController {
 		System.out.println("Redirecting to Garden ID #"+gardenID);
 		return gardenID;
 	}
+
+	public int getUserModeratorStatus(String username) throws SQLException
+	{
+		return database.getModeratorStatusByUsername(username);
+	}
 }
