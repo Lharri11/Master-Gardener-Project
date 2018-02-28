@@ -1132,6 +1132,30 @@ public class MySQLDatabase implements IDatabase {
         return return_list;
     }
 
+    public int getModeratorStatusByUsername(String username) throws SQLException
+    {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt1 = null;
+        ResultSet set = null;
+        int mod_status = -1;
+        try
+        {
+            stmt1 = conn.prepareStatement("SELECT moderator FROM mg_user WHERE userName = ?");
+            stmt1.setString(1, username);
+            set = stmt1.executeQuery();
+            if(set.next())
+            {
+                mod_status = set.getInt(1);
+            }
+        }
+        finally
+        {
+            DBUtil.closeQuietly(stmt1);
+            DBUtil.closeQuietly(set);
+        }
+        return mod_status;
+    }
 
     private boolean insertUserIntoUsers(Connection conn, User user) throws SQLException {
         DataSource ds = getMySQLDataSource();
