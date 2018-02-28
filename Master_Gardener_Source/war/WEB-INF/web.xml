@@ -179,4 +179,10 @@
     <welcome-file>home.jsp</welcome-file>
   </welcome-file-list>
 
+  <!-- Filter and filter mappings -->
+  <!-- (Used Pygmy Marmoset as a baseline for this: https://github.com/daveho/PygmyMarmoset/blob/master/PygmyMarmosetWebapp/war/WEB-INF/web.xml)-->
+  
+  <filter>
+	<filter-name>
+  </filter>
 </web-app>
