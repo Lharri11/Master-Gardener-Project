@@ -2,34 +2,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="icon" type="image/png" href="images/nittany_lions_logo.jpg">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator"
-		  content="Script Eden ( http://scripteden.net/ ) Template Builder v2.0.0">
-	<title>Data Input</title>
-	<!--pageMeta-->
+    <link rel="icon" type="image/png" href="images/nittany_lions_logo.jpg">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator"
+          content="Script Eden ( http://scripteden.net/ ) Template Builder v2.0.0">
+    <title>Data Input</title>
+    <!--pageMeta-->
 
-	<!-- Loading Bootstrap -->
-	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Loading Bootstrap -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 
-	<!-- Loading Flat UI -->
-	<link href="css/flat-ui.css" rel="stylesheet">
-
-
-	<!--  <link href="css/style.css" rel="stylesheet"> -->
-
-	<link href="css/newstyle.css" rel="stylesheet">
-	<link href="css/datepicker.css" rel="stylesheet">
+    <!-- Loading Flat UI -->
+    <link href="css/flat-ui.css" rel="stylesheet">
 
 
-	<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-	<!--[if lt IE 9]>
-	<script src="js/html5shiv.js"></script>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+    <!--  <link href="css/style.css" rel="stylesheet"> -->
 
-	<!--headerIncludes-->
+    <link href="css/newstyle.css" rel="stylesheet">
+    <link href="css/datepicker.css" rel="stylesheet">
+    <link href="css/pracForm.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <!--headerIncludes-->
 
 
 </head>
@@ -43,72 +44,225 @@ be greyed out except the plot size.
 -->
 
 
-<div id="page" class="page">
+<nav role="navigation"
+     class="navbar navbar-blue navbar-embossed navbar-lg navbar-fixed-top">
 
-	<header class="item header margin-top-0 header10" id="header10">
+    <div class="container">
 
-		<div class="wrapper">
+        <div class="navbar-header">
+            <a href="home" class="navbar-brand brand">
+                <img src="images/nittany_lions_logo.jpg" id="logo">
+            </a>
+            <button data-target="#navbar-collapse-02" data-toggle="collapse"
+                    class="navbar-toggle" type="button">
+                <span class="sr-only">Toggle navigation</span>
+            </button>
+        </div>
+        <!--/.navbar-header -->
+        <form class="search-collapse"
+              action="${pageContext.servletContext.contextPath}/user" method="post">
+            <input type="text" id="searchText" name="keyword" placeholder="Search..." required>
+            <input type="image" src="images/search_black.jpg" value="Search" id="searchButton">
+        </form>
+        <br>
 
-			<nav role="navigation"
-				 class="navbar navbar-blue navbar-embossed navbar-lg navbar-fixed-top">
+        <div id="navbar-collapse-02" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
 
-				<div class="container">
+                <li class="propClone">
+                    <form action="${pageContext.servletContext.contextPath}/dataForm" method="get">
+                        <button class="homeLinks-nav" type="submit">Data Input</button>
+                    </form>
+                </li>
 
-					<div class="navbar-header">
-						<a href="home" class="navbar-brand brand">
-							<img src="images/nittany_lions_logo.jpg" id="logo">
-						</a>
-						<button data-target="#navbar-collapse-02" data-toggle="collapse"
-								class="navbar-toggle" type="button">
-							<span class="sr-only">Toggle navigation</span>
-						</button>
-					</div>
-					<!--/.navbar-header -->
-					<form class="search-collapse"
-						  action="${pageContext.servletContext.contextPath}/user" method="post">
-						<input type="text" id="searchText" name="keyword" placeholder="Search..." required>
-						<input type="image" src="images/search_black.jpg" value="Search" id="searchButton">
-					</form>
-					<br>
+                <li class="propClone">
+                    <form action="${pageContext.servletContext.contextPath}/user" method="get">
+                        <button class="homeLinks-nav" type="submit">My Account</button>
+                    </form>
+                </li>
 
-					<div id="navbar-collapse-02" class="collapse navbar-collapse">
-						<ul class="nav navbar-nav navbar-right">
+                <li class="propClone">
+                    <form action="${pageContext.servletContext.contextPath}/login" method="post">
+                        <button name="loginSubmit" value="Logout" class="homeLinks-nav" type="submit"
+                                alt="submit" title="Log Out">Logout
+                        </button>
+                    </form>
+                </li>
+            </ul>
 
-							<li class="propClone">
-								<form action="${pageContext.servletContext.contextPath}/dataForm" method="get">
-									<button class="homeLinks-nav" type="submit">Data Input</button>
-								</form>
-							</li>
+        </div>
+        <!--/.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<header></header>
+<div id="container">>
+    <form id="regForm" action="${pageContext.servletContext.contextPath}/dataForm" method="post"
+          onsubmit=getSubmitTime()>
 
-							<li class="propClone">
-								<form action="${pageContext.servletContext.contextPath}/user" method="get">
-									<button class="homeLinks-nav" type="submit">My Account</button>
-								</form>
-							</li>
+        <h1>DataForm</h1>
 
-							<li class="propClone">
-								<form action="${pageContext.servletContext.contextPath}/login" method="post">
-									<button name="loginSubmit" value="Logout" class="homeLinks-nav" type="submit"
-											alt="submit" title="Log Out">Logout
-									</button>
-								</form>
-							</li>
-						</ul>
+        <!-- One "tab" for each step in the form: -->
 
-					</div>
-					<!--/.navbar-collapse -->
-				</div>
-				<!-- /.container -->
-			</nav>
+        <%-- TAB 1: County and Gardens with Surveyor names --%>
+        <div class="tab">
+            <div class="row">
+                <div class="col-xs-6 col-sm-4">
+                    <p>County Name:</p>
+                </div>
+                <div class="col-xs-6 col-sm-4">
+                    <p>Garden Name:</p>
+                </div>
+            </div>
+            <div class="row">
+                <p>Surveyor Names</p>
+                <div class="col-xs-6 col-sm-4">
+                    <p><input placeholder="First name..." <%-- oninput="this.className = ''" --%> ></p>
+                </div>
+                <div class="col-xs-6 col-sm-4">
+                    <p><input placeholder="Last name..." <%-- oninput="this.className = ''" --%> ></p>
+                </div>
+                <div class="col-xs-1">
+                    <button type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-4">
+                    <p><input placeholder="First name..." <%-- oninput="this.className = ''" --%> ></p>
+                </div>
+                <div class="col-xs-6 col-sm-4">
+                    <p><input placeholder="Last name..." <%-- oninput="this.className = ''" --%> ></p>
+                </div>
+                <div class="col-xs-1">
+                    <button type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-4">
+                    <p><input placeholder="First name..." <%-- oninput="this.className = ''" --%> ></p>
+                </div>
+                <div class="col-xs-6 col-sm-4">
+                    <p><input placeholder="Last name..." <%-- oninput="this.className = ''" --%> ></p>
+                </div>
+                <div class="col-xs-1">
+                    <button type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-4">
+                    <p><input placeholder="First name..." <%-- oninput="this.className = ''" --%> ></p>
+                </div>
+                <div class="col-xs-6 col-sm-4">
+                    <p><input placeholder="Last name..." <%-- oninput="this.className = ''" --%> ></p>
+                </div>
+                <div class="col-xs-1">
+                    <button type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+
+        </div>
+
+        <%-- TAB 2: Weather and stuff --%>
+        <div class="tab">
+            <div class="row">
+                <div class="col-xs-6 col-sm-4">
+                    <input data-toggle="datepicker" type="text" class="text-control" name="dateCollected"
+                           placeholder="Collection Date"
+                           value="${dateCollected}" required autocomplete="off"></td>
+                    <div data-toggle="datepicker"></div>
+                </div>
+
+                <div class="col-xs-6 col-sm-4">
+                    <input type="time" class="text-control" name="startTime"
+                           placeholder="Start Time"
+                           value="${startTime}" required autocomplete="off">
+                </div>
+
+                <div class="col-xs-6 col-sm-4">
+                    <input type="time" class="text-control" name="endTime"
+                           placeholder="End Time"
+                           value="${endTime}" required autocomplete="off">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 col-sm-4">
+                    <input type="text" class="text-control"
+                           name="temperature"
+                           placeholder="Temperature"
+                           value="${temperature}" required autocomplete="off">
+                </div>
+
+                <div class="col-xs-6 col-sm-4">
+                    <select class="form-control"
+                            name="wind" required autocomplete="off">
+                        <option style="display: none" value="">Select Wind</option>
+                        <option value="S">Still</option>
+                        <option value="L">Light Breeze</option>
+                        <option value="W">Windy</option>
+                        <option value="G">Gusty</option>
+                    </select>
+                </div>
+
+                <div class="col-xs-6 col-sm-4">
+                    <input type="text" class="text-control" name="cloudCover"
+                           placeholder="Cloud Cover"
+                           value="${cloudCover}" required autocomplete="off">
+
+                    <select class="form-control"
+                            name="cloudCover" required autocomplete="off">
+                        <option style="display: none" value="">Select Cloud Cover</option>
+                        <option value="C">Clear</option>
+                        <option value="P">Partly Cloudy</option>
+                        <option value="M">Mostly Cloudy</option>
+                        <option value="O">Overcast</option>
+                    </select>
+                </div>
+            </div>
 
 
-			<!--pageContent-->
+
+
+
+        </div>
+
+        <%-- TAB 3: Plants Collection --%>
+        <div class="tab">Birthday:
+            <p><input placeholder="dd" oninput="this.className = ''"></p>
+            <p><input placeholder="mm" oninput="this.className = ''"></p>
+            <p><input placeholder="yyyy" oninput="this.className = ''"></p>
+        </div>
+
+        <div class="tab">Login Info:
+            <p><input placeholder="Username..." oninput="this.className = ''"></p>
+            <p><input placeholder="Password..." oninput="this.className = ''"></p>
+        </div>
+
+        <div style="overflow:auto;">
+            <div style="float:right;">
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+            </div>
+        </div>
+
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+        </div>
+
+    </form>
+</div>
+<!--pageContent-->
+<%--
 			<div>
 				<div id="intro"></div>
 				<div id="intro"></div>
 				<div id="container" class="container">
 
-					<%--
+					&lt;%&ndash;
 					<!-- This is for dummy reasons and test purposes -->
 					<div>
 						<table align="center">
@@ -116,7 +270,7 @@ be greyed out except the plot size.
 								<td>For testing purposes the users collected, garden, county, plant and strain will be entered by the user.</td>
 							</tr>
 						</table>
-					</div> --%>
+					</div> &ndash;%&gt;
 					<div id="editContent" class="editContent">
 						<h2>Data Collection Input</h2>
 					</div>
@@ -132,7 +286,7 @@ be greyed out except the plot size.
 
 								<table align="center">
 
-									<%--
+									&lt;%&ndash;
 									<tr>
 										<td>User Collected:</td>
 										<td><input type="text" class="text-control" name="genUsers"
@@ -162,7 +316,7 @@ be greyed out except the plot size.
 											<br/>
 
 										</td>
-									</tr> --%>
+									</tr> &ndash;%&gt;
 
 									<tr>
 										<td>Collection Date:</td>
@@ -554,9 +708,9 @@ be greyed out except the plot size.
 											class="glyphicon glyphicon-plus"
 											aria-hidden="true"></span></button>
 								</div>
-								<%--<textarea rows="4" cols="50" id="newPost" name="newPost"
+								&lt;%&ndash;<textarea rows="4" cols="50" id="newPost" name="newPost"
 										  placeholder="Any comments?"
-										  value="${postText}"></textarea>--%>
+										  value="${postText}"></textarea>&ndash;%&gt;
 
 								<div id="intro"></div>
 
@@ -581,38 +735,34 @@ be greyed out except the plot size.
 				<!--/pageContent-->
 
 			</div>
+--%>
 
 
-			<div class="sidebar2">
-				<button onclick="toggleSideBar()" id="toggle" style="right: 0px;color: white">Options
-				</button>
-				<div id="sideBar2" style="right: -300px;">
-					<form id="GroupGet" method="post">
-						<ul class="list-unstyled">
-							<li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/editUser"
-													   style="color: white">Account Settings</a></li>
-							<li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/admin"
-													   style="color: white">Administration</a></li>
-							<c:forEach items="${gardens}" var="garden">
-								<tr>
-									<td class="groupListItem"><input class="sidebarItem" type="Submit"
-																	 value="${garden.name}" id="Submit"
-																	 name="Submit"></td>
-								</tr>
-							</c:forEach>
-						</ul>
+<div class="sidebar2">
+    <button onclick="toggleSideBar()" id="toggle" style="right: 0px;color: white">Options
+    </button>
+    <div id="sideBar2" style="right: -300px;">
+        <form id="GroupGet" method="post">
+            <ul class="list-unstyled">
+                <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/editUser"
+                                           style="color: white">Account Settings</a></li>
+                <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/admin"
+                                           style="color: white">Administration</a></li>
+                <c:forEach items="${gardens}" var="garden">
+                    <tr>
+                        <td class="groupListItem"><input class="sidebarItem" type="Submit"
+                                                         value="${garden.name}" id="Submit"
+                                                         name="Submit"></td>
+                    </tr>
+                </c:forEach>
+            </ul>
 
-					</form>
-				</div>
-			</div>
-
-
-			<!--/pageContent-->
-		</div>
-		<!-- /.wrapper -->
-
-	</header>
+        </form>
+    </div>
 </div>
+
+<!--/pageContent-->
+
 <!-- /.item -->
 
 <!-- /#page -->
@@ -661,7 +811,6 @@ be greyed out except the plot size.
 </script>
 
 
-
 <script>
     function getSubmitTime() {
         var date = new Date();
@@ -672,6 +821,83 @@ be greyed out except the plot size.
         var year = date.getUTCFullYear();
         var time = month + day + year;
         document.getElementById('dataFormSubmit').value = time;
+    }
+</script>
+
+<script>
+    var currentTab = 0; // Current tab is set to be the first tab (0)
+    showTab(currentTab); // Display the current tab
+
+    function showTab(n) {
+        // This function will display the specified tab of the form ...
+        var x = document.getElementsByClassName("tab");
+        x[n].style.display = "block";
+        // ... and fix the Previous/Next buttons:
+        if (n == 0) {
+            document.getElementById("prevBtn").style.display = "none";
+        } else {
+            document.getElementById("prevBtn").style.display = "inline";
+        }
+        if (n == (x.length - 1)) {
+            document.getElementById("nextBtn").innerHTML = "Submit";
+        } else {
+            document.getElementById("nextBtn").innerHTML = "Next";
+        }
+        // ... and run a function that displays the correct step indicator:
+        fixStepIndicator(n)
+    }
+
+    function nextPrev(n) {
+        // This function will figure out which tab to display
+        var x = document.getElementsByClassName("tab");
+        // Exit the function if any field in the current tab is invalid:
+        if (n == 1 && !validateForm()) return false;
+        // Hide the current tab:
+        x[currentTab].style.display = "none";
+        // Increase or decrease the current tab by 1:
+        currentTab = currentTab + n;
+        // if you have reached the end of the form... :
+        if (currentTab >= x.length) {
+            //...the form gets submitted:
+            document.getElementById("regForm").submit();
+            return false;
+        }
+        // Otherwise, display the correct tab:
+        showTab(currentTab);
+    }
+
+
+    function validateForm() {
+        // This function deals with validation of the form fields
+        var x, y, i, valid = true;
+        x = document.getElementsByClassName("tab");
+        y = x[currentTab].getElementsByTagName("input");
+        // A loop that checks every input field in the current tab:
+        for (i = 0; i < y.length; i++) {
+            // If a field is empty...
+            if (y[i].value == "") {
+                // add an "invalid" class to the field:
+                y[i].className += " invalid";
+                // and set the current valid status to false:
+                // TODO: This needs to be changed back to false
+                valid = true;
+            }
+        }
+        // If the valid status is true, mark the step as finished and valid:
+        if (valid) {
+            document.getElementsByClassName("step")[currentTab].className += " finish";
+        }
+        return valid; // return the valid status
+    }
+
+    function fixStepIndicator(n) {
+        // This function removes the "active" class of all steps...
+        var i, x = document.getElementsByClassName("step");
+        for (i = 0; i < x.length; i++) {
+            x[i].className = x[i].className.replace(" active", "");
+        }
+        //... and adds the "active" class to the current step:
+        x[n].className += " active";
     }
 </script>
 

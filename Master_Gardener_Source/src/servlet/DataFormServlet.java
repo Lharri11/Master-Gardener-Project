@@ -424,12 +424,17 @@ public class DataFormServlet extends HttpServlet {
             } */
 
 
+
+
             if ("".equals(dateCreated) || dateCreated == null) {
                 errorMessage = "Enter the day of collection in the format YYYY-MM-DD";
                 System.out.printf("%s", errorMessage);
                 dateCreated = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
+
+
+
 
                 /*
 

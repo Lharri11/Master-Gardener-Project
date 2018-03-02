@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: mastergardener
 -- ------------------------------------------------------
--- Server version	5.7.20-log
+-- Server version	5.7.21-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -139,7 +139,7 @@ CREATE TABLE `mg_garden_member` (
   `garden_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`member_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,7 +148,7 @@ CREATE TABLE `mg_garden_member` (
 
 LOCK TABLES `mg_garden_member` WRITE;
 /*!40000 ALTER TABLE `mg_garden_member` DISABLE KEYS */;
-INSERT INTO `mg_garden_member` VALUES (1,1,1),(2,1,4),(3,2,2),(4,2,5),(5,3,3),(6,3,6),(7,2,1);
+INSERT INTO `mg_garden_member` VALUES (1,1,1),(2,1,4),(3,2,2),(4,2,5),(5,3,3),(6,3,6),(7,2,1),(8,26,10),(9,26,3),(10,1,10),(11,26,8),(12,26,13),(13,3,16);
 /*!40000 ALTER TABLE `mg_garden_member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -298,7 +298,7 @@ CREATE TABLE `mg_post` (
   `garden_id` int(11) NOT NULL,
   `comments` varchar(500) NOT NULL,
   PRIMARY KEY (`post_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -307,7 +307,7 @@ CREATE TABLE `mg_post` (
 
 LOCK TABLES `mg_post` WRITE;
 /*!40000 ALTER TABLE `mg_post` DISABLE KEYS */;
-INSERT INTO `mg_post` VALUES (1,1,1,'Admin1_Comment1'),(2,2,2,'Admin2_Comment1'),(3,3,3,'Admin3_Comment1'),(4,4,1,'Member4_Comment1'),(5,5,2,'Member5_Comment1'),(6,6,3,'Member6_Comment1');
+INSERT INTO `mg_post` VALUES (1,1,1,'Admin1_Comment1'),(2,2,2,'Admin2_Comment1'),(3,3,3,'Admin3_Comment1'),(4,4,1,'Member4_Comment1'),(5,5,2,'Member5_Comment1'),(6,6,3,'Member6_Comment1'),(7,10,26,'Hi\r\n\r\n'),(8,3,26,'Testing 1, 2, 3'),(9,3,26,'Testing 1, 2, 3'),(10,3,26,'Double post test'),(11,10,1,'Hello\r\n'),(12,13,26,'Non-Member test'),(13,13,26,'Non-Member Test'),(14,10,1,'f\r\n');
 /*!40000 ALTER TABLE `mg_post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -326,10 +326,11 @@ CREATE TABLE `mg_user` (
   `email` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
+  `moderator` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`user_ID`),
   UNIQUE KEY `userID_UNIQUE` (`user_ID`),
   UNIQUE KEY `userName_UNIQUE` (`userName`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -338,7 +339,7 @@ CREATE TABLE `mg_user` (
 
 LOCK TABLES `mg_user` WRITE;
 /*!40000 ALTER TABLE `mg_user` DISABLE KEYS */;
-INSERT INTO `mg_user` VALUES (2,'admin1','password1',-1,'admin1@ycp.edu','a_name1','HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN'),(3,'admin2','password2',-1,'admin2@ycp.edu','a_name2','Hey guys I’m admin two and i wanna eat food'),(4,'admin3','password3',-1,'admin3@ycp.edu','a_name3','hey guys i’m admin three go climb a tree'),(5,'member1','password1',-1,'member1@ycp.edu','m_name1','HEY GUYS IM MEMBER ONE HILARIOUS AND ORIGINAL'),(6,'member2','password2',-1,'member2@ycp.edu','m_name2','Hey guys I’m member two and I’m running out of ideas'),(7,'member3','password3',-1,'member3@ycp.edu','m_name3','hi i’m paul'),(8,'LoganH24','Mfgicod05$$$',-1,'Logan.Harris1995@gmail.com','Logan Harris','This is the account for Logan Harris');
+INSERT INTO `mg_user` VALUES (2,'admin10','password1',-1,'admin1@ycp.edu','a_name1','HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN',0),(3,'admin2','password2',-1,'admin2@ycp.edu','a_name2','Hey guys I’m admin two and i wanna eat food',0),(4,'admin3','password3',-1,'admin3@ycp.edu','a_name3','hey guys i’m admin three go climb a tree',0),(5,'member1','password1',-1,'member1@ycp.edu','m_name1','HEY GUYS IM MEMBER ONE HILARIOUS AND ORIGINAL',0),(6,'member2','password2',-1,'member2@ycp.edu','m_name2','Hey guys I’m member two and I’m running out of ideas',0),(7,'member3','password3',-1,'member3@ycp.edu','m_name3','hi i’m paul',0),(8,'LoganH24','Mfgicod05$$$',-1,'Logan.Harris1995@gmail.com','Logan Harris','This is the account for Logan Harris',0),(10,'1','1',-1,'1','1','1',0),(11,'let\'sbreakthedb','2',-1,'2','2','2',0),(13,'Logan3000','pass',-1,'asdfasdf@gmail.com','Logan','bio',0),(14,'meme_guy','dankmeme',-1,'alexstinks@peepeepoopoo.org','Ayyylex','This is a test account to see if everyone has admin',0),(15,'Don','YCP',-1,'djh20@psu.edu','Don','test',0),(16,'Meme guy','dankmeme',-1,'test@test.com','Test','test',0),(17,'bob','bobb',-1,'bobbb','bobbb','bobbbb',0),(18,'test','test',-1,'test','test','test',0);
 /*!40000 ALTER TABLE `mg_user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -351,4 +352,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-11  0:36:25
+-- Dump completed on 2018-02-26 19:44:54

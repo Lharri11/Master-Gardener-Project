@@ -18,6 +18,7 @@ public class SignupServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
+
 		req.getRequestDispatcher("/_view/signup.jsp").forward(req, resp);
 	}
 
