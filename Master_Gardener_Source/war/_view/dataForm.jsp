@@ -1,3 +1,4 @@
+
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -122,7 +123,6 @@ be greyed out except the plot size.
 					</div>
 					<br>
 
-
 					<div>
 						<div>
 
@@ -230,6 +230,15 @@ be greyed out except the plot size.
 													   value="${plantGenus}" required autocomplete="off"></td>
 										</tr>
 									</table>
+
+									<br>Timer: <span id="timer">5:00</span>
+									<script src="js/timer.js"></script>
+									<input type="button" id ="start" value="Start Timer" onclick="startFunction();" />
+									<input type="button" id ="stop" value="Pause Timer" onclick="stopFunction();" />
+									<input type="button" id ="reset" value="Restart Timer" onclick="resetFunction();" />
+									<!--<input type="button" id ="unpause" value="Unpause Timer" onclick="unpauseFunction();" />-->
+									<script> function endTimer(){ alert("Timer countdown ended.")};</script>
+
 									<hr>
 								</div>
 
