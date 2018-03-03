@@ -8,7 +8,7 @@ public class PollinatorDataForm
 {private int data_form_id;
 	private int garden_id;
 	private int county_id;
-	private int generator_id;
+	private ArrayList<Integer> generator_ids;
 	private int researcher_id = -1;
 	private int week_number;
 	private int temperature;
@@ -29,14 +29,14 @@ public class PollinatorDataForm
 	private ArrayList<PlantStrain> plantStrains;
 	private int confirmed;
 
-	public PollinatorDataForm(int data_form_id, int garden_id, int county_id, int generator_id, int week_number, int temperature, LocalDate date_created, LocalDate date_generated,
+	public PollinatorDataForm(int data_form_id, int garden_id, int county_id, ArrayList<Integer> generator_ids, int week_number, int temperature, LocalDate date_created, LocalDate date_generated,
 							  LocalTime monitor_start, LocalTime monitor_stop, String comments, String cloud_status, String wind_status, ArrayList<Plot> plot, Plant plant, ArrayList<PlantStrain> strain,
 							  ArrayList<Pollinator> poll, ArrayList<PollinatorVisitCount> pvc)
 	{
 		this.data_form_id = data_form_id;
 		this.garden_id = garden_id;
 		this.county_id = county_id;
-		this.generator_id = generator_id;
+		this.generator_ids = generator_ids;
 		this.week_number = week_number;
 		this.temperature = temperature;
 		this.date_created = date_created;
@@ -78,12 +78,12 @@ public class PollinatorDataForm
 		this.county_id = county_id;
 	}
 
-	public int getGenerator_id() {
-		return generator_id;
+	public ArrayList<Integer> getGenerator_id() {
+		return this.generator_ids;
 	}
 
-	public void setGenerator_id(int generator_id) {
-		this.generator_id = generator_id;
+	public void setGenerator_ids(ArrayList<Integer> generator_ids) {
+		this.generator_ids = generator_ids;
 	}
 
 	public int getResearcher_id(){

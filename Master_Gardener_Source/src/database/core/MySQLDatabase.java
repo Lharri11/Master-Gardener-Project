@@ -1157,6 +1157,35 @@ public class MySQLDatabase implements IDatabase {
         return mod_status;
     }
 
+    public ArrayList<Integer> getGeneratorListByUsernames(String[] names) throws SQLException
+    {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt1 = null;
+        ResultSet set1 = null;
+        ArrayList<Integer> generator_ids = null;
+
+        try
+        {
+            for(int i = 0; i < names.length; i++) {
+                stmt1 = conn.prepareStatement("SELECT user_ID FROM mg_user WHERE userName = ?");
+                stmt1.setString(1, names[i]);
+                set1 = stmt1.executeQuery();
+                if(set1.next())
+                {
+                    generator_ids.add(set1.getInt(1));
+                }
+            }
+        }
+        finally
+        {
+            DBUtil.closeQuietly(stmt1);
+            DBUtil.closeQuietly(set1);
+        }
+
+        return generator_ids;
+    }
+
     private boolean insertUserIntoUsers(Connection conn, User user) throws SQLException {
         DataSource ds = getMySQLDataSource();
         conn = ds.getConnection();
@@ -3065,25 +3094,28 @@ public class MySQLDatabase implements IDatabase {
                 Date date_generated = java.sql.Date.valueOf(pdf.getDate_generated());
 
                 stmt1 = conn.prepareStatement("INSERT INTO mg_data_form " +
-                        "(week_number, garden_id, county_id, generator_id, temperature, date_created, date_generated, monitor_start, monitor_stop," +
+                        "(week_number, garden_id, county_id, generator_id1, generator_id2, generator_id3, generator_id4, temperature, date_created, date_generated, monitor_start, monitor_stop," +
                         "wind_status, cloud_status, comments, confirmed)" +
-                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 stmt1.setInt(1, pdf.getWeek_number());
                 stmt1.setInt(2, pdf.getGarden_id());
                 stmt1.setInt(3, pdf.getCounty_id());
-                stmt1.setInt(4, pdf.getGenerator_id());
-                stmt1.setInt(5, pdf.getTemperature());
+                stmt1.setInt(4, pdf.getGenerator_id().get(0));
+                stmt1.setInt(5, pdf.getGenerator_id().get(1));
+                stmt1.setInt(6, pdf.getGenerator_id().get(2));
+                stmt1.setInt(7, pdf.getGenerator_id().get(3));
+                stmt1.setInt(8, pdf.getTemperature());
                 // THESE USE TIMESTAMPS TO HANDLE LOCALDATETIME AND LOCALTIME
-                stmt1.setDate(6, (java.sql.Date) date_created);
-                stmt1.setDate(7, (java.sql.Date) date_generated);
-                stmt1.setTime(8, Time.valueOf(pdf.getMonitor_start()));
-                stmt1.setTime(9, Time.valueOf(pdf.getMonitor_stop()));
-                stmt1.setString(10, pdf.getWind_status());
-                stmt1.setString(11, pdf.getCloud_status());
-                stmt1.setString(12, pdf.getComments());
+                stmt1.setDate(9, (java.sql.Date) date_created);
+                stmt1.setDate(10, (java.sql.Date) date_generated);
+                stmt1.setTime(11, Time.valueOf(pdf.getMonitor_start()));
+                stmt1.setTime(12, Time.valueOf(pdf.getMonitor_stop()));
+                stmt1.setString(13, pdf.getWind_status());
+                stmt1.setString(14, pdf.getCloud_status());
+                stmt1.setString(15, pdf.getComments());
                 // Use '0' as the argument so there's no chance of error when getting a confirmed or unconfirmed dataform
                 // inserting into dataform should always result in an unconfirmed dataform
-                stmt1.setInt(13, 0);
+                stmt1.setInt(16, 0);
 
                 stmt1.executeUpdate();
 
@@ -3094,17 +3126,20 @@ public class MySQLDatabase implements IDatabase {
                 stmt1.setInt(1, pdf.getWeek_number());
                 stmt1.setInt(2, pdf.getGarden_id());
                 stmt1.setInt(3, pdf.getCounty_id());
-                stmt1.setInt(4, pdf.getGenerator_id());
-                stmt1.setInt(5, pdf.getTemperature());
-                stmt1.setDate(6, (java.sql.Date) date_created);
-                stmt1.setDate(7, (java.sql.Date) date_generated);
-                stmt1.setTime(8, Time.valueOf(pdf.getMonitor_start()));
-                stmt1.setTime(9, Time.valueOf(pdf.getMonitor_stop()));
-                stmt1.setString(10, pdf.getWind_status());
-                stmt1.setString(11, pdf.getCloud_status());
-                stmt1.setString(12, pdf.getComments());
+                stmt1.setInt(4, pdf.getGenerator_id().get(0));
+                stmt1.setInt(5, pdf.getGenerator_id().get(1));
+                stmt1.setInt(6, pdf.getGenerator_id().get(2));
+                stmt1.setInt(7, pdf.getGenerator_id().get(3));
+                stmt1.setInt(8, pdf.getTemperature());
+                stmt1.setDate(9, (java.sql.Date) date_created);
+                stmt1.setDate(10, (java.sql.Date) date_generated);
+                stmt1.setTime(11, Time.valueOf(pdf.getMonitor_start()));
+                stmt1.setTime(12, Time.valueOf(pdf.getMonitor_stop()));
+                stmt1.setString(13, pdf.getWind_status());
+                stmt1.setString(14, pdf.getCloud_status());
+                stmt1.setString(15, pdf.getComments());
                 // Not really necessary here but it's not bad to have another layer of checking
-                stmt1.setInt(13, 0);
+                stmt1.setInt(16, 0);
 
                 set1 = stmt1.executeQuery();
 

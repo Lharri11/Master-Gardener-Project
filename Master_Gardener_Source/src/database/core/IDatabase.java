@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -54,7 +55,7 @@ public interface IDatabase {
 	public List<String> getUnconfirmedDataformsByCounty(String county) throws SQLException;
 	public String hashString(String password) throws SQLException;
 	public int getModeratorStatusByUsername(String username) throws SQLException;
-
+	public ArrayList<Integer> getGeneratorListByUsernames(String[] names) throws SQLException;
 	//========================================================================================================
 
 

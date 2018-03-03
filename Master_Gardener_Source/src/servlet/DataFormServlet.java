@@ -675,6 +675,14 @@ public class DataFormServlet extends HttpServlet {
                 PollinatorVisitCount pvc4 = new PollinatorVisitCount(26, 111, 63, 4, Strain1Count5);
                 PollinatorVisitCount pvc5 = new PollinatorVisitCount(27, 111, 64, 4, Strain1Count6);
 
+                // TODO: Fix this
+                ArrayList<Integer> gatherer_ids = null;
+                gatherer_ids.add(-1);
+                gatherer_ids.add(-2);
+                gatherer_ids.add(-3);
+                gatherer_ids.add(-4);
+                // End fix this
+
                 polls.add(poll);
                 polls.add(poll1);
                 polls.add(poll2);
@@ -689,8 +697,7 @@ public class DataFormServlet extends HttpServlet {
                 pvcs.add(pvc5);
 
                 System.out.println("Set pdf");
-                PollinatorDataForm pdf = new PollinatorDataForm(1, 1, 1, 1, 1, temperature,
-                        dateCreated, dateGenerated, startTime, endTime, comments, cloudCover,
+                PollinatorDataForm pdf = new PollinatorDataForm(1, 1, 1, gatherer_ids, 1, temperature,                        dateCreated, dateGenerated, startTime, endTime, comments, cloudCover,
                         wind, plotData, new Plant(1, "yes"), strains, polls, pvcs);
                 DataFormController controller = new DataFormController();
                 try {
