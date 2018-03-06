@@ -46,7 +46,42 @@
     </div><!-- /.container -->
 </nav>
 
+<header></header>
 
+<div class="container">
+    <div class="row align-items-center">
+        <div class="container-fluid">
+            <div class=" panel panel-login">
+                <form class="login" action="${pageContext.servletContext.contextPath}/login" method="post">
+                    <p class="title">Log in</p>
+                    <input type="text" class="login_text_field" name="username" placeholder="Username"
+                           value="${username}"
+                           required>
+                    <i class="fa fa-user"></i>
+                    <input type="password" class="login_text_field" name="password" placeholder="Password"
+                           value="${password}"
+                           required>
+                    <i class="fa fa-key"></i>
+                    <a href="#">Forgot your password?</a>
+                    <button type="Submit" value="Login" id="loginSubmit" name="loginSubmit">
+                        <span>Log in</span>
+
+                    </button>
+                    <div id="errorMessage">
+                        <c:if test="${! empty errorMessage}">
+                            <tr>${errorMessage}</tr>
+                        </c:if>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%--
 <div class="container">
     <div class="row align-items-center">
         <div class="col-md-6 col-md-offset-3">
@@ -133,7 +168,7 @@
         </div>
     </div>
 </div>
-
+--%>
 
 
 
