@@ -207,7 +207,7 @@ header.masthead>.overlay {
     order: 2;
 }
 
-/* Login Page */
+/* Login Page and Registration page*/
 
 .align-items-center {
     min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
@@ -419,6 +419,13 @@ header.masthead>.overlay {
 .login:not (.loading ) button:focus {
     border-bottom-width: 4px;
 }
+
+.login_text_field {
+    float: left;
+    width: 100%;
+    margin: 10px;
+}
+
 
 /* Admin Pages */
 
