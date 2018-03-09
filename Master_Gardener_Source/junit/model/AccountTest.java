@@ -11,9 +11,9 @@ public class AccountTest {
 	public void setUp(){
     	//---------Same setup as BooksForSaleTest (all components needed)---------------------------------------------------------------
        
-	    this.a1 = new User("LoganH24", "abc12314", 1, "LogeyBear", "Logan.Harris1995@gmail.com", "555-555-5555", new byte[1024]);
-	    this.a2 = new User("Amcdevitt97", "def456123", 2, "Ally", "amcdevitt97@ycp.edu", "555-555-5555", new byte[1024]);
-	    this.a3 = new User("GRuths", "ghi789122", 3, "Garry", "gruths@ycp.edu", "555-555-5555", new byte[1024]);
+	    this.a1 = new User("LoganH24", "abc12314", 1, "LogeyBear", "LogeyGare", "Logan.Harris1995@gmail.com", "555-555-5555", new byte[1024]);
+	    this.a2 = new User("Amcdevitt97", "def456123", 2, "Ally", "Bally", "amcdevitt97@ycp.edu", "555-555-5555", new byte[1024]);
+	    this.a3 = new User("GRuths", "ghi789122", 3, "Garry", "Barry", "gruths@ycp.edu", "555-555-5555", new byte[1024]);
 	    
 	
 		//---------Same setup as BooksForSaleTest (all components needed)----------------------------------------------------------------
@@ -79,17 +79,30 @@ public class AccountTest {
 	}
 	
 	@Test
-	public void getNameTest(){
-		assertEquals(a1.getName(),"LogeyBear");
-		assertEquals(a2.getName(),"Ally");
-		assertEquals(a3.getName(),"Garry");
+	public void getFirstNameTest(){
+		assertEquals(a1.getFirstName(),"LogeyBear");
+		assertEquals(a2.getFirstName(),"Ally");
+		assertEquals(a3.getFirstName(),"Garry");
 	}
 	
 	@Test
-	public void setNameTest()
+	public void setFirstNameTest()
 	{
-		a1.setName("Edwardo");
-		assertEquals(a1.getName(), "Edwardo");
+		a1.setFirstName("Edwardo");
+		assertEquals(a1.getFirstName(), "Edwardo");
+	}
+	@Test
+	public void getLastNameTest(){
+		assertEquals(a1.getLastName(),"LogeyGare");
+		assertEquals(a2.getLastName(),"Bally");
+		assertEquals(a3.getLastName(),"Barry");
+	}
+
+	@Test
+	public void setLastNameTest()
+	{
+		a1.setFirstName("Edwardo");
+		assertEquals(a1.getLastName(), "Edwardo");
 	}
 	
 	@Test

@@ -57,7 +57,7 @@ public class RequireSuperAdmin extends AbstractLoginFilter implements Filter {
 
         if(user.getModeratorStatus() != 2)
         {
-            ServletUtil.sendForbidden(req, (HttpServletResponse) resp_, "Superadmin Privileges are required.");
+            ServletUtil.sendForbidden(req, (HttpServletResponse) resp_, "You shall not pass.");
             return;
         }
 

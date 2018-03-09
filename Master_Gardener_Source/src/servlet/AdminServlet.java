@@ -53,7 +53,8 @@ public class AdminServlet extends HttpServlet {
         String username = null;
         String pass1 = null;
         String pass2 = null;
-        String name = null;
+        String firstname = null;
+        String lastname = null;
         String email = null;
         String bio = null;
         String buttonPress1 = null;
@@ -68,7 +69,8 @@ public class AdminServlet extends HttpServlet {
             username = req.getParameter("userName");
             pass1 = req.getParameter("pass1");
             pass2 = req.getParameter("pass2");
-            name = req.getParameter("name");
+            firstname = req.getParameter("firstname");
+            lastname = req.getParameter("lastname");
             email = req.getParameter("email");
 
             if ("".equals(username) || username == null) {
@@ -95,10 +97,16 @@ public class AdminServlet extends HttpServlet {
                 pass2 = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/admin.jsp").forward(req, resp);
-            } else if ("".equals(name) || name == null) {
+            } else if ("".equals(firstname) || firstname == null) {
                 errorMessage = "Please re-enter name";
                 System.out.println(errorMessage);
-                name = null;
+                firstname = null;
+                req.setAttribute("errorMessage", errorMessage);
+                req.getRequestDispatcher("/_view/admin.jsp").forward(req, resp);
+            } else if ("".equals(lastname) || lastname == null) {
+                errorMessage = "Please re-enter name";
+                System.out.println(errorMessage);
+                lastname = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/admin.jsp").forward(req, resp);
             } else if ("".equals(email) || email == null) {
@@ -108,7 +116,7 @@ public class AdminServlet extends HttpServlet {
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/admin.jsp").forward(req, resp);
             } else {
-                User user = new User(username, pass1, -1, name, email,"[Description]", new byte[1024]);
+                User user = new User(username, pass1, -1, firstname, lastname, email,"[Description]", new byte[1024]);
                 AdminController controller = new AdminController();
 
                 if (controller.createUser(user)) {

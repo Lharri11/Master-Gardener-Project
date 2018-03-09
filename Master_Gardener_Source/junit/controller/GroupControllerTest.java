@@ -33,12 +33,13 @@ public class GroupControllerTest {
 	@Test
 	public void testreturnAccountForUsername(){
 		// FIXME
-		User admin = new User("admin1", "password1", -1, "a_name1", "admin1@ycp.edu", "HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN", null);
+		User admin = new User("admin1", "password1", -1, "a_name1", "lastname","admin1@ycp.edu", "HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN", null);
 		User test = thiscontroller.returnUserForUsername("admin1");
 		//User test = new User("admin1", "password1", -1, "a_name1", "admin1@ycp.edu", "HEY GUYS I’M ADMIN ONE LETS HAVE SOME FUN");
 
 		//System.out.println(test.getName());
-		assertEquals(admin.getName(), test.getName());
+		assertEquals(admin.getFirstName(), test.getFirstName());
+		assertEquals(admin.getLastName(), test.getLastName());
 		assertEquals(admin.getLoginId(), test.getLoginId());
 		assertEquals(admin.getEmail(), test.getEmail());
 		assertEquals(admin.getPassword(), test.getPassword());

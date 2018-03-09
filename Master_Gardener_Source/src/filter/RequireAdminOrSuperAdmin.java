@@ -69,7 +69,7 @@ public class RequireAdminOrSuperAdmin extends AbstractLoginFilter implements Fil
         //Ascertain what level of user we're dealing with.
         if(user.getModeratorStatus() != 1 && user.getModeratorStatus() != 2)
         {
-            ServletUtil.sendForbidden(req, resp, "Admin or superadmin privileges are required");
+            ServletUtil.sendForbidden(req, resp, "You shall not pass.");
             return;
         }
 

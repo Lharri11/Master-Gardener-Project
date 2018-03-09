@@ -70,12 +70,13 @@ public class InitialData {
 					break;
 				}
 				Iterator<String> i = tuple.iterator();
-				User user = new User("Egg", "12345678", userId, "memes", "memes", "memes", new byte[104857600]);
+				User user = new User("Egg", "12345678", userId, "memes", "memes", "memes", "memes", new byte[104857600]);
 				user.setUserId(userId++);
 				user.setUsername(i.next());
 				user.setPassword(i.next());
 				user.setLoginId(Integer.parseInt(i.next()));
-				user.setName(i.next());
+				user.setFirstName(i.next());
+				user.setLastName(i.next());
 				user.setEmail(i.next());
 				user.setDescription(i.next());
 				userList.add(user);

@@ -49,7 +49,7 @@ public class MySQLDatabase implements IDatabase {
         try {
             con = ds.getConnection();
             stmt = con.createStatement();
-            rs = stmt.executeQuery("select user_ID, name from mg_user");
+            rs = stmt.executeQuery("select user_ID, first_name, last_name from mg_user");
             while (rs.next()) {
                 System.out.println("\nUser ID = " + rs.getInt("user_ID") + ", Name = " + rs.getString("name"));
             }
@@ -718,19 +718,20 @@ public class MySQLDatabase implements IDatabase {
             }
             stmt = conn.prepareStatement(
                     "UPDATE mg_user "
-                            + " SET name = ?, description = ? "
+                            + " SET first_name = ?, last_name = ?, description = ? "
                             + " WHERE username = ? AND password = ?");
-            stmt.setString(1, user.getName());
-            stmt.setString(2, user.getDescription());
-            stmt.setString(3, user.getUsername());
+            stmt.setString(1, user.getFirstName());
+            stmt.setString(2, user.getLastName());
+            stmt.setString(3, user.getDescription());
+            stmt.setString(4, user.getUsername());
             //stmt.setBlob(3, inputStream);
-            stmt.setString(4, password);
+            stmt.setString(5, password);
             stmt.executeUpdate();
 
             //get user_id
             stmt2 = conn.prepareStatement(
                     "SELECT user_id FROM mg_user "
-                            + " WHERE name = ? AND username = ?");
+                            + " WHERE first_name = ? AND username = ?");
             stmt2.setString(1, user.getUsername());
             stmt2.setString(2, username);
             set = stmt2.executeQuery();
@@ -827,7 +828,7 @@ public class MySQLDatabase implements IDatabase {
             set = stmt.executeQuery();
             set.next();
 
-            user = new User(username, username, 0, username, username, username, null);
+            user = new User(username, username, 0, username, username, username, username, null);
             loadUser(user, set, 1);
 
 
@@ -1197,14 +1198,15 @@ public class MySQLDatabase implements IDatabase {
 
         try {
             stmt1 = conn.prepareStatement(
-                    "INSERT INTO mg_user (userName, passWord, login_id, name, email, description) "
+                    "INSERT INTO mg_user (userName, passWord, login_id, first_name, last_name, email, description) "
                             + " VALUES(?, SHA2(SHA2(SHA2(?, 512), 512), 512),?,?,?,?)");
             stmt1.setString(1, user.getUsername());
             stmt1.setString(2, user.getPassword());
             stmt1.setInt(3, user.getLoginId());
-            stmt1.setString(4, user.getName());
-            stmt1.setString(5, user.getEmail());
-            stmt1.setString(6, user.getDescription());
+            stmt1.setString(4, user.getFirstName());
+            stmt1.setString(5, user.getLastName());
+            stmt1.setString(6, user.getEmail());
+            stmt1.setString(7, user.getDescription());
 
 
             stmt1.executeUpdate();
@@ -2638,7 +2640,7 @@ public class MySQLDatabase implements IDatabase {
                     while (set.next()) {
                         //found = true;
                         Post post = new Post(null, 0, 0);
-                        User user = new User(null, null, 0, null, null, null, null);
+                        User user = new User(null, null, 0, null, null, null, null, null);
                         loadUser(user, set, 1);
                         loadPost(post, set, 8);
                         returnPosts.add(new Pair<User, Post>(user, post));
@@ -3333,7 +3335,7 @@ public class MySQLDatabase implements IDatabase {
                     ResultSet resultSet = null;
                     try {
                         stmt = conn.prepareStatement(
-                                " SELECT userName, email, name FROM mg_user ");
+                                " SELECT userName, email, first_name, last_name FROM mg_user ");
 
                         resultSet = stmt.executeQuery();
 
@@ -3341,10 +3343,11 @@ public class MySQLDatabase implements IDatabase {
                         while (resultSet.next())
                         {
                             found = true;
-                            User user = new User(null,null, -1,null,null,null,null);
+                            User user = new User(null,null, -1,null,null,null,null,null);
                             user.setUsername(resultSet.getString(1));
                             user.setEmail(resultSet.getString(2));
-                            user.setName(resultSet.getString(3));
+                            user.setFirstName(resultSet.getString(3));
+                            user.setLastName(resultSet.getString(4));
 
                             result_set.add(user);
                         }
@@ -3537,7 +3540,8 @@ public class MySQLDatabase implements IDatabase {
         user.setPassword(resultSet.getString(index++));
         user.setLoginId(resultSet.getInt(index++));
         user.setEmail(resultSet.getString(index++));
-        user.setName(resultSet.getString(index++));
+        user.setFirstName(resultSet.getString(index++));
+        user.setLastName(resultSet.getString(index++));
         user.setDescription(resultSet.getString(index++));
     }
 

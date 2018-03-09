@@ -9,17 +9,19 @@ public class User {
 	private String username = null;
 	private String password = null;
 	private int loginId = -1;
-	private String name = null;
+	private String first_name = null;
+	private String last_name = null;
 	private String email = null;
 	private String description = null;
 	private byte[] portrait;
 	private int moderator_status = 0;
 
-	public User(String username, String password, int id, String name, String email, String description, byte[] portrait){
+	public User(String username, String password, int id, String first_name, String last_name, String email, String description, byte[] portrait){
 		this.username = username;
 		this.password = password;
 		this.loginId = id;
-		this.name = name;
+		this.first_name = first_name;
+		this.last_name = last_name;
 		this.email = email;
 		this.description = description;
 		this.portrait = portrait;
@@ -30,7 +32,8 @@ public class User {
 		this.username = "";
 		this.password = "";
 		this.loginId = 0;
-		this.name = "";
+		this.first_name = "";
+		this.last_name = "";
 		this.email = "";
 		this.description = "";
 		this.portrait = new byte[1024];
@@ -53,10 +56,14 @@ public class User {
 		return this.loginId;
 	}
 	
-	public String getName(){
-		return this.name;
+	public String getFirstName(){
+		return this.first_name;
 	}
-	
+
+	public String getLastName(){
+		return this.last_name;
+	}
+
 	public String getEmail(){
 		return this.email;
 	}
@@ -85,10 +92,14 @@ public class User {
 		this.loginId = id;
 	}
 	
-	public void setName(String name){
-		this.name = name;
+	public void setFirstName(String name){
+		this.first_name = name;
 	}
-	
+
+	public void setLastName(String name){
+		this.last_name = name;
+	}
+
 	public void setEmail(String email){
 		this.email = email;
 	}

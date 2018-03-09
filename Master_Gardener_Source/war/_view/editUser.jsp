@@ -86,7 +86,8 @@
     			<!--FORM FOR EDITS STARTS HERE-->
 				<form id="editUser" action="${pageContext.servletContext.contextPath}/editUser" method="post">
 					<div class="pageInfo" style="height:100px;">
-    					<input type="text" id="editName" placeholder="Change Your Name" name="editName"/>
+    					<input type="text" id="editName" placeholder="Change Your First Name" name="editName"/>
+    					<input type="text" id="lastname" placeholder="Change Your Last Name" name="lastname"/>
     					<input type="text" id="editBio" placeholder="Change Bio" name="editBio"/>
     				</div>
     			<button type="Submit" color="white" value="Save Changes" id="saveChanges" name="EditSubmit">

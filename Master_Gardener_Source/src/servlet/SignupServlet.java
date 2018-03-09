@@ -28,7 +28,8 @@ public class SignupServlet extends HttpServlet {
 		String user = null;
 		String pass1 = null;
 		String pass2 = null;
-		String name = null;
+		String first_name = null;
+		String last_name = null;
 		String email = null;
 		String bio = null;
 		String errorMessage = null;
@@ -36,7 +37,9 @@ public class SignupServlet extends HttpServlet {
 		user = req.getParameter("username");
 		pass1 = req.getParameter("pass1");
 		pass2 = req.getParameter("pass2");
-		name = req.getParameter("name");
+		// TODO: This is left intentionally red so that I know to ask Nick to fix the html
+		first_name = req.getParameter("firstname");
+		last_name = req.getParameter("lastname");
 		email = req.getParameter("email");
 		bio = req.getParameter("bio");
 
@@ -68,10 +71,17 @@ public class SignupServlet extends HttpServlet {
 			req.setAttribute("errorMessage", errorMessage);
 			req.getRequestDispatcher("/_view/signup.jsp").forward(req, resp);
 		}
-		else if("".equals(name) || name == null){
-			errorMessage = "Please re-enter name";
+		else if("".equals(first_name) || first_name == null){
+			errorMessage = "Please re-enter first name";
 			System.out.println(errorMessage);
-			name = null;
+			first_name = null;
+			req.setAttribute("errorMessage", errorMessage);
+			req.getRequestDispatcher("/_view/signup.jsp").forward(req, resp);
+		}
+		else if("".equals(last_name) || last_name == null){
+			errorMessage = "Please re-enter last name";
+			System.out.println(errorMessage);
+			last_name = null;
 			req.setAttribute("errorMessage", errorMessage);
 			req.getRequestDispatcher("/_view/signup.jsp").forward(req, resp);
 		}
@@ -90,7 +100,7 @@ public class SignupServlet extends HttpServlet {
 			req.getRequestDispatcher("/_view/signup.jsp").forward(req, resp);
 		}
 		else{
-			User account = new User(user, pass1,-1,name, email,bio, new byte[1024]);
+			User account = new User(user, pass1,-1, first_name, last_name, email,bio, new byte[1024]);
 			SignupController controller = new SignupController();
 
 			if(controller.createUser(account)){
@@ -106,7 +116,8 @@ public class SignupServlet extends HttpServlet {
 
 		req.setAttribute("username", user);
 		req.setAttribute("password", pass1);
-		req.setAttribute("name", name);
+		req.setAttribute("firstname", first_name);
+		req.setAttribute("lastname", first_name);
 		req.setAttribute("email", email);
 		req.setAttribute("bio", bio);
 	}

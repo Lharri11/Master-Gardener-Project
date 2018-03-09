@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
 public class ServletUtil {
     public static void sendForbidden(HttpServletRequest req, HttpServletResponse resp, String errmsgText)
             throws ServletException, IOException {
-        sendErrorResponse(req, resp, "Access is forbidden", errmsgText, HttpServletResponse.SC_FORBIDDEN);
+        sendErrorResponse(req, resp, "Access is Forbidden", errmsgText, HttpServletResponse.SC_FORBIDDEN);
     }
 
     public static void sendBadRequest(HttpServletRequest req, HttpServletResponse resp, String errmsgText)
