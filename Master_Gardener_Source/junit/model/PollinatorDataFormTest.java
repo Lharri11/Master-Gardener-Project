@@ -24,11 +24,11 @@ public class PollinatorDataFormTest {
     public void setup()
     {
     	// FIXME
-        User a1 = new User("Grundy", "boodle", 3, "eggs", "guy@yahoo.com", "im a guy man", null);
+        User a1 = new User("Grundy", "boodle", 3, "eggs","dungle", "guy@yahoo.com", "im a guy man", null);
     	// FIXME
-        User a2 = new User("Skroble", "boodle", 5, "cheese", "man@yahoo.com", "im a guy man", null);
+        User a2 = new User("Skroble", "boodle", 5, "cheese", "whiz", "man@yahoo.com", "im a guy man", null);
     	// FIXME
-        User a3 = new User("Chicken Dinner", "boodle", 7, "green", "dude@yahoo.com", "im a guy man", null);
+        User a3 = new User("Chicken Dinner", "boodle",  7, "green","pantspoop", "dude@yahoo.com", "im a guy man", null);
 
         Pollinator pl1 = new Pollinator(1, "Brumble Bree", "Bee");
         Plant pp1 = new Plant(1, "Egg Plant");
@@ -146,7 +146,7 @@ public class PollinatorDataFormTest {
     public void setGardenersTest()
     {
     	// FIXME
-        User a4 = new User("Memer", "Crub", 1, "a", "b", "c", null );
+        User a4 = new User("Memer", "Crub", 1, "a", "s",  "b", "c", null );
         gardeners.add(a4);
         p1.setGardeners(gardeners);
         assertEquals(p1.getGardeners(), gardeners);

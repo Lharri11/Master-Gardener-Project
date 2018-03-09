@@ -141,9 +141,16 @@
                         </tr>
 
                         <tr>
-                            <td> Name:</td>
+                            <td> First Name:</td>
 
-                            <td><input type="text" class="text-control" name="name" placeholder="Name"
+                            <td><input type="text" class="text-control" firstname="firstname" placeholder="First Name"
+                                       value="${name}" required autocomplete="off"></td>
+
+                        </tr>
+                        <tr>
+                            <td> Last Name:</td>
+
+                            <td><input type="text" class="text-control" lastname="lastname" placeholder="Last Name"
                                        value="${name}" required autocomplete="off"></td>
 
                         </tr>
@@ -211,7 +218,8 @@
                     <thead>
                     <tr>
                         <th class="col-xs-3">Username</th>
-                        <th class="col-xs-3">Name</th>
+                        <th class="col-xs-3">FirstName</th>
+                        <th class="col-xs-3">LastName</th>
                         <th class="col-xs-6">E-mail</th>
                     </tr>
                     </thead>
@@ -235,7 +243,8 @@
                     <c:forEach items="${activeAccounts}" var="activeAccounts">
                         <tr>
                             <td class="col-xs-3">${activeAccounts.username}</td>
-                            <td class="col-xs-3">${activeAccounts.name}</td>
+                            <td class="col-xs-3">${activeAccounts.firstname}</td>
+                            <td class="col-xs-3">${activeAccounts.lastname}</td>
                             <td class="col-xs-3">${activeAccounts.email}</td>
 
                         </tr>
