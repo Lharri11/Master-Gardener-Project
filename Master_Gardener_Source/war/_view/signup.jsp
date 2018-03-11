@@ -46,85 +46,43 @@
             <table>
                 <tr>
                     <td>Username:</td>
-                    <c:if test="${! empty username}">
                         <td><input type="text" id="username" name="username" placeholder="Username"
                                    value="${username}"></td>
-                    </c:if>
-
-                    <c:if test="${empty username}">
-                        <td><input type="text" id="username" name="username" placeholder="Username"></td>
-                    </c:if>
                 </tr>
 
                 <tr>
                     <td> Password:</td>
-                    <c:if test="${! empty password}">
                     <td><input type="password" id="password" name="pass1" placeholder="Password"
                                value="${password}">
-                        </c:if>
-
-                        <c:if test="${empty password}">
-                    <td><input type="password" id="password" name="pass1" placeholder="Password"></td>
-                    </c:if>
                 </tr>
 
                 <tr>
                     <td> Re-Enter:</td>
-                    <c:if test="${! empty pass2}">
-                        <td><input type="password" id="password" name="pass2" value="${pass2}"></td>
-                    </c:if>
 
-                    <c:if test="${empty pass2}">
-                        <td><input type="password" id="password" name="pass2" placeholder="Re-enter Password">
-                        </td>
-                    </c:if>
+                        <td><input type="password" id="password" name="pass2" value="${pass2}"></td>
+
                 </tr>
 
                 <tr>
                     <td> First Name:</td>
-                    <c:if test="${! empty firstname}">
-                        <td><input type="text" id="firstname" name="firstname" placeholder="First Name" value="${firstname}"></td>
-                    </c:if>
 
-                    <c:if test="${empty firstname}">
-                        <td><input type="text" id="firstname" name="firstname" placeholder="First Name">
-                        </td>
-                    </c:if>
+                        <td><input type="text" id="firstname" name="firstname" placeholder="First Name" value="${firstname}"></td>
                 </tr>
 
                 <tr>
                     <td> Last Name:</td>
-                    <c:if test="${! empty lastname}">
                         <td><input type="text" id="lastname" name="lastname" placeholder="Last Name" value="${lastname}"></td>
-                    </c:if>
-
-                    <c:if test="${empty lastname}">
-                        <td><input type="text" id="lastname" name="lastname" placeholder="Last Name">
-                        </td>
-                    </c:if>
                 </tr>
 
                 <tr>
                     <td> Email:</td>
-                    <c:if test="${! empty email}">
                         <td><input type="text" id="email" name="email" placeholder="Email" value="${email}">
                         </td>
-                    </c:if>
-
-                    <c:if test="${empty email}">
-                        <td><input type="text" id="email" name="email" placeholder="Email Address"></td>
-                    </c:if>
                 </tr>
 
                 <tr>
                     <td> Brief Bio:</td>
-                    <c:if test="${! empty bio}">
                         <td><input type="text" id="name" name="bio" value="${bio}"></td>
-                    </c:if>
-
-                    <c:if test="${empty bio}">
-                        <td><input type="text" id="name" name="bio" placeholder="Biography"></td>
-                    </c:if>
                 </tr>
 
                 <tr>
