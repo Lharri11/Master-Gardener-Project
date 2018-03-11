@@ -86,12 +86,12 @@
     			<div class="pageContent">
     			<!--FORM FOR EDITS STARTS HERE-->
 				<form id="updatePassword" action="${pageContext.servletContext.contextPath}/updatePassword" method="post">
-					<div class="pageInfo" style="height:100px;">
-    					<input type="text" id="currentName" placeholder="Current username:" name="username"/>
-    					<input type="text" id="oldPass1" placeholder="Current password:" name="oldPass1"/>
-    					<input type="text" id="oldPass2" placeholder="Retype current password:" name="oldPass2"/>
-    					<input type="text" id="newPass1" placeholder="New password:" name="newPass1"/>
-    					<input type="text" id="newPass2" placeholder="Retype new password:" name="newPass2"/>
+					<div class="pageInfo" style="height:100px;" align="center">
+    					<!--<input type="text" id="currentName" placeholder="Current username:" name="username"/>-->
+    					<input type="password" id="oldPass1" placeholder="Current password:" name="oldPass1"/><br>
+    					<input type="password" id="oldPass2" placeholder="Retype current password:" name="oldPass2"/><br>
+    					<input type="password" id="newPass1" placeholder="New password:" name="newPass1"/><br>
+    					<input type="password" id="newPass2" placeholder="Retype new password:" name="newPass2"/>
     				</div>
 					<!-- ATTEMPT AT ADDING CAPTCHA HERE -->
 					<!-- https://captcha.com/doc/java/howto/jsp-captcha.html#traditional-api -->
@@ -101,6 +101,9 @@
 					<span>Save Changes</span>
 				</button>
     			</form>
+					<c:if test="${! empty errorMessage}">
+						<tr>${errorMessage}</tr>
+					</c:if>
 				</div>
     			
     		<!--/pageContent-->

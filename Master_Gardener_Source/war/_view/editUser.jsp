@@ -94,6 +94,8 @@
 					<span>Save Changes</span>
 				</button>
     			</form>
+					<br>
+					<p><a href="${pageContext.servletContext.contextPath}/updatePassword">Update Password</a></p>
 				</div>
     			
     		<!--/pageContent-->

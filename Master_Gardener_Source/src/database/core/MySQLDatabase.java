@@ -185,6 +185,36 @@ public class MySQLDatabase implements IDatabase {
         return prepared_statement;
     }
 
+    public boolean checkPasswordByUsername(String username, String password)throws SQLException
+    {
+        // This method checks a password passed into the method VS. the user's actual password.
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+
+        String curr_pass = null;
+        String check_pass = hashString(password);
+        try{
+            stmt = conn.prepareStatement("SELECT passWord from mg_user WHERE userName = ?");
+            set = stmt.executeQuery();
+
+            if(set.next())
+            {
+                curr_pass = set.getString(1);
+            }
+            if(curr_pass.equals(check_pass))
+            {
+                return true;
+            }
+            return false;
+        }
+        finally{
+            DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(set);
+        }
+    }
+
     public List<String> getAllPollinatorsPlantsGardenVisitCount() throws SQLException {
         DataSource ds = getMySQLDataSource();
         Connection conn = ds.getConnection();

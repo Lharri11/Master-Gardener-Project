@@ -45,4 +45,9 @@ public class EditUserController {
 	{
 		return database.updatePassword(username, old_password, new_password);
 	}
+
+	public boolean checkPasswordByUsername(String username, String password) throws SQLException
+	{
+		return database.checkPasswordByUsername(username, password);
+	}
 }
