@@ -56,6 +56,7 @@ public interface IDatabase {
 	public String hashString(String password) throws SQLException;
 	public int getModeratorStatusByUsername(String username) throws SQLException;
 	public ArrayList<Integer> getGeneratorListByUsernames(String[] names) throws SQLException;
+	public boolean checkPasswordByUsername(String username, String password)throws SQLException;
 	//========================================================================================================
 
 
