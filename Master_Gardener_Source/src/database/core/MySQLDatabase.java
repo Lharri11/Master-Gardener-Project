@@ -21,8 +21,8 @@ public class MySQLDatabase implements IDatabase {
     public static final int MAX_ATTEMPTS = 10;
     private static final String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
     private static final String MYSQL_URL = "jdbc:mysql://localhost:3306/mastergardener";
-    private static final String MYSQL_USERNAME = "gardener";
-    private static final String MYSQL_PASSWORD = "gardener";
+    private static final String MYSQL_USERNAME = "root";
+    private static final String MYSQL_PASSWORD = "root";
 
     public static DataSource getMySQLDataSource() {
         MysqlDataSource mysqlDS;
@@ -1199,7 +1199,7 @@ public class MySQLDatabase implements IDatabase {
         try {
             stmt1 = conn.prepareStatement(
                     "INSERT INTO mg_user (userName, passWord, login_id, first_name, last_name, email, description) "
-                            + " VALUES(?, SHA2(SHA2(SHA2(?, 512), 512), 512),?,?,?,?)");
+                            + " VALUES(?, SHA2(SHA2(SHA2(?, 512), 512), 512),?,?,?,?,?)");
             stmt1.setString(1, user.getUsername());
             stmt1.setString(2, user.getPassword());
             stmt1.setInt(3, user.getLoginId());

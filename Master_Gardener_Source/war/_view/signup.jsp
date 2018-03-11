@@ -83,21 +83,24 @@
                 <tr>
                     <td> First Name:</td>
                     <c:if test="${! empty firstname}">
-                        <td><input type="text" id="firstname" firstname="firstname" placeholder="First Name" value="${firstname}"></td>
+                        <td><input type="text" id="firstname" name="firstname" placeholder="First Name" value="${firstname}"></td>
                     </c:if>
 
                     <c:if test="${empty firstname}">
-                        <td><input type="text" id="firstname" firstname="firstname" placeholder="First Name"></td>
+                        <td><input type="text" id="firstname" name="firstname" placeholder="First Name">
+                        </td>
                     </c:if>
                 </tr>
+
                 <tr>
-                    <td> First Name:</td>
+                    <td> Last Name:</td>
                     <c:if test="${! empty lastname}">
-                        <td><input type="text" id="lastname" lastname="lastname" placeholder="Last Name" value="${firstname}"></td>
+                        <td><input type="text" id="lastname" name="lastname" placeholder="Last Name" value="${lastname}"></td>
                     </c:if>
 
                     <c:if test="${empty lastname}">
-                        <td><input type="text" id="lastname" lastname="lastname" placeholder="Last Name"></td>
+                        <td><input type="text" id="lastname" name="lastname" placeholder="Last Name">
+                        </td>
                     </c:if>
                 </tr>
 
