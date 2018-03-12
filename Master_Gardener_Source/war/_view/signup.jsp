@@ -86,7 +86,7 @@
                 </tr>
 
                 <tr>
-                    <td><input type="submit" id="loginSubmit" name="buttonPress" value="Create"></td>
+                    <td><input type="submit" id="loginSubmit" name="createUserSubmitOld" value="Create"></td>
                 </tr>
             </table>
             <c:if test="${! empty errorMessage}">
