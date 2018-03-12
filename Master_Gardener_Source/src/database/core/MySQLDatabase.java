@@ -197,6 +197,7 @@ public class MySQLDatabase implements IDatabase {
         String check_pass = hashString(password);
         try{
             stmt = conn.prepareStatement("SELECT passWord from mg_user WHERE userName = ?");
+            stmt.setString(1, username);
             set = stmt.executeQuery();
 
             if(set.next())

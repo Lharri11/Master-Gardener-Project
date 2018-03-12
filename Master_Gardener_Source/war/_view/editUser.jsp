@@ -89,13 +89,16 @@
     					<input type="text" id="editName" placeholder="Change Your First Name" name="editName"/>
     					<input type="text" id="editName" placeholder="Change Your Last Name" name="lastname"/>
     					<input type="text" id="editBio" placeholder="Change Bio" name="editBio"/>
+						<p>Saving changes will log you out.</p>
+						<p><a href="${pageContext.servletContext.contextPath}/updatePassword">Update Password</a></p>
     				</div>
+
     			<button type="Submit" color="white" value="Save Changes" id="saveChanges" name="EditSubmit">
 					<span>Save Changes</span>
 				</button>
     			</form>
 					<br>
-					<p><a href="${pageContext.servletContext.contextPath}/updatePassword">Update Password</a></p>
+
 				</div>
     			
     		<!--/pageContent-->

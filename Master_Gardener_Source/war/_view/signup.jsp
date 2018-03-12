@@ -65,13 +65,14 @@
 
                 <tr>
                     <td> First Name:</td>
-
-                        <td><input type="text" id="firstname" name="firstname" placeholder="First Name" value="${firstname}"></td>
+                        <!-- THE ID FOR THIS SHOULD PROBABLY NOT BE USERNAME BUT IT WORKS SO WHATEVER YEAH? -->
+                        <td><input type="text" id="username" name="firstname" placeholder="First Name" value="${firstname}"></td>
                 </tr>
 
                 <tr>
+                    <!-- THE ID FOR THIS SHOULD PROBABLY NOT BE USERNAME BUT IT WORKS SO WHATEVER YEAH? -->
                     <td> Last Name:</td>
-                        <td><input type="text" id="lastname" name="lastname" placeholder="Last Name" value="${lastname}"></td>
+                        <td><input type="text" id="username" name="lastname" placeholder="Last Name" value="${lastname}"></td>
                 </tr>
 
                 <tr>
