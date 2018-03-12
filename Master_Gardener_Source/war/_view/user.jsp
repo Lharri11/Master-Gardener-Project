@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator"
           content="Script Eden ( http://scripteden.net/ ) Template Builder v2.0.0">
-    <title>${user.firstname} - Master Gardener</title>
+    <title>${user.firstName} - Master Gardener</title>
     <!--pageMeta-->
 
     <!-- Loading Bootstrap -->
@@ -81,7 +81,7 @@
                     <img src="portraits/${user.username}.jpg" id="userPhoto">
                 </div>
                 <div class="pageInfo" style="height: 100px;">
-                    <p id="userName">${user.username}</p>
+                    <p id="userName">${user.firstName}</p>
                     <div id="bio">${user.description}</div>
 
                     <h1 style="position:relative;left:10px;">Gardens you belong to:</h1>
