@@ -53,7 +53,12 @@ public class EditUserServlet extends HttpServlet {
 			req.getSession().setAttribute("username", newusername);
 
 			//resp.sendRedirect(req.getContextPath() + "/user");
-			req.getRequestDispatcher("/_view/user.jsp").forward(req, resp);
+			//req.getRequestDispatcher("/_view/user.jsp").forward(req, resp);
+			req.getSession().setAttribute("loggedin", false);
+			req.getSession().setAttribute("username", null);
+			req.getSession().setAttribute("login_id", -1);
+			resp.sendRedirect(req.getContextPath()+"/login");
+
 		}
 	}
 }
