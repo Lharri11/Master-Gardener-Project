@@ -1,0 +1,29 @@
+apply plugin: 'java'
+
+allprojects {
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+}
+
+sourceSets {
+	main {
+		output.classesDir = 'war/WEB-INF/classes'
+		output.resourcesDir = 'war/WEB-INF/classes'
+		java {
+			srcDir 'src'
+		}
+	}
+
+	launcher {
+		output.classesDir = 'bin'
+		output.resourcesDir = 'bin'
+		java {
+			srcDir 'main'
+		}
+	}
+}
+
+dependencies {
+	compile files(eclipseClasspath(project))
+	launcherCompile files(eclipseClasspath(project))
+}
