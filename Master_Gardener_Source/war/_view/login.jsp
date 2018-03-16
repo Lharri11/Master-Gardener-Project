@@ -101,8 +101,8 @@
                           role="form" style="display: none;">
 
                         <div class="form-group">
-                            <input type="text" name="username"  tabindex="1" class="form-control log-reg-text-fields"
-                                   placeholder="Username" value="${username}">
+                            <input type="text" name="usernameReg"  tabindex="1" class="form-control log-reg-text-fields"
+                                   placeholder="Username" value="${usernameReg}">
                         </div>
 
                         <div class="form-group">
@@ -111,22 +111,22 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="password" name="password"  tabindex="2" class="form-control log-reg-text-fields"
-                                   placeholder="Password" value="${password}">
+                            <input type="password" name="pass1"  tabindex="2" class="form-control log-reg-text-fields"
+                                   placeholder="Password" value="${pass1}">
                         </div>
 
                         <div class="form-group">
-                            <input type="password" name="confirm-password"  tabindex="3"
+                            <input type="password" name="pass2"  tabindex="3"
                                    class="form-control log-reg-text-fields" placeholder="Confirm Password" value="${pass2}">
                         </div>
 
                         <div class="form-group">
-                            <input type="text" name="first-name" tabindex="4"
+                            <input type="text" name="firstname" tabindex="4"
                                    class="form-control log-reg-text-fields" placeholder="First Name" value="${firstname}">
                         </div>
 
                         <div class="form-group">
-                            <input type="text" name="last-name" tabindex="5"
+                            <input type="text" name="lastname" tabindex="5"
                                    class="form-control log-reg-text-fields" placeholder="Last Name" value="${lastname}">
                         </div>
 
