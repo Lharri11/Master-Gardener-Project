@@ -51,7 +51,6 @@ public class LoginServlet extends HttpServlet {
 		String first_name = null;
 		String last_name = null;
 		String email = null;
-		String bio = null;
 		String errorMessageReg = null;
 		String buttonPressReg = null;
 		buttonPressReg = req.getParameter("register-submit");
@@ -110,18 +109,18 @@ public class LoginServlet extends HttpServlet {
 		if (buttonPressReg != null) {
 			System.out.println("pressed");
 
-			user = req.getParameter("username");
+			user = req.getParameter("usernameReg");
 			pass1 = req.getParameter("pass1");
 			pass2 = req.getParameter("pass2");
 			// TODO: This is left intentionally red so that I know to ask Nick to fix the html
 			first_name = req.getParameter("firstname");
 			last_name = req.getParameter("lastname");
 			email = req.getParameter("email");
-			bio = req.getParameter("bio");
 
 
 			if ("".equals(user) || user == null) {
-				errorMessageReg = "Invalid username, please re-enter";
+			    System.out.println("Check User");
+				errorMessageReg = "Invalid username, please re-entera";
 				System.out.println(errorMessageReg);
 				user = null;
 				req.setAttribute("errorMessage", errorMessageReg);
@@ -169,15 +168,8 @@ public class LoginServlet extends HttpServlet {
 				req.setAttribute("errorMessage", errorMessageReg);
 				req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
 
-			} else if ("".equals(bio) || bio == null) {
-				errorMessageReg = "Please re-enter description";
-				System.out.println(errorMessageReg);
-				bio = null;
-				req.setAttribute("errorMessage", errorMessageReg);
-				req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
-
 			} else {
-				User account = new User(user, pass1, -1, first_name, last_name, email, bio, new byte[1024]);
+				User account = new User(user, pass1, -1, first_name, last_name, email, null, new byte[1024]);
 				SignupController controller = new SignupController();
 
 				if (controller.createUser(account)) {
@@ -190,12 +182,11 @@ public class LoginServlet extends HttpServlet {
 				}
 			}
 
-			req.setAttribute("username", user);
-			req.setAttribute("password", pass1);
+			req.setAttribute("usernameReg", user);
+			req.setAttribute("pass1", pass1);
 			req.setAttribute("firstname", first_name);
 			req.setAttribute("lastname", first_name);
 			req.setAttribute("email", email);
-			req.setAttribute("bio", bio);
 		}
 
 
