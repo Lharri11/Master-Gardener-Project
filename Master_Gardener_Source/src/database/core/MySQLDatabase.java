@@ -2,7 +2,6 @@ package database.core;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import model.*;
-
 import javax.sql.DataSource;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.SecureRandom;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -194,8 +194,21 @@ public class MySQLDatabase implements IDatabase {
         ResultSet set = null;
 
         String curr_pass = null;
-        String check_pass = hashString(password);
+
+
         try{
+            stmt = conn.prepareStatement("SELECT salt from mg_user WHERE username = ?");
+            stmt.setString(1, username);
+            set = stmt.executeQuery();
+
+            String salt = null;
+            if(set.next())
+            {
+                salt = set.getString(1);
+            }
+
+            String check_pass = hashString(salt+password);
+
             stmt = conn.prepareStatement("SELECT passWord from mg_user WHERE userName = ?");
             stmt.setString(1, username);
             set = stmt.executeQuery();
@@ -739,24 +752,26 @@ public class MySQLDatabase implements IDatabase {
 
         try {
             String password = null;
-
-            stmt = conn.prepareStatement("SELECT passWord FROM mg_user WHERE userName = ? ");
+            String salt = null;
+            stmt = conn.prepareStatement("SELECT passWord, salt FROM mg_user WHERE userName = ? ");
             stmt.setString(1, user.getUsername());
             //stmt.setString(2, user.getDescription());
             set = stmt.executeQuery();
             if(set.next()) {
                 password = set.getString(1);
+                salt = set.getString(2);
             }
             stmt = conn.prepareStatement(
                     "UPDATE mg_user "
                             + " SET first_name = ?, last_name = ?, description = ? "
-                            + " WHERE username = ? AND password = ?");
+                            + " WHERE username = ? AND password = ? AND salt = ?");
             stmt.setString(1, user.getFirstName());
             stmt.setString(2, user.getLastName());
             stmt.setString(3, user.getDescription());
             stmt.setString(4, user.getUsername());
             //stmt.setBlob(3, inputStream);
             stmt.setString(5, password);
+            stmt.setString(6, salt);
             stmt.executeUpdate();
 
             //get user_id
@@ -1225,19 +1240,29 @@ public class MySQLDatabase implements IDatabase {
         PreparedStatement stmt2 = null;
         ResultSet set = null;
 
+        SecureRandom random = new SecureRandom();
+        // Create array for salt
+        byte[] salt = new byte[64];
+        // Get a random salt (this is cryptographically secure)
+        random.nextBytes(salt);
+        // use salt.toString(); to print out a salt.
+        // pre-pend salt to password for when we hash it
+        String password = salt.toString() + user.getPassword();
+
         boolean success = false;
 
         try {
             stmt1 = conn.prepareStatement(
-                    "INSERT INTO mg_user (userName, passWord, login_id, first_name, last_name, email, description) "
-                            + " VALUES(?, SHA2(SHA2(SHA2(?, 512), 512), 512),?,?,?,?,?)");
+                    "INSERT INTO mg_user (userName, passWord, salt, login_id, first_name, last_name, email, description) "
+                            + " VALUES(?, SHA2(SHA2(SHA2(?, 512), 512), 512), ?,?,?,?,?,?)");
             stmt1.setString(1, user.getUsername());
-            stmt1.setString(2, user.getPassword());
-            stmt1.setInt(3, user.getLoginId());
-            stmt1.setString(4, user.getFirstName());
-            stmt1.setString(5, user.getLastName());
-            stmt1.setString(6, user.getEmail());
-            stmt1.setString(7, user.getDescription());
+            stmt1.setString(2, password);
+            stmt1.setString(3, salt.toString());
+            stmt1.setInt(4, user.getLoginId());
+            stmt1.setString(5, user.getFirstName());
+            stmt1.setString(6, user.getLastName());
+            stmt1.setString(7, user.getEmail());
+            stmt1.setString(8, user.getDescription());
 
 
             stmt1.executeUpdate();
@@ -1404,17 +1429,25 @@ public class MySQLDatabase implements IDatabase {
 
         try
         {
-            stmt1 = conn.prepareStatement("SELECT user_id FROM mg_user WHERE userName = ? AND passWord = SHA2(SHA2(SHA2(?, 512), 512), 512)");
+            String salt = null;
+
+            stmt1 = conn.prepareStatement("SELECT user_id, salt FROM mg_user WHERE userName = ? AND passWord = SHA2(SHA2(SHA2(?, 512), 512), 512)");
             stmt1.setString(1, user_name);
             stmt1.setString(2, old_password);
 
             rs = stmt1.executeQuery();
 
-            if(!rs.next())
+            if(rs.next())
+            {
+                salt = rs.getString(2);
+            }
+            else
             {
                 System.out.println("Incorrect username or password.");
                 return false;
             }
+
+            new_password = salt+new_password;
 
             stmt1 = conn.prepareStatement("UPDATE mg_user" +
                     " SET passWord = SHA2(SHA2(SHA2(?, 512), 512), 512) " +
@@ -1426,9 +1459,10 @@ public class MySQLDatabase implements IDatabase {
             stmt1.executeUpdate();
 
             // Check to see if password updated
-            stmt2 = conn.prepareStatement("SELECT user_ID FROM mg_user WHERE passWord = SHA2(SHA2(SHA2(?, 512), 512), 512) AND userName = ?");
+            stmt2 = conn.prepareStatement("SELECT user_ID FROM mg_user WHERE passWord = SHA2(SHA2(SHA2(?, 512), 512), 512) AND userName = ? AND salt = ?");
             stmt2.setString(1, new_password);
             stmt2.setString(2, user_name);
+            stmt2.setString(3, salt);
             rs = stmt2.executeQuery();
 
             if(rs.next())
