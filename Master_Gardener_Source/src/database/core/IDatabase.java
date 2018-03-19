@@ -131,4 +131,5 @@ public interface IDatabase {
 	public List<String> getStrainByPlant(final Plant plant) throws SQLException;
 	public String getPlantNameByGarden(final Garden garden) throws SQLException;
 	public int queryForVisitCountByFieldsFromPollVisit(final int data_form_id, int pollinator_id, int plant_id, int strain_id);
+	public String saltPassword(String username, String password) throws SQLException;
 }
