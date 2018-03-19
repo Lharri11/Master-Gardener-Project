@@ -185,6 +185,32 @@ public class MySQLDatabase implements IDatabase {
         return prepared_statement;
     }
 
+    public String saltPassword(String username, String password) throws SQLException
+    {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+        String salt = null;
+        try
+        {
+            stmt = conn.prepareStatement("SELECT salt FROM mg_user WHERE userName = ?");
+            stmt.setString(1, username);
+            set = stmt.executeQuery();
+
+            if(set.next())
+            {
+                salt = set.getString(1);
+            }
+        }
+        finally{
+            DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(set);
+        }
+
+        return salt+password;
+    }
+
     public boolean checkPasswordByUsername(String username, String password)throws SQLException
     {
         // This method checks a password passed into the method VS. the user's actual password.
@@ -867,7 +893,7 @@ public class MySQLDatabase implements IDatabase {
         ResultSet set = null;
         try {
             stmt = conn.prepareStatement(
-                    " SELECT * FROM mg_user "
+                    " SELECT user_ID, userName, passWord, login_id, email, first_name, last_name, description FROM mg_user "
                             + " WHERE userName=?");
             stmt.setString(1, username);
 
