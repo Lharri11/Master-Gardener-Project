@@ -255,6 +255,80 @@ public class MySQLDatabase implements IDatabase {
         }
     }
 
+    public ArrayList<String> getPlantsFromGarden(Garden garden) throws SQLException
+    {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+        ArrayList<String> plant_list = new ArrayList<>();
+        ArrayList<Integer> plant_strain_id_list = new ArrayList<>();
+
+        try
+        {
+            stmt = conn.prepareStatement("SELECT plant_strain_id FROM mg_plot WHERE garden_id = ?");
+            stmt.setInt(1, garden.getGarden_id());
+            set = stmt.executeQuery();
+
+            while(set.next())
+            {
+                plant_strain_id_list.add(set.getInt(1));
+            }
+
+            for(int i = 0; i < plant_strain_id_list.size(); i++) {
+                stmt = conn.prepareStatement("SELECT strand_name FROM mg_plant_strain WHERE plant_id = ?");
+                stmt.setInt(1, plant_strain_id_list.get(i));
+                set = stmt.executeQuery();
+                while(set.next())
+                {
+                    plant_list.add(set.getString(1));
+                }
+            }
+        }
+        finally
+        {
+            DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(set);
+        }
+
+        return plant_list;
+    }
+    public int getNumberOfPlantsFromGarden(Garden garden) throws SQLException
+    {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+        ArrayList<Integer> plant_strain_id_list = new ArrayList<>();
+
+        try {
+            stmt = conn.prepareStatement("SELECT plant_strain_id FROM mg_plot WHERE garden_id = ?");
+            stmt.setInt(1, garden.getGarden_id());
+            set = stmt.executeQuery();
+            while (set.next()) {
+                plant_strain_id_list.add(set.getInt(1));
+            }
+
+        }
+        finally
+        {
+            DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(set);
+        }
+        return plant_strain_id_list.size();
+    }
+
+    public ArrayList<String> getPollinatorsFromGarden(Garden garden) throws SQLException
+    {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+
+        //TODO
+
+        return null;
+    }
+
+
     public List<String> getAllPollinatorsPlantsGardenVisitCount() throws SQLException {
         DataSource ds = getMySQLDataSource();
         Connection conn = ds.getConnection();
