@@ -73,7 +73,7 @@
 									</form>
 								</li>
 								<li class="propClone">
-									<input type="image" value="Logout" id="logoutSubmit" name="logoutSubmit" class="homeLinks" src="images/logout.png" title="Log Out">
+									<input type="image" value="Logout" id="loginSubmit" name="logoutSubmit" class="homeLinks" src="images/logout.png" title="Log Out">
 								</li>
 							</ul>
     					</div> 

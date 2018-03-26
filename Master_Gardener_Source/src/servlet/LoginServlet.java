@@ -42,9 +42,12 @@ public class LoginServlet extends HttpServlet {
 		boolean loggedin = false;
 		String errorMessage = null;
 		LoginController login = new LoginController();
+
+
 		buttonPress = req.getParameter("loginSubmit");
 
-		//Registration
+
+		/*//Registration
 		String user = null;
 		String pass1 = null;
 		String pass2 = null;
@@ -53,7 +56,7 @@ public class LoginServlet extends HttpServlet {
 		String email = null;
 		String errorMessageReg = null;
 		String buttonPressReg = null;
-		buttonPressReg = req.getParameter("register-submit");
+		buttonPressReg = req.getParameter("register-submit");*/
 
 		if(buttonPress != null){
 			if(buttonPress.toLowerCase().equals("logout")){
@@ -70,8 +73,7 @@ public class LoginServlet extends HttpServlet {
 				if("".equals(username) || username == null ||
 						"".equals(password) || password == null){
 					errorMessage = "Invalid username or password.";
-				}
-				else {
+				}  else {
 					int loginId = 0;
 					try {
 						loginId = login.loginUser(username, password);
@@ -106,7 +108,7 @@ public class LoginServlet extends HttpServlet {
 
 
 
-		if (buttonPressReg != null) {
+		/*if (buttonPressReg != null) {
 			System.out.println("pressed");
 
 			user = req.getParameter("usernameReg");
@@ -187,7 +189,7 @@ public class LoginServlet extends HttpServlet {
 			req.setAttribute("firstname", first_name);
 			req.setAttribute("lastname", first_name);
 			req.setAttribute("email", email);
-		}
+		}*/
 
 
 	}
