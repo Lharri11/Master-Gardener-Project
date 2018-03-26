@@ -67,7 +67,7 @@
 									</form>
 								</li>
 								<li class="propClone">
-									<input type="image" value="Logout" id="logoutSubmit" name="logoutSubmit" class="homeLinks" src="images/logout.png" title="Log Out">
+									<input type="image" value="Logout" id="logoutSubmit" name="loginSubmit" class="homeLinks" src="images/logout.png" title="Log Out">
 								</li>
 							</ul>
     					</div> 
@@ -105,7 +105,7 @@
 									<c:forEach items="${groups}" var="group">
 										<li><td class="groupListItem">
 											<input class="sidebarItem" type="Submit" value=${group.name} id="Submit" name="Submit"></td>
-										</td></li>
+										</li>
 										
 									</c:forEach>
 								</form>

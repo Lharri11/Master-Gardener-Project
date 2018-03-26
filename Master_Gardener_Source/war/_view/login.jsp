@@ -58,7 +58,8 @@
                         <div class="col-xs-6">
                             <a href="/login/login" class="active" id="login-form-link">Login</a>
                         </div>
-                        <div class="col-xs-6"><a href="/login/register" id="register-form-link">Register</a>
+                        <div class="col-xs-6">
+                            <a href="/login/register" class="login-link" id="register-form-link">Register</a>
                         </div>
                     </div>
 
@@ -97,7 +98,7 @@
                         </div>
 
                     </form>
-                    <form id="register-form" action="${pageContext.servletContext.contextPath}/login" method="post"
+                    <form id="register-form" action="${pageContext.servletContext.contextPath}/signup" method="post"
                           role="form" style="display: none;">
 
                         <div class="form-group">
@@ -138,7 +139,11 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div id="errorMessageReg">
+                            <c:if test="${! empty errorMessageReg}">
+                                <tr>${errorMessageReg}</tr>
+                            </c:if>
+                        </div>
 
                     </form>
                 </div>
@@ -181,20 +186,35 @@
 <script>
     $(function () {
 
-        $('#login-form-link').click(function (e) {
-            $("#login-form").delay(100).fadeIn(100);
-            $("#register-form").fadeOut(100);
+        $('#login-form-link').click(function () {
+            $(this).addClass('active');
             $('#register-form-link').removeClass('active');
-            $(this).addClass('active');
-            e.preventDefault();
+            $("#login-form").show();
+            $("#register-form").hide();
+            return false;
+
+            // e.preventDefault();
         });
-        $('#register-form-link').click(function (e) {
-            $("#register-form").delay(100).fadeIn(100);
-            $("#login-form").fadeOut(100);
+        $('#register-form-link').click(function () {
+            $(this).addClass('active');
             $('#login-form-link').removeClass('active');
-            $(this).addClass('active');
-            e.preventDefault();
+            $("#register-form").show();
+            $("#login-form").hide();
+            return false;
+
+            //e.preventDefault();
         });
+
+
+        switch (true) {
+            case 'register':
+                $('#register-form-link').click();
+                break;
+            case 'login':
+            default:
+                $('#login-form-link').click();
+                break;
+        }
 
     });
 
