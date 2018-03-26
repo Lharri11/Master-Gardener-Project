@@ -65,7 +65,7 @@
 
                             <li class="propClone">
                                 <!--<form href="/login/register" method="get">-->
-                                    <form action="${pageContext.servletContext.contextPath}/signup" method="get">
+                                <form action="${pageContext.servletContext.contextPath}/signup" method="get">
                                     <button class="homeLinks-nav" type="submit">Create Account</button>
                                 </form>
                             </li>
@@ -106,7 +106,7 @@
                     <div id="divSpacer"></div>
                     <!-- /.spacer -->
                     <div id="frameRight">
-                        <img class="img-responsive" src="images/black_gardener_logo.jpg">
+                        <img class="img-fluid" src="images/black_gardener_logo.jpg">
                     </div>
                 </div>
 
@@ -175,13 +175,13 @@
                     <tr>
                         <td>Reason </td>
                         <td>
-                        <select class="form-control"
-                                name="subject" required autocomplete="off">
-                            <option style="display: none" value="">Select</option>
-                            <option value="Found a bug">Found a bug</option>
-                            <option value="Feature Request">Feature Request</option>
-                            <option value="Other">Other</option>
-                        </select>
+                            <select class="form-control"
+                                    name="subject" required autocomplete="off">
+                                <option style="display: none" value="">Select</option>
+                                <option value="Found a bug">Found a bug</option>
+                                <option value="Feature Request">Feature Request</option>
+                                <option value="Other">Other</option>
+                            </select>
                         </td>
                     </tr>
                     <tr>
