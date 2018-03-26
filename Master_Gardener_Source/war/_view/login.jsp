@@ -52,8 +52,8 @@
     <div class="row align-items-center">
         <%-- Aligns center horizontally --%>
         <div class="container-fluid">
-            <div class="panel panel-login">
-                <div class="panel-heading">
+            <div class="card panel-login">
+                <div class="card-header">
                     <div class="row">
                         <div class="col-xs-6">
                             <a href="/login/login" class="active" id="login-form-link">Login</a>
@@ -64,7 +64,7 @@
                     </div>
 
                 </div>
-                <div class="panel-body">
+                <div class="card-block">
                     <form id="login-form" action="${pageContext.servletContext.contextPath}/login" method="post"
                           role="form" style="display: block;">
 
@@ -76,7 +76,7 @@
                             <input type="password" name="password" tabindex="2" class="form-control log-reg-text-fields"
                                    placeholder="Password" value="${password}" required>
                         </div>
-                        <div class="form-group text-center">
+                        <div class="form-group text-xs-center">
                             <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
                             <label for="remember"> Remember Me</label>
                         </div>
@@ -84,7 +84,7 @@
 
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-sm-6 col-sm-offset-3">
+                                <div class="col-sm-6 offset-sm-3">
                                     <input type="submit" name="loginSubmit" id="loginSubmit" tabindex="4"
                                            class="form-control btn btn-login" value="Login">
                                 </div>
@@ -133,7 +133,7 @@
 
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-sm-6 col-sm-offset-3">
+                                <div class="col-sm-6 offset-sm-3">
                                     <input type="submit" name="register-submit" id="register-submit" tabindex="6"
                                            class="form-control btn btn-register" value="Create">
                                 </div>
