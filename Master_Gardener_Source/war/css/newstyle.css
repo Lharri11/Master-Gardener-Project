@@ -223,7 +223,7 @@ header.masthead>.overlay {
 .login-body{
     font-family: "Open Sans", sans-serif;
     height: 100vh;
-    background-image: url('../images/LoginBackground.jpg');
+    background-image: url('../images/Login-Signup-Background.jpg');
     padding-top: 7rem;
     background-size: cover;
     overflow: hidden;
