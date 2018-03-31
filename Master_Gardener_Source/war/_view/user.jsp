@@ -1,22 +1,27 @@
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<html lang="en">
+
 <head>
-    <link rel="icon" type="image/png" href="images/nittany_lions_logo.jpg">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator"
-          content="Script Eden ( http://scripteden.net/ ) Template Builder v2.0.0">
-    <title>${user.firstName} - Master Gardener</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>${user.firstName} - Pollinator Preferences</title>
     <!--pageMeta-->
 
-    <!-- Loading Bootstrap -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-    <!-- Loading Flat UI -->
-    <link href="css/flat-ui.css" rel="stylesheet">
+    <!-- Custom fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
+          rel="stylesheet">
 
-    <link href="css/style.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link href="css/additional-style.css" rel="stylesheet">
 
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
