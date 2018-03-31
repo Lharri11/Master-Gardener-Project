@@ -152,3 +152,111 @@ header.masthead .bg-circle-4 {
 .btn-secondary:focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.5);
 }
+
+
+
+/* Login Style - Begin */
+
+.card-login-top-padding {
+    padding-top: 5.625rem;
+}
+
+
+.card-login {
+    border-color: #ccc;
+    -webkit-box-shadow: 0rem 0.125rem 0.1875rem 0rem rgba(0,0,0,0.2);
+    -moz-box-shadow: 0rem 0.125rem 0.1875rem 0rem rgba(0,0,0,0.2);
+    box-shadow: 0rem 0.125rem 0.1875rem 0rem rgba(0,0,0,0.2);
+}
+.card-login>.card-header {
+    color: #00415d;
+    background-color: #fff;
+    border-color: #fff;
+    text-align:center;
+}
+.card-login>.card-header a{
+    text-decoration: none;
+    color: #666;
+    font-weight: bold;
+    font-size: 0.9375rem;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+.card-login>.card-header a.active{
+    color: #029f5b;
+    font-size: 1.125rem;
+}
+.card-login>.card-header hr{
+    margin-top: 0.625rem;
+    margin-bottom: 0rem;
+    clear: both;
+    border: 0;
+    height: 0.0625rem;
+    background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+    background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+    background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+.card-login input[type="text"],.card-login input[type="email"],.card-login input[type="password"] {
+    height: 2.8125rem;
+    border: 0.0625rem solid #ddd;
+    font-size: 1rem;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+.card-login input:hover,
+.card-login input:focus {
+    outline:none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-color: #ccc;
+}
+.btn-login {
+    background-color: #59B2E0;
+    outline: none;
+    color: #fff;
+    font-size: 0.875rem;
+    height: auto;
+    font-weight: normal;
+    padding: 0.875rem 0;
+    text-transform: uppercase;
+    border-color: #59B2E6;
+}
+.btn-login:hover,
+.btn-login:focus {
+    color: #fff;
+    background-color: #53A3CD;
+    border-color: #53A3CD;
+}
+.forgot-password {
+    text-decoration: underline;
+    color: #888;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+    text-decoration: underline;
+    color: #666;
+}
+
+.btn-register {
+    background-color: #1CB94E;
+    outline: none;
+    color: #fff;
+    font-size: 0.875rem;
+    height: auto;
+    font-weight: normal;
+    padding: 0.875rem 0;
+    text-transform: uppercase;
+    border-color: #1CB94A;
+}
+.btn-register:hover,
+.btn-register:focus {
+    color: #fff;
+    background-color: #1CA347;
+    border-color: #1CA347;
+}
+
+/* Login Style - End */
