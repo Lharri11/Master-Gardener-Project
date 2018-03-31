@@ -23,20 +23,9 @@
     <!-- Custom styles for this template -->
     <link href="css/additional-style.css" rel="stylesheet">
 
+    <script defer src="vendor/font-awesome/fontawesome-all.js"></script>
+
 </head>
-
-
-<%--   <link href="css/login.css" rel="stylesheet">
-
-   <!-- Loading Bootstrap -->
-   <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-
-   <!-- Loading Flat UI -->
-   <link href="css/flat-ui.css" rel="stylesheet">
-
-   <link href="css/newstyle.css" rel="stylesheet">
-
-   <link href="css/newLogin.css" rel="stylesheet">--%>
 
 
 <body>
@@ -46,26 +35,20 @@
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
         <a class="navbar-brand" href="${pageContext.servletContext.contextPath}/home">Pollinator Preferences</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
     </div>
 </nav>
-
-<header></header>
 
 
 <div class="container card-login-top-padding">
     <div class="row">
-        <div class="col-md-6 offset-md-3">
+        <div class="col-lg-6 offset-lg-3 align-content-lg-center">
             <div class="card card-login">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-lg-6 col-sm-6">
                             <a href="/login/login" class="active" id="login-form-link">Login</a>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-lg-6 col-sm-6">
                             <a href="/login/register" class="login-link" id="register-form-link">Register</a>
                         </div>
                     </div>
@@ -74,7 +57,8 @@
                 <div class="card-block">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form id="login-form" action="${pageContext.servletContext.contextPath}/login" method="post" role="form"
+                            <form id="login-form" action="${pageContext.servletContext.contextPath}/login" method="post"
+                                  role="form"
                                   style="display: block;">
                                 <div class="form-group">
                                     <input type="text" name="username" tabindex="1" class="form-control"
@@ -84,7 +68,7 @@
                                     <input type="password" name="password" tabindex="2"
                                            class="form-control" placeholder="Password" required>
                                 </div>
-                                <div class="form-group text-xs-center">
+                                <div class="form-group text-lg-center text-center">
                                     <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
                                     <label for="remember"> Remember Me</label>
                                 </div>
@@ -99,7 +83,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="text-xs-center">
+                                            <div class="text-lg-center text-center">
                                                 <a href="#" tabindex="5"
                                                    class="forgot-password">Forgot Password?</a>
                                             </div>
@@ -107,16 +91,24 @@
                                     </div>
                                 </div>
                             </form>
-                            <form id="register-form" action="${pageContext.servletContext.contextPath}/signup" method="post"
+
+
+                            <form id="register-form" action="${pageContext.servletContext.contextPath}/signup"
+                                  method="post"
                                   role="form" style="display: none;">
+
+                                <%--<div class="tab">--%>
                                 <div class="form-group">
-                                    <input type="text" name="firstname"  tabindex="1"
+                                    <input type="text" name="firstname" tabindex="1"
                                            class="form-control" placeholder="First Name" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="lastname" tabindex="2"
                                            class="form-control" placeholder="Last Name" required>
                                 </div>
+                                <%--</div>--%>
+
+                                <%--<div class="tab">--%>
                                 <div class="form-group">
                                     <input type="text" name="usernameReg" tabindex="3" class="form-control"
                                            placeholder="Username" required>
@@ -125,23 +117,65 @@
                                     <input type="email" name="email" id="email" tabindex="4" class="form-control"
                                            placeholder="Email Address" required>
                                 </div>
+
+
                                 <div class="form-group">
-                                    <input type="password" name="pass1" id="password" tabindex="5"
+                                    <input type="password" name="pass1" id="password1" tabindex="5"
                                            class="form-control" placeholder="Password" required>
                                 </div>
+                                <div class="row">
+                                    <div class="col-lg-6 text-lg-center text-center">
+                                        <p id="8char" class="fas fa-times"
+                                           style="color:#FF0004;"></p> 8 Characters
+                                        Long<br>
+                                        <p id="ucase" class="fas fa-times"
+                                           style="color:#FF0004;"></p> One Uppercase
+                                        Letter
+                                    </div>
+                                    <div class="col-lg-6 text-lg-center text-center">
+                                        <p id="lcase" class="fas fa-times"
+                                           style="color:#FF0004;"></p> One Lowercase
+                                        Letter<br>
+                                        <p id="num" class="fas fa-times" style="color:#FF0004;"></p>
+                                        One Number
+                                    </div>
+                                </div>
+
+
                                 <div class="form-group">
                                     <input type="password" name="pass2" id="confirm-password" tabindex="6"
                                            class="form-control" placeholder="Confirm Password" required>
                                 </div>
+                                <div class="row">
+                                    <div class="col-lg-12 text-lg-center text-center">
+                                        <p id="pwmatch" class="fas fa-times" style="color:#FF0004;"></p> Passwords
+                                        Match
+                                    </div>
+                                </div>
+
+                                <br>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 offset-sm-3">
                                             <input type="submit" name="register-submit" id="register-submit"
-                                                   tabindex="4" class="form-control btn btn-register"
+                                                   tabindex="7" class="form-control btn btn-register"
                                                    value="Create Account">
                                         </div>
                                     </div>
                                 </div>
+                                <%--</div>--%>
+                                <%--<div style="overflow:auto;">
+                                    <div style="float:right;">
+                                        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                                        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                                    </div>
+                                </div>
+                                <!-- Circles which indicates the steps of the form: -->
+                                <div style="text-align:center;margin-top:40px;">
+                                    <span class="step"></span>
+                                    <span class="step"></span>
+                                </div>--%>
+
                             </form>
                         </div>
                     </div>
@@ -151,132 +185,11 @@
     </div>
 </div>
 
-
-<%--<div class="container">
-    &lt;%&ndash; Aligns center vertically &ndash;%&gt;
-    <div class="row align-items-center">
-        &lt;%&ndash; Aligns center horizontally &ndash;%&gt;
-        <div class="container-fluid">
-            <div class="card panel-login">
-                <div class="card-header">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <a href="/login/login" class="active" id="login-form-link">Login</a>
-                        </div>
-                        <div class="col-xs-6">
-                            <a href="/login/register" class="login-link" id="register-form-link">Register</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card-block">
-                    <form id="login-form" action="${pageContext.servletContext.contextPath}/login" method="post"
-                          role="form" style="display: block;">
-
-                        <div &lt;%&ndash;class="form-group"&ndash;%&gt;>
-                            <input type="text" name="username" tabindex="1" class="form-control log-reg-text-fields"
-                                   placeholder="Username" value="${username}" required>
-                        </div>
-                        <div &lt;%&ndash;class="form-group"&ndash;%&gt;>
-                            <input type="password" name="password" tabindex="2" class="form-control log-reg-text-fields"
-                                   placeholder="Password" value="${password}" required>
-                        </div>
-                        <div class="form-group text-xs-center">
-                            <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                            <label for="remember"> Remember Me</label>
-                        </div>
-                        <a href="#">Forgot your password?</a>
-
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-sm-6 offset-sm-3">
-                                    <input type="submit" name="loginSubmit" id="loginSubmit" tabindex="4"
-                                           class="form-control btn btn-login" value="Login">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="errorMessage">
-                            <c:if test="${! empty errorMessage}">
-                                <tr>${errorMessage}</tr>
-                            </c:if>
-                        </div>
-
-                    </form>
-                    <form id="register-form" action="${pageContext.servletContext.contextPath}/signup" method="post"
-                          role="form" style="display: none;">
-
-                        <div class="form-group">
-                            <input type="text" name="usernameReg"  tabindex="1" class="form-control log-reg-text-fields"
-                                   placeholder="Username" value="${usernameReg}">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="email" name="email" tabindex="1" class="form-control log-reg-text-fields"
-                                   placeholder="Email Address" value="${email}">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="password" name="pass1"  tabindex="2" class="form-control log-reg-text-fields"
-                                   placeholder="Password" value="${pass1}">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="password" name="pass2"  tabindex="3"
-                                   class="form-control log-reg-text-fields" placeholder="Confirm Password" value="${pass2}">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" name="firstname" tabindex="4"
-                                   class="form-control log-reg-text-fields" placeholder="First Name" value="${firstname}">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" name="lastname" tabindex="5"
-                                   class="form-control log-reg-text-fields" placeholder="Last Name" value="${lastname}">
-                        </div>
-
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-sm-6 offset-sm-3">
-                                    <input type="submit" name="register-submit" id="register-submit" tabindex="6"
-                                           class="form-control btn btn-register" value="Create">
-                                </div>
-                            </div>
-                        </div>
-                        <div id="errorMessageReg">
-                            <c:if test="${! empty errorMessageReg}">
-                                <tr>${errorMessageReg}</tr>
-                            </c:if>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>--%>
-
-
 <!-- Load JS here for greater good =============================-->
 <script src="vendor/jquery/jquery.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
 <script src="vendor/jquery-easing/jquery.easing.js"></script>
 <script src="vendor/scrollreveal/scrollreveal.js"></script>
-<script>
-    $(function () {
-
-        if ($('#nivoSlider').size() > 0) {
-
-            $('#nivoSlider').nivoSlider({
-                effect: 'random',
-                pauseTime: 5000
-            });
-
-        }
-
-    })
-</script>
 
 <script>
     $(function () {
@@ -307,6 +220,116 @@
         }
     });
 </script>
+
+<script>
+
+    $("input[type=password]").keyup(function () {
+        var ucase = new RegExp("[A-Z]+");
+        var lcase = new RegExp("[a-z]+");
+        var num = new RegExp("[0-9]+");
+
+        if ($("#password1").val().length >= 8) {
+            $("#8char").removeClass("fa-times");
+            $("#8char").addClass("fa-check");
+            $("#8char").css("color", "#00A41E");
+        } else {
+            $("#8char").removeClass("fa-check");
+            $("#8char").addClass("fa-times");
+            $("#8char").css("color", "#FF0004");
+        }
+
+        if (ucase.test($("#password1").val())) {
+            $("#ucase").removeClass("fa-times");
+            $("#ucase").addClass("fa-check");
+            $("#ucase").css("color", "#00A41E");
+        } else {
+            $("#ucase").removeClass("fa-check");
+            $("#ucase").addClass("fa-times");
+            $("#ucase").css("color", "#FF0004");
+        }
+
+        if (lcase.test($("#password1").val())) {
+            $("#lcase").removeClass("fa-times");
+            $("#lcase").addClass("fa-check");
+            $("#lcase").css("color", "#00A41E");
+        } else {
+            $("#lcase").removeClass("fa-check");
+            $("#lcase").addClass("fa-times");
+            $("#lcase").css("color", "#FF0004");
+        }
+
+        if (num.test($("#password1").val())) {
+            $("#num").removeClass("fa-times");
+            $("#num").addClass("fa-check");
+            $("#num").css("color", "#00A41E");
+        } else {
+            $("#num").removeClass("fa-check");
+            $("#num").addClass("fa-times");
+            $("#num").css("color", "#FF0004");
+        }
+
+        if ($("#password1").val() == $("#confirm-password").val() && $("#confirm-password").val().isEmpty()) {
+            $("#pwmatch").removeClass("fa-times");
+            $("#pwmatch").addClass("fa-check");
+            $("#pwmatch").css("color", "#00A41E");
+        } else {
+            $("#pwmatch").removeClass("fa-check");
+            $("#pwmatch").addClass("fa-times");
+            $("#pwmatch").css("color", "#FF0004");
+        }
+    });
+
+</script>
+
+<%--<script>
+        var currentTab = 0; // Current tab is set to be the first tab (0)
+        showTab(currentTab); // Display the current tab
+        function showTab(n) {
+            // This function will display the specified tab of the form ...
+            var x = document.getElementsByClassName("tab");
+            x[n].style.display = "block";
+            // ... and fix the Previous/Next buttons:
+            if (n == 0) {
+                document.getElementById("prevBtn").style.display = "none";
+            } else {
+                document.getElementById("prevBtn").style.display = "inline";
+            }
+            if (n == (x.length - 1)) {
+                document.getElementById("nextBtn").innerHTML = "Submit";
+            } else {
+                document.getElementById("nextBtn").innerHTML = "Next";
+            }
+            // ... and run a function that displays the correct step indicator:
+            fixStepIndicator(n)
+        }
+        function nextPrev(n) {
+            // This function will figure out which tab to display
+            var x = document.getElementsByClassName("tab");
+            // Exit the function if any field in the current tab is invalid:
+
+            // Hide the current tab:
+            x[currentTab].style.display = "none";
+            // Increase or decrease the current tab by 1:
+            currentTab = currentTab + n;
+            // if you have reached the end of the form... :
+            if (currentTab >= x.length) {
+                //...the form gets submitted:
+                document.getElementById("register-form").submit();
+                return false;
+            }
+            // Otherwise, display the correct tab:
+            showTab(currentTab);
+        }
+        function fixStepIndicator(n) {
+            // This function removes the "active" class of all steps...
+            var i, x = document.getElementsByClassName("step");
+            for (i = 0; i < x.length; i++) {
+                x[i].className = x[i].className.replace(" active", "");
+            }
+            //... and adds the "active" class to the current step:
+            x[n].className += " active";
+        }
+</script>--%>
 
 
 </body>
