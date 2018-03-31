@@ -1,56 +1,161 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<html>
+<html lang="en">
+
 <head>
 
-    <title>Login - Master Gardener</title>
-    <link rel="icon" type="image/jpg" href="images/nittany_lions_logo.jpg">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Script Eden ( http://scripteden.net/ ) Template Builder v2.0.0">
-    <!--pageMeta-->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <title>Login - Pollinator Preferences</title>
 
-    <link href="css/login.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-    <!-- Loading Bootstrap -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
+          rel="stylesheet">
 
-    <!-- Loading Flat UI -->
-    <link href="css/flat-ui.css" rel="stylesheet">
-
-    <link href="css/newstyle.css" rel="stylesheet">
-
-    <link href="css/newLogin.css" rel="stylesheet">
-
+    <!-- Custom styles for this template -->
+    <link href="css/additional-style.css" rel="stylesheet">
 
 </head>
+
+
+<%--   <link href="css/login.css" rel="stylesheet">
+
+   <!-- Loading Bootstrap -->
+   <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+
+   <!-- Loading Flat UI -->
+   <link href="css/flat-ui.css" rel="stylesheet">
+
+   <link href="css/newstyle.css" rel="stylesheet">
+
+   <link href="css/newLogin.css" rel="stylesheet">--%>
+
 
 <body>
 
 
-<nav role="navigation"
-     class="navbar navbar-blue navbar-embossed navbar-lg navbar-fixed-top">
-
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-
-        <div class="navbar-header">
-            <a href="home" class="navbar-brand brand"><img src="images/nittany_lions_logo.jpg"
-                                                           id="logo"></a>
-        </div>
-
-
-    </div><!-- /.container -->
+        <a class="navbar-brand" href="${pageContext.servletContext.contextPath}/home">Pollinator Preferences</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
 </nav>
 
 <header></header>
 
+
 <div class="container">
-    <%-- Aligns center vertically --%>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card panel-login">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <a href="/login/login" class="active" id="login-form-link">Login</a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a href="/login/register" class="login-link" id="register-form-link">Register</a>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form id="login-form" action="${pageContext.servletContext.contextPath}/login" method="post" role="form"
+                                  style="display: block;">
+                                <div class="form-group">
+                                    <input type="text" name="username" tabindex="1" class="form-control"
+                                           placeholder="Username" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" tabindex="2"
+                                           class="form-control" placeholder="Password" required>
+                                </div>
+                                <div class="form-group text-xs-center">
+                                    <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+                                    <label for="remember"> Remember Me</label>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-6 offset-sm-3">
+                                            <input type="submit" name="loginSubmit" id="login-submit" tabindex="4"
+                                                   class="form-control btn btn-login" value="Login">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="text-xs-center">
+                                                <a href="#" tabindex="5"
+                                                   class="forgot-password">Forgot Password?</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <form id="register-form" action="${pageContext.servletContext.contextPath}/signup" method="post"
+                                  role="form" style="display: none;">
+                                <div class="form-group">
+                                    <input type="text" name="firstname"  tabindex="1"
+                                           class="form-control" placeholder="First Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="lastname" tabindex="2"
+                                           class="form-control" placeholder="Last Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="usernameReg" tabindex="3" class="form-control"
+                                           placeholder="Username" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="email" id="email" tabindex="4" class="form-control"
+                                           placeholder="Email Address" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="pass1" id="password" tabindex="5"
+                                           class="form-control" placeholder="Password" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="pass2" id="confirm-password" tabindex="6"
+                                           class="form-control" placeholder="Confirm Password" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-6 offset-sm-3">
+                                            <input type="submit" name="register-submit" id="register-submit"
+                                                   tabindex="4" class="form-control btn btn-register"
+                                                   value="Create Account">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%--<div class="container">
+    &lt;%&ndash; Aligns center vertically &ndash;%&gt;
     <div class="row align-items-center">
-        <%-- Aligns center horizontally --%>
+        &lt;%&ndash; Aligns center horizontally &ndash;%&gt;
         <div class="container-fluid">
             <div class="card panel-login">
                 <div class="card-header">
@@ -68,11 +173,11 @@
                     <form id="login-form" action="${pageContext.servletContext.contextPath}/login" method="post"
                           role="form" style="display: block;">
 
-                        <div <%--class="form-group"--%>>
+                        <div &lt;%&ndash;class="form-group"&ndash;%&gt;>
                             <input type="text" name="username" tabindex="1" class="form-control log-reg-text-fields"
                                    placeholder="Username" value="${username}" required>
                         </div>
-                        <div <%--class="form-group"--%>>
+                        <div &lt;%&ndash;class="form-group"&ndash;%&gt;>
                             <input type="password" name="password" tabindex="2" class="form-control log-reg-text-fields"
                                    placeholder="Password" value="${password}" required>
                         </div>
@@ -150,23 +255,10 @@
             </div>
         </div>
     </div>
-</div>
+</div>--%>
 
 
 <!-- Load JS here for greater good =============================-->
-<script src="js/jquery-1.8.3.min.js"></script>
-<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
-<script src="js/jquery.ui.touch-punch.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap-select.js"></script>
-<script src="js/bootstrap-switch.js"></script>
-<script src="js/flatui-checkbox.js"></script>
-<script src="js/flatui-radio.js"></script>
-<script src="js/jquery.tagsinput.js"></script>
-<script src="js/jquery.placeholder.js"></script>
-<script src="js/jquery.nivo.slider.pack.js"></script>
-<script src="js/application.js"></script>
-<script src="js/over.js"></script>
 
 <script>
     $(function () {
@@ -185,14 +277,12 @@
 
 <script>
     $(function () {
-
         $('#login-form-link').click(function () {
             $(this).addClass('active');
             $('#register-form-link').removeClass('active');
             $("#login-form").show();
             $("#register-form").hide();
             return false;
-
             // e.preventDefault();
         });
         $('#register-form-link').click(function () {
@@ -201,11 +291,8 @@
             $("#register-form").show();
             $("#login-form").hide();
             return false;
-
             //e.preventDefault();
         });
-
-
         switch (true) {
             case 'register':
                 $('#register-form-link').click();
@@ -215,9 +302,7 @@
                 $('#login-form-link').click();
                 break;
         }
-
     });
-
 </script>
 
 
