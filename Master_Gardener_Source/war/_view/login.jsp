@@ -56,10 +56,10 @@
 <header></header>
 
 
-<div class="container">
+<div class="container card-login-top-padding">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <div class="card panel-login">
+            <div class="card card-login">
                 <div class="card-header">
                     <div class="row">
                         <div class="col-xs-6">
@@ -259,7 +259,10 @@
 
 
 <!-- Load JS here for greater good =============================-->
-
+<script src="vendor/jquery/jquery.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.js"></script>
+<script src="vendor/scrollreveal/scrollreveal.js"></script>
 <script>
     $(function () {
 
