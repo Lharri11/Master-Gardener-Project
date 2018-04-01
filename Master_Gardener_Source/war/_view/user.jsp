@@ -24,17 +24,32 @@
     <link href="css/additional-style.css" rel="stylesheet">
 
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-
-    <!--headerIncludes-->
-
-
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="${pageContext.servletContext.contextPath}/home">Pollinator Preferences</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <%--TODO: Fix logout function, does not function as inteneded...add seperate servlet--%>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" value="Logout" href="${pageContext.servletContext.contextPath}/login">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
 
 <div id="page" class="page">
 
@@ -42,7 +57,7 @@
 
         <div class="wrapper">
 
-            <nav role="navigation"
+            <%--<nav role="navigation"
                  class="navbar navbar-blue navbar-embossed navbar-lg navbar-fixed-top">
 
                 <div class="container">
@@ -78,7 +93,7 @@
                     <!--/.navbar-collapse -->
                 </div>
                 <!-- /.container -->
-            </nav>
+            </nav>--%>
 
             <!--pageContent-->
             <div>
