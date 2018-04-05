@@ -39,16 +39,16 @@
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" value="Logout" href="${pageContext.servletContext.contextPath}/login">Logout</a>
-                </li>
+                <form id="logout_form" method="post" name="loginSubmit" action="${pageContext.servletContext.contextPath}/login">
+                    <li class="nav-item">
+                        <a class="nav-link" name="loginSubmit"
+                           href="javascript:{}" onclick="document.getElementById('logout_form').submit()">Logout</a>
+                    </li>
+                </form>
             </ul>
         </div>
     </div>
 </nav>
-
-
-
 
 
 <div id="page" class="page">
@@ -110,7 +110,8 @@
                         <table id="userGroups">
                             <c:forEach items="${gardens}" var="garden">
                                 <tr class="groupList">
-                                    <td style="color:white"><input type="submit" value="${garden.garden_name}" id="groupDisplay"
+                                    <td style="color:white"><input type="submit" value="${garden.garden_name}"
+                                                                   id="groupDisplay"
                                                                    name="Submit" class="buttonAsLink"></td>
                                     <td class="descriptionCol" style="color:white">"${garden.description}"</td>
                                 </tr>
@@ -125,12 +126,13 @@
                     <div id="sideBar" style="right: -300px;">
                         <form id="userSidebar" method="post">
                             <ul class="list-unstyled">
-                                <li class="sidebarItem"><a  href="${pageContext.servletContext.contextPath}/admin"
+                                <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/admin"
                                                            style="color: white">Administration</a></li>
                                 <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/editUser"
                                                            style="color: white">Edit User Credentials</a></li>
-                                <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/editUserPortrait"
-                                                           style="color: white">Edit User Portrait</a></li>
+                                <li class="sidebarItem"><a
+                                        href="${pageContext.servletContext.contextPath}/editUserPortrait"
+                                        style="color: white">Edit User Portrait</a></li>
                             </ul>
                         </form>
                     </div>
