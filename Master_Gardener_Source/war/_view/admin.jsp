@@ -218,8 +218,8 @@
                     <thead>
                     <tr>
                         <th class="col-xs-3">Username</th>
-                        <th class="col-xs-3">FirstName</th>
-                        <th class="col-xs-3">LastName</th>
+                        <th class="col-xs-3">First Name</th>
+                        <th class="col-xs-3">Last Name</th>
                         <th class="col-xs-6">E-mail</th>
                     </tr>
                     </thead>
@@ -243,8 +243,8 @@
                     <c:forEach items="${activeAccounts}" var="activeAccounts">
                         <tr>
                             <td class="col-xs-3">${activeAccounts.username}</td>
-                            <td class="col-xs-3">${activeAccounts.firstname}</td>
-                            <td class="col-xs-3">${activeAccounts.lastname}</td>
+                            <td class="col-xs-3">${activeAccounts.firstName}</td>
+                            <td class="col-xs-3">${activeAccounts.lastName}</td>
                             <td class="col-xs-3">${activeAccounts.email}</td>
 
                         </tr>
