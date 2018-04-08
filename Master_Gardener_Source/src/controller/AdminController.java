@@ -42,5 +42,16 @@ public class AdminController {
         }
 
     }
-
+    public boolean updatePollinatorVisitCountPlotIDs()
+    {
+        boolean success = false;
+        try{
+            success = database.updatePollinatorVisitPlotIDs();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return success;
+    }
 }

@@ -132,6 +132,7 @@ public interface IDatabase {
 	// get plant by garden
 	// get strain by plant
 	//
+    public boolean updatePollinatorVisitPlotIDs() throws SQLException;
 	public List<String> getStrainByPlant(final Plant plant) throws SQLException;
 	public String getPlantNameByGarden(final Garden garden) throws SQLException;
 	public int queryForVisitCountByFieldsFromPollVisit(final int data_form_id, int pollinator_id, int plant_id, int strain_id);

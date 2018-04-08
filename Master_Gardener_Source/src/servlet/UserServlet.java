@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 //import controller.LoginController;
+import controller.AdminController;
 import controller.UserController;
 import model.User;
 import model.Garden;
@@ -22,6 +23,12 @@ public class UserServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+
+		// TODO: it's kind of really important to comment this out
+		//============================================================================================================
+		//AdminController ctrl = new AdminController();
+		//ctrl.updatePollinatorVisitCountPlotIDs();
+		//============================================================================================================
 
 		String username = (String) req.getSession().getAttribute("username");
 		if (username == null) {
@@ -88,6 +95,10 @@ public class UserServlet extends HttpServlet {
 		resp.setContentType("image/jpg");
 		resp.getOutputStream().write(userPortrait,0,portraitLength);
 		resp.getOutputStream().flush();*/
+
+
+
+
 
 		req.getRequestDispatcher("/_view/user.jsp").forward(req, resp);
 	}
