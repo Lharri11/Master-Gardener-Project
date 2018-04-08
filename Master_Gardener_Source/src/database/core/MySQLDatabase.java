@@ -1,5 +1,6 @@
 package database.core;
 
+import com.mysql.fabric.xmlrpc.base.Array;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import model.*;
 import javax.sql.DataSource;
@@ -209,6 +210,117 @@ public class MySQLDatabase implements IDatabase {
         }
 
         return salt+password;
+    }
+
+    public boolean updatePollinatorVisitPlotIDs() throws SQLException
+    {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+        int math = 0;
+        ArrayList<Integer> garden_ids = new ArrayList<>();
+        ArrayList<Integer> pvc_ids = new ArrayList<>();
+        ArrayList<Integer> df_ids = new ArrayList<>();
+        ArrayList<Integer> pvc_strain_ids = new ArrayList<>();
+        ArrayList<Integer> plot_list = new ArrayList<>();
+
+        System.out.println("Working. This may take a while...");
+
+        try
+        {
+            // Get all individual PVC ids in order
+            //stmt = conn.prepareStatement("SELECT id, data_form_id, strain_id FROM mg_pollinator_visit");
+            stmt = conn.prepareStatement("SELECT id FROM mg_pollinator_visit");
+            set = stmt.executeQuery();
+
+            while(set.next())
+            {
+                // Add individual PVC ids and dataform into respective arraylists
+                pvc_ids.add(set.getInt(1));
+            }
+
+            // Get all the dataform IDs in order
+            stmt = conn.prepareStatement("SELECT data_form_id FROM mg_pollinator_visit");
+            set = stmt.executeQuery();
+
+            while(set.next())
+            {
+                df_ids.add(set.getInt(1));
+            }
+
+            // Get all the strain IDs in order
+            stmt = conn.prepareStatement("SELECT strain_id FROM mg_pollinator_visit");
+            set = stmt.executeQuery();
+
+            while(set.next())
+            {
+                pvc_strain_ids.add(set.getInt(1));
+            }
+
+            System.out.println("PERFORMING FIRST DATA INTEGRITY CHECK(FIRST 20 TUPLES):");
+            for(int i = 0; i < 20; i++) {
+                System.out.println("pvc_id: " + pvc_ids.get(i) + "    df_id: " + df_ids.get(i) + "    pvc_strain_id: " + pvc_strain_ids.get(i));
+            }
+
+            // (THE ABOVE TEST HELPS BUT IT DEFINITELY WORKS AS WELL, BROKEN STUFF IS BELOW THIS)
+
+            for(int i = 0; i < df_ids.size()-1; i++)
+            {
+                // Get all garden IDs per dataform ID matching the plot. There's lots of repetition here.
+                stmt = conn.prepareStatement("SELECT garden_id FROM mg_data_form WHERE id = ?");
+                stmt.setInt(1, df_ids.get(i));
+                set = stmt.executeQuery();
+
+                if(set.next())
+                {
+                    garden_ids.add(set.getInt(1));
+                }
+
+
+            }
+
+            System.out.println("\nPERFORMING SECOND DATA INTEGRITY CHECK:");
+            for(int j = 0; j < 100; j++)
+            {
+                System.out.println("pvc_id: "+pvc_ids.get(j) + "   df_id:" + df_ids.get(j) + "   garden_id: " + garden_ids.get(j));
+            }
+
+            // (APPEARS AS IF THE ABOVE TEST WORKS)
+
+            for(int i = 0; i < df_ids.size()-1; i++)
+            // You can use any of the above arraylists for this, df_ids was chosen arbitrarily.
+            {
+                //Perform the math. The correlation looks like (strain_id) + (9 * (garden_id - 1))
+                // This holds true for the examples given by Logan in his texts, eg:
+                // Strain #5 for Garden #1: Plot ID = 5 + (9 * 0) = 5
+                // Strain #5 for Garden #2: Plot ID = 5 + (9 * 1) = 14
+                // etc
+
+                math = pvc_strain_ids.get(i) + (9 * (garden_ids.get(i) - 1));
+                plot_list.add(math);
+                // This gets the supposed plot IDs
+            }
+
+            // Next, update the plot IDs in PVC table:
+            for(int i = 0; i < pvc_ids.size()-1; i++ )
+            // Another arbitrarily chosen arraylist, they should all be the same size so it doesn't matter
+            {
+                stmt = conn.prepareStatement("UPDATE mg_pollinator_visit SET plot_id = ? WHERE id = ? AND data_form_id = ?");
+                stmt.setInt(1, plot_list.get(i));
+                stmt.setInt(2, pvc_ids.get(i));
+                stmt.setInt(3, df_ids.get(i));
+                stmt.executeUpdate();
+
+            }
+
+        }
+        finally
+        {
+            DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(set);
+        }
+        return true;
     }
 
     public boolean checkPasswordByUsername(String username, String password)throws SQLException
