@@ -4,7 +4,7 @@
 	<link rel="icon" type="image/png" href="images/favicon.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Script Eden ( http://scripteden.net/ ) Template Builder v2.0.0">  
+    <meta name="generator" content="Script Eden ( http://scripteden.net/ ) Template Builder v2.0.0">
     <title>[Group Name] Members - Master Gardener</title>
     <!--pageMeta-->
 
@@ -13,33 +13,33 @@
 
     <!-- Loading Flat UI -->
     <link href="css/flat-ui.css" rel="stylesheet">
-    
+
     <link href="css/style.css" rel="stylesheet">
 
-    
+
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
-    
+
     <!--headerIncludes-->
-     
-    
+
+
 </head>
 <body>
-    
+
     <div id="page" class="page">
-        
+
     <header class="item header margin-top-0 header10" id="header10">
-    
+
     		<div class="wrapper">
-    	
+
     			<nav role="navigation" class="navbar navbar-purple navbar-embossed navbar-lg navbar-fixed-top">
-    					
+
     				<div class="container">
-    				
+
     					<div class="navbar-header">
     						<button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
     							<span class="sr-only">Toggle navigation</span>
@@ -50,10 +50,10 @@
     					<!-- HERE IS YOUR SEARCH JSP THING -->
     					<form class="search-collapse"
 							action="${pageContext.servletContext.contextPath}/user" method="post">
-							<input type="text" id="searchText" name="keyword" placeholder="Search..." required> 
+							<input type="text" id="searchText" name="keyword" placeholder="Search..." required>
 							<input type="image" src="images/search.png" value="Search" id="searchButton">
 						</form><br>
-	                    
+
     					<div id="navbar-collapse-02" class="collapse navbar-collapse">
     						<ul class="nav navbar-nav navbar-right">
 								<li class="propClone">
@@ -70,18 +70,18 @@
 									<input type="image" value="Logout" id="logoutSubmit" name="loginSubmit" class="homeLinks" src="images/logout.png" title="Log Out">
 								</li>
 							</ul>
-    					</div> 
+    					</div>
     					<!--/.navbar-collapse -->
     				</div><!-- /.container -->
     			</nav>
-    			
+
     		<!--pageContent-->
     			<div class="pageContent">
     				<div class="results">
-    				
+
     					<h1>Members:</h1>
-    
-			    		
+
+
 			    		<form id="GroupGet" method="post">
 								<table id="userGroups">
 									<!--<c:forEach items="${groups}" var="group">-->
@@ -93,9 +93,9 @@
 									<!--</c:forEach>->
 								</table>
 						</form>
-			    		
+
 			    	</div>
-    				
+
     				<div class="sidebar">
 						<button onclick="toggleSideBar()" id="toggle" style="right: 0px;">Group Options</button>
 						<div id="sideBar" style="right: -300px;">
@@ -106,23 +106,23 @@
 										<li><td class="groupListItem">
 											<input class="sidebarItem" type="Submit" value=${group.name} id="Submit" name="Submit"></td>
 										</li>
-										
+
 									</c:forEach>
 								</form>
 							</ul>
 							<!--<input type="Submit" value=${group.name } id="Submit" name="Submit">-->
 						</div>
 					</div>
-    				
-    				
+
+
     			</div>
-    			
-    			
-    			
+
+
+
     		<!--/pageContent-->
-    		
+
     		</div><!-- /.wrapper -->
-    	
+
     	</header><!-- /.item --></div><!-- /#page -->
     <!-- Load JS here for greater good =============================-->
     <script src="js/jquery-1.8.3.min.js"></script>
@@ -139,7 +139,7 @@
     <script src="js/application.js"></script>
 	<script src="js/over.js"></script>
 	<script>
-	
+
 	function toggleSideBar() {
     	var x = document.getElementById('sideBar');
     	var y = document.getElementById('toggle');
@@ -151,18 +151,18 @@
         	y.style.right = '0px';
     	}
 	}
-	
+
 	$(function(){
-		
+
 		if( $('#nivoSlider').size() > 0 ) {
-		
+
 	    	$('#nivoSlider').nivoSlider({
 	    		effect: 'random',
 				pauseTime: 5000
 	    	});
-		
+
 		}
-		
+
 	})
 	</script>
 
