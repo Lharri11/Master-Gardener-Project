@@ -272,3 +272,83 @@ header.masthead .bg-circle-4 {
 }
 
 /* Login Style - End */
+
+
+
+/* User Landing Style - Begin */
+
+.user-page-top-padding {
+    padding-top: 7.813rem;
+}
+
+#main {
+    font-style: normal;
+    font-weight: 400;
+    margin: 8rem;
+    padding-bottom: 5.625rem;
+    position: relative;
+}
+
+#main > .container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 92%;
+}
+
+#content {
+    float: left;
+}
+
+.user-summary {
+    box-shadow: inset 0 -0.2em rgba(0, 0, 0, 0.1);
+}
+
+.user-summary {
+    background-color: #5252f2;
+    background-image: linear-gradient(60deg, #006c75, #1f8e98);
+    border-radius: 0 0 0.15rem 0.15rem;
+    box-sizing: border-box;
+    color: #fff;
+    padding: 1.5em;
+}
+
+.custom-header {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #0b2e13;
+    background-size: cover;
+    border-bottom-right-radius: 0.15rem;
+    box-sizing: border-box;
+
+    height: 13.75rem;
+}
+
+.custom-header--unset {
+    background-color: #f7f7f7;
+    border-bottom: .25em dashed;
+    border-right: .25em dashed;
+    color: #d9d9d9;
+    cursor: pointer;
+    position: relative;
+    transition: 0.15s ease-out;
+}
+
+.custom-header--unset::after {
+    content: '+';
+    font-size: 5em;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%);
+    transition: 0.15s ease-out;
+}
+
+.custom-header--unset:hover, .custom-header--unset:focus {
+    color: #c9c9c9;
+}
+
+.custom-header--unset:hover::after, .custom-header--unset:focus::after {
+    font-size: 7.5em;
+}
+
+/* User Landing Style - End */

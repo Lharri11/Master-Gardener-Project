@@ -27,6 +27,7 @@
 </head>
 <body>
 
+
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
         <a class="navbar-brand" href="${pageContext.servletContext.contextPath}/home">Pollinator Preferences</a>
@@ -39,7 +40,8 @@
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <form id="logout_form" method="post" name="loginSubmit" action="${pageContext.servletContext.contextPath}/login">
+                <form id="logout_form" method="post" name="loginSubmit"
+                      action="${pageContext.servletContext.contextPath}/login">
                     <li class="nav-item">
                         <a class="nav-link" name="loginSubmit"
                            href="javascript:{}" onclick="document.getElementById('logout_form').submit()">Logout</a>
@@ -51,99 +53,135 @@
 </nav>
 
 
-<div id="page" class="page">
-
-    <header class="item header margin-top-0 header10" id="header10">
-
-        <div class="wrapper">
-
-            <%--<nav role="navigation"
-                 class="navbar navbar-blue navbar-embossed navbar-lg navbar-fixed-top">
-
-                <div class="container">
-
-                    <div class="navbar-header">
-                        <a href="home" class="navbar-brand brand">
-                            <img src="images/nittany_lions_logo.jpg" id="logo">
-                        </a>
-                        <button data-target="#navbar-collapse-02" data-toggle="collapse"
-                                class="navbar-toggle" type="button">
-                            <span class="sr-only">Toggle navigation</span>
-                        </button>
-                    </div>
-                    <!--/.navbar-header -->
-                    <form class="search-collapse"
-                          action="${pageContext.servletContext.contextPath}/user" method="post">
-                        <input type="text" id="searchText" name="keyword" placeholder="Search..." required>
-                        <input type="image" src="images/search_black.jpg" value="Search" id="searchButton">
-                    </form>
-                    <br>
-
-                    <div id="navbar-collapse-02" class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="propClone">
-                                <form action="${pageContext.servletContext.contextPath}/login" method="post">
-                                    <button name="loginSubmit" value="Logout" class="homeLinks-nav" type="submit"
-                                            alt="submit" title="Log Out">Logout
-                                    </button>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--/.navbar-collapse -->
+<div class="container user-page-top-padding">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="row">
+                <div class="col-lg-5">
+                    <img src="images/pages/user/blank-profile-picture.png" class="img-thumbnail img-fluid"
+                         >
                 </div>
-                <!-- /.container -->
-            </nav>--%>
+                <div class="col-lg-7">
+                    <h5>${user.firstName} ${user.lastName}</h5>
 
-            <!--pageContent-->
-            <div>
-                <div id="coverPhotoContainer">
-                    <img src="portraits/${user.username}.jpg" id="userPhoto">
-                </div>
-                <div class="pageInfo" style="height: 100px;">
-                    <p id="userName">${user.firstName}</p>
-                    <div id="bio">${user.description}</div>
-
-                    <h1 style="position:relative;left:10px;">Gardens you belong to:</h1>
-
-                    <form id="GroupGet" method="post">
-                        <table id="userGroups">
-                            <c:forEach items="${gardens}" var="garden">
-                                <tr class="groupList">
-                                    <td style="color:white"><input type="submit" value="${garden.garden_name}"
-                                                                   id="groupDisplay"
-                                                                   name="Submit" class="buttonAsLink"></td>
-                                    <td class="descriptionCol" style="color:white">"${garden.description}"</td>
-                                </tr>
-                            </c:forEach>
-                        </table>
-                    </form>
-                </div>
-
-                <div class="sidebar">
-                    <button onclick="toggleSideBar()" id="toggle" style="right: 0px;color: white">Options
-                    </button>
-                    <div id="sideBar" style="right: -300px;">
-                        <form id="userSidebar" method="post">
-                            <ul class="list-unstyled">
-                                <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/admin"
-                                                           style="color: white">Administration</a></li>
-                                <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/editUser"
-                                                           style="color: white">Edit User Credentials</a></li>
-                                <li class="sidebarItem"><a
-                                        href="${pageContext.servletContext.contextPath}/editUserPortrait"
-                                        style="color: white">Edit User Portrait</a></li>
-                            </ul>
-                        </form>
-                    </div>
                 </div>
             </div>
-            <!--/pageContent-->
         </div>
-        <!-- /.wrapper -->
-    </header>
-    <!-- /.item -->
+        <div class="col-md-7">
+            <h4>User banner to go here. Most likely just random JS to generate fractals or random desgin</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+
+            <button type="button" class="btn btn-block btn-lg btn-info">
+                Messages
+            </button>
+            <button type="button" class="btn btn-block btn-lg btn-info">
+                Notifications
+            </button>
+            <button type="button" class="btn btn-lg btn-block btn-info">
+                Edit User Settings
+            </button>
+        </div>
+        <div class="col-md-7">
+            <div class="page-header">
+                <h1>
+                    Garden's ${user.firstName} belongs too
+                </h1>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+<%--<nav role="navigation"
+     class="navbar navbar-blue navbar-embossed navbar-lg navbar-fixed-top">
+
+    <div class="container">
+
+        <div class="navbar-header">
+            <a href="home" class="navbar-brand brand">
+                <img src="images/nittany_lions_logo.jpg" id="logo">
+            </a>
+            <button data-target="#navbar-collapse-02" data-toggle="collapse"
+                    class="navbar-toggle" type="button">
+                <span class="sr-only">Toggle navigation</span>
+            </button>
+        </div>
+        <!--/.navbar-header -->
+        <form class="search-collapse"
+              action="${pageContext.servletContext.contextPath}/user" method="post">
+            <input type="text" id="searchText" name="keyword" placeholder="Search..." required>
+            <input type="image" src="images/search_black.jpg" value="Search" id="searchButton">
+        </form>
+        <br>
+
+        <div id="navbar-collapse-02" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="propClone">
+                    <form action="${pageContext.servletContext.contextPath}/login" method="post">
+                        <button name="loginSubmit" value="Logout" class="homeLinks-nav" type="submit"
+                                alt="submit" title="Log Out">Logout
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <!--/.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>--%>
+
+<!--pageContent-->
+<%--<div>
+    <div id="coverPhotoContainer">
+        <img src="portraits/${user.username}.jpg" id="userPhoto">
+    </div>
+    <div class="pageInfo" style="height: 100px;">
+        <p id="userName">${user.firstName}</p>
+        <div id="bio">${user.description}</div>
+
+        <h1 style="position:relative;left:10px;">Gardens you belong to:</h1>
+
+        <form id="GroupGet" method="post">
+            <table id="userGroups">
+                <c:forEach items="${gardens}" var="garden">
+                    <tr class="groupList">
+                        <td style="color:white"><input type="submit" value="${garden.garden_name}"
+                                                       id="groupDisplay"
+                                                       name="Submit" class="buttonAsLink"></td>
+                        <td class="descriptionCol" style="color:white">"${garden.description}"</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </form>
+    </div>
+
+    <div class="sidebar">
+        <button onclick="toggleSideBar()" id="toggle" style="right: 0px;color: white">Options
+        </button>
+        <div id="sideBar" style="right: -300px;">
+            <form id="userSidebar" method="post">
+                <ul class="list-unstyled">
+                    <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/admin"
+                                               style="color: white">Administration</a></li>
+                    <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/editUser"
+                                               style="color: white">Edit User Credentials</a></li>
+                    <li class="sidebarItem"><a
+                            href="${pageContext.servletContext.contextPath}/editUserPortrait"
+                            style="color: white">Edit User Portrait</a></li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+<!--/pageContent-->
+</div>
+<!-- /.wrapper -->
+</header>
+<!-- /.item -->
+</div>--%>
 <!-- /#page -->
 <!-- Load JS here for greater good =============================-->
 <script src="js/jquery-1.8.3.min.js"></script>
