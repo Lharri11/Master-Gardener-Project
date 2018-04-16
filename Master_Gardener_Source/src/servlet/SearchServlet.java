@@ -22,6 +22,16 @@ public class SearchServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 		throws ServletException, IOException {
+
+
+		String username = (String) req.getSession().getAttribute("username");
+		if (username == null) {
+			System.out.println("User not logged in or session timed out");
+
+			// User is not logged in, or the session expired
+			resp.sendRedirect(req.getContextPath() + "/login");
+			return;
+		}
 				
 		controller = new SearchController();
 		String keyword;
