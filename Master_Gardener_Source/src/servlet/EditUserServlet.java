@@ -28,7 +28,8 @@ public class EditUserServlet extends HttpServlet {
 			return;
 		}
 
-		req.getRequestDispatcher("/_view/editUser.jsp").forward(req, resp);
+		// TODO: fix to go to edit account tab on user page
+		req.getRequestDispatcher("/_view/user.jsp").forward(req, resp);
 	}
 
 

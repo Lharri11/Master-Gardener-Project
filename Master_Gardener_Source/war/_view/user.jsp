@@ -13,7 +13,7 @@
     <!--pageMeta-->
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom fonts -->
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -21,7 +21,7 @@
           rel="stylesheet">
 
     <!-- Custom styles -->
-    <link href="css/additional-style.css" rel="stylesheet">
+    <link href="../css/additional-style.css" rel="stylesheet">
 
 
 </head>
@@ -55,148 +55,138 @@
 
 <div class="container user-page-top-padding">
     <div class="row">
-        <div class="col-md-5">
-            <div class="row">
-                <div class="col-lg-5">
-                    <img src="images/pages/user/blank-profile-picture.png" class="img-thumbnail img-fluid"
-                         >
-                </div>
-                <div class="col-lg-7">
-                    <h5>${user.firstName} ${user.lastName}</h5>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-7">
-            <h4>User banner to go here. Most likely just random JS to generate fractals or random desgin</h4>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-5">
-
-            <button type="button" class="btn btn-block btn-lg btn-info">
-                Messages
-            </button>
-            <button type="button" class="btn btn-block btn-lg btn-info">
-                Notifications
-            </button>
-            <button type="button" class="btn btn-lg btn-block btn-info">
-                Edit User Settings
-            </button>
-        </div>
-        <div class="col-md-7">
-            <div class="page-header">
-                <h1>
-                    Garden's ${user.firstName} belongs too
-                </h1>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<%--<nav role="navigation"
-     class="navbar navbar-blue navbar-embossed navbar-lg navbar-fixed-top">
-
-    <div class="container">
-
-        <div class="navbar-header">
-            <a href="home" class="navbar-brand brand">
-                <img src="images/nittany_lions_logo.jpg" id="logo">
-            </a>
-            <button data-target="#navbar-collapse-02" data-toggle="collapse"
-                    class="navbar-toggle" type="button">
-                <span class="sr-only">Toggle navigation</span>
-            </button>
-        </div>
-        <!--/.navbar-header -->
-        <form class="search-collapse"
-              action="${pageContext.servletContext.contextPath}/user" method="post">
-            <input type="text" id="searchText" name="keyword" placeholder="Search..." required>
-            <input type="image" src="images/search_black.jpg" value="Search" id="searchButton">
-        </form>
-        <br>
-
-        <div id="navbar-collapse-02" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="propClone">
-                    <form action="${pageContext.servletContext.contextPath}/login" method="post">
-                        <button name="loginSubmit" value="Logout" class="homeLinks-nav" type="submit"
-                                alt="submit" title="Log Out">Logout
-                        </button>
-                    </form>
+        <div class="col-lg-12 order-lg-3">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit Account</a>
                 </li>
             </ul>
+            <div class="tab-content py-4">
+                <div class="tab-pane active" id="profile">
+                    <h5 class="mb-3">User Profile</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>About</h6>
+                            <p>
+                                ${user.firstName} ${user.lastName} <br>${user.email}
+                            </p>
+                            <h6>Bio</h6>
+                            <p>
+                                ${user.description}
+                            </p>
+                        </div>
+                        <div class="col-md-6 align-content-center">
+                            <h5>Wish to add a new garden?</h5>
+                            <h6>Click below to search for one</h6>
+                                <a class="btn btn-primary btn-lg rounded-pill mt-5 js-scroll-trigger"
+                                   href="${pageContext.servletContext.contextPath}/search">Search</a>
+
+                        </div>
+                        <div class="col-md-12">
+                            <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Gardens you
+                                belong to:
+                            </h5>
+                            <h6>Click on the garden name to go to its page</h6>
+
+                            <form id="garden-nav" method="post">
+                                <table class="table table-sm table-hover table-striped">
+
+
+                                    <%--<a class="nav-link" href="${pageContext.servletContext.contextPath}/login">--%>
+
+
+                                    <tbody>
+                                    <c:forEach items="${gardens}" var="garden">
+                                        <tr>
+                                            <td>
+                                                <strong><input type="submit" value="${garden.garden_name}"
+                                                               id="groupDisplay"
+                                                               name="Submit">
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                    </tbody>
+
+                                </table>
+                            </form>
+                        </div>
+
+
+                    </div>
+                    <!--/row-->
+                </div>
+
+                <div class="tab-pane" id="edit">
+                    <form id="change-user-settings" action="${pageContext.servletContext.contextPath}/editUser"
+                          method="post" role="form">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="editName" type="text" value="${user.firstName}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="lastname" type="text" value="${user.lastName}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="email" type="email" value="${user.email}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="username" type="text" value="${user.username}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Add or change bio</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="editBio" type="text" value="About You">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="password" value="New Password">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="password" value="Confirm New Pssword">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-9">
+                                <p>Please note: Saving changes will log you out</p>
+                                <input type="reset" class="btn btn-secondary" value="Clear">
+                                <input type="submit" class="btn btn-primary" value="Save Changes" name="EditSubmit">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <!--/.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>--%>
 
-<!--pageContent-->
-<%--<div>
-    <div id="coverPhotoContainer">
-        <img src="portraits/${user.username}.jpg" id="userPhoto">
-    </div>
-    <div class="pageInfo" style="height: 100px;">
-        <p id="userName">${user.firstName}</p>
-        <div id="bio">${user.description}</div>
-
-        <h1 style="position:relative;left:10px;">Gardens you belong to:</h1>
-
-        <form id="GroupGet" method="post">
-            <table id="userGroups">
-                <c:forEach items="${gardens}" var="garden">
-                    <tr class="groupList">
-                        <td style="color:white"><input type="submit" value="${garden.garden_name}"
-                                                       id="groupDisplay"
-                                                       name="Submit" class="buttonAsLink"></td>
-                        <td class="descriptionCol" style="color:white">"${garden.description}"</td>
-                    </tr>
-                </c:forEach>
-            </table>
-        </form>
-    </div>
-
-    <div class="sidebar">
-        <button onclick="toggleSideBar()" id="toggle" style="right: 0px;color: white">Options
-        </button>
-        <div id="sideBar" style="right: -300px;">
-            <form id="userSidebar" method="post">
-                <ul class="list-unstyled">
-                    <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/admin"
-                                               style="color: white">Administration</a></li>
-                    <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/editUser"
-                                               style="color: white">Edit User Credentials</a></li>
-                    <li class="sidebarItem"><a
-                            href="${pageContext.servletContext.contextPath}/editUserPortrait"
-                            style="color: white">Edit User Portrait</a></li>
-                </ul>
-            </form>
-        </div>
     </div>
 </div>
-<!--/pageContent-->
-</div>
-<!-- /.wrapper -->
-</header>
-<!-- /.item -->
-</div>--%>
-<!-- /#page -->
+
 <!-- Load JS here for greater good =============================-->
-<script src="js/jquery-1.8.3.min.js"></script>
-<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
-<script src="js/jquery.ui.touch-punch.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap-select.js"></script>
-<script src="js/bootstrap-switch.js"></script>
-<script src="js/flatui-checkbox.js"></script>
-<script src="js/flatui-radio.js"></script>
-<script src="js/jquery.tagsinput.js"></script>
-<script src="js/jquery.placeholder.js"></script>
-<script src="js/jquery.nivo.slider.pack.js"></script>
-<script src="js/application.js"></script>
-<script src="js/over.js"></script>
+<script src="../vendor/jquery/jquery.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="../vendor/jquery-easing/jquery.easing.js"></script>
+<script src="../vendor/scrollreveal/scrollreveal.js"></script>
+<script src="../vendor/Popper/Popper.js"></script>
 <script>
 
     function toggleSideBar() {
@@ -225,6 +215,55 @@
     })
 </script>
 
+<script>
+    // sandbox disable popups
+    if (window.self !== window.top && window.name != "view1") {
+        ;
+        window.alert = function () {/*disable alert*/
+        };
+        window.confirm = function () {/*disable confirm*/
+        };
+        window.prompt = function () {/*disable prompt*/
+        };
+        window.open = function () {/*disable open*/
+        };
+    }
+
+    // prevent href=# click jump
+    document.addEventListener("DOMContentLoaded", function () {
+        var links = document.getElementsByTagName("A");
+        for (var i = 0; i < links.length; i++) {
+            if (links[i].href.indexOf('#') != -1) {
+                links[i].addEventListener("click", function (e) {
+                    console.debug("prevent href=# click");
+                    if (this.hash) {
+                        if (this.hash == "#") {
+                            e.preventDefault();
+                            return false;
+                        }
+                        else {
+                            /*
+                            var el = document.getElementById(this.hash.replace(/#/, ""));
+                            if (el) {
+                              el.scrollIntoView(true);
+                            }
+                            */
+                        }
+                    }
+                    return false;
+                })
+            }
+        }
+    }, false);
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("a.submit-garden[form='garden-nav']").click(function () {
+            document.getElementById("garden-nav").submit();
+        });
+    });
+</script>
 
 </body>
 </html>

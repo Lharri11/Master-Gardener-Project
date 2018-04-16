@@ -142,17 +142,17 @@ header.masthead .bg-circle-4 {
 }
 
 .btn-secondary {
-    background-color: #ff6a00;
-    border-color: #ff6a00;
+    background-color: #757575;
+    border-color: #757575;
 }
 
 .btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover {
-    background-color: #cc5500 !important;
-    border-color: #cc5500 !important;
+    background-color: #4c4c4c !important;
+    border-color: #4c4c4c !important;
 }
 
 .btn-secondary:focus {
-    box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(87, 87, 87, 0.6);
 }
 
 
@@ -293,6 +293,11 @@ header.masthead .bg-circle-4 {
     margin-left: auto;
     margin-right: auto;
     width: 92%;
+}
+
+.user-image {
+    width: 100%;
+    max-width: 8.75rem;
 }
 
 #content {
