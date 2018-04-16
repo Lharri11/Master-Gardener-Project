@@ -24,17 +24,27 @@ public class pollVisitsByPollTypeServlet extends HttpServlet {
 
         // Initialize a list
         List<Pollinator> pollinators = null;
+        List<Integer> visit_counts = null;
 
         controller = new ChartController();
         try {
             pollinators = controller.getAllPollinators();
+            visit_counts = controller.getVisitCountsByPollinator();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        // Convert the object to a JSON string and pass it to the JSP via hidden input
-        String json = new Gson().toJson(pollinators);
-        req.setAttribute("pollinatorJSON", json);
+        // Convert the object to a JSON string and pass it to the JSP as hidden input via request attribute
+        int total = 0;
+        for(int i = 0; i < visit_counts.size(); i++) {
+            total += visit_counts.get(i);
+        }
+
+        String pollinators_json = new Gson().toJson(pollinators);
+        String visit_counts_json = new Gson().toJson(visit_counts);
+        req.setAttribute("pollinatorsJSON", pollinators_json);
+        req.setAttribute("visitCountsJSON", visit_counts_json);
+        req.setAttribute("visitCountsTotal", total);
 
         req.getRequestDispatcher("/_view/pollVisitsByPollType.jsp").forward(req, resp);
     }

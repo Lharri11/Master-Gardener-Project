@@ -142,7 +142,7 @@
     <div class="col-lg-10 col-md-6 col-sm-12">
         <div class="col-lg-10 col-md-6 col-sm-12">
             <div id="editContent" class="editContent">
-                <h2>Pollinator Totals (Total Visits: 9158)</h2>
+                <h2>Pollinator Totals (Total Visits: ${visitCountsTotal})</h2>
             </div>
             <canvas id="myChart" width="50em" height="20em"></canvas>
         </div>
@@ -206,18 +206,21 @@
     }
 </script>
 
-<input type="hidden" id="pollinatorString" value='${pollinatorJSON}' >
-
+<input type="hidden" id="pollinatorsString" value='${pollinatorsJSON}' >
+<input type="hidden" id="visitCountsString" value='${visitCountsJSON}' >
+<input type="hidden" id="visitCountsTotal" value='${visitCountsTotal}' >
 
 <script>
     $(document).ready(
         function() {
-            var json = ${pollinatorJSON};
-
+            var pollinators_json = ${pollinatorsJSON};
+            var visit_counts_json = ${visitCountsJSON};
             var pollinatorNames = [];
+            var visitCounts = [];
 
-            for (var i = 0; i < json.length; i++) {
-                pollinatorNames.push(json[i].pollinatorName);
+            for (var i = 0; i < pollinators_json.length; i++) {
+                pollinatorNames.push(pollinators_json[i].pollinatorName);
+                visitCounts.push(visit_counts_json[i]);
             }
 
             var ctx = document.getElementById("myChart").getContext('2d');
@@ -228,7 +231,7 @@
                     datasets: [{
                         display: false,
                         label: '# of Pollinators',
-                        data: [1910,760,862],
+                        data: visitCounts,
                         <!-- data: [1910,760,862,809,2840,428,640,909], -->
                         backgroundColor: [
                             'rgba(255, 0 , 0, 0.75)',

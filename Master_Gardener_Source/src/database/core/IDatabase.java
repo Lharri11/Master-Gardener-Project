@@ -27,6 +27,7 @@ public interface IDatabase {
 	public int getPlantIDByPlantName(final String plant_name) throws SQLException;
 	public int getStrainIDByStrainName(final String strain_name) throws SQLException;
 	public int getPollinatorIDByPollinatorName(final String poll_name) throws SQLException;
+	public List<Integer> getVisitCountsByPollinator() throws SQLException;
 	public String getCountyByCountyID(final int county_id);
 	public String getCountyByStateName(final String state_name);
 	//public String getUsernameByCounty(final String county_name);
@@ -48,7 +49,7 @@ public interface IDatabase {
 	public List<Pollinator> getAllPollinators() throws SQLException;
 	public List<String> getAllPollinatorNames() throws SQLException;
 	public Garden getGardenbyGardenID(int iD);
-	public  List<Pair<User, Post>> getPostsbyGardenID(int iD);
+	public List<Pair<User, Post>> getPostsbyGardenID(int iD);
 	public int queryForLoginIdByUsername(String username);
 	//public User queryForUserAccountByUsername(String username); // TODO:: ADD this method
 	public String queryForPasswordByUsername(String username);
