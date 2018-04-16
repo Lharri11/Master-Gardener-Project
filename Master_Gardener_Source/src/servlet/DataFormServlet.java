@@ -662,12 +662,12 @@ public class DataFormServlet extends HttpServlet {
                 ArrayList<Pollinator> polls = new ArrayList<Pollinator>();
                 ArrayList<PollinatorVisitCount> pvcs = new ArrayList<PollinatorVisitCount>();
 
-                Pollinator poll = new Pollinator(1, "Crub1", "Meme1");
-                Pollinator poll1 = new Pollinator(2, "Crub1", "Meme1");
-                Pollinator poll2 = new Pollinator(13, "Crub2", "Meme1");
-                Pollinator poll3 = new Pollinator(14, "Crub3", "Meme1");
-                Pollinator poll4 = new Pollinator(15, "Crub4", "Meme1");
-                Pollinator poll5 = new Pollinator(16, "Crub5", "Meme1");
+                Pollinator poll = new Pollinator("Crub1", "Meme1");
+                Pollinator poll1 = new Pollinator("Crub1", "Meme1");
+                Pollinator poll2 = new Pollinator("Crub2", "Meme1");
+                Pollinator poll3 = new Pollinator("Crub3", "Meme1");
+                Pollinator poll4 = new Pollinator("Crub4", "Meme1");
+                Pollinator poll5 = new Pollinator("Crub5", "Meme1");
                 PollinatorVisitCount pvc = new PollinatorVisitCount(2, 111, 59, 4, Strain1Count1);
                 PollinatorVisitCount pvc1 = new PollinatorVisitCount(22, 111, 60, 4, Strain1Count2);
                 PollinatorVisitCount pvc2 = new PollinatorVisitCount(23, 111, 61, 4, Strain1Count3);

@@ -3,7 +3,6 @@ package controller;
 import database.core.DatabaseProvider;
 import database.core.IDatabase;
 import database.core.MySQLDatabase;
-import model.User;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 public class ChartGenControllerTest {
 
 	private IDatabase db = null;
-	private ChartGenController thiscontroller = new ChartGenController();
+	private ChartController thiscontroller = new ChartController();
 	
 	
 	@Before

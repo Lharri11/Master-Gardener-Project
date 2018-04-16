@@ -308,10 +308,9 @@ public class MySQLDatabase implements IDatabase {
         }
     }
 
-    public List<String> getAllPollinators() throws SQLException {
+    public List<String> getAllPollinatorNames() throws SQLException {
         DataSource ds = getMySQLDataSource();
         Connection conn = ds.getConnection();
-
 
         try {
             return doQueryLoop(new Query<List<String>>() {
@@ -2622,6 +2621,38 @@ public class MySQLDatabase implements IDatabase {
         });
     }
 
+    public List<Pollinator> getAllPollinators() throws SQLException{
+        return executeTransaction(new Transaction<List<Pollinator>>() {
+            public List<Pollinator> execute(Connection conn) throws SQLException {
+                DataSource ds = getMySQLDataSource();
+                conn = ds.getConnection();
+
+                PreparedStatement stmt1 = null;
+
+                ResultSet set = null;
+
+                try {
+                    stmt1 = conn.prepareStatement("select * FROM mg_pollinator");
+                    set = stmt1.executeQuery();
+
+                    List<Pollinator> pollinators = new ArrayList<Pollinator>();
+
+                    while (set.next()) {
+                        Pollinator pollinator = new Pollinator(null, null);
+
+                        loadPollinator(pollinator, set, 1);
+                        pollinators.add(pollinator);
+                    }
+
+                    return pollinators;
+                } finally {
+                    DBUtil.closeQuietly(set);
+                    DBUtil.closeQuietly(stmt1);
+                }
+            }
+        });
+    }
+
     public List<Garden> getGardenbyGardenName(final String name) {
         return executeTransaction(new Transaction<List<Garden>>() {
             public List<Garden> execute(Connection conn) throws SQLException {
@@ -3646,6 +3677,12 @@ public class MySQLDatabase implements IDatabase {
         groupMember.setMember_id(resultSet.getInt(index++));
         groupMember.setGarden_id(resultSet.getInt(index++));
         groupMember.setUser_id(resultSet.getInt(index++));
+    }
+
+    private void loadPollinator(Pollinator pollinator, ResultSet resultSet, int index) throws SQLException {
+        pollinator.setPollinatorID(resultSet.getInt(index++));
+        pollinator.setPollinatorName(resultSet.getString(index++));
+        pollinator.setPollinatorType(resultSet.getString(index++));
     }
 
     private void loadPost(Post post, ResultSet resultSet, int index) throws SQLException {

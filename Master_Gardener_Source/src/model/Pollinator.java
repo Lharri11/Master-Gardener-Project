@@ -7,13 +7,12 @@ public class Pollinator
 	private String pollinatorName;
 	private String pollinatorType;
 	
-	public Pollinator(int pollinator_id, String pollinator_name, String pollinator_type)
+	public Pollinator(String pollinator_name, String pollinator_type)
 	{
-		this.pollinator_id = pollinator_id;
 		this.pollinatorName = pollinator_name;
 		this.pollinatorType = pollinator_type;
 	}
-	
+
 	public void setPollinatorID(int pollinator_id)
 	{
 		this.pollinator_id = pollinator_id;

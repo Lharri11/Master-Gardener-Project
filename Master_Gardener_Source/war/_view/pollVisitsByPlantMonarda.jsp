@@ -121,10 +121,10 @@
                     <form name="chartSelect">
                         <select class="form-control" name="chartSelect" onChange="window.document.location.href=this.options[this.selectedIndex].value;" value="GO">
                             <option style="display:none">Select</option>
-                            <option value="http://localhost:8081/Master-Gardener/pollVisits1">Pollinator Visit Counts By County</option>
-                            <option value="http://localhost:8081/Master-Gardener/pollVisits2">Pollinator Visit Counts For Coreopsis Plant</option>
-                            <option value="http://localhost:8081/Master-Gardener/pollVisits3">Pollinator Visit Counts For Monarda Plant</option>
-                            <option value="http://localhost:8081/Master-Gardener/pollVisits4">Pollinator Visit Counts By Pollinator Species</option>
+                            <option value="http://localhost:8081/Master-Gardener/pvCounty">Pollinator Visit Counts By County</option>
+                            <option value="http://localhost:8081/Master-Gardener/pvCoreopsis">Pollinator Visit Counts For Coreopsis Plant</option>
+                            <option value="http://localhost:8081/Master-Gardener/pvMonarda">Pollinator Visit Counts For Monarda Plant</option>
+                            <option value="http://localhost:8081/Master-Gardener/pvPollType">Pollinator Visit Counts By Pollinator Species</option>
                         </select>
                     </form>
                 </td>

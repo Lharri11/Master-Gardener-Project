@@ -412,7 +412,7 @@ public class MySQLDatabaseTest {
         ResultSet set = null;
         boolean success = false;
 
-        Pollinator poll = new Pollinator(-410, "Pump", "Skrub");
+        Pollinator poll = new Pollinator("Pump", "Skrub");
         try {
             stmt = conn.prepareStatement("INSERT INTO mg_pollinator (pollinator_ID, pollinatorName, pollinatorType) VALUES (-410, 'Pump', 'Skrub')");
             stmt.executeUpdate();
@@ -560,7 +560,7 @@ public class MySQLDatabaseTest {
         ResultSet set = null;
         boolean success = false;
 
-        Pollinator poll = new Pollinator(-35, "Name", "Type");
+        Pollinator poll = new Pollinator("Name", "Type");
 
         try
         {
