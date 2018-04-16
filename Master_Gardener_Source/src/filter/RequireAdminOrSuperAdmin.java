@@ -13,12 +13,7 @@ import utils.ServletUtil;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -34,18 +29,30 @@ public class RequireAdminOrSuperAdmin extends AbstractLoginFilter implements Fil
     {
         if(!checkLogin(req_, resp_))
         {
-            return;
+            throw new ServletException("User is not logged in.");
+            //return;
         }
         HttpServletRequest req = (HttpServletRequest) req_;
         HttpServletResponse resp = (HttpServletResponse) resp_;
-
-        String username = req.getSession().getAttribute("username").toString();
+        String username = null;
+        try {
+            username = req.getSession().getAttribute("username").toString();
+        }
+        catch(NullPointerException e)
+        {
+            e.printStackTrace();
+        }
         // Get username works!
         //System.out.println("Username = " + username);
         User user = new User();
         user.setUsername(username);
         // Set username works!
         //System.out.println("Username = " + user.getUsername());
+
+        if(username.isEmpty() || username == null)
+        {
+            throw new ServletException("User is not logged in.");
+        }
 
         UserController ctrl = new UserController();
         try {
@@ -58,10 +65,6 @@ public class RequireAdminOrSuperAdmin extends AbstractLoginFilter implements Fil
             return;
         }
 
-        if(username.isEmpty())
-        {
-            throw new ServletException("User is not logged in.");
-        }
 
         // Setting moderator status works!
         //System.out.println("Moderator status: "+user.getModeratorStatus());

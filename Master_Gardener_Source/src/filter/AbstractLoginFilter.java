@@ -21,8 +21,15 @@ public class AbstractLoginFilter {
         HttpServletRequest req = (HttpServletRequest) req_;
         HttpServletResponse resp = (HttpServletResponse) resp_;
 
-        String username = req.getSession().getAttribute("username").toString();
-        if (username.isEmpty()) {
+        String username = null;
+        try {
+            username = req.getSession().getAttribute("username").toString();
+        }
+        catch(NullPointerException e)
+        {
+            e.printStackTrace();
+        }
+        if (username == null) {
             //redirectToLoginPage(req, (HttpServletResponse) resp_);
             // TODO: MAKE SURE THIS WORKS BECAUSE I DON'T KNOW IF IT DOES
             resp.sendRedirect(req.getContextPath() + "/login");
