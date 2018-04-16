@@ -18,7 +18,17 @@ public class ChartController {
         database = DatabaseProvider.getInstance();
     }
 
+    //
+    /* -------------------- VISIT COUNT QUERIES --------------------*/
+    //
+
+    //Pollinators
     public List<Pollinator> getAllPollinators() throws SQLException {
         return this.database.getAllPollinators();
+    }
+
+    //Visit Counts By Pollinator ID
+    public List<Integer> getVisitCountsByPollinator() throws SQLException {
+        return this.database.getVisitCountsByPollinator();
     }
 }
