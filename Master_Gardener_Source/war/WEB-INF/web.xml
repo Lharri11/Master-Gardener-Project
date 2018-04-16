@@ -90,12 +90,16 @@
     <servlet-class>servlet.UploadServlet</servlet-class>
   </servlet>
   <servlet>
+  <servlet-name>PortraitUploadServlet</servlet-name>
+  <servlet-class>servlet.PortraitUploadServlet</servlet-class>
+</servlet>
+  <servlet>
     <servlet-name>DocumentServlet</servlet-name>
     <servlet-class>servlet.DocumentServlet</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>ChartGenServlet</servlet-name>
-    <servlet-class>servlet.ChartGenServlet</servlet-class>
+    <servlet-name>ChartDirectoryServlet</servlet-name>
+    <servlet-class>servlet.ChartDirectoryServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>UpdatePasswordServlet</servlet-name>
@@ -160,6 +164,10 @@
     <url-pattern>/upload</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+  <servlet-name>PortraitUploadServlet</servlet-name>
+  <url-pattern>/portraitUpload</url-pattern>
+</servlet-mapping>
+  <servlet-mapping>
     <servlet-name>EditUserPortraitServlet</servlet-name>
     <url-pattern>/editUserPortrait</url-pattern>
   </servlet-mapping>
@@ -168,7 +176,7 @@
     <url-pattern>/documents</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>ChartGenServlet</servlet-name>
+    <servlet-name>ChartDirectoryServlet</servlet-name>
     <url-pattern>/chartGen</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
