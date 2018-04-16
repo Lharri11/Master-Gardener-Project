@@ -20,9 +20,9 @@ public class pollVisitsByCountyServlet extends HttpServlet {
         // Initialize a list
         // TODO: Invoke Controller to query database
         List<Pollinator> pollinators = new ArrayList<>();
-        pollinators.add(new Pollinator(1,"Honey Bee", "Bee"));
-        pollinators.add(new Pollinator(2, "Carpenter Bee", "Bee"));
-        pollinators.add(new Pollinator(3, "Monarch", "Butterfly"));
+        pollinators.add(new Pollinator("Honey Bee", "Bee"));
+        pollinators.add(new Pollinator("Carpenter Bee", "Bee"));
+        pollinators.add(new Pollinator("Monarch", "Butterfly"));
 
         // Convert the object to a JSON string and pass it to the JSP via hidden input
         String json = new Gson().toJson(pollinators);

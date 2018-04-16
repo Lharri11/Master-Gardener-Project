@@ -10,7 +10,7 @@ public class PollinatorTest {
     @Before
     public void setup()
     {
-        p1 = new Pollinator(2444, "Bungle Tree", "Grossopotamus");
+        p1 = new Pollinator("Bungle Tree", "Grossopotamus");
     }
 
     @Test

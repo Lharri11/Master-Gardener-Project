@@ -30,7 +30,7 @@ public class PollinatorDataFormTest {
     	// FIXME
         User a3 = new User("Chicken Dinner", "boodle",  7, "green","pantspoop", "dude@yahoo.com", "im a guy man", null);
 
-        Pollinator pl1 = new Pollinator(1, "Brumble Bree", "Bee");
+        Pollinator pl1 = new Pollinator("Brumble Bree", "Bee");
         Plant pp1 = new Plant(1, "Egg Plant");
         PlantStrain ps1 = new PlantStrain(2, 1, "Gross", "Idunno");
         ArrayList<Plot> plot_list = new ArrayList<Plot>();
@@ -161,7 +161,7 @@ public class PollinatorDataFormTest {
     @Test
     public void setPollinatorsTest()
     {
-        Pollinator pl2 = new Pollinator(1,"Greg", "Yes");
+        Pollinator pl2 = new Pollinator("Greg", "Yes");
         pollinators.add(pl2);
         p1.setPollinators(pollinators);
         assertEquals(p1.getPollinators(), pollinators);

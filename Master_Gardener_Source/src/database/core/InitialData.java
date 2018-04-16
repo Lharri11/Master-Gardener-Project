@@ -147,7 +147,7 @@ public class InitialData {
 					break;
 				}
 				Iterator<String> i = tuple.iterator();
-				Pollinator pollinator = new Pollinator(0,null, null);
+				Pollinator pollinator = new Pollinator(null, null);
 				pollinator.setPollinatorID(pollinator_id++);
 				pollinator.setPollinatorName(i.next());
 				pollinator.setPollinatorType(i.next());

@@ -33,7 +33,6 @@ public interface IDatabase {
 	public String getGardenAddressByGardenID(final int garden_id);
 	//public String getUsernameByCountyID(final int county_id);
 	public List<User> getAllUsernames() throws SQLException;
-	public List<String> getAllPollinators() throws SQLException;
 	public List<String> getAllPlants() throws SQLException;
 	public List<String> getAllStrains() throws SQLException;
 	public Pair<Pair<List<Integer>, List<String>>, List<Date>> getVisitCountAndPollinatorNameAndDateByCounty(final County county) throws SQLException;
@@ -46,6 +45,8 @@ public interface IDatabase {
 	public List<Garden> getGardensByUser(String user);
 	public List<Garden> getGardensLikeKeyword(String keyword);
 	public List<Garden> getGardenbyGardenName(String name);
+	public List<Pollinator> getAllPollinators() throws SQLException;
+	public List<String> getAllPollinatorNames() throws SQLException;
 	public Garden getGardenbyGardenID(int iD);
 	public  List<Pair<User, Post>> getPostsbyGardenID(int iD);
 	public int queryForLoginIdByUsername(String username);
