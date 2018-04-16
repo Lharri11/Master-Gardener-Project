@@ -84,7 +84,7 @@
     		<!--pageContent-->
     			<div class="pageContent">
     			<!--FORM FOR EDITS STARTS HERE-->
-					<form id="editPortrait" method="post" action="upload" enctype="multipart/form-data">
+					<form id="editPortrait" method="post" action="portraitUpload" enctype="multipart/form-data">
 						<div id="coverPhotoContainer">
 							<img src="images/black_user.jpg" id="userPhoto" style="filter:blur(5px);">
 							<div class="fileUpload btn btn-primary" style="bottom:50px;">

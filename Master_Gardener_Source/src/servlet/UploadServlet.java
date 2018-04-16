@@ -24,7 +24,7 @@ public class UploadServlet extends HttpServlet {
 
     private static final String DATA_DIRECTORY = "documents";
     private static final String PORTRAIT_DIRECTORY = "portraits";
-    String root_directory = "C:\\Users\\Logan_53e\\Documents\\York\\Fall 2017\\CS481\\Eclipse\\Master-Gardener-Pollinator-Monitoring\\Master_Gardener_Source";
+    String root_directory = "C:\\Users\\Logan\\Documents\\GitHub\\Master-Gardener-Pollinator-Monitoring\\Master_Gardener_Source";
     private static final int MAX_MEMORY_SIZE = 1024 * 1024 * 2;
     private static final int MAX_REQUEST_SIZE = 1024 * 1024;
 
