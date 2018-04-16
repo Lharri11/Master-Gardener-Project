@@ -38,13 +38,13 @@ public class LoginServlet extends HttpServlet {
 		//Login
 		String username = null;
 		String password = null;
-		String buttonPress = null;
+		String loginButton = null;
 		boolean loggedin = false;
 		String errorMessage = null;
 		LoginController login = new LoginController();
 
 
-		buttonPress = req.getParameter("loginSubmit");
+		loginButton = req.getParameter("loginSubmit");
 
 
 		/*//Registration
@@ -58,15 +58,14 @@ public class LoginServlet extends HttpServlet {
 		String buttonPressReg = null;
 		buttonPressReg = req.getParameter("register-submit");*/
 
-		if(buttonPress != null){
-			if(buttonPress.toLowerCase().equals("logout")){
+		if(loginButton != null){
+			/*if(buttonPress.toLowerCase().equals("logout")){
 				req.getSession().setAttribute("loggedin",false);
 				req.getSession().setAttribute("username", null);
 				req.getSession().setAttribute("login_id", -1);
 				resp.sendRedirect(req.getContextPath()+"/home");
 			}
-			else if(buttonPress.toLowerCase().equals("login")){
-
+			else*/
 				username = req.getParameter("username");
 				password = req.getParameter("password");
 
@@ -102,7 +101,7 @@ public class LoginServlet extends HttpServlet {
 					req.setAttribute("errorMessage", errorMessage);
 					req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
 				}
-			}
+
 		}
 
 
