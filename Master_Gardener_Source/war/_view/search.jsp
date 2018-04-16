@@ -11,7 +11,7 @@
     <title>Pollinator Preferences</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom fonts -->
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -19,7 +19,7 @@
           rel="stylesheet">
 
     <!-- Custom styles -->
-    <link href="../css/additional-style.css" rel="stylesheet">
+    <link href="css/additional-style.css" rel="stylesheet">
 
 </head>
 
@@ -131,10 +131,10 @@
 
        </header><!-- /.item --></div><!-- /#page -->--%>
 <!-- Load JS here for greater good =============================-->
-<script src="../vendor/jquery/jquery.js"></script>
-<script src="../vendor/bootstrap/js/bootstrap.bundle.js"></script>
-<script src="../vendor/jquery-easing/jquery.easing.js"></script>
-<script src="../vendor/scrollreveal/scrollreveal.js"></script>
+<script src="vendor/jquery/jquery.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.js"></script>
+<script src="vendor/scrollreveal/scrollreveal.js"></script>
 
 
 </body>
