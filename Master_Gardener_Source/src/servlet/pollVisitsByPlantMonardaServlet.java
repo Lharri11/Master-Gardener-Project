@@ -45,6 +45,13 @@ public class pollVisitsByPlantMonardaServlet extends HttpServlet {
         String visit_counts_didyma_marshalls_json = new Gson().toJson(visit_counts_didyma_marshalls);
         String visit_counts_x_peters_json = new Gson().toJson(visit_counts_x_peters);
 
+
+        System.out.println(pollinators_json);
+        System.out.println(visit_counts_didyma_straight_json);
+        System.out.println(visit_counts_didyma_petite_json);
+        System.out.println(visit_counts_didyma_marshalls_json);
+        System.out.println(visit_counts_x_peters_json);
+
         req.setAttribute("pollinatorsJSON", pollinators_json);
         req.setAttribute("visitCountsDidymaStraightJSON", visit_counts_didyma_straight_json);
         req.setAttribute("visitCountsDidymaPetiteJSON", visit_counts_didyma_petite_json);

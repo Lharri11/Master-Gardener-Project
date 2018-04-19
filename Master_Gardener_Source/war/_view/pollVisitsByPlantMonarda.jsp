@@ -229,24 +229,23 @@
 </script>
 
 <input type="hidden" id="pollinatorsString" value='${pollinatorsJSON}' >
-<input type="hidden" id="visitCountsString1" value='${visitCountsStraightJSON}' >
-<input type="hidden" id="visitCountsString2" value='${visitCountsMoonbeamJSON}' >
-<input type="hidden" id="visitCountsString3" value='${visitCountsZagrebJSON}' >
-<input type="hidden" id="visitCountsString4" value='${visitCountsCremeJSON}' >
-<input type="hidden" id="visitCountsString5" value='${visitCountsXPetersJSON}' >
+<input type="hidden" id="visitCountsString1" value='${visitCountsDidymaStraightJSON}' >
+<input type="hidden" id="visitCountsString2" value='${visitCountsDidymaPetiteJSON}' >
+<input type="hidden" id="visitCountsString3" value='${visitCountsDidymaMarshallsJSON}' >
+<input type="hidden" id="visitCountsString4" value='${visitCountsXPetersJSON}' >
 
 <!-- First graph -->
 <script>
     $(document).ready(
         function() {
             var pollinators_json = ${pollinatorsJSON};
-            var visit_counts_straight_json = ${visitCountsStraightJSON};
+            var visit_counts_didyma_straight_json = ${visitCountsDidymaStraightJSON};
             var pollinatorNames = [];
-            var visitCountsStraight = [];
+            var visitCountsDidymaStraight = [];
 
             for (var i = 0; i < pollinators_json.length; i++) {
                 pollinatorNames.push(pollinators_json[i].pollinatorName);
-                visitCountsStraight.push(visit_counts_straight_json[i]);
+                visitCountsDidymaStraight.push(visit_counts_didyma_straight_json[i]);
             }
 
             var ctx = document.getElementById("myChart").getContext('2d');
@@ -317,13 +316,13 @@
     $(document).ready(
         function() {
             var pollinators_json = ${pollinatorsJSON};
-            var visit_counts_moonbeam_json = ${visitCountsMoonbeamJSON};
+            var visit_counts_didyma_petite_json = ${visitCountsDidymaPetiteJSON};
             var pollinatorNames = [];
-            var visitCountsMoonbeam = [];
+            var visitCountsDidymaPetite = [];
 
             for (var i = 0; i < pollinators_json.length; i++) {
                 pollinatorNames.push(pollinators_json[i].pollinatorName);
-                visitCountsMoonbeam.push(visit_counts_moonbeam_json[i]);
+                visitCountsDidymaPetite.push(visit_counts_didyma_petite_json[i]);
             }
 
             var ctx = document.getElementById("myChart2").getContext('2d');
@@ -393,13 +392,13 @@
     $(document).ready(
         function() {
             var pollinators_json = ${pollinatorsJSON};
-            var visit_counts_zagreb_json = ${visitCountsZagrebJSON};
+            var visit_counts_didyma_marshalls_json = ${visitCountsDidymaMarshallsJSON};
             var pollinatorNames = [];
-            var visitCountsZagreb = [];
+            var visitCountsDidymaMarshalls = [];
 
             for (var i = 0; i < pollinators_json.length; i++) {
                 pollinatorNames.push(pollinators_json[i].pollinatorName);
-                visitCountsZagreb.push(visit_counts_zagreb_json[i]);
+                visitCountsDidymaMarshalls.push(visit_counts_didyma_marshalls_json[i]);
             }
 
             var ctx = document.getElementById("myChart3").getContext('2d');
@@ -471,13 +470,13 @@
     $(document).ready(
         function() {
             var pollinators_json = ${pollinatorsJSON};
-            var visit_counts_creme_json = ${visitCountsCremeJSON};
+            var visit_counts_x_peters_json = ${visitCountsXPetersJSON};
             var pollinatorNames = [];
-            var visitCountsCreme = [];
+            var visitCountsXPeters = [];
 
             for (var i = 0; i < pollinators_json.length; i++) {
                 pollinatorNames.push(pollinators_json[i].pollinatorName);
-                visitCountsCreme.push(visit_counts_creme_json[i]);
+                visitCountsXPeters.push(visit_counts_x_peters_json[i]);
             }
 
             var ctx = document.getElementById("myChart4").getContext('2d');
