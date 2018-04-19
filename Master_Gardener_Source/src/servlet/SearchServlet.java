@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 //import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -33,20 +34,24 @@ public class SearchServlet extends HttpServlet {
 			return;
 		}
 				
-		controller = new SearchController();
-		String keyword;
-		keyword = (String) req.getSession().getAttribute("keyword");
-		List<Garden> gardens = null;
+		//controller = new SearchController();
+
+		/*String keyword;
+		keyword = (String) req.getSession().getAttribute("keyword");*/
+
+
+		List<Garden> gardens = new ArrayList<>();
+		SearchController controller = new SearchController();
+
 		try {
-			if(keyword == null){
-				System.out.println("Keyword not found");
-			}
-			else{
-			gardens = controller.getGardensLike(keyword);
-			}
+			gardens = controller.getAllGardens();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
+		System.out.println(gardens);
+
 		req.setAttribute("gardens", gardens);
 		req.getRequestDispatcher("/_view/search.jsp").forward(req, resp);	
 	}

@@ -21,6 +21,12 @@
     <!-- Custom styles -->
     <link href="css/additional-style.css" rel="stylesheet">
 
+    <!-- Font-Awesome javascript library -->
+    <script defer src="vendor/font-awesome/fontawesome-all.js"></script>
+
+    <%-- DataTables css --%>
+    <link href="vendor/DataTables/datatables.css" rel="stylesheet">
+
 </head>
 
 <body class="search-backgorund">
@@ -46,17 +52,91 @@
     </div>
 </nav>
 
-<div class="container search-page-top-padding">
+<%--<div class="container-fluid search-page-top-padding">
     <div class="row">
-        <div class="col-lg-12 align-content-lg-center">
-            <div class="align-content-lg-center">
-                <div class=" text-search">Search for a Garden</div>
-                <input class="button-search" placeholder="Search..."/>
+        <div class="col-lg-6 col-lg-offset-3">
+            <div class="align-content-center">
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="fas fa-search"></span>
+                        </button>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
+</div>--%>
+
+<%--<form class="search-collapse"
+      action="${pageContext.servletContext.contextPath}/user" method="post">
+    <input type="text" id="searchText" name="keyword" placeholder="Search..." required>
+    <input type="image" src="images/search_black.jpg" value="Search" id="searchButton">
+</form>--%>
+
+
+<div class="container search-page-top-padding">
+   <%-- <form action="${pageContext.servletContext.contextPath}/user" method="post">
+    <div class="row">
+
+        <div class="input-group mb-3">
+
+                <input type="text" name="keyword" class="form-control" placeholder="Enter County Name"
+                       aria-label="Search term"
+                       aria-describedby="basic-addon">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="button" value="Search">Search!</button>
+                </div>
+            </form>
+        </div>
+    </div>--%>
+
+    <div class="row">
+        <table id="allGardensTable">
+            <thead>
+            <tr>
+                <th>Garden Name</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <c:forEach items="${gardens}" var="gardens">
+                <tr>
+                    <td>${gardens.garden_name}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+
+        </table>
+    </div>
+
+
+
+
+
+
 </div>
 
+<%--<div class="container">
+    <div class="results">
+
+        <h1>Results:</h1>
+
+
+        <form id="GroupGet" method="post">
+            <table id="userGroups">
+                <c:forEach items="${gardens}" var="garden">
+                    <tr class="groupList">
+                        <td style="color:white"><input type="submit" value="${garden.garden_name}" id="groupDisplay"
+                                                       name="Submit" class="buttonAsLink"></td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </form>
+
+    </div>
+</div>--%>
 
 <%--
    <div id="page" class="page">
@@ -135,6 +215,16 @@
 <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
 <script src="vendor/jquery-easing/jquery.easing.js"></script>
 <script src="vendor/scrollreveal/scrollreveal.js"></script>
+<script src="vendor/DataTables/datatables.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#allGardensTable').DataTable().draw();
+        ;
+    });
+</script>
+
+
 
 
 </body>

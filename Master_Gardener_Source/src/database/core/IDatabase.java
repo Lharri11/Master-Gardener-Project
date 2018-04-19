@@ -9,7 +9,6 @@ import java.util.Date;
 import java.util.List;
 
 import model.*;
-import model.*;
 
 public interface IDatabase {
 	public boolean createTables();
@@ -36,6 +35,7 @@ public interface IDatabase {
 	public List<String> getAllPollinators() throws SQLException;
 	public List<String> getAllPlants() throws SQLException;
 	public List<String> getAllStrains() throws SQLException;
+	public List<Garden> getAllGardens() throws SQLException;
 	public Pair<Pair<List<Integer>, List<String>>, List<Date>> getVisitCountAndPollinatorNameAndDateByCounty(final County county) throws SQLException;
 	public List<Integer> getVisitCountsByCounty(final County county) throws SQLException;
 	public List<String> getPollinatorsNameByCounty(final County county) throws SQLException;

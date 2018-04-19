@@ -27,12 +27,6 @@ public class AdminController {
         List<User> activeAccounts = database.getAllUsernames();
 
         System.out.println("Active Accounts:");
-        /*
-        Formatter formatter = new Formatter();
-        System.out.println(formatter.format("%20s %30s %20s", "Username*", "Email*", "Name*"));
-        for (int i = 0; i < activeAccounts.size(); i++) {
-            System.out.format(activeAccounts.get(i) + " ");
-        } */
 
         if (activeAccounts.isEmpty()) {
             System.out.println("No active accounts. This shouldn't appear.....come'on you know why :P");

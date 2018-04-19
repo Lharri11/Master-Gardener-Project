@@ -30,7 +30,6 @@ public class AdminServlet extends HttpServlet {
 
         List<User> activeAccounts = new ArrayList<>();
         AdminController controller = new AdminController();
-        controller = new AdminController();
         try {
             activeAccounts = controller.getAllUsernames();
         } catch (SQLException e) {

@@ -22,14 +22,15 @@ public class GardenController {
 		return this.database.queryForUserByUsername(username);
 	}
 
+
+
 	public List<Garden> getUsersGardens(String user) throws SQLException {
 		List<Garden> gardens = database.getGardensByUser(user);
 
 		if (gardens.isEmpty()) {
 			System.out.println("No gardens in database for that User");
 			return null;
-		}
-		else {
+		} else {
 			return gardens;
 		}
 	}
@@ -52,8 +53,7 @@ public class GardenController {
 		if(posts.isEmpty()){
 			System.out.println("No Posts for Garden");
 			return null;
-		}
-		else{
+		} else{
 			return posts;
 		}
 	}

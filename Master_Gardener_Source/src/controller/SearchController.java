@@ -16,10 +16,24 @@ public class SearchController {
 		database = DatabaseProvider.getInstance();		
 	}
 
-	public List<Garden> getGardensLike(String keyword) throws SQLException {
-		
-		List<Garden> gardens = database.getGardensLikeKeyword(keyword);
+
+	public List<Garden> getAllGardens() throws SQLException {
+
+
+		List<Garden> gardens = database.getAllGardens();
+
+		System.out.println("Works");
+
 		if (gardens.isEmpty()) {
+			System.out.println("No gardens found");
+			return null;
+		} else {
+			return gardens;
+		}
+	}
+
+		// TODO: Delete if above is working
+		/*if (gardens.isEmpty()) {
 			System.out.println("No gardens found that match the keyphrase provided");
 			return null;
 		}
@@ -30,7 +44,7 @@ public class SearchController {
 			}
 			return gardens;
 		}			
-	}
+	}*/
 
 	public int getGardenIDbyGardenname(String name) {
 		List<Garden> garden = database.getGardenbyGardenName(name);

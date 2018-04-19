@@ -3645,6 +3645,52 @@ public class MySQLDatabase implements IDatabase {
         }
     }
 
+    public List<Garden> getAllGardens() throws SQLException {
+
+        List<Garden> result_set = new ArrayList<>();
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+
+        try {
+            return doQueryLoop(new Query<List<Garden>>() {
+                @Override
+                //          (column probably does not exist in any tables
+                public List<Garden> query(Connection conn) throws SQLException {
+
+                    PreparedStatement stmt = null;
+                    ResultSet resultSet = null;
+                    try {
+                        stmt = conn.prepareStatement(
+                                "SELECT garden_name FROM mg_garden");
+
+                        resultSet = stmt.executeQuery();
+
+                        boolean found = false;
+                        while (resultSet.next())
+                        {
+                            found = true;
+                            Garden garden = new Garden(null,null);
+                            garden.setGarden_name(resultSet.getString(1));
+
+                            result_set.add(garden);
+                        }
+                        if (!found) {
+                            System.out.println("getAllGardens query: No gardens were found in the database (NANI?!)");
+                        }
+                    } finally {
+                        DBUtil.closeQuietly(stmt);
+                        DBUtil.closeQuietly(resultSet);
+                    }
+                    return result_set;
+                }
+            });
+        } catch (SQLException e) {
+            e.getStackTrace();
+            // return empty list
+            return new ArrayList<Garden>();
+        }
+    }
+
     public List<String> getStrainByPlant(final Plant plant) throws SQLException {
         List<String> result_set = new ArrayList<String>();
         List<Integer> id_set = new ArrayList<Integer>();
