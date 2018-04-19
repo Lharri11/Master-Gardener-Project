@@ -2687,44 +2687,41 @@ public class MySQLDatabase implements IDatabase {
         return visit_counts;
     }
 
-    /*
-    public List<Integer> getVisitCountByPollinatorID(final int pollinator_id) {
-        try {
-            return doQueryLoop(new Query<Integer>() {
-                @Override
-                public Integer query(Connection conn) throws SQLException {
-                    PreparedStatement stmt = null;
-                    ResultSet set = null;
-                    int visit_count = 0;
+    public List<Integer> getVisitCountsByPollinatorAndStrainID(int strain_id) throws SQLException
+    {
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        ArrayList<Integer> visit_counts = new ArrayList<>();
 
-                    try {
-                        stmt = conn.prepareStatement(
-                                "SELECT SUM(visit_count) FROM mg_pollinator_visit WHERE pollinator_id = ?");
-                        stmt.setInt(1, pollinator_id);
-                        set = stmt.executeQuery();
+        for(int i=1; i<=9; i++) {
+            try {
+                int pollinator_id = i;
+                stmt = conn.prepareStatement(
+                        "SELECT SUM(visit_count) FROM mg_pollinator_visit WHERE strain_id = ? AND pollinator_id = ?");
+                stmt.setInt(1, strain_id);
+                stmt.setInt(2, pollinator_id);
+                set = stmt.executeQuery();
 
-                        // testing that a set was returned
-                        Boolean found = false;
+                // testing that a set was returned
+                Boolean found = false;
 
-                        if (set.next()) {
-                            found = true;
-                            visit_count = set.getInt(1);
-                        }
-                        if (!found) {
-                            System.out.println("Pollinator ID <" + pollinator_id + "> was not found");
-                        }
-                    } finally {
-                        DBUtil.closeQuietly(stmt);
-                        DBUtil.closeQuietly(set);
-                    }
-                    return visit_count;
+                if (set.next()) {
+                    found = true;
+                    visit_counts.add(set.getInt(1));
                 }
-            });
-        } catch (SQLException e) {
-            System.out.println("Error in getVisitCountByPollinatorID: " + e.getMessage());
-            return -1;
+                if (!found) {
+                    System.out.println("Strain ID <" + strain_id + "> was not found");
+                }
+            } finally {
+                DBUtil.closeQuietly(stmt);
+                DBUtil.closeQuietly(set);
+            }
         }
-    }*/
+
+        return visit_counts;
+    }
 
     public List<Garden> getGardenbyGardenName(final String name) {
         return executeTransaction(new Transaction<List<Garden>>() {

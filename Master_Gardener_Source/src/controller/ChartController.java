@@ -27,8 +27,13 @@ public class ChartController {
         return this.database.getAllPollinators();
     }
 
-    //Visit Counts By Pollinator ID
+    //Visit Counts for all Pollinators
     public List<Integer> getVisitCountsByPollinator() throws SQLException {
         return this.database.getVisitCountsByPollinator();
+    }
+
+    //Visit Counts by Strain ID
+    public List<Integer> getVisitCountsByPollinatorAndStrainID(int strain_id) throws SQLException {
+        return this.database.getVisitCountsByPollinatorAndStrainID(strain_id);
     }
 }
