@@ -104,6 +104,9 @@
             <c:forEach items="${gardens}" var="gardens">
                 <tr>
                     <td>${gardens.garden_name}</td>
+                    <%--<td><form action="${pageContext.servletContext.contextPath}/garden" method="post">
+                        <a><input type="Submit" value="Join Garden" name="memberSubmit" class="joinGarden"></a>
+                    </form></td>--%>
                 </tr>
             </c:forEach>
             </tbody>

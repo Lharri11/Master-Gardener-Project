@@ -22,8 +22,6 @@ public class SearchController {
 
 		List<Garden> gardens = database.getAllGardens();
 
-		System.out.println("Works");
-
 		if (gardens.isEmpty()) {
 			System.out.println("No gardens found");
 			return null;

@@ -50,7 +50,6 @@ public class SearchServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		System.out.println(gardens);
 
 		req.setAttribute("gardens", gardens);
 		req.getRequestDispatcher("/_view/search.jsp").forward(req, resp);	
