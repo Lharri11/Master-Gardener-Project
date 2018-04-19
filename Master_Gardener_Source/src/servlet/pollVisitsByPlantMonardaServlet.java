@@ -31,10 +31,10 @@ public class pollVisitsByPlantMonardaServlet extends HttpServlet {
         controller = new ChartController();
         try {
             pollinators = controller.getAllPollinators();
-            visit_counts_didyma_straight = controller.getVisitCountsByStrainID(6);
-            visit_counts_didyma_petite = controller.getVisitCountsByStrainID(7);
-            visit_counts_didyma_marshalls = controller.getVisitCountsByStrainID(8);
-            visit_counts_x_peters = controller.getVisitCountsByStrainID(9);
+            visit_counts_didyma_straight = controller.getVisitCountsByPollinatorAndStrainID(6);
+            visit_counts_didyma_petite = controller.getVisitCountsByPollinatorAndStrainID(7);
+            visit_counts_didyma_marshalls = controller.getVisitCountsByPollinatorAndStrainID(8);
+            visit_counts_x_peters = controller.getVisitCountsByPollinatorAndStrainID(9);
         } catch (SQLException e) {
             e.printStackTrace();
         }
