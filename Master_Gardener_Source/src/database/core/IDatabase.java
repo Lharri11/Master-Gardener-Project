@@ -28,6 +28,7 @@ public interface IDatabase {
 	public int getStrainIDByStrainName(final String strain_name) throws SQLException;
 	public int getPollinatorIDByPollinatorName(final String poll_name) throws SQLException;
 	public List<Integer> getVisitCountsByPollinator() throws SQLException;
+	public List<Integer> getVisitCountsByPollinatorAndStrainID(final int strain_id) throws SQLException;
 	public String getCountyByCountyID(final int county_id);
 	public String getCountyByStateName(final String state_name);
 	//public String getUsernameByCounty(final String county_name);
