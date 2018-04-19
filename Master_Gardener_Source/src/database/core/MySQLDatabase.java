@@ -1443,6 +1443,52 @@ public class MySQLDatabase implements IDatabase {
         return completed;
     }
 
+   /* private boolean updateUsername(String userName, User user) throws SQLException {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+        boolean success = false;
+
+        try {
+            stmt = conn.prepareStatement(
+                    "UPDATE mg_user SET username = ? WHERE id = ?");
+            stmt.setString(1, userName);
+            stmt.setInt(2, user.getUserId());
+            stmt.executeUpdate();
+
+            success = true;
+
+        } finally {
+            DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(set);
+        }
+        return success;
+    }
+
+    private boolean updateEmail(String email, User user) throws SQLException {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+        boolean success = false;
+
+        try {
+            stmt = conn.prepareStatement(
+                    "UPDATE mg_user SET username = ? WHERE id = ?");
+            stmt.setString(1, userName);
+            stmt.setInt(2, user.getUserId());
+            stmt.executeUpdate();
+
+            success = true;
+
+        } finally {
+            DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(set);
+        }
+        return success;
+    }*/
+
     public boolean updatePassword(String user_name, String old_password, String new_password) throws SQLException
     {
         DataSource ds = getMySQLDataSource();

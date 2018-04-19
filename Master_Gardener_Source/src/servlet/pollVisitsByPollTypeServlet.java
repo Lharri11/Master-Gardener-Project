@@ -25,7 +25,6 @@ public class pollVisitsByPollTypeServlet extends HttpServlet {
         // Initialize a list
         List<Pollinator> pollinators = null;
         List<Integer> visit_counts = null;
-        System.out.println("Hello");
 
         controller = new ChartController();
         try {
@@ -43,21 +42,18 @@ public class pollVisitsByPollTypeServlet extends HttpServlet {
 
         String pollinators_json = new Gson().toJson(pollinators);
         String visit_counts_json = new Gson().toJson(visit_counts);
-        System.out.println(pollinators_json);
-        System.out.println(visit_counts_json);
-        System.out.println(total);
         req.setAttribute("pollinatorsJSON", pollinators_json);
         req.setAttribute("visitCountsJSON", visit_counts_json);
         req.setAttribute("visitCountsTotal", total);
 
 
-        //req.getRequestDispatcher("/_view/pollVisitsByPollType.jsp").forward(req, resp);
+        req.getRequestDispatcher("/_view/pollVisitsByPollType.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        System.out.println("Hello");
-        //req.getRequestDispatcher("/_view/pollVisitsByPollType.jsp").forward(req, resp);
+
+        req.getRequestDispatcher("/_view/pollVisitsByPollType.jsp").forward(req, resp);
     }
 }
