@@ -11,7 +11,7 @@ public class CountyTest {
     @Before
     public void setup()
     {
-        c1 = new County(324, "York", "Pennsylvania");
+        c1 = new County("York", "Pennsylvania");
     }
 
     /*@Test(expected = IllegalArgumentException.class)

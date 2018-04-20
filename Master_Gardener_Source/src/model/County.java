@@ -6,9 +6,8 @@ public class County
 	
 	private String countyName, stateName;
 	
-	public County(int countyID, String countyName, String stateName)
+	public County(String countyName, String stateName)
 	{
-        this.countyID = countyID;
 		this.countyName = countyName;
 		this.stateName = stateName;
 	}

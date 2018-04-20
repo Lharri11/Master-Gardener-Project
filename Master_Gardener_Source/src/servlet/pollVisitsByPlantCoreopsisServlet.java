@@ -41,6 +41,15 @@ public class pollVisitsByPlantCoreopsisServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+        int total = 0;
+        for(int i = 0; i < visit_counts_straight.size(); i++) {
+            total += visit_counts_straight.get(i);
+            total += visit_counts_moonbeam.get(i);
+            total += visit_counts_zagreb.get(i);
+            total += visit_counts_creme.get(i);
+            total += visit_counts_route.get(i);
+        }
+
         String pollinators_json = new Gson().toJson(pollinators);
         String visit_counts_straight_json = new Gson().toJson(visit_counts_straight);
         String visit_counts_moonbeam_json = new Gson().toJson(visit_counts_moonbeam);
@@ -48,14 +57,13 @@ public class pollVisitsByPlantCoreopsisServlet extends HttpServlet {
         String visit_counts_creme_json = new Gson().toJson(visit_counts_creme);
         String visit_counts_route_json = new Gson().toJson(visit_counts_route);
 
-        System.out.println(visit_counts_straight_json);
-
         req.setAttribute("pollinatorsJSON", pollinators_json);
         req.setAttribute("visitCountsStraightJSON", visit_counts_straight_json);
         req.setAttribute("visitCountsMoonbeamJSON", visit_counts_moonbeam_json);
         req.setAttribute("visitCountsZagredJSON", visit_counts_zagreb_json);
         req.setAttribute("visitCountsCremeJSON", visit_counts_creme_json);
         req.setAttribute("visitCountsRouteJSON", visit_counts_route_json);
+        req.setAttribute("visitCountsTotal", total);
         req.getRequestDispatcher("/_view/pollVisitsByPlantCoreopsis.jsp").forward(req, resp);
     }
 
