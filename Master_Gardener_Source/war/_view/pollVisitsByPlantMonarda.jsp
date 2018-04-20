@@ -137,7 +137,7 @@
 <div>
     <span style="font-size:1.875em;cursor:pointer" onclick="openNav()">&#9776; Admin Controls</span>
     <div></div>
-    <div><h2>Plant: Monarda  (Total Visits: 4049)</h2></div>
+    <div><h2>Plant: Monarda  (Total Visits: ${visitCountsTotal})</h2></div>
     <div>
         <div class="col-lg-10 col-md-6 col-sm-12">
             <div id="editContent" class="editContent">
@@ -233,6 +233,7 @@
 <input type="hidden" id="visitCountsString2" value='${visitCountsDidymaPetiteJSON}' >
 <input type="hidden" id="visitCountsString3" value='${visitCountsDidymaMarshallsJSON}' >
 <input type="hidden" id="visitCountsString4" value='${visitCountsXPetersJSON}' >
+<input type="hidden" id="visitCountsTotal" value='${visitCountsTotal}' >
 
 <!-- First graph -->
 <script>
@@ -252,11 +253,11 @@
             var myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ["Honey Bee", "Carpenter Bee","Bumble Bee",  "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bee", "Other Pollinator"],
+                    labels: pollinatorNames,
                     datasets: [{
                         display: false,
                         label: '# of Pollinators',
-                        data: [95,105,112,60,145,27,46,93],
+                        data: visitCountsDidymaStraight,
                         backgroundColor: [
                             'rgba(255, 0 , 0, 0.75)',
                             'rgba(255, 127, 0, 0.75)',
@@ -329,10 +330,11 @@
             var myChart2 = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ["Honey Bee", "Carpenter Bee","Bumble Bee",  "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bee", "Other Pollinator"],
+                    labels: pollinatorNames,
                     datasets: [{
+                        display: false,
                         label: '# of Pollinators',
-                        data: [39,50,104,26,81,30,37,58],
+                        data: visitCountsDidymaPetite,
                         backgroundColor: [
                             'rgba(255, 0 , 0, 0.75)',
                             'rgba(255, 127, 0, 0.75)',
@@ -405,11 +407,11 @@
             var myChart3 = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ["Honey Bee", "Carpenter Bee","Bumble Bee",  "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bee", "Other Pollinator"],
+                    labels: pollinatorNames,
                     datasets: [{
                         display: false,
                         label: '# of Pollinators',
-                        data: [112,102,208,59,212,71,61,89],
+                        data: visitCountsDidymaMarshalls,
                         backgroundColor: [
                             'rgba(255, 0 , 0, 0.75)',
                             'rgba(255, 127, 0, 0.75)',
@@ -483,11 +485,11 @@
             var myChart4 = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ["Honey Bee", "Carpenter Bee","Bumble Bee",  "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bee", "Other Pollinator"],
+                    labels: pollinatorNames,
                     datasets: [{
                         display: false,
                         label: '# of Pollinators',
-                        data: [641,475,318,128,242,49,74,100],
+                        data: visitCountsXPeters,
                         backgroundColor: [
                             'rgba(255, 0 , 0, 0.75)',
                             'rgba(255, 127, 0, 0.75)',

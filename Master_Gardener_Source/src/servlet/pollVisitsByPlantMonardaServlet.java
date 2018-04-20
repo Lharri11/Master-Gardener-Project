@@ -39,24 +39,26 @@ public class pollVisitsByPlantMonardaServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+        int total = 0;
+        for(int i = 0; i < visit_counts_didyma_straight.size(); i++) {
+            total += visit_counts_didyma_straight.get(i);
+            total += visit_counts_didyma_petite.get(i);
+            total += visit_counts_didyma_marshalls.get(i);
+            total += visit_counts_x_peters.get(i);
+        }
+
         String pollinators_json = new Gson().toJson(pollinators);
         String visit_counts_didyma_straight_json = new Gson().toJson(visit_counts_didyma_straight);
         String visit_counts_didyma_petite_json = new Gson().toJson(visit_counts_didyma_petite);
         String visit_counts_didyma_marshalls_json = new Gson().toJson(visit_counts_didyma_marshalls);
         String visit_counts_x_peters_json = new Gson().toJson(visit_counts_x_peters);
 
-
-        System.out.println(pollinators_json);
-        System.out.println(visit_counts_didyma_straight_json);
-        System.out.println(visit_counts_didyma_petite_json);
-        System.out.println(visit_counts_didyma_marshalls_json);
-        System.out.println(visit_counts_x_peters_json);
-
         req.setAttribute("pollinatorsJSON", pollinators_json);
         req.setAttribute("visitCountsDidymaStraightJSON", visit_counts_didyma_straight_json);
         req.setAttribute("visitCountsDidymaPetiteJSON", visit_counts_didyma_petite_json);
         req.setAttribute("visitCountsDidymaMarshallsJSON", visit_counts_didyma_marshalls_json);
         req.setAttribute("visitCountsXPetersJSON", visit_counts_x_peters_json);
+        req.setAttribute("visitCountsTotal", total);
         req.getRequestDispatcher("/_view/pollVisitsByPlantMonarda.jsp").forward(req, resp);
     }
 

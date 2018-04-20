@@ -99,7 +99,7 @@ public class InitialData {
 					break;
 				}
 				Iterator<String> i = tuple.iterator();
-				County county = new County(county_id, "", "");
+				County county = new County("", "");
 				county.setCountyID(county_id++);
 				county.setCountyName(i.next());
 				county.setStateName(i.next());

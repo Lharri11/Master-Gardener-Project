@@ -138,7 +138,7 @@
 <div>
     <span style="font-size:1.875em;cursor:pointer" onclick="openNav()">&#9776; Admin Controls</span>
     <div></div>
-    <div><h2>Plant: Coreopsis Verticillata (Total Visits: 5109)</h2></div>
+    <div><h2>Plant: Coreopsis Verticillata (Total Visits: ${visitCountsTotal})</h2></div>
     <div>
         <div class="col-lg-10 col-md-6 col-sm-12">
             <div id="editContent" class="editContent">
@@ -245,6 +245,7 @@
 <input type="hidden" id="visitCountsString2" value='${visitCountsMoonbeamJSON}' >
 <input type="hidden" id="visitCountsString3" value='${visitCountsDidymaMarshallsJSON}' >
 <input type="hidden" id="visitCountsString4" value='${visitCountsXPetersJSON}' >
+<input type="hidden" id="visitCountsString5" value='${visitCountsTotal}' >
 
 <!-- First graph -->
 <script>
@@ -257,18 +258,18 @@
 
             for (var i = 0; i < pollinators_json.length; i++) {
                 pollinatorNames.push(pollinators_json[i].pollinatorName);
-                visitCounts.push(visit_counts_json[i]);
+                visitCountsStraight.push(visit_counts_straight_json[i]);
             }
 
             var ctx = document.getElementById("myChart").getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bee", "Other Pollinator"],
+                    labels: pollinatorNames,
                     datasets: [{
                         display: false,
                         label: '# of Pollinators',
-                        data: [97, 4, 21, 95, 263, 37, 71, 105],
+                        data: visitCountsStraight,
                         backgroundColor: [
                             'rgba(255, 0 , 0, 0.75)',
                             'rgba(255, 127, 0, 0.75)',
@@ -328,18 +329,24 @@
     $(document).ready(
         function() {
             var pollinators_json = ${pollinatorsJSON};
-            var visit_counts_moonbeam_json = ${visitCountsMoonbeamJSON};
+            var visit_counts_straight_json = ${visitCountsMoonbeamJSON};
             var pollinatorNames = [];
             var visitCountsMoonbeam = [];
+
+            for (var i = 0; i < pollinators_json.length; i++) {
+                pollinatorNames.push(pollinators_json[i].pollinatorName);
+                visitCountsMoonbeam.push(visit_counts_straight_json[i]);
+            }
 
             var ctx = document.getElementById("myChart2").getContext('2d');
             var myChart2 = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bee", "Other Pollinator"],
+                    labels: pollinatorNames,
                     datasets: [{
+                        display: false,
                         label: '# of Pollinators',
-                        data: [227, 6, 16, 77, 416, 59, 83, 95],
+                        data: visitCountsMoonbeam,
                         backgroundColor: [
                             'rgba(255, 0 , 0, 0.75)',
                             'rgba(255, 127, 0, 0.75)',
@@ -403,15 +410,22 @@
             var pollinatorNames = [];
             var visitCountsZagreb = [];
 
+            for (var i = 0; i < pollinators_json.length; i++) {
+                pollinatorNames.push(pollinators_json[i].pollinatorName);
+                visitCountsZagreb.push(visit_counts_zagreb_json[i]);
+            }
+
             var ctx = document.getElementById("myChart3").getContext('2d');
             var myChart3 = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bee", "Other Pollinator"],
                     datasets: [{
-                        display: false,
-                        label: '# of Pollinators',
-                        data: [202, 7, 32, 99, 576, 51, 74, 91],
+                        labels: pollinatorNames,
+                        datasets: [{
+                            display: false,
+                            label: '# of Pollinators',
+                            data: visitCountsZagreb,
                         backgroundColor: [
                             'rgba(255, 0 , 0, 0.75)',
                             'rgba(255, 127, 0, 0.75)',
@@ -485,11 +499,11 @@
             var myChart4 = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bee", "Other Pollinator"],
+                    labels: pollinatorNames,
                     datasets: [{
                         display: false,
                         label: '# of Pollinators',
-                        data: [132, 7, 38, 70, 386, 68, 92, 150],
+                        data: visitCountsCreme,
                         backgroundColor: [
                             'rgba(255, 0 , 0, 0.75)',
                             'rgba(255, 127, 0, 0.75)',
@@ -550,7 +564,7 @@
     $(document).ready(
         function() {
             var pollinators_json = ${pollinatorsJSON};
-            var visit_counts_route_json = ${visitCountsCremeJSON};
+            var visit_counts_route_json = ${visitCountsRouteJSON};
             var pollinatorNames = [];
             var visitCountsRoute = [];
 
@@ -563,11 +577,11 @@
             var myChart5 = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bee", "Other Pollinator"],
+                    labels: pollinatorNames,
                     datasets: [{
                         display: false,
                         label: '# of Pollinators',
-                        data: [365, 4, 13, 195, 519, 36, 102, 128],
+                        data: visitCountsRoute,
                         backgroundColor: [
                             'rgba(255, 0 , 0, 0.75)',
                             'rgba(255, 127, 0, 0.75)',

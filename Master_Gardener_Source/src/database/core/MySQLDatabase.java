@@ -2667,6 +2667,37 @@ public class MySQLDatabase implements IDatabase {
         });
     }
 
+    public List<County> getAllCounties() throws SQLException{
+        return executeTransaction(new Transaction<List<County>>() {
+            public List<County> execute(Connection conn) throws SQLException {
+                DataSource ds = getMySQLDataSource();
+                conn = ds.getConnection();
+
+                PreparedStatement stmt1 = null;
+
+                ResultSet set = null;
+
+                try {
+                    stmt1 = conn.prepareStatement("select * FROM mg_county");
+                    set = stmt1.executeQuery();
+
+                    List<County> counties = new ArrayList<County>();
+
+                    while (set.next()) {
+                        County county = new County(null, null);
+
+                        loadCounty(county, set, 1);
+                        counties.add(county);
+                    }
+                    return counties;
+                } finally {
+                    DBUtil.closeQuietly(set);
+                    DBUtil.closeQuietly(stmt1);
+                }
+            }
+        });
+    }
+
     public List<Pollinator> getAllPollinators() throws SQLException{
         return executeTransaction(new Transaction<List<Pollinator>>() {
             public List<Pollinator> execute(Connection conn) throws SQLException {
@@ -2689,7 +2720,6 @@ public class MySQLDatabase implements IDatabase {
                         loadPollinator(pollinator, set, 1);
                         pollinators.add(pollinator);
                     }
-
                     return pollinators;
                 } finally {
                     DBUtil.closeQuietly(set);
@@ -2759,6 +2789,42 @@ public class MySQLDatabase implements IDatabase {
                 }
                 if (!found) {
                     System.out.println("Strain ID <" + strain_id + "> was not found");
+                }
+            } finally {
+                DBUtil.closeQuietly(stmt);
+                DBUtil.closeQuietly(set);
+            }
+        }
+
+        return visit_counts;
+    }
+
+    public List<Integer> getVisitCountsByPollinatorAndCountyID(int county_id) throws SQLException
+    {
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        ArrayList<Integer> visit_counts = new ArrayList<>();
+
+        for(int i=1; i<=9; i++) {
+            try {
+                int pollinator_id = i;
+                stmt = conn.prepareStatement(
+                        "SELECT SUM(visit_count) FROM mg_pollinator_visit WHERE data_form_id IN(SELECT id FROM mg_data_form WHERE county_id = ?) AND pollinator_id = ?");
+                stmt.setInt(1, county_id);
+                stmt.setInt(2, pollinator_id);
+                set = stmt.executeQuery();
+
+                // testing that a set was returned
+                Boolean found = false;
+
+                if (set.next()) {
+                    found = true;
+                    visit_counts.add(set.getInt(1));
+                }
+                if (!found) {
+                    System.out.println("County ID <" + county_id + "> was not found");
                 }
             } finally {
                 DBUtil.closeQuietly(stmt);
@@ -3781,6 +3847,12 @@ public class MySQLDatabase implements IDatabase {
         user.setFirstName(resultSet.getString(index++));
         user.setLastName(resultSet.getString(index++));
         user.setDescription(resultSet.getString(index++));
+    }
+
+    private void loadCounty(County county, ResultSet resultSet, int index) throws SQLException {
+        county.setCountyID(resultSet.getInt(index++));
+        county.setCountyName(resultSet.getString(index++));
+        county.setStateName(resultSet.getString(index++));
     }
 
     private void loadGarden(Garden garden, ResultSet resultSet, int index) throws SQLException {

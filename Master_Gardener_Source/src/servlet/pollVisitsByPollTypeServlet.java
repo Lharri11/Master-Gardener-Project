@@ -34,12 +34,12 @@ public class pollVisitsByPollTypeServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        // Convert the object to a JSON string and pass it to the JSP as hidden input via request attribute
         int total = 0;
         for(int i = 0; i < visit_counts.size(); i++) {
             total += visit_counts.get(i);
         }
 
+        // Convert the object to a JSON string and pass it to the JSP as hidden input via request attribute
         String pollinators_json = new Gson().toJson(pollinators);
         String visit_counts_json = new Gson().toJson(visit_counts);
         req.setAttribute("pollinatorsJSON", pollinators_json);
