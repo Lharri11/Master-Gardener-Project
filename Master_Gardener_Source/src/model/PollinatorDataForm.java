@@ -19,19 +19,19 @@ public class PollinatorDataForm
 	private ArrayList<Plant> plants;
 	private ArrayList<PlantStrain> plantStrains;
 
-	private LocalDate date_created;
+	private LocalDate date_collected;
 	private LocalDate date_generated;
-	private LocalDate date_approved;
+	private LocalDate date_confirmed;
 	private LocalTime monitor_start;
 	private LocalTime monitor_stop;
 	private String comments;
 	private String cloud_status;
 	private String wind_status;
 	private int confirmed;
-	private String butterflymothcomments = null;
+	private String butterfly_moth_comments = null;
 
-	public PollinatorDataForm(int data_form_id, int garden_id, int county_id, ArrayList<User> generators, int week_number, int temperature, LocalDate date_created, LocalDate date_generated,
-							  LocalTime monitor_start, LocalTime monitor_stop, String comments, String cloud_status, String wind_status, ArrayList<Plot> plot, ArrayList<Plant> plants, ArrayList<PlantStrain> strains,
+	public PollinatorDataForm(int data_form_id, int garden_id, int county_id, ArrayList<User> generators, int week_number, int temperature, LocalDate date_collected, LocalDate date_generated, LocalDate date_confirmed,
+							  LocalTime monitor_start, LocalTime monitor_stop, String comments, String butterfly_moth_comments, String cloud_status, String wind_status, ArrayList<Plot> plot, ArrayList<Plant> plants, ArrayList<PlantStrain> strains,
 							  ArrayList<Pollinator> poll, ArrayList<PollinatorVisitCount> pvc)
 	{
 		this.data_form_id = data_form_id;
@@ -40,11 +40,12 @@ public class PollinatorDataForm
 		this.generators = generators;
 		this.week_number = week_number;
 		this.temperature = temperature;
-		this.date_created = date_created;
+		this.date_collected = date_collected;
 		this.date_generated = date_generated;
 		this.monitor_start = monitor_start;
 		this.monitor_stop = monitor_stop;
-		this.comments = comments;
+        this.comments = comments;
+        this.butterfly_moth_comments = butterfly_moth_comments;
 		this.cloud_status = cloud_status;
 		this.wind_status = wind_status;
 		this.plot = plot;
@@ -57,13 +58,11 @@ public class PollinatorDataForm
 
 	public String getButterflyMothComments()
 	{
-		return this.butterflymothcomments;
+		return this.butterfly_moth_comments;
 	}
 
-	public void setButterflyMothComments(String bfmc)
-	{
-		this.butterflymothcomments = bfmc;
-	}
+	public void setButterflyMothComments(String butterfly_moth_comments) { this.butterfly_moth_comments = butterfly_moth_comments; }
+
 	public int getData_form_id() {
 		return data_form_id;
 	}
@@ -121,12 +120,12 @@ public class PollinatorDataForm
 		this.temperature = temperature;
 	}
 
-	public LocalDate getDate_created() {
-		return date_created;
+	public LocalDate getDate_collected() {
+		return date_collected;
 	}
 
-	public void setDate_created(LocalDate date_created) {
-		this.date_created = date_created;
+	public void setDate_collected(LocalDate date_collected) {
+		this.date_collected = date_collected;
 	}
 
 	public LocalDate getDate_generated() {
@@ -136,6 +135,14 @@ public class PollinatorDataForm
 	public void setDate_generated(LocalDate date_generated) {
 		this.date_generated = date_generated;
 	}
+
+    public LocalDate getDate_confirmed() {
+        return date_confirmed;
+    }
+
+    public void setDate_confirmed(LocalDate date_confirmed) {
+        this.date_confirmed = date_confirmed;
+    }
 
 	public LocalTime getMonitor_start() {
 		return monitor_start;

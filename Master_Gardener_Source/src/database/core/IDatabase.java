@@ -22,6 +22,7 @@ public interface IDatabase {
 	// TODO: ↓↓↓ CREATE CUSTOM QUERY EXPORT ONLY EXPORTS TO ONE SPECIFIC FOLDER (MAYBE), CHANGE THIS SO USER SELECTS LOCATION ↓↓↓
 	public String createCustomQuery(final String[] select_array, final String[] from_array, final String[] where_array, final boolean export);
 	public int getGardenIDByGardenName(final String garden_name) throws SQLException;
+	public int getCountyIDByGardenName(final String garden_name) throws SQLException;
 	public int getCountyIDByCountyName(final String county_name) throws SQLException;
 	public int getPlantIDByPlantName(final String plant_name) throws SQLException;
 	public int getStrainIDByStrainName(final String strain_name) throws SQLException;

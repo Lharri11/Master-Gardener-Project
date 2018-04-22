@@ -68,32 +68,33 @@ public class DataFormServlet extends HttpServlet {
         String generator3 = null;
         String generator4 = null;
         String county = null;
-        String gardenName = null;
+        String garden_name = null;
 
         //DataForm Date Information
-        int week = 0;
-        LocalDate dateCreated = null;
-        LocalDate dateGenerated = null;
-        LocalTime startTime = null;
-        LocalTime endTime = null;
+        int week_num = 0;
+        LocalDate date_collected = null;
+        LocalDate date_generated = null;
+        LocalDate date_confirmed = null;
+        LocalTime start_time = null;
+        LocalTime end_time = null;
 
         //DataForm Date & Other Information
         int temperature = 0;
         String wind = null;
-        String cloudCover = null;
+        String cloud_cover = null;
         String comments = null;
         String butterfly_moth_comments = null;
 
         //Plant, Strain, Plot, & Pollinator Information
-        String plantName = null;
-        String strainName = null;
-        String plotBloomsOpen = null;
-        double plotHeight = 0.0;
-        double plotAreaDbl = 0.0;
-        double plotPercentCoverage = 0.0;
+        String plant_name = null;
+        String strain_name = null;
+        String plot_blooms_open = null;
+        double plot_height = 0.0;
+        double plot_area_dbl = 0.0;
+        double plot_percent_coverage = 0.0;
 
         //Visit Count Information
-        int visitCount = 0;
+        int visit_count = 0;
 
         //
         // ------------------------------ End DataForm Initialization ------------------------------ //
@@ -110,13 +111,51 @@ public class DataFormServlet extends HttpServlet {
         {
             System.out.println("DataForm submitted");
 
-            strainName = req.getParameter("strain_name");
+            generator1 = req.getParameter("generator_id1");
+            generator2 = req.getParameter("generator_id2");
+            generator3 = req.getParameter("generator_id3");
+            generator4 = req.getParameter("generator_id4");
+            garden_name = req.getParameter("garden_name");
+
+            //DataForm Date Information
+            week_num = Integer.parseInt(req.getParameter("garden_name"));
+            date_collected = getDateFromParameter(req.getParameter("dateCollected"));
+            date_generated = null;
+            LocalTime start_time = null;
+            LocalTime end_time = null;
+            ;
+            System.out.println("passed this1");
+
+            //  startTime = LocalTime.parse(req.getParameter("startTime"));
+            //DataForm Date & Other Information
+            int temperature = 0;
+            String wind = null;
+            String cloud_cover = null;
+            String comments = null;
+            String butterfly_moth_comments = null;
+
+            //Plant, Strain, Plot, & Pollinator Information
+            String plant_name = null;
+
             comments = req.getParameter("comments");
+            butterfly_moth_comments = req.getParameter("butterfly_moth_comments");
+            strain_name = req.getParameter("strain_name");
+
+
+            String strain_name = null;
+            String plot_blooms_open = null;
+            double plot_height = 0.0;
+            double plot_area_dbl = 0.0;
+            double plot_percent_coverage = 0.0;
+
+            //Visit Count Information
+            int visit_count = 0;
 
             for(int i = 0; i <= plants.size(); i++)
             {
                 plants.get(i).setPlantID();//Variable from Drop-Down
 
+                generator4 = req.getParameter("generator_id4");
                 for(int j = 0; j <= strains.size(); i++)
                 {
                     try {

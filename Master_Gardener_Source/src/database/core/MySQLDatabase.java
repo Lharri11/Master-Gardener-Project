@@ -919,7 +919,7 @@ public class MySQLDatabase implements IDatabase {
         ResultSet rs = null;
         try {
 
-            stmt = conn.prepareStatement(" SELECT county_ID FROM mg_county WHERE countyName = ? ");
+            stmt = conn.prepareStatement(" SELECT county_ID FROM mg_county WHERE county_name = ? ");
             stmt.setString(1, county_name);
             rs = stmt.executeQuery();
 
@@ -1018,7 +1018,7 @@ public class MySQLDatabase implements IDatabase {
             ResultSet rs = null;
             try {
 
-                stmt1 = conn.prepareStatement("SELECT county_ID FROM mg_county WHERE countyName = ?");
+                stmt1 = conn.prepareStatement("SELECT county_ID FROM mg_county WHERE county_name = ?");
                 stmt1.setString(1, county);
                 rs = stmt1.executeQuery();
 
@@ -1067,7 +1067,7 @@ public class MySQLDatabase implements IDatabase {
                 return_list.add(cids.get(i).toString());
 
                 // Then, get miscellaneous (easy) fields
-                stmt1 = conn.prepareStatement("SELECT temperature, date_created, date_generated, monitor_start, monitor_stop,"
+                stmt1 = conn.prepareStatement("SELECT temperature, date_collected,, date_generated, monitor_start, monitor_stop,"
                         + " wind_status, cloud_status, comments FROM mg_data_form WHERE id = ?");
                 stmt1.setInt(1, cids.get(i));
                 // Hopefully, this loads 8 fields into the ResultSet from columns 1 to 8
@@ -2694,7 +2694,7 @@ public class MySQLDatabase implements IDatabase {
                     String county_name = "";
                     try {
                         stmt = conn.prepareStatement(
-                                " select countyName " +
+                                " select county_name " +
                                         "	from mg_county"
                                         + " where county_ID = ?"
                         );
@@ -2734,9 +2734,9 @@ public class MySQLDatabase implements IDatabase {
                     String county_name = "";
                     try {
                         stmt = conn.prepareStatement(
-                                " select countyName " +
+                                " select county_name " +
                                         "	from mg_county"
-                                        + " where stateName = ?"
+                                        + " where state_name = ?"
                         );
                         stmt.setString(1, state_name);
                         set = stmt.executeQuery();
@@ -2762,6 +2762,47 @@ public class MySQLDatabase implements IDatabase {
         } catch (SQLException e) {
             return "Error in getCountyByStateName: " + e.getMessage() + ".";
             //return -1;
+        }
+    }
+
+    public int getCountyIDByGardenName(final String garden_name) {
+        try {
+            return doQueryLoop(new Query<Integer>() {
+                @Override
+                public Integer query(Connection conn) throws SQLException {
+                    PreparedStatement stmt = null;
+                    ResultSet set = null;
+                    int county_id = 0;
+
+                    try {
+                        stmt = conn.prepareStatement(
+                                " SELECT county_id " +
+                                        "	FROM mg_county"
+                                        + " WHERE county_id IN (SELECT county_id FROM mg_garden WHERE garden_name = ?)"
+                        );
+                        stmt.setString(1, garden_name);
+                        set = stmt.executeQuery();
+
+                        // testing that a set was returned
+                        Boolean found = false;
+
+                        if (set.next()) {
+                            found = true;
+                            county_id = set.getInt(1);
+                        }
+                        if (!found) {
+                            System.out.println("No counties matching the name <" + garden_name + "> in the counties table.");
+                        }
+                    } finally {
+                        DBUtil.closeQuietly(stmt);
+                        DBUtil.closeQuietly(set);
+                    }
+                    return county_id;
+                }
+            });
+        } catch (SQLException e) {
+            System.out.println("Error in getCountyIDByStateName: " + e.getMessage() + ".");
+            return -1;
         }
     }
 
@@ -2988,13 +3029,14 @@ public class MySQLDatabase implements IDatabase {
         try {
 
             // These two lines are required to make dateCreated and Generated work
-            Date date_created = java.sql.Date.valueOf(pdf.getDate_created());
+            Date date_collected = java.sql.Date.valueOf(pdf.getDate_collected());
             Date date_generated = java.sql.Date.valueOf(pdf.getDate_generated());
+            Date date_confirmed = java.sql.Date.valueOf(pdf.getDate_confirmed());
 
             // Insert into the main dataform table
             stmt1 = conn.prepareStatement("INSERT INTO mg_data_form (week_number, garden_id, county_id, generator_id1, generator_id2, generator_id3, generator_id4, " +
-                    "date_generated, monitor_start, monitor_stop, wind_status, cloud_status, comments, confirmed, temperature, date_created, butterfly_moth_comments)" +
-                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?)");
+                    "date_collected, date_generated, date_confirmed, wind_status, cloud_status, comments, butterfly_moth_comments, confirmed, temperature, monitor_start, monitor_stop)" +
+                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             stmt1.setInt(1, pdf.getWeek_number());
             stmt1.setInt(2, pdf.getGarden_id());
             stmt1.setInt(3, pdf.getCounty_id());
@@ -3002,15 +3044,17 @@ public class MySQLDatabase implements IDatabase {
             stmt1.setInt(5, pdf.getGenerators().get(1).getUserId());
             stmt1.setInt(6, pdf.getGenerators().get(2).getUserId());
             stmt1.setInt(7, pdf.getGenerators().get(3).getUserId());
-            stmt1.setDate(8, (java.sql.Date) date_generated);
-            stmt1.setTime(9, Time.valueOf(pdf.getMonitor_start()));
-            stmt1.setTime(10, Time.valueOf(pdf.getMonitor_stop()));
+            stmt1.setDate(8, (java.sql.Date) date_collected);
+            stmt1.setDate(9, (java.sql.Date) date_generated);
+            stmt1.setDate(10, (java.sql.Date) date_confirmed);
             stmt1.setString(11, pdf.getWind_status());
             stmt1.setString(12, pdf.getCloud_status());
             stmt1.setString(13, pdf.getComments());
-            stmt1.setInt(14, pdf.getTemperature());
-            stmt1.setDate(15, (java.sql.Date) date_created);
-            stmt1.setString(16, pdf.getButterflyMothComments());
+            stmt1.setString(14, pdf.getButterflyMothComments());
+            stmt1.setInt(15, pdf.getConfirmedStatus());
+            stmt1.setInt(16, pdf.getTemperature());
+            stmt1.setTime(17, Time.valueOf(pdf.getMonitor_start()));
+            stmt1.setTime(18, Time.valueOf(pdf.getMonitor_stop()));
             stmt1.executeUpdate();
 
             stmt1 = conn.prepareStatement("SELECT id FROM mg_data_form WHERE garden_id = ?, generator_id1 = ?, generator_id2 = ?, date_generated = ?, temperature = ?, confirmed = 0");

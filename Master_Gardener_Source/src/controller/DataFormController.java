@@ -19,6 +19,10 @@ public class DataFormController
 	    return this.database.getStrainIDByStrainName(strain_name);
     }
 
+    public int getCountyIDByGardenName(final String garden_name) throws SQLException {
+        return this.database.getCountyIDByGardenName(garden_name);
+    }
+
 	public boolean createDataInput(PollinatorDataForm pdf) throws SQLException {
 		return this.database.insertDataFromDataform(pdf);
 	}
