@@ -40,11 +40,16 @@
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <form id="logout_form" method="post" name="loginSubmit"
-                      action="${pageContext.servletContext.contextPath}/login">
+                <form id="logout" action="${pageContext.servletContext.contextPath}/login" method="post">
                     <li class="nav-item">
-                        <a class="nav-link" name="loginSubmit"
-                           href="javascript:{}" onclick="document.getElementById('logout_form').submit()">Logout</a>
+
+
+                        <button class="nav-link" name="loginSubmit" value="Logout" type="submit"
+                                alt="submit" title="Log Out">Logout
+                        </button>
+                        <%--<a class="nav-link" name="loginSubmit"
+                           href="javascript:;" onclick="document.getElementById('logout_form').submit()">Logout</a>
+                        <input type="hidden" name="logout" value="Logout"/>--%>
                     </li>
                 </form>
             </ul>
@@ -81,8 +86,8 @@
                         <div class="col-md-6 align-content-center">
                             <h5>Wish to add a new garden?</h5>
                             <h6>Click below to search for one</h6>
-                                <a class="btn btn-primary btn-lg rounded-pill mt-5 js-scroll-trigger"
-                                   href="${pageContext.servletContext.contextPath}/search">Search</a>
+                            <a class="btn btn-primary btn-lg rounded-pill mt-5 js-scroll-trigger"
+                               href="${pageContext.servletContext.contextPath}/search">Search</a>
 
                         </div>
                         <div class="col-md-12">
