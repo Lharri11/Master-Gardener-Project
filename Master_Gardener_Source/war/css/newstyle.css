@@ -207,15 +207,12 @@ header.masthead>.overlay {
     order: 2;
 }
 
-
-
-
-
-/* Login Page and Registration page*/
+/* Login Page */
 
 .align-items-center {
-    min-height: 85vh;
-    height: auto;
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+
     display: flex;
     align-items: center;
 }
@@ -223,7 +220,7 @@ header.masthead>.overlay {
 .login-body{
     font-family: "Open Sans", sans-serif;
     height: 100vh;
-    background-image: url('../images/Login-Signup-Background.jpg');
+    background-image: url('../images/LoginBackground.jpg');
     padding-top: 7rem;
     background-size: cover;
     overflow: hidden;
@@ -251,7 +248,7 @@ header.masthead>.overlay {
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
-.log-reg-text-fields {
+.username-login {
     float: left;
     width: 100%;
     margin: 1em auto auto;
@@ -326,7 +323,6 @@ header.masthead>.overlay {
     animation: none;
     transform: rotateZ(-45deg);
 }
-
 
 .login input {
     display: block;
@@ -423,13 +419,6 @@ header.masthead>.overlay {
 .login:not (.loading ) button:focus {
     border-bottom-width: 4px;
 }
-
-.login_reg_text_field {
-    float: left;
-    width: 100%;
-    margin: 10px;
-}
-
 
 /* Admin Pages */
 
