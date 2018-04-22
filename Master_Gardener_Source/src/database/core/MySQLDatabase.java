@@ -2993,7 +2993,7 @@ public class MySQLDatabase implements IDatabase {
 
             // Insert into the main dataform table
             stmt1 = conn.prepareStatement("INSERT INTO mg_data_form (week_number, garden_id, county_id, generator_id1, generator_id2, generator_id3, generator_id4, " +
-                    "date_generated, monitor_start, monitor_stop, wind_status, cloud_status, comments, confirmed, temperature, date_created, )" +
+                    "date_generated, monitor_start, monitor_stop, wind_status, cloud_status, comments, confirmed, temperature, date_created, butterfly_moth_comments)" +
                     " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?)");
             stmt1.setInt(1, pdf.getWeek_number());
             stmt1.setInt(2, pdf.getGarden_id());
@@ -3010,6 +3010,7 @@ public class MySQLDatabase implements IDatabase {
             stmt1.setString(13, pdf.getComments());
             stmt1.setInt(14, pdf.getTemperature());
             stmt1.setDate(15, (java.sql.Date) date_created);
+            stmt1.setString(16, pdf.getButterflyMothComments());
             stmt1.executeUpdate();
 
             stmt1 = conn.prepareStatement("SELECT id FROM mg_data_form WHERE garden_id = ?, generator_id1 = ?, generator_id2 = ?, date_generated = ?, temperature = ?, confirmed = 0");

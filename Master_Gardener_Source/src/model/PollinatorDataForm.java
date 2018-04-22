@@ -28,6 +28,7 @@ public class PollinatorDataForm
 	private String cloud_status;
 	private String wind_status;
 	private int confirmed;
+	private String butterflymothcomments = null;
 
 	public PollinatorDataForm(int data_form_id, int garden_id, int county_id, ArrayList<User> generators, int week_number, int temperature, LocalDate date_created, LocalDate date_generated,
 							  LocalTime monitor_start, LocalTime monitor_stop, String comments, String cloud_status, String wind_status, ArrayList<Plot> plot, ArrayList<Plant> plants, ArrayList<PlantStrain> strains,
@@ -54,6 +55,15 @@ public class PollinatorDataForm
 		this.confirmed = 0;
 	}
 
+	public String getButterflyMothComments()
+	{
+		return this.butterflymothcomments;
+	}
+
+	public void setButterflyMothComments(String bfmc)
+	{
+		this.butterflymothcomments = bfmc;
+	}
 	public int getData_form_id() {
 		return data_form_id;
 	}
