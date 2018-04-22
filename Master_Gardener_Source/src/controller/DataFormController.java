@@ -15,8 +15,11 @@ public class DataFormController
 		database = DatabaseProvider.getInstance();
 	}
 
+	public int getStrainIDByStrainName(final String strain_name) throws SQLException {
+	    return this.database.getStrainIDByStrainName(strain_name);
+    }
+
 	public boolean createDataInput(PollinatorDataForm pdf) throws SQLException {
 		return this.database.insertDataFromDataform(pdf);
 	}
-
 }
