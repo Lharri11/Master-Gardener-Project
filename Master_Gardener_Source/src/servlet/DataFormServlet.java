@@ -2,6 +2,7 @@ package servlet;
 
 import controller.AdminController;
 import controller.DataFormController;
+import controller.SearchController;
 import model.*;
 
 import java.io.IOException;
@@ -17,14 +18,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import controller.DataFormController;
 
 public class DataFormServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private DataFormController controller = null;
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+
+        // Initialization
+        int plants_total = 2;
+        int strains_total = 9;
+        int pollinators_total = 9;
+        req.setAttribute("plantsTotal", plants_total);
+        req.setAttribute("strainsTotal", strains_total);
+        req.setAttribute("pollinatorsTotal", pollinators_total);
 
         req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
     }
@@ -66,11 +76,25 @@ public class DataFormServlet extends HttpServlet {
         LocalDate dateGenerated = null;
         LocalTime startTime = null;
         LocalTime endTime = null;
-        //DataForm Date Information
+
+        //DataForm Date & Other Information
         int temperature = 0;
         String wind = null;
         String cloudCover = null;
-        String plantGenus = null;
+        String comments = null;
+        String butterfly_moth_comments = null;
+
+        //Plant, Strain, Plot, & Pollinator Information
+        String plantName = null;
+        String strainName = null;
+        String plotBloomsOpen = null;
+        double plotHeight = 0.0;
+        double plotAreaDbl = 0.0;
+        double plotPercentCoverage = 0.0;
+
+        //Visit Count Information
+        int visitCount = 0;
+
         //
         // ------------------------------ End DataForm Initialization ------------------------------ //
         //
@@ -79,11 +103,15 @@ public class DataFormServlet extends HttpServlet {
         // ------------------------------ Begin DataForm Content ------------------------------ //
         //
 
+        String buttonPress = null;
         buttonPress = req.getParameter("dataFormSubmit");
 
         if (buttonPress != null)
         {
             System.out.println("DataForm submitted");
+
+            strainName = req.getParameter("strain_name");
+            comments = req.getParameter("comments");
 
             for(int i = 0; i <= plants.size(); i++)
             {
@@ -91,19 +119,14 @@ public class DataFormServlet extends HttpServlet {
 
                 for(int j = 0; j <= strains.size(); i++)
                 {
-                    //Plot & Strain Information
-                    double plotHeight = 0.0;
-                    double plotAreaDbl = 0.0;
-                    double plotPercentCoverage = 0.0;
-                    String PlotBloomsOpen = null;
-                    String StrainDiv = null;
-                    String StrainName = null;
-                    String strainGenus = null;
-                    String strainSpecies = null;
+                    try {
+                        strains.get(i).setStrainID(controller.getStrainIDByStrainName(strainName));//Variable from Drop-Down
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
 
                     for(int k = 0; k <= pollinators.size(); k++)
                     {
-                        int visitCount = 0;
                     }
 
                     plotData.get(0).setPlot_height(4.0);
@@ -170,26 +193,6 @@ public class DataFormServlet extends HttpServlet {
             Strain1Count6 = getIntFromParameter(req.getParameter("Strain1Count6"));
 
 
-            comments = req.getParameter("comments");
-
-
-
-
-
-            /*
-            if (dateCreated == null || dateCreated.equals("")) {
-                errorMessage = "Enter the day of collection in the format YYYY-MM-DD";
-                System.out.printf("%s", errorMessage);
-               dateCreated = null;
-                req.setAttribute("errorMessage", errorMessage);
-                req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-
-            } else {
-                dateCreated = LocalDate.parse(req.getParameter("dateCollected"));
-            } */
-
-
-
 
             if ("".equals(dateCreated) || dateCreated == null) {
                 errorMessage = "Enter the day of collection in the format YYYY-MM-DD";
@@ -197,102 +200,87 @@ public class DataFormServlet extends HttpServlet {
                 dateCreated = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-
-
-
-
-                /*
-
-
-            if ("".equals(generator) || generator == null) {
+            }
+            else if ("".equals(generator) || generator == null) {
                 errorMessage = "Enter the name of the users colleced";
                 System.out.printf("%s", errorMessage);
                 generator = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-
-            } else if ("".equals(gardenName) || gardenName == null) {
+            }
+            else if ("".equals(gardenName) || gardenName == null) {
                 errorMessage = "Enter the name of the garden";
                 System.out.printf("%s", errorMessage);
                 gardenName = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-
-            } else if ("".equals(county) || county == null) {
+            }
+            else if ("".equals(county) || county == null) {
                 errorMessage = "Enter the date";
                 System.out.printf("%s", errorMessage);
                 county = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-
-            } else if ("".equals(startTime) || startTime == null) {
+            }
+            else if ("".equals(startTime) || startTime == null) {
                 errorMessage = "Enter a start time";
                 System.out.printf("%s", errorMessage);
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-
-            } else if ("".equals(endTime) || endTime == null) {
+            }
+            else if ("".equals(endTime) || endTime == null) {
                 errorMessage = "Enter a end time";
                 System.out.printf("%s", errorMessage);
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-*/
-
-            } else if ("".equals(temperature) || temperature == 0) {
+            }
+            else if ("".equals(temperature) || temperature == 0) {
                 errorMessage = "Enter a temperature";
                 System.out.printf("%s", errorMessage);
                 req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(wind) || wind == null) {
+            }
+            else if ("".equals(wind) || wind == null) {
                 errorMessage = "Enter a wind condition";
                 System.out.printf("%s", errorMessage);
                 wind = null;
                 req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(cloudCover) || cloudCover == null) {
+            }
+            else if ("".equals(cloudCover) || cloudCover == null) {
                 errorMessage = "Enter a cloud cover condition";
                 System.out.printf("%s", errorMessage);
                 cloudCover = null;
                 req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(plantGenus) || plantGenus == null) {
+            }
+            else if ("".equals(plantGenus) || plantGenus == null) {
                 errorMessage = "Enter the plant genus";
                 System.out.printf("%s", errorMessage);
                 plantGenus = null;
                 req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Vigor) || Strain1Vigor == null) {
+            }
+            else if ("".equals(Strain1Vigor) || Strain1Vigor == null) {
                 errorMessage = "Enter the vigor of the plot";
                 System.out.printf("%s", errorMessage);
                 Strain1Vigor = null;
                 req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Height) || Strain1Height == 0) {
+            }
+            else if ("".equals(Strain1Height) || Strain1Height == 0) {
                 errorMessage = "Enter the avgerage height of the plot";
                 System.out.printf("%s", errorMessage);
                 Strain1Height = 0;
                 req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1PlotSize) || Strain1PlotSize == 0) {
+            }
+            else if ("".equals(Strain1PlotSize) || Strain1PlotSize == 0) {
                 errorMessage = "Enter the average height of the plot";
                 System.out.printf("%s", errorMessage);
                 req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Blooms) || Strain1Blooms == null) {
+            }
+            else if ("".equals(Strain1Blooms) || Strain1Blooms == null) {
                 errorMessage = "Enter the blooms of the strain";
                 System.out.printf("%s", errorMessage);
                 Strain1Blooms = null;
                 req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Coverage) || Strain1Coverage == 0) {
+            }
+            else if ("".equals(Strain1Coverage) || Strain1Coverage == 0) {
                 errorMessage = "Enter coverage of the plot";
                 System.out.printf("%s", errorMessage);
                 Strain1Coverage = 0;
