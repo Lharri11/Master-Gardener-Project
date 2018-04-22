@@ -109,102 +109,102 @@ be greyed out except the plot size.
           class="form-horizontal" role="form" data-parsley-validate novalidate onsubmit=getSubmitTime()>
         <div class="container-fluid shadow">
 
-                <div class="tab">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group" rel="popover" data-trigger="hover"
-                                         data-content="County name of data collection" data-original-title="">
-                                        <label class="control-label control-label-left col-sm-3"
-                                               for="">County</label>
-                                        <div class="controls col-sm-9">
+            <div class="tab">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group" rel="popover" data-trigger="hover"
+                                     data-content="County name of data collection" data-original-title="">
+                                    <label class="control-label control-label-left col-sm-3"
+                                           for="">County</label>
+                                    <div class="controls col-sm-9">
 
-                                            <input id="" type="text" class="form-control k-textbox"
-                                                   data-role="text"
-                                                   placeholder="County Auto-populated" name="countyName"
-                                                   data-parsley-errors-container="#errId1"><span id="errId1"
-                                                                                                 class="error"></span>
-                                        </div>
-
+                                        <input id="" type="text" class="form-control k-textbox"
+                                               data-role="text"
+                                               placeholder="County Auto-populated" name="countyName"
+                                               data-parsley-errors-container="#errId1"><span id="errId1"
+                                                                                             class="error"></span>
                                     </div>
+
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group" rel="popover" data-trigger="hover"
-                                         data-content="Garden name for collection" data-original-title="">
-                                        <label class="control-label control-label-left col-sm-3"
-                                               for="">Garden</label>
-                                        <div class="controls col-sm-9">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group" rel="popover" data-trigger="hover"
+                                     data-content="Garden name for collection" data-original-title="">
+                                    <label class="control-label control-label-left col-sm-3"
+                                           for="">Garden</label>
+                                    <div class="controls col-sm-9">
 
-                                            <select id="" class="form-control" data-role="select"
-                                                    selected="selected"
-                                                    name="gardenName" data-parsley-errors-container="#errId2">
+                                        <select id="" class="form-control" data-role="select"
+                                                selected="selected"
+                                                name="gardenName" data-parsley-errors-container="#errId2">
 
 
-                                                <option value=""></option>
-                                            </select><span id="errId2" class="error"></span></div>
+                                            <option value=""></option>
+                                        </select><span id="errId2" class="error"></span></div>
 
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="tab">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="control-label" for="">First Name<span
-                                        class="req"> *</span></label>
-                                <div class="controls">
+            </div>
+            <div class="tab">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="">First Name<span
+                                    class="req"> *</span></label>
+                            <div class="controls">
 
-                                    <input id="" type="text" class="form-control k-textbox" data-role="text"
-                                           placeholder="First Name" name="firstNameSurveyor" required="required"
-                                           data-parsley-errors-container="#errId3"><span id="errId3"
-                                                                                         class="error"></span>
-                                </div>
-
+                                <input id="" type="text" class="form-control k-textbox" data-role="text"
+                                       placeholder="First Name" name="firstNameSurveyor" required="required"
+                                       data-parsley-errors-container="#errId3"><span id="errId3"
+                                                                                     class="error"></span>
                             </div>
+
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="control-label" for="">Last Name<span class="req"> *</span></label>
-                                <div class="controls">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="">Last Name<span class="req"> *</span></label>
+                            <div class="controls">
 
-                                    <input id="" type="text" class="form-control k-textbox" data-role="text"
-                                           placeholder="Last Name" name="lastNameSurveyor" required="required"
-                                           data-parsley-errors-container="#errId4"><span id="errId4"
-                                                                                         class="error"></span>
-                                </div>
-
+                                <input id="" type="text" class="form-control k-textbox" data-role="text"
+                                       placeholder="Last Name" name="lastNameSurveyor" required="required"
+                                       data-parsley-errors-container="#errId4"><span id="errId4"
+                                                                                     class="error"></span>
                             </div>
+
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="control-label" for="">Username<span class="req"> *</span></label>
-                                <div class="controls">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="">Username<span class="req"> *</span></label>
+                            <div class="controls">
 
-                                    <select id="" class="form-control" data-role="select" required="required"
-                                            selected="selected" name="userNameSurveyor"
-                                            data-parsley-errors-container="#errId5">
+                                <select id="" class="form-control" data-role="select" required="required"
+                                        selected="selected" name="userNameSurveyor"
+                                        data-parsley-errors-container="#errId5">
 
 
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select><span id="errId5" class="error"></span></div>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select><span id="errId5" class="error"></span></div>
 
-                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="tab">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="control-label" for="">Collection Date<span
-                                        class="req"> *</span></label>
-                                <div class="controls">
+            <div class="tab">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="">Collection Date<span
+                                    class="req"> *</span></label>
+                            <div class="controls">
 
                                     <span class="k-widget k-datepicker k-header form-control" style=""><span
                                             class="k-picker-wrap k-state-default"><input id="" type="text"
@@ -224,13 +224,13 @@ be greyed out except the plot size.
                                             unselectable="on" class="k-select" role="button"
                                             aria-controls="field24_dateview"><span unselectable="on"
                                                                                    class="k-icon k-i-calendar">select</span></span></span></span><span
-                                        id="errId6" class="error"></span></div>
+                                    id="errId6" class="error"></span></div>
 
-                            </div>
-                            <div class="form-group" style="display: block;">
-                                <label class="control-label" for="">Tempeture <span
-                                        class="req"> *</span></label>
-                                <div class="controls">
+                        </div>
+                        <div class="form-group" style="display: block;">
+                            <label class="control-label" for="">Tempeture <span
+                                    class="req"> *</span></label>
+                            <div class="controls">
 
                                     <span class="k-widget k-numerictextbox form-control" style=""><span
                                             class="k-numeric-wrap k-state-default"><input type="text"
@@ -254,15 +254,15 @@ be greyed out except the plot size.
                                             unselectable="on" class="k-link"><span unselectable="on"
                                                                                    class="k-icon k-i-arrow-s"
                                                                                    title="Decrease value">Decrease value</span></span></span></span></span><span
-                                        id="errId7" class="error"></span></div>
+                                    id="errId7" class="error"></span></div>
 
-                            </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="control-label" for="">Start Time<span
-                                        class="req"> *</span></label>
-                                <div class="controls">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="">Start Time<span
+                                    class="req"> *</span></label>
+                            <div class="controls">
 
                                     <span class="k-widget k-timepicker k-header form-control" style=""><span
                                             class="k-picker-wrap k-state-default"><input id="" type="text"
@@ -281,28 +281,28 @@ be greyed out except the plot size.
                                             unselectable="on" class="k-select" role="button"
                                             aria-controls="field25_timeview"><span unselectable="on"
                                                                                    class="k-icon k-i-clock">select</span></span></span></span><span
-                                        id="errId8" class="error"></span></div>
+                                    id="errId8" class="error"></span></div>
 
-                            </div>
-                            <div class="form-group" style="display: block;">
-                                <label class="control-label" for="">Wind<span class="req"> *</span></label>
-                                <div class="controls">
-
-                                    <select id="" class="form-control" data-role="select" name="Wind"
-                                            required="required" data-parsley-errors-container="#errId9">
-                                        <option value=""></option>
-                                        <option value="S">Still</option>
-                                        <option value="L">Light Breeze</option>
-                                        <option value="W">Windy</option>
-                                        <option value="G">Gusty</option>
-                                    </select><span id="errId9" class="error"></span></div>
-
-                            </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="control-label" for="">End Time<span class="req"> *</span></label>
-                                <div class="controls">
+                        <div class="form-group" style="display: block;">
+                            <label class="control-label" for="">Wind<span class="req"> *</span></label>
+                            <div class="controls">
+
+                                <select id="" class="form-control" data-role="select" name="Wind"
+                                        required="required" data-parsley-errors-container="#errId9">
+                                    <option value=""></option>
+                                    <option value="S">Still</option>
+                                    <option value="L">Light Breeze</option>
+                                    <option value="W">Windy</option>
+                                    <option value="G">Gusty</option>
+                                </select><span id="errId9" class="error"></span></div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="">End Time<span class="req"> *</span></label>
+                            <div class="controls">
 
                                     <span class="k-widget k-timepicker k-header form-control" style=""><span
                                             class="k-picker-wrap k-state-default"><input id="" type="text"
@@ -321,104 +321,110 @@ be greyed out except the plot size.
                                             unselectable="on" class="k-select" role="button"
                                             aria-controls="field26_timeview"><span unselectable="on"
                                                                                    class="k-icon k-i-clock">select</span></span></span></span><span
-                                        id="errId10" class="error"></span></div>
+                                    id="errId10" class="error"></span></div>
 
-                            </div>
-                            <div class="form-group" style="display: block;">
-                                <label class="control-label" for="">Cloud Cover<span
-                                        class="req"> *</span></label>
-                                <div class="controls">
+                        </div>
+                        <div class="form-group" style="display: block;">
+                            <label class="control-label" for="">Cloud Cover<span
+                                    class="req"> *</span></label>
+                            <div class="controls">
 
-                                    <select id="" class="form-control" data-role="select" required="required"
-                                            name="cloudCover" data-parsley-errors-container="#errId11">
-                                        <option value=""></option>
-                                        <option value="C">Clear</option>
-                                        <option value="P">Partly Cloudy</option>
-                                        <option value="M">Mostly Cloudy</option>
-                                        <option value="O">Overcast</option>
-                                    </select><span id="errId11" class="error"></span></div>
+                                <select id="" class="form-control" data-role="select" required="required"
+                                        name="cloudCover" data-parsley-errors-container="#errId11">
+                                    <option value=""></option>
+                                    <option value="C">Clear</option>
+                                    <option value="P">Partly Cloudy</option>
+                                    <option value="M">Mostly Cloudy</option>
+                                    <option value="O">Overcast</option>
+                                </select><span id="errId11" class="error"></span></div>
 
-                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="tab">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="row" style="display: block;">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label control-label-left col-sm-3"
-                                               for="">Genus</label>
-                                        <div class="controls col-sm-9">
 
-                                            <input id="" type="text" class="form-control k-textbox"
-                                                   data-role="text"
-                                                   placeholder="Genus Auto-populateed " name="genusName"
-                                                   data-parsley-errors-container="#errId12"><span id="errId12"
-                                                                                                  class="error"></span>
-                                        </div>
 
+            <%-- Form Starts here --%>
+
+
+
+            <div class="tab" id="form-submission">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row" style="display: block;">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label control-label-left col-sm-3"
+                                           for="">Genus</label>
+                                    <div class="controls col-sm-9">
+
+                                        <input id="" type="text" class="form-control k-textbox"
+                                               data-role="text"
+                                               placeholder="Genus Auto-populateed " name="genusName"
+                                               data-parsley-errors-container="#errId12"><span id="errId12"
+                                                                                              class="error"></span>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label control-label-left col-sm-3"
-                                               for="">Strain</label>
-                                        <div class="controls col-sm-9">
 
-                                            <input id="" type="text" class="form-control k-textbox"
-                                                   data-role="text"
-                                                   placeholder="Strain Auto-populated" name="strainName"
-                                                   data-parsley-errors-container="#errId13"><span id="errId13"
-                                                                                                  class="error"></span>
-                                        </div>
-
-                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group brdbot" style="display: block;">
-                                <h4>Plot Survey</h4>
-                                <div class="controls col-sm-9">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label control-label-left col-sm-3"
+                                           for="">Strain</label>
+                                    <div class="controls col-sm-9">
 
-                                    <p id="field123" data-default-label="Header" data-default-is-header="true"
-                                       data-control-type="header">If plant strain is not blooming, select '0'
-                                        for
-                                        Flower
-                                        Coverage and continue to the next plant strain.</p><span id="errId14"
-                                                                                                 class="error"></span>
+                                        <input id="" type="text" class="form-control k-textbox"
+                                               data-role="text"
+                                               placeholder="Strain Auto-populated" name="strainName"
+                                               data-parsley-errors-container="#errId13"><span id="errId13"
+                                                                                              class="error"></span>
+                                    </div>
+
                                 </div>
-
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group" style="display: block;">
-                                                <label class="control-label" for="">Flower Coverage<span
-                                                        class="req"> *</span></label>
-                                                <div class="controls">
+                        </div>
+                        <div class="form-group brdbot" style="display: block;">
+                            <h4>Plot Survey</h4>
+                            <div class="controls col-sm-9">
 
-                                                    <select id="" class="form-control" data-role="select"
-                                                            required="required" selected="selected"
-                                                            name="flowerCoverageStrain"
-                                                            data-parsley-errors-container="#errId15">
+                                <p id="field123" data-default-label="Header" data-default-is-header="true"
+                                   data-control-type="header">If plant strain is not blooming, select '0'
+                                    for
+                                    Flower
+                                    Coverage and continue to the next plant strain.</p><span id="errId14"
+                                                                                             class="error"></span>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group" style="display: block;">
+                                            <label class="control-label" for="">Flower Coverage<span
+                                                    class="req"> *</span></label>
+                                            <div class="controls">
+
+                                                <select id="" class="form-control" data-role="select"
+                                                        required="required" selected="selected"
+                                                        name="flowerCoverageStrain"
+                                                        data-parsley-errors-container="#errId15">
 
 
-                                                        <option value=""></option>
-                                                        <option value="0">0</option>
-                                                        <option value="Option 2">1%-25%</option>
-                                                        <option value="2">26%-50%</option>
-                                                        <option value="3">51%-75%</option>
-                                                        <option value="4">76%-100%</option>
-                                                    </select><span id="errId15" class="error"></span></div>
+                                                    <option value=""></option>
+                                                    <option value="0">0</option>
+                                                    <option value="Option 2">1%-25%</option>
+                                                    <option value="2">26%-50%</option>
+                                                    <option value="3">51%-75%</option>
+                                                    <option value="4">76%-100%</option>
+                                                </select><span id="errId15" class="error"></span></div>
 
-                                            </div>
-                                            <div class="form-group" style="display: block;">
-                                                <label class="control-label" for="">Average Height of
-                                                    Plot</label>
-                                                <div class="controls">
+                                        </div>
+                                        <div class="form-group" style="display: block;">
+                                            <label class="control-label" for="">Average Height of
+                                                Plot</label>
+                                            <div class="controls">
 
                                                     <span class="k-widget k-numerictextbox form-control" style=""><span
                                                             class="k-numeric-wrap k-state-default"><input type="text"
@@ -445,14 +451,14 @@ be greyed out except the plot size.
                                                             unselectable="on" class="k-link"><span unselectable="on"
                                                                                                    class="k-icon k-i-arrow-s"
                                                                                                    title="Decrease value">Decrease value</span></span></span></span></span><span
-                                                        id="errId16" class="error"></span></div>
+                                                    id="errId16" class="error"></span></div>
 
-                                            </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group" style="display: block;">
-                                                <label class="control-label" for="">Size of Plot</label>
-                                                <div class="controls">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group" style="display: block;">
+                                            <label class="control-label" for="">Size of Plot</label>
+                                            <div class="controls">
 
                                                     <span class="k-widget k-numerictextbox form-control" style=""><span
                                                             class="k-numeric-wrap k-state-default"><input type="text"
@@ -479,62 +485,62 @@ be greyed out except the plot size.
                                                             unselectable="on" class="k-link"><span unselectable="on"
                                                                                                    class="k-icon k-i-arrow-s"
                                                                                                    title="Decrease value">Decrease value</span></span></span></span></span><span
-                                                        id="errId17" class="error"></span></div>
+                                                    id="errId17" class="error"></span></div>
 
-                                            </div>
-                                            <div class="form-group" style="display: block;">
-                                                <label class="control-label" for="">Blooms Open</label>
-                                                <div class="controls">
+                                        </div>
+                                        <div class="form-group" style="display: block;">
+                                            <label class="control-label" for="">Blooms Open</label>
+                                            <div class="controls">
 
-                                                    <select id="" class="form-control" data-role="select"
-                                                            selected="selected" name="bloomsOpenStrain"
-                                                            data-parsley-errors-container="#errId18">
+                                                <select id="" class="form-control" data-role="select"
+                                                        selected="selected" name="bloomsOpenStrain"
+                                                        data-parsley-errors-container="#errId18">
 
 
-                                                        <option value=""></option>
-                                                        <option value="Early">Early</option>
-                                                        <option value="Option 2">Peak</option>
-                                                        <option value="F">Faded</option>
-                                                    </select><span id="errId18" class="error"></span></div>
+                                                    <option value=""></option>
+                                                    <option value="E">Early</option>
+                                                    <option value="P">Peak</option>
+                                                    <option value="F">Faded</option>
+                                                </select><span id="errId18" class="error"></span></div>
 
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row" style="display: block;">
-                                <div class="col-md-6">
-                                    <div class="form-group brdbot">
-                                        <h4>Pollinator Count</h4>
-                                        <div class="controls col-sm-9">
+                        </div>
+                        <div class="row" style="display: block;">
+                            <div class="col-md-6">
+                                <div class="form-group brdbot">
+                                    <h4>Pollinator Count</h4>
+                                    <div class="controls col-sm-9">
 
-                                            <p id="field231" data-default-label="Header"
-                                               data-default-is-header="true"
-                                               data-control-type="header"></p><span id="errId19"
-                                                                                    class="error"></span>
-                                        </div>
-
+                                        <p id="field231" data-default-label="Header"
+                                           data-default-is-header="true"
+                                           data-control-type="header"></p><span id="errId19"
+                                                                                class="error"></span>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <p>Time will be placed here. Hard set to 5 minutes. At the end, it will
-                                            lock
-                                            the
-                                            count fields, but leave the comment section open for butterflies
-                                            &amp;
-                                            moths
-                                            if &gt;0</p>
 
-
-                                    </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="control-label" for="">Honey Bee</label>
-                                        <div class="controls">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <p>Time will be placed here. Hard set to 5 minutes. At the end, it will
+                                        lock
+                                        the
+                                        count fields, but leave the comment section open for butterflies
+                                        &amp;
+                                        moths
+                                        if &gt;0</p>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="">Honey Bee</label>
+                                    <div class="controls">
 
                                             <span class="k-widget k-numerictextbox form-control" style=""><span
                                                     class="k-numeric-wrap k-state-default"><input type="text"
@@ -558,12 +564,12 @@ be greyed out except the plot size.
                                                     unselectable="on" class="k-link"><span unselectable="on"
                                                                                            class="k-icon k-i-arrow-s"
                                                                                            title="Decrease value">Decrease value</span></span></span></span></span><span
-                                                id="errId20" class="error"></span></div>
+                                            id="errId20" class="error"></span></div>
 
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label" for="">Carpenter Bee</label>
-                                        <div class="controls">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="">Carpenter Bee</label>
+                                    <div class="controls">
 
                                             <span class="k-widget k-numerictextbox form-control" style=""><span
                                                     class="k-numeric-wrap k-state-default"><input type="text"
@@ -587,12 +593,12 @@ be greyed out except the plot size.
                                                     unselectable="on" class="k-link"><span unselectable="on"
                                                                                            class="k-icon k-i-arrow-s"
                                                                                            title="Decrease value">Decrease value</span></span></span></span></span><span
-                                                id="errId21" class="error"></span></div>
+                                            id="errId21" class="error"></span></div>
 
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label" for="">Bumble Bee</label>
-                                        <div class="controls">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="">Bumble Bee</label>
+                                    <div class="controls">
 
                                             <span class="k-widget k-numerictextbox form-control" style=""><span
                                                     class="k-numeric-wrap k-state-default"><input type="text"
@@ -616,12 +622,12 @@ be greyed out except the plot size.
                                                     unselectable="on" class="k-link"><span unselectable="on"
                                                                                            class="k-icon k-i-arrow-s"
                                                                                            title="Decrease value">Decrease value</span></span></span></span></span><span
-                                                id="errId22" class="error"></span></div>
+                                            id="errId22" class="error"></span></div>
 
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label" for="">Green Sweat Bee</label>
-                                        <div class="controls">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="">Green Sweat Bee</label>
+                                    <div class="controls">
 
                                             <span class="k-widget k-numerictextbox form-control" style=""><span
                                                     class="k-numeric-wrap k-state-default"><input type="text"
@@ -646,12 +652,12 @@ be greyed out except the plot size.
                                                     unselectable="on" class="k-link"><span unselectable="on"
                                                                                            class="k-icon k-i-arrow-s"
                                                                                            title="Decrease value">Decrease value</span></span></span></span></span><span
-                                                id="errId23" class="error"></span></div>
+                                            id="errId23" class="error"></span></div>
 
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label" for="">Small Dark Bee</label>
-                                        <div class="controls">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="">Small Dark Bee</label>
+                                    <div class="controls">
 
                                             <span class="k-widget k-numerictextbox form-control" style=""><span
                                                     class="k-numeric-wrap k-state-default"><input type="text"
@@ -675,12 +681,12 @@ be greyed out except the plot size.
                                                     unselectable="on" class="k-link"><span unselectable="on"
                                                                                            class="k-icon k-i-arrow-s"
                                                                                            title="Decrease value">Decrease value</span></span></span></span></span><span
-                                                id="errId24" class="error"></span></div>
+                                            id="errId24" class="error"></span></div>
 
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label" for="">Butterflies &amp; Moths</label>
-                                        <div class="controls">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="">Butterflies &amp; Moths</label>
+                                    <div class="controls">
 
                                             <span class="k-widget k-numerictextbox form-control" style=""><span
                                                     class="k-numeric-wrap k-state-default"><input type="text"
@@ -705,12 +711,12 @@ be greyed out except the plot size.
                                                     unselectable="on" class="k-link"><span unselectable="on"
                                                                                            class="k-icon k-i-arrow-s"
                                                                                            title="Decrease value">Decrease value</span></span></span></span></span><span
-                                                id="errId25" class="error"></span></div>
+                                            id="errId25" class="error"></span></div>
 
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label" for="">Hummingbirds</label>
-                                        <div class="controls">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="">Hummingbirds</label>
+                                    <div class="controls">
 
                                             <span class="k-widget k-numerictextbox form-control" style=""><span
                                                     class="k-numeric-wrap k-state-default"><input type="text"
@@ -734,12 +740,12 @@ be greyed out except the plot size.
                                                     unselectable="on" class="k-link"><span unselectable="on"
                                                                                            class="k-icon k-i-arrow-s"
                                                                                            title="Decrease value">Decrease value</span></span></span></span></span><span
-                                                id="errId26" class="error"></span></div>
+                                            id="errId26" class="error"></span></div>
 
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label" for="">Other Bees</label>
-                                        <div class="controls">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="">Other Bees</label>
+                                    <div class="controls">
 
                                             <span class="k-widget k-numerictextbox form-control" style=""><span
                                                     class="k-numeric-wrap k-state-default"><input type="text"
@@ -763,14 +769,14 @@ be greyed out except the plot size.
                                                     unselectable="on" class="k-link"><span unselectable="on"
                                                                                            class="k-icon k-i-arrow-s"
                                                                                            title="Decrease value">Decrease value</span></span></span></span></span><span
-                                                id="errId27" class="error"></span></div>
+                                            id="errId27" class="error"></span></div>
 
-                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label" for="">Other (Wasps, Flies, Beetles, etc.)</label>
-                                <div class="controls">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="">Other (Wasps, Flies, Beetles, etc.)</label>
+                            <div class="controls">
 
                                     <span class="k-widget k-numerictextbox form-control" style=""><span
                                             class="k-numeric-wrap k-state-default"><input type="text"
@@ -794,46 +800,45 @@ be greyed out except the plot size.
                                             unselectable="on" class="k-link"><span unselectable="on"
                                                                                    class="k-icon k-i-arrow-s"
                                                                                    title="Decrease value">Decrease value</span></span></span></span></span><span
-                                        id="errId28" class="error"></span></div>
+                                    id="errId28" class="error"></span></div>
 
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label control-label-left col-sm-3" for="">Butterflies
-                                    &amp;
-                                    Moths
-                                    Comments</label>
-                                <div class="controls col-sm-9">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label control-label-left col-sm-3" for="">Butterflies
+                                &amp;
+                                Moths
+                                Comments</label>
+                            <div class="controls col-sm-9">
 
                                     <textarea id="" rows="3" class="form-control k-textbox" data-role="textarea"
                                               data-maxwords="250" name="butterfliesMothsCommentStrain"
                                               data-parsley-errors-container="#errId29"></textarea><span id="errId29"
                                                                                                         class="error"></span>
-                                </div>
-
                             </div>
+
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="tab">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="control-label control-label-left col-sm-3" for="">Additional
-                                    Comments?</label>
-                                <div class="controls col-sm-9">
+            <div class="tab">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label control-label-left col-sm-3" for="">Additional
+                                Comments?</label>
+                            <div class="controls col-sm-9">
 
                                     <textarea id="" rows="3" class="form-control k-textbox" data-role="textarea"
                                               data-maxwords="1000" name="strainComments"
                                               data-parsley-errors-container="#errId30"></textarea><span id="errId30"
                                                                                                         class="error"></span>
-                                </div>
-
                             </div>
+
                         </div>
                     </div>
                 </div>
-
+            </div>
 
 
         </div>
@@ -852,519 +857,6 @@ be greyed out except the plot size.
             <span class="step"></span>
         </div>
     </form>
-</div>
-
-
-
-
-
-
-
-<!--pageContent-->
-
-<%--
-            <div>
-                <div id="intro"></div>
-                <div id="intro"></div>
-                <div id="container" class="container">
-
-                    &lt;%&ndash;
-                    <!-- This is for dummy reasons and test purposes -->
-                    <div>
-                        <table align="center">
-                            <tr>
-                                <td>For testing purposes the users collected, garden, county, plant and strain will be entered by the user.</td>
-                            </tr>
-                        </table>
-                    </div> &ndash;%&gt;
-                    <div id="editContent" class="editContent">
-                        <h2>Data Collection Input</h2>
-                    </div>
-                    <br>
-
-
-                    <div>
-                        <div>
-
-                            <form action="${pageContext.servletContext.contextPath}/dataForm" method="post"
-                                  onsubmit=getSubmitTime()>
-
-
-                                <table align="center">
-
-                                    &lt;%&ndash;
-                                    <tr>
-                                        <td>User Collected:</td>
-                                        <td><input type="text" class="text-control" name="genUsers"
-                                                   placeholder="User Collected"
-                                                   value="${genUsers}"></td>
-
-
-                                        <td>Garden:</td>
-                                        <td><input type="text" class="text-control" name="garden"
-                                                   placeholder="Garden"
-                                                   value="${garden}"></td>
-
-
-                                        <td>County:</td>
-                                        <td><input type="text" class="text-control" name="county"
-                                                   placeholder="County"
-                                                   value="${county}"></td>
-
-                                        <td>Week:</td>
-                                        <td><input type="text" class="text-control" name="Week"
-                                                   placeholder="Week"
-                                                   value="${Week}"></td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <br/>
-
-                                        </td>
-                                    </tr> &ndash;%&gt;
-
-                                    <tr>
-                                        <td>Collection Date:</td>
-                                        <td><input data-toggle="datepicker" type="text" class="text-control" name="dateCollected"
-                                                   placeholder="Collection Date"
-                                                   value="${dateCollected}" required autocomplete="off"></td>
-                                        <div data-toggle="datepicker"></div>
-
-
-                                        <td>Start Time:</td>
-                                        <td><input type="time" class="text-control" name="startTime"
-                                                   placeholder="Start Time"
-                                                   value="${startTime}" required autocomplete="off"></td>
-
-
-                                        <td>End Time:</td>
-                                        <td><input type="time" class="text-control" name="endTime"
-                                                   placeholder="End Time"
-                                                   value="${endTime}" required autocomplete="off"></td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <br/>
-
-                                        </td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>Temperature:</td>
-                                        <td><input type="text" class="text-control"
-                                                   name="temperature"
-                                                   placeholder="Temperature"
-                                                   value="${temperature}" required autocomplete="off"></td>
-
-
-                                        <td>Wind:</td>
-                                        <td><input type="text" class="text-control" name="wind"
-                                                   placeholder="Wind"
-                                                   value="${wind}" required autocomplete="off">
-                                        </td>
-
-
-                                        <td>Cloud Cover:</td>
-                                        <td><input type="text" class="text-control" name="cloudCover"
-                                                   placeholder="Cloud Cover"
-                                                   value="${cloudCover}" required autocomplete="off"></td>
-                                    </tr>
-
-                                </table>
-
-
-                                <div id="intro"></div>
-                                <div id="intro"></div>
-                                <div align="center">
-                                    <!--
-                                    <h3>Plant (Link to Plant Main)</h3>
-                                    -->
-                                    <table align="center">
-                                        <tr>
-                                            <td>Plant Genus:</td>
-                                            <td><input type="text" class="text-control" name="plantGenus"
-                                                       placeholder="Plant Genus"
-                                                       value="${plantGenus}" required autocomplete="off"></td>
-                                        </tr>
-                                    </table>
-                                    <hr>
-                                </div>
-
-
-                                <div>
-
-                                    <!-- The id here needs to increment for each strain -->
-
-                                    <div class="panel panel-default" id="div-Strain1">
-
-                                        <div class="panel-body">
-
-                                            <div class="col-lg-5 nopadding">
-                                                <div class="form-group">
-                                                    <div class="input-group">
-                                                        <div>
-                                                            <h4>Plot Survey</h4>
-                                                        </div>
-                                                        <table class="table">
-                                                            <thead>
-                                                            <tr>
-                                                                <th class="col-lg-2">&nbsp</th>
-                                                                <th class="col-lg-2">&nbsp</th>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            <tr>
-                                                                <td>
-                                                                    Plant Vigor
-                                                                </td>
-                                                                <td>
-                                                                    <select class="form-control"
-                                                                            name="Strain1Vigor" required autocomplete="off">
-                                                                        <option style="display: none" value="">Select</option>
-                                                                        <option value="T">Thriving</option>
-                                                                        <option value="P">Poor</option>
-                                                                        <option value="D">Dead</option>
-                                                                    </select>
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td>
-                                                                    Average Height of Plot
-                                                                </td>
-                                                                <td>
-                                                                    <input type="text" class="form-control"
-                                                                           name="Strain1Height"
-                                                                           placeholder="Inches" required autocomplete="off">
-                                                                </td>
-
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td>
-                                                                    Size of Plot
-                                                                </td>
-                                                                <td>
-                                                                    <select class="form-control"
-                                                                            name="Strain1PlotSize" required autocomplete="off">
-                                                                        <option style="display: none" value="">Select</option>
-                                                                        <option value="4.0">2' X 2'</option>
-                                                                        <option value="9.0">3' X 3'</option>
-                                                                        <option value="16.0">4' x 4' or greater</option>
-                                                                    </select>
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td>
-                                                                    Blooms Open
-                                                                </td>
-                                                                <td>
-                                                                    <select class="form-control"
-                                                                            name="Strain1Blooms" required autocomplete="off">
-                                                                        <option style="display: none" value="">Select</option>
-                                                                        <option value="e">Early</option>
-                                                                        <option value="o">Peak</option>
-                                                                        <option value="f">Faded</option>
-                                                                    </select>
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td>
-                                                                    Flower Coverage
-                                                                </td>
-                                                                <td>
-                                                                    <select class="form-control"
-                                                                            name="Strain1Coverage" required autocomplete="off">
-                                                                        <option style="display: none" value="">Select</option>
-                                                                        <option value="1.0">1% - 25%</option>
-                                                                        <option value="2.0">26% - 50%</option>
-                                                                        <option value="3.0">51% - 75%</option>
-                                                                        <option value="4.0">76% - 100%</option>
-                                                                    </select>
-                                                                </td>
-                                                            </tr>
-
-
-                                                            </tbody>
-                                                            </tr>
-                                                        </table>
-
-
-                                                    </div>
-
-                                                </div>
-
-
-                                            </div>
-
-
-                                            <div class="col-lg-7 nopadding">
-                                                <div class="form-group">
-                                                    <div class="input-group">
-                                                        <div>
-                                                            <!--   <h4>Pollinators</h4> -->
-                                                            <table>
-                                                                <tr>
-                                                                    <td>Plant Strain:</td>
-                                                                    <td><input type="text" class="text-control"
-                                                                               name="Strain1Name"
-                                                                               placeholder="Plant Strain"
-                                                                               value="${Strain1Name}" required autocomplete="off"></td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <table class="table">
-                                                            <thead>
-                                                            <tr>
-                                                                <th class="col-lg-2">Genus</th>
-                                                                <th class="col-lg-2">Species</th>
-                                                                <th class="col-lg-1">Count</th>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-
-
-                                                            <!-- Pollinator 1-->
-                                                            <tr>
-                                                                <td>
-                                                                    <select class="form-control"
-                                                                            name="Strain1Genus1" required autocomplete="off">
-                                                                        <option style="display: none" value="">Select</option>
-                                                                        <option value="Bee">Bee</option>
-
-                                                                    </select>
-                                                                </td>
-                                                                <td>
-                                                                    <select class="form-control"
-                                                                            name="Strain1Species1" required autocomplete="off">
-                                                                        <option style="display: none" value="">Select</option>
-                                                                        <option value="Honey Bee">Honey Bee</option>
-                                                                        <option value="Carpenter Bee">Carpenter Bee</option>
-                                                                        <option value="Bumble Bee">Bumble Bee</option>
-                                                                        <option value="Green Metallic Bee">Green Metallic Bee</option>
-                                                                    </select>
-                                                                </td>
-                                                                <td>
-                                                                    <input type="text" class="form-control"
-                                                                           name="Strain1Count1"
-                                                                           placeholder="Count">
-                                                                </td>
-                                                            </tr>
-
-
-                                                            <!-- Pollinator 2-->
-                                                            <tr>
-                                                                <td>
-                                                                    <select class="form-control"
-                                                                            name="Strain1Genus2" required autocomplete="off">
-                                                                        <option style="display: none" value="">Select</option>
-                                                                        <option value="Bee">Bee</option>
-                                                                    </select>
-                                                                </td>
-                                                                <td>
-                                                                    <select class="form-control"
-                                                                            name="Strain1Species2" required autocomplete="off">
-                                                                        <option style="display: none" value="">Select</option>
-                                                                        <option value="Honey Bee">Honey Bee</option>
-                                                                        <option value="Carpenter Bee">Carpenter Bee</option>
-                                                                        <option value="Bumble Bee">Bumble Bee</option>
-                                                                        <option value="Green Metallic Bee">Green Metallic Bee</option>
-                                                                    </select>
-                                                                </td>
-                                                                <td>
-                                                                    <input type="text" class="form-control"
-                                                                           name="Strain1Count2"
-                                                                           placeholder="Count">
-                                                                </td>
-                                                            </tr>
-
-
-                                                            <!-- Pollinator 3-->
-                                                            <tr>
-                                                                <td>
-                                                                    <select class="form-control"
-                                                                            name="Strain1Genus3" required autocomplete="off">
-                                                                        <option style="display: none" value="">Select</option>
-                                                                        <option value="Bee">Bee</option>
-                                                                    </select>
-                                                                </td>
-                                                                <td>
-                                                                    <select class="form-control"
-                                                                            name="Strain1Species3" required autocomplete="off">
-                                                                        <option style="display: none" value="">Select</option>
-                                                                        <option value="Honey Bee">Honey Bee</option>
-                                                                        <option value="Carpenter Bee">Carpenter Bee</option>
-                                                                        <option value="Bumble Bee">Bumble Bee</option>
-                                                                        <option value="Green Metallic Bee">Green Metallic Bee</option>
-                                                                    </select>
-                                                                </td>
-                                                                <td>
-                                                                    <input type="text" class="form-control"
-                                                                           name="Strain1Count3"
-                                                                           placeholder="Count" required autocomplete="off">
-                                                                </td>
-                                                            </tr>
-
-
-                                                            <!-- Pollinator 4-->
-                                                            <tr>
-                                                                <td>
-                                                                    <select class="form-control"
-                                                                            name="Strain1Genus4" required autocomplete="off">
-                                                                        <option style="display: none" value="">Select</option>
-                                                                        <option value="Bee">Bee</option>
-                                                                    </select>
-                                                                </td>
-                                                                <td>
-                                                                    <select class="form-control"
-                                                                            name="Strain1Species4" required autocomplete="off">
-                                                                        <option style="display: none" value="">Select</option>
-                                                                        <option value="Honey Bee">Honey Bee</option>
-                                                                        <option value="Carpenter Bee">Carpenter Bee</option>
-                                                                        <option value="Bumble Bee">Bumble Bee</option>
-                                                                        <option value="Green Metallic Bee">Green Metallic Bee</option>
-                                                                    </select>
-                                                                </td>
-                                                                <td>
-                                                                    <input type="text" class="form-control"
-                                                                           name="Strain1Count4"
-                                                                           placeholder="Count" required autocomplete="off">
-                                                                </td>
-                                                            </tr>
-
-
-                                                            <!-- Pollinator 5-->
-                                                            <tr>
-                                                                <td>
-                                                                    <select class="form-control"
-                                                                            name="Strain1Genus5" required autocomplete="off">
-                                                                        <option style="display: none" value="">Select</option>
-                                                                        <option value="Butterflies & Moths">Butterflies & Moths</option>
-
-                                                                    </select>
-                                                                </td>
-                                                                <td>
-                                                                    <select class="form-control"
-                                                                            name="Strain1Species5" required autocomplete="off">
-                                                                        <option style="display: none" value="">Select</option>
-                                                                        <option value="Butterfly & Moths">Butterflies & Moths</option>
-                                                                    </select>
-                                                                </td>
-                                                                <td>
-                                                                    <input type="text" class="form-control"
-                                                                           name="Strain1Count5"
-                                                                           placeholder="Count" required autocomplete="off">
-                                                                </td>
-                                                            </tr>
-
-
-                                                            <!-- Pollinator 6-->
-                                                            <tr>
-                                                                <td>
-                                                                    <select class="form-control"
-                                                                            name="Strain1Genus6" required autocomplete="off">
-                                                                        <option style="display: none" value="">Select</option>
-                                                                        <option value="Other">Other</option>
-                                                                    </select>
-                                                                </td>
-                                                                <td>
-                                                                    <select class="form-control"
-                                                                            name="Strain1Species6" required autocomplete="off">
-                                                                        <option style="display: none" value="">Select</option>
-                                                                        <option value="Other">Wasps, Flies, Beetles, etc</option>
-                                                                    </select>
-                                                                </td>
-                                                                <td>
-                                                                    <input type="text" class="form-control"
-                                                                           name="Strain1Count6"
-                                                                           placeholder="Count" required autocomplete="off">
-                                                                </td>
-                                                            </tr>
-
-
-                                                            </tbody>
-                                                        </table>
-
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="clear"></div>
-
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                                <div id="new_poll_fields">
-
-                                </div>
-
-                                <div class="input-group-btn">
-                                    Enter Another Strain
-                                    <button class="btn btn-success" type="button"
-                                            onclick="new_poll_fields();"><span
-                                            class="glyphicon glyphicon-plus"
-                                            aria-hidden="true"></span></button>
-                                </div>
-                                &lt;%&ndash;<textarea rows="4" cols="50" id="newPost" name="newPost"
-                                          placeholder="Any comments?"
-                                          value="${postText}"></textarea>&ndash;%&gt;
-
-                                <div id="intro"></div>
-
-                                <table>
-                                    <tr>
-                                        <td><input type="submit" class="text-control" name="dataFormSubmit"
-                                                   value="Submit Data"></td>
-                                    </tr>
-                                </table>
-
-                                <div id="intro"></div>
-
-                                <c:if test="${! empty errorMessage}">
-                                    <tr>${errorMessage}</tr>
-                                </c:if>
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!--/pageContent-->
-
-            </div>
---%>
-
-
-<div class="sidebar2">
-    <button onclick="toggleSideBar()" id="toggle" style="right: 0px;color: white">Options
-    </button>
-    <div id="sideBar2" style="right: -300px;">
-        <form id="GroupGet" method="post">
-            <ul class="list-unstyled">
-                <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/editUser"
-                                           style="color: white">Account Settings</a></li>
-                <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/admin"
-                                           style="color: white">Administration</a></li>
-                <c:forEach items="${gardens}" var="garden">
-                    <tr>
-                        <td class="groupListItem"><input class="sidebarItem" type="Submit"
-                                                         value="${garden.name}" id="Submit"
-                                                         name="Submit"></td>
-                    </tr>
-                </c:forEach>
-            </ul>
-
-        </form>
-    </div>
 </div>
 
 
@@ -1468,11 +960,15 @@ be greyed out except the plot size.
         // This function will figure out which tab to display
         var x = document.getElementsByClassName("tab");
         // Exit the function if any field in the current tab is invalid:
-        if (n == 1 && !validateForm()) return false;
+        if (n == 1 && !validateForm()) return false; {
         // Hide the current tab:
         x[currentTab].style.display = "none";
         // Increase or decrease the current tab by 1:
         currentTab = currentTab + n;
+        }
+        if (document.getElementById("form-submission")  )
+
+
         // if you have reached the end of the form... :
         if (currentTab >= x.length) {
             //...the form gets submitted:
@@ -1482,6 +978,8 @@ be greyed out except the plot size.
         // Otherwise, display the correct tab:
         showTab(currentTab);
     }
+
+
 
 
     function validateForm() {
@@ -1517,7 +1015,6 @@ be greyed out except the plot size.
         x[n].className += " active";
     }
 </script>
-
 
 
 </body>
