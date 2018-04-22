@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import controller.SearchController;
 //import controller.UserController;
 //import model.User;
@@ -51,7 +52,12 @@ public class SearchServlet extends HttpServlet {
 		}
 
 
-		req.setAttribute("gardens", gardens);
+		String json = new Gson().toJson(gardens);
+		resp.setContentType("application/json");
+		resp.setCharacterEncoding("UTF-8");
+		resp.getWriter().write(json);
+
+		//req.setAttribute("gardens", gardens);
 		req.getRequestDispatcher("/_view/search.jsp").forward(req, resp);	
 	}
 

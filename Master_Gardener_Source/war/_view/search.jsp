@@ -77,46 +77,60 @@
 
 
 <div class="container search-page-top-padding">
-   <%-- <form action="${pageContext.servletContext.contextPath}/user" method="post">
-    <div class="row">
+    <%-- <form action="${pageContext.servletContext.contextPath}/user" method="post">
+     <div class="row">
 
-        <div class="input-group mb-3">
+         <div class="input-group mb-3">
 
-                <input type="text" name="keyword" class="form-control" placeholder="Enter County Name"
-                       aria-label="Search term"
-                       aria-describedby="basic-addon">
-                <div class="input-group-append">
-                    <button class="btn btn-secondary" type="button" value="Search">Search!</button>
-                </div>
-            </form>
-        </div>
-    </div>--%>
-
-    <div class="row">
-        <table id="allGardensTable">
-            <thead>
-            <tr>
-                <th>Garden Name</th>
-            </tr>
-            </thead>
-
-            <tbody>
-            <c:forEach items="${gardens}" var="gardens">
-                <tr>
-                    <td>${gardens.garden_name}</td>
-                    <%--<td><form action="${pageContext.servletContext.contextPath}/garden" method="post">
-                        <a><input type="Submit" value="Join Garden" name="memberSubmit" class="joinGarden"></a>
-                    </form></td>--%>
-                </tr>
-            </c:forEach>
-            </tbody>
-
-        </table>
-    </div>
+                 <input type="text" name="keyword" class="form-control" placeholder="Enter County Name"
+                        aria-label="Search term"
+                        aria-describedby="basic-addon">
+                 <div class="input-group-append">
+                     <button class="btn btn-secondary" type="button" value="Search">Search!</button>
+                 </div>
+             </form>
+         </div>
+     </div>--%>
 
 
+    <table id="allGardensTable" class="display">
+        <thead>
+        <tr>
+            <th>Garden Name</th>
+            <th>Join!</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <th>Garden Name</th>
+            <th>Join!</th>
+        </tr>
+        </tfoot>
+
+    </table>
 
 
+    <%-- <div class="row">
+         <table id="allGardensTable">
+             <thead>
+             <tr>
+                 <th>Garden Name</th>
+             </tr>
+             </thead>
+
+             <tbody>
+             <c:forEach items="${gardens}" var="gardens">
+                 <tr>
+                     <td>${gardens.garden_name}</td>
+                     &lt;%&ndash;<td>
+                         <button>Join Garden</button>
+                     </td>&ndash;%&gt;
+                 </tr>
+             </c:forEach>
+             </tbody>
+
+         </table>
+     </div>--%>
 
 
 </div>
@@ -222,12 +236,15 @@
 
 <script>
     $(document).ready(function () {
-        $('#allGardensTable').DataTable().draw();
+        $('#allGardensTable').DataTable({
+            "processing" : true,
+            "ajax" : {
+                "url" : "SearchServlet"
+        }
+        })
         ;
     });
 </script>
-
-
 
 
 </body>
