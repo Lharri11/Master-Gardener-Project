@@ -2994,7 +2994,7 @@ public class MySQLDatabase implements IDatabase {
             // Insert into the main dataform table
             stmt1 = conn.prepareStatement("INSERT INTO mg_data_form (week_number, garden_id, county_id, generator_id1, generator_id2, generator_id3, generator_id4, " +
                     "date_generated, monitor_start, monitor_stop, wind_status, cloud_status, comments, confirmed, temperature, date_created, butterfly_moth_comments)" +
-                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?)");
+                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?)");
             stmt1.setInt(1, pdf.getWeek_number());
             stmt1.setInt(2, pdf.getGarden_id());
             stmt1.setInt(3, pdf.getCounty_id());
