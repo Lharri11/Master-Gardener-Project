@@ -110,6 +110,7 @@ public interface IDatabase {
 	// TODO: ↓↓↓ !!! NEED TO CHECK THE VALUES TO ENSURE NO MALICIOUS USERS UPDATE THINGS !!! ↓↓↓
 	public boolean deleteXTuplefromYTable(final String table, final String[] where)throws SQLException;
 	// TODO: Create More Delete-From Methods
+	public boolean deleteUserFromGarden(User user, Garden garden) throws SQLException;
 	//========================================================================================================
 
 

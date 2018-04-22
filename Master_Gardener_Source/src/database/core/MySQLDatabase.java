@@ -891,6 +891,27 @@ public class MySQLDatabase implements IDatabase {
         });
     }
 
+    public boolean deleteUserFromGarden(User user, Garden garden) throws SQLException
+    {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+
+        PreparedStatement stmt = null;
+
+        try
+        {
+            stmt = conn.prepareStatement("DELETE FROM mg_garden_member WHERE user_id = ? AND garden_id = ?");
+            stmt.setInt(1, user.getUserId());
+            stmt.setInt(2, garden.getGarden_id());
+            stmt.executeUpdate();
+        }
+        finally
+        {
+            DBUtil.closeQuietly(stmt);
+        }
+        return true;
+    }
+
     public boolean deleteUserByUsername(Connection conn, User user) throws SQLException {
         DataSource ds = getMySQLDataSource();
         conn = ds.getConnection();
