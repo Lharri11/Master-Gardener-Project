@@ -2968,7 +2968,7 @@ public class MySQLDatabase implements IDatabase {
         DataSource ds = getMySQLDataSource();
         Connection conn = ds.getConnection();
 
-        boolean result = false;
+        boolean result = true;
 
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
@@ -2986,251 +2986,133 @@ public class MySQLDatabase implements IDatabase {
         System.out.println("Inserting data into dataform table.");
         // TODO: CHANGE THIS TO HANDLE THE LIST
         try {
-            // SELECT IDs FOR GARDEN, COUNTY
-            ArrayList<Integer> plot_id = new ArrayList<Integer>();
-            for (int i = 0; i < pdf.getPlot().size(); i++) {
-                Plot plot = pdf.getPlot().get(i);
 
-                stmt5 = conn.prepareStatement("INSERT INTO mg_plot" +
-                        "(plant_id, plot_height, plot_area_dbl, percent_coverage, blooms_open_status, plant_vigor_status)" +
-                        "VALUES (?, ?, ?, ?, ?, ?)");
-                stmt5.setInt(1, plot.getPlant_id());
-                stmt5.setDouble(2, plot.getPlot_height());
-                stmt5.setDouble(3, plot.getPlot_area_dbl());
-                stmt5.setDouble(4, plot.getPercent_coverage());
-                stmt5.setString(5, plot.getBlooms_open_status());
-                stmt5.setString(6, plot.getPlant_vigor_status());
+            // These two lines are required to make dateCreated and Generated work
+            Date date_created = java.sql.Date.valueOf(pdf.getDate_created());
+            Date date_generated = java.sql.Date.valueOf(pdf.getDate_generated());
 
-                stmt5.executeUpdate();
+            // Insert into the main dataform table
+            stmt1 = conn.prepareStatement("INSERT INTO mg_data_form (week_number, garden_id, county_id, generator_id1, generator_id2, generator_id3, generator_id4, " +
+                    "date_generated, monitor_start, monitor_stop, wind_status, cloud_status, comments, confirmed, temperature, date_created, )" +
+                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?)");
+            stmt1.setInt(1, pdf.getWeek_number());
+            stmt1.setInt(2, pdf.getGarden_id());
+            stmt1.setInt(3, pdf.getCounty_id());
+            stmt1.setInt(4, pdf.getGenerators().get(0).getUserId());
+            stmt1.setInt(5, pdf.getGenerators().get(1).getUserId());
+            stmt1.setInt(6, pdf.getGenerators().get(2).getUserId());
+            stmt1.setInt(7, pdf.getGenerators().get(3).getUserId());
+            stmt1.setDate(8, (java.sql.Date) date_generated);
+            stmt1.setTime(9, Time.valueOf(pdf.getMonitor_start()));
+            stmt1.setTime(10, Time.valueOf(pdf.getMonitor_stop()));
+            stmt1.setString(11, pdf.getWind_status());
+            stmt1.setString(12, pdf.getCloud_status());
+            stmt1.setString(13, pdf.getComments());
+            stmt1.setInt(14, pdf.getTemperature());
+            stmt1.setDate(15, (java.sql.Date) date_created);
+            stmt1.executeUpdate();
 
-                // This can definitely produce more than one result. The inherent problem is that  without a "PlotName" field
-                // or something similar, there's an extremely slim chance that more than one plot can have all the same values,
-                // which means that unless the plant object already knows its ID, there's no way to guarantee we get the correct
-                // plot_id here.
-                stmt5 = conn.prepareStatement("SELECT plot_id FROM mg_plot WHERE plant_id = ? AND plot_height = ?" +
-                        "AND plot_area_dbl = ? AND percent_coverage = ? AND blooms_open_status = ? AND plant_vigor_status = ?");
-                stmt5.setInt(1, plot.getPlant_id());
-                stmt5.setDouble(2, plot.getPlot_height());
-                stmt5.setDouble(3, plot.getPlot_area_dbl());
-                stmt5.setDouble(4, plot.getPercent_coverage());
-                stmt5.setString(5, plot.getBlooms_open_status());
-                stmt5.setString(6, plot.getPlant_vigor_status());
+            stmt1 = conn.prepareStatement("SELECT id FROM mg_data_form WHERE garden_id = ?, generator_id1 = ?, generator_id2 = ?, date_generated = ?, temperature = ?, confirmed = 0");
+            stmt1.setInt(1, pdf.getGarden_id());
+            stmt1.setInt(2,  pdf.getGenerators().get(0).getUserId());
+            stmt1.setInt(3,  pdf.getGenerators().get(1).getUserId());
+            stmt1.setDate(4, (java.sql.Date) date_generated);
+            stmt1.setInt(5, pdf.getTemperature());
+            set1 = stmt1.executeQuery();
 
-                set5 = stmt5.executeQuery();
+            int df_id = -1;
 
-                if (set5.next()) {
-                    plot_id.add(set5.getInt(1));
-                    result = true;
-                } else {
-                    System.out.println("There was no Plot ID found after adding plot info to the table.");
-                    result = false;
-                    break;
-                }
-            }
-            if(!result)
+            if (set1.next())
             {
-                System.out.println("UNSUCCESSFUL insert into mg_df_plot, initiating cleanup.");
+                df_id = set1.getInt(1);
             }
-            else {
+            else
+            {
                 result = false;
-                //This could be shortened to a few lines of code but it's easier to visualize if it's left like this
-                // TODO: CHANGE DB TABLES TO ACCEPT DATE_ACCEPTED
-                // TODO: MIGHT NOT NEED ID AS A FIELD HERE
+            }
+            if (result) {
+                result = false;
+                System.out.println("Inserting into dataform<->garden<->plant<->pollinator<->pvc junction table.");
 
-                Date date_created = java.sql.Date.valueOf(pdf.getDate_created());
-                Date date_generated = java.sql.Date.valueOf(pdf.getDate_generated());
+                // In retrospect, bad loop name
+                for (int i = 0; i < pdf.getPlants().size(); i++) {
 
-                stmt1 = conn.prepareStatement("INSERT INTO mg_data_form " +
-                        "(week_number, garden_id, county_id, generator_id1, generator_id2, generator_id3, generator_id4, temperature, date_created, date_generated, monitor_start, monitor_stop," +
-                        "wind_status, cloud_status, comments, confirmed)" +
-                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                stmt1.setInt(1, pdf.getWeek_number());
-                stmt1.setInt(2, pdf.getGarden_id());
-                stmt1.setInt(3, pdf.getCounty_id());
-                stmt1.setInt(4, pdf.getGenerators().get(1).getUserId());
-                stmt1.setInt(5, pdf.getGenerators().get(2).getUserId());
-                stmt1.setInt(6, pdf.getGenerators().get(3).getUserId());
-                stmt1.setInt(7, pdf.getGenerators().get(4).getUserId());
-                stmt1.setInt(8, pdf.getTemperature());
-                // THESE USE TIMESTAMPS TO HANDLE LOCALDATETIME AND LOCALTIME
-                stmt1.setDate(9, (java.sql.Date) date_created);
-                stmt1.setDate(10, (java.sql.Date) date_generated);
-                stmt1.setTime(11, Time.valueOf(pdf.getMonitor_start()));
-                stmt1.setTime(12, Time.valueOf(pdf.getMonitor_stop()));
-                stmt1.setString(13, pdf.getWind_status());
-                stmt1.setString(14, pdf.getCloud_status());
-                stmt1.setString(15, pdf.getComments());
-                // Use '0' as the argument so there's no chance of error when getting a confirmed or unconfirmed dataform
-                // inserting into dataform should always result in an unconfirmed dataform
-                stmt1.setInt(16, 0);
+                    int plant_id;
+                    ArrayList<Plant> plants = pdf.getPlants();
+                    plant_id = plants.get(i).getPlantID();
 
-                stmt1.executeUpdate();
+                    for (int strain = 0; strain < pdf.getPlantStrains().size(); strain++) {
+                        int strain_id;
+                        PlantStrain str = pdf.getPlantStrains().get(strain);
+                        strain_id = str.getStrainID();
 
-                stmt1 = conn.prepareStatement("select id from mg_data_form where week_number = ? AND garden_id = ? " +
-                        "AND county_id = ? AND generator_id1 = ? AND generator_id2 = ? AND generator_id3 = ? AND generator_id4 = ? AND temperature = ? AND date_created = ? AND date_generated = ? " +
-                        "AND monitor_start = ? AND monitor_stop = ? AND wind_status = ? AND cloud_status = ? " +
-                        "AND comments = ? AND confirmed = ?");
-                stmt1.setInt(1, pdf.getWeek_number());
-                stmt1.setInt(2, pdf.getGarden_id());
-                stmt1.setInt(3, pdf.getCounty_id());
-                stmt1.setInt(4, pdf.getGenerators().get(1).getUserId());
-                stmt1.setInt(5, pdf.getGenerators().get(2).getUserId());
-                stmt1.setInt(6, pdf.getGenerators().get(3).getUserId());
-                stmt1.setInt(7, pdf.getGenerators().get(4).getUserId());
-                stmt1.setInt(5, pdf.getTemperature());
-                stmt1.setDate(6, (java.sql.Date) date_created);
-                stmt1.setDate(7, (java.sql.Date) date_generated);
-                stmt1.setTime(8, Time.valueOf(pdf.getMonitor_start()));
-                stmt1.setTime(9, Time.valueOf(pdf.getMonitor_stop()));
-                stmt1.setString(10, pdf.getWind_status());
-                stmt1.setString(11, pdf.getCloud_status());
-                stmt1.setString(12, pdf.getComments());
-                // Not really necessary here but it's not bad to have another layer of checking
-                stmt1.setInt(13, 0);
+                        if (pdf.getPollinators().size() > 0) {
+                            // TODO: LOOP VARIABLE IS 9 BECAUSE EACH PLANT SHOULD HAVE 9 POLLINATORS, PERIOD.
+                            for (int p_count = 0; p_count < 9; p_count++) {
+                                int poll_id, pvc_id, plot_id;
+                                Pollinator poll = pdf.getPollinators().get(p_count);
+                                PollinatorVisitCount pvc = pdf.getPollinatorVisitCounts().get(p_count);
+                                poll_id = poll.getPollinatorID();
 
-                set1 = stmt1.executeQuery();
+                                // plot_id only changes ON A PLANT-TO-PLANT BASIS
+                                // TODO: CHECK THIS
+                                plot_id = (strain_id) + (9 * (pdf.getGarden_id() - 1));
 
-                if (set1.next()) {
-                    System.out.println("Insert into MG_DATA_FORM successful. Make sure to check data.");
-                    // set the PDF ID to the one that has been created in the DB
-                    pdf.setData_form_id(set1.getInt(1));
-                    result = true;
-                } else {
-                    System.out.println("UNSUCCESSFUL INSERT INTO MG_DATA_FORM. CHECK PARAMETERS & insertDataFromDataform method.");
-                    result = false;
-                }
+                                stmt4 = conn.prepareStatement("INSERT INTO mg_pollinator_visit (data_form_id, pollinator_id, plot_id, plant_id, strain_id, visit_count)" +
+                                        "VALUES (?, ?, ?, ?, ?, ?)");
+                                stmt4.setInt(1, pdf.getData_form_id());
+                                stmt4.setInt(2, poll_id);
+                                stmt4.setInt(3, plot_id);
+                                stmt4.setInt(4, plant_id);
+                                stmt4.setInt(5, strain_id);
+                                stmt4.setInt(6, pvc.getVisit_count());
 
-                if (result) {
-                    result = false;
-                    System.out.println("Inserting into dataform<->garden<->plant<->pollinator<->pvc junction table.");
+                                stmt4.executeUpdate();
 
-                    //TODO: The insert method stops here
+                                stmt4 = conn.prepareStatement("SELECT id FROM mg_pollinator_visit WHERE data_form_id = ? AND pollinator_id = ?" +
+                                        " AND  plant_id = ? AND visit_count = ?");
+                                stmt4.setInt(1, pdf.getData_form_id());
+                                stmt4.setInt(2, poll_id);
+                                stmt4.setInt(3, plant_id);
+                                stmt4.setInt(4, pvc.getVisit_count());
 
-                    // In retrospect, bad loop name
-                    for (int i = 0; i <= pdf.getPlants().size(); i++) {
+                                set4 = stmt4.executeQuery();
 
-                        int plant_id;
-                        ArrayList<Plant> plants = pdf.getPlants();
-                        plant_id = plants.get(i).getPlantID();
-
-                        for (int strain = 0; strain < pdf.getPlantStrains().size(); strain++) {
-                            int strain_id;
-                            PlantStrain str = pdf.getPlantStrains().get(strain);
-                            strain_id = str.getStrainID();
-
-                            if (pdf.getPollinators().size() > 0) {
-                                // TODO: LOOP VARIABLE IS 9 BECAUSE EACH PLANT SHOULD HAVE 9 POLLINATORS, PERIOD.
-                                for (int p_count = 0; p_count < 9; p_count++) {
-                                    // pl0t_id = plot id, since plot_id was already used
-                                    // ...sorry
-                                    int poll_id, pvc_id, pl0t_id;
-                                    Pollinator poll = pdf.getPollinators().get(p_count);
-                                    PollinatorVisitCount pvc = pdf.getPollinatorVisitCounts().get(p_count);
-                                    poll_id = poll.getPollinatorID();
-
-                                    // plot_id only changes ON A PLANT-TO-PLANT BASIS
-                                    pl0t_id = plot_id.get(strain);
-
-                                    stmt4 = conn.prepareStatement("INSERT INTO mg_pollinator_visit (data_form_id, pollinator_id, plant_id, visit_count)" +
-                                            "VALUES (?, ?, ?, ?)");
-                                    stmt4.setInt(1, pdf.getData_form_id());
-                                    stmt4.setInt(2, poll_id);
-                                    stmt4.setInt(3, plant_id);
-                                    stmt4.setInt(4, pvc.getVisit_count());
-
-                                    stmt4.executeUpdate();
-
-                                    stmt4 = conn.prepareStatement("SELECT id FROM mg_pollinator_visit WHERE data_form_id = ? AND pollinator_id = ?" +
-                                            " AND  plant_id = ? AND visit_count = ?");
-                                    stmt4.setInt(1, pdf.getData_form_id());
-                                    stmt4.setInt(2, poll_id);
-                                    stmt4.setInt(3, plant_id);
-                                    stmt4.setInt(4, pvc.getVisit_count());
-
-                                    set4 = stmt4.executeQuery();
-
-                                    if (set4.next()) {
-                                        System.out.println("Successful insert into mg_pollinator_visit table (the small, actual table)");
-                                        pvc_id = set4.getInt(1);
-                                        result = true;
-                                    } else {
-                                        System.out.println("UNSUCCESSFUL insert into mg_pollinator_visit table (the small, actual table)");
-                                        result = false;
-                                        break;
-                                    }
-
-                                    stmt3 = conn.prepareStatement("INSERT INTO mg_dataform_insert (dataform_id, garden_id, plant_id, strain_id, pollinator_id, visitcount_id, plot_id)" +
-                                            "VALUES (?, ?, ?, ?, ?, ?, ?)");
-
-                                    stmt3.setInt(1, pdf.getData_form_id());
-                                    stmt3.setInt(2, pdf.getGarden_id());
-                                    stmt3.setInt(3, plant_id);
-                                    stmt3.setInt(4, strain_id);
-                                    stmt3.setInt(5, poll_id);
-                                    stmt3.setInt(6, pvc_id);
-                                    stmt3.setInt(7, pl0t_id);
-                                    stmt3.executeUpdate();
-
-                                    stmt3 = conn.prepareStatement("SELECT * FROM mg_dataform_insert WHERE dataform_id = ?");
-                                    stmt3.setInt(1, pdf.getData_form_id());
-                                    set3 = stmt3.executeQuery();
-
-                                    if (set3.next()) {
-                                        System.out.println("Successful insert into mg_dataform_insert table. (the big junction table).");
-                                        result = true;
-                                    } else {
-                                        System.out.println("UNSUCCESSFUL insert into mg_dataform_insert table. (the big junction table).");
-                                        result = false;
-                                        break;
-                                    }
-
-                                }
-                                for (int j = 0; j < 9; j++) {
-                                    // TODO: Remove from pollinator and PVC lists so the next for loop doesnt break
-                                    pdf.getPollinators().remove(j);
-                                    pdf.getPollinatorVisitCounts().remove(j);
-                                }
-                                if (!result) {
+                                if (set4.next()) {
+                                    System.out.println("Successful insert into mg_pollinator_visit table (the small, actual table)");
+                                    pvc_id = set4.getInt(1);
+                                    result = true;
+                                } else {
+                                    System.out.println("UNSUCCESSFUL insert into mg_pollinator_visit table (the small, actual table)");
+                                    result = false;
                                     break;
                                 }
-                            } else {
-                                System.out.println("Ran out of pollinators to add. This could be a good or bad thing." +
-                                        "\n Make sure to check data.");
-                                break;
                             }
 
-                            if (!result) {
-                                break;
+                            for (int j = 0; j < 9; j++) {
+                                // TODO: Remove from pollinator and PVC lists so the next for loop doesnt break
+                                pdf.getPollinators().remove(j);
+                                pdf.getPollinatorVisitCounts().remove(j);
                             }
+                        } else {
+                            System.out.println("Ran out of pollinators to add. This could be a good or bad thing." +
+                                    "\n Make sure to check data.");
+                            break;
                         }
-                    }
-
-                    if (!result) {
-                        // TODO: Cleanup
-                        System.out.println("UNSUCCESSFUL INSERT INTO MG_DATAFORM_INSERT OR MG_POLLINATOR_VISIT. CHECK PARAMETERS & insertDataFromDataform method." +
-                                "\n ROLLING BACK PREVIOUS INSERT (mg_data_form, mg_df_garden).");
-                        cleanup = conn.prepareStatement("DELETE FROM mg_data_form WHERE id = ?");
-                        cleanup.setInt(1, pdf.getData_form_id());
-                        cleanup.executeUpdate();
-
-                        for(int i = 0; i < plot_id.size(); i++) {
-                            cleanup = conn.prepareStatement("DELETE FROM mg_plot WHERE plot_id = ?");
-                            cleanup.setInt(1, plot_id.get(i));
-                            cleanup.executeUpdate();
-                        }
-                    }
-                }
-                else
-                {
-                    // Cleanup
-                    System.out.println("UNSUCCESSFUL INSERT INTO MG_DATA_FORM, ROLLING BACK MG_PLOT INSERT");
-                    for(int i = 0; i < plot_id.size(); i++) {
-                        cleanup = conn.prepareStatement("DELETE FROM mg_plot WHERE plot_id = ?");
-                        cleanup.setInt(1, plot_id.get(i));
-                        cleanup.executeUpdate();
+                        // Update relevant plots
+                        stmt5 = conn.prepareStatement("UPDATE mg_plot " +
+                                "SET percent_coverage = ?, plot_area_dbl = ?, plot_height = ?, blooms_open_status = ? " +
+                                " WHERE plant_id = ? AND plant_strain_id = ?");
+                        stmt5.setDouble(1, pdf.getPlot().get(strain).getPercent_coverage());
+                        stmt5.setDouble(2, pdf.getPlot().get(strain).getPlot_area_dbl());
+                        stmt5.setDouble(3, pdf.getPlot().get(strain).getPlot_height());
+                        stmt5.setString(4, pdf.getPlot().get(strain).getBlooms_open_status());
+                        stmt5.setInt(5, pdf.getPlants().get(i).getPlantID());
+                        stmt5.setInt(6, pdf.getPlantStrains().get(strain).getStrainID());
                     }
                 }
             }
+
 
             // This catch should grab any SQL exception within the TRY (ie the entire method)
         }
