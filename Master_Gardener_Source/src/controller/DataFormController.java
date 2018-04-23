@@ -15,6 +15,10 @@ public class DataFormController
 		database = DatabaseProvider.getInstance();
 	}
 
+    public int getPlantIDByPlantName(final String plant_name) throws SQLException {
+        return this.database.getPlantIDByPlantName(plant_name);
+    }
+
 	public int getStrainIDByStrainName(final String strain_name) throws SQLException {
 	    return this.database.getStrainIDByStrainName(strain_name);
     }

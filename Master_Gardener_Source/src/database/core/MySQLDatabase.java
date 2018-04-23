@@ -297,7 +297,7 @@ public class MySQLDatabase implements IDatabase {
                     try
 
                     {
-                        stmt = conn.prepareStatement("SELECT plantName FROM mg_plant");
+                        stmt = conn.prepareStatement("SELECT plant_name FROM mg_plant");
                         resultSet = stmt.executeQuery();
                         boolean found = false;
                         while (resultSet.next()) {
@@ -827,7 +827,7 @@ public class MySQLDatabase implements IDatabase {
             set = stmt.executeQuery();
             set.next();
 
-            user = new User(username, username, 0, username, username, username, null);
+            user = new User(null, null, 0, null, null, null, 0);
             loadUser(user, set, 1);
 
 
@@ -836,6 +836,32 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(set);
         }
         return user;
+    }
+
+    public int getUserIDFromFirstNameAndLastName(final String first_name, final String last_name) throws SQLException {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+        int user_id = 0;
+
+        try {
+            stmt = conn.prepareStatement(
+                    " SELECT user_id FROM mg_user "
+                            + " WHERE first_name = ? AND last_name = ?");
+            stmt.setString(1, first_name);
+            stmt.setString(2, last_name);
+
+            set = stmt.executeQuery();
+            if(set.next()) {
+                user_id = set.getInt(1);
+            }
+
+        } finally {
+            DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(set);
+        }
+        return user_id;
     }
 
     public String hashString(String str) throws SQLException
@@ -942,7 +968,7 @@ public class MySQLDatabase implements IDatabase {
         ResultSet rs = null;
         try {
 
-            stmt = conn.prepareStatement(" SELECT plant_ID FROM mg_plant WHERE plantName = ? ");
+            stmt = conn.prepareStatement(" SELECT plant_ID FROM mg_plant WHERE plant_name = ? ");
             stmt.setString(1, plant_name);
             rs = stmt.executeQuery();
 
@@ -1005,6 +1031,31 @@ public class MySQLDatabase implements IDatabase {
             return id;
         }
     }
+
+    public String getPollinatorNameByPollinatorID(final int pollinator_id) throws SQLException {
+        {
+            DataSource ds = getMySQLDataSource();
+            Connection conn = ds.getConnection();
+            PreparedStatement stmt = null;
+            ResultSet set = null;
+            String pollinator_name = null;
+
+            try {
+                stmt = conn.prepareStatement(" SELECT pollinator_name FROM mg_pollinator WHERE pollinator_id = ? ");
+                stmt.setInt(1, pollinator_id);
+                set = stmt.executeQuery();
+
+                if (set.next()) {
+                    pollinator_name = set.getString(1);
+                }
+            } finally {
+                DBUtil.closeQuietly(stmt);
+                DBUtil.closeQuietly(set);
+            }
+            return pollinator_name;
+        }
+    }
+
     /** This is a backend helper method for the primary method getUnconfirmedDataformsByCounty**/
     public List<Integer> getUnconfirmedDataformIDsByCounty(String county) throws SQLException
     {
@@ -1093,7 +1144,7 @@ public class MySQLDatabase implements IDatabase {
                 return_list.add(set2.getString(1));
 
                 // Next, get Plant name. Seperate this from getting Strain name because it's easier to manage.
-                stmt1 = conn.prepareStatement("SELECT plantName FROM mg_plant WHERE plant_ID = ?");
+                stmt1 = conn.prepareStatement("SELECT plant_name FROM mg_plant WHERE plant_ID = ?");
                 stmt1.setInt(1, set1.getInt(2));
                 set2 = stmt1.executeQuery();
                 return_list.add(set2.getString(1));
@@ -1131,7 +1182,6 @@ public class MySQLDatabase implements IDatabase {
 
         return return_list;
     }
-
 
     private boolean insertUserIntoUsers(Connection conn, User user) throws SQLException {
         DataSource ds = getMySQLDataSource();
@@ -1409,14 +1459,14 @@ public class MySQLDatabase implements IDatabase {
         boolean completed = false;
         try {
             stmt = conn.prepareStatement("UPDATE mg_plant " +
-                    "SET plantName = ? " +
-                    "WHERE plantName = ?");
+                    "SET plant_name = ? " +
+                    "WHERE plant_name = ?");
             stmt.setString(1, updated_name);
             stmt.setString(2, plant_name);
 
             stmt.executeUpdate();
 
-            stmt2 = conn.prepareStatement("SELECT plantName FROM mg_plant WHERE plantName = ?");
+            stmt2 = conn.prepareStatement("SELECT plant_name FROM mg_plant WHERE plant_name = ?");
             stmt2.setString(1, updated_name);
 
             set = stmt2.executeQuery();
@@ -1945,7 +1995,7 @@ public class MySQLDatabase implements IDatabase {
 
         try {
             stmt1 = conn.prepareStatement(
-                    "INSERT INTO mg_plant (plantName) "
+                    "INSERT INTO mg_plant (plant_name) "
                             + " VALUES(?)");
             stmt1.setString(1, plant.getPlantName());
 
@@ -1953,7 +2003,7 @@ public class MySQLDatabase implements IDatabase {
 
             stmt2 = conn.prepareStatement(
                     "SELECT plant_ID FROM mg_plant "
-                            + " WHERE plantName = ? ");
+                            + " WHERE plant_name = ? ");
             // TODO: A plant name does not have to be unique. This update does not necessarily work as intended.
             stmt2.setString(1, plant.getPlantName());
             //stmt2.setInt(2, plant.getPlantID()); might solve the above issue. Problem is, where the hell do we get the ID without a query?
@@ -2585,7 +2635,7 @@ public class MySQLDatabase implements IDatabase {
                     while (set.next()) {
                         //found = true;
                         Post post = new Post(null, 0, 0);
-                        User user = new User(null, null, 0, null, null, null, null);
+                        User user = new User(null, null, 0, null, null, null, 0);
                         loadUser(user, set, 1);
                         loadPost(post, set, 8);
                         returnPosts.add(new Pair<User, Post>(user, post));
@@ -3218,7 +3268,7 @@ public class MySQLDatabase implements IDatabase {
                         while (resultSet.next())
                         {
                             found = true;
-                            User user = new User(null,null, -1,null,null,null,null);
+                            User user = new User(null, null, 0, null, null, null, 0);
                             user.setUsername(resultSet.getString(1));
                             user.setEmail(resultSet.getString(2));
                             user.setName(resultSet.getString(3));
@@ -3264,7 +3314,7 @@ public class MySQLDatabase implements IDatabase {
             }
 
             for (int i = 0; i < id_set.size(); i++) {
-                stmt2 = conn.prepareStatement("SELECT strand_name FROM mg_plant_strain WHERE strand_id = ?");
+                stmt2 = conn.prepareStatement("SELECT strain_name FROM mg_plant_strain WHERE strain_id = ?");
                 stmt2.setInt(1, id_set.get(i));
                 set2 = stmt2.executeQuery();
                 result_set.add(set2.getString(1));
@@ -3285,6 +3335,41 @@ public class MySQLDatabase implements IDatabase {
         }
 
         return result_set;
+    }
+
+    public List<PlantStrain> getStrainByStrainID(final int strain_id) throws SQLException {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+        boolean found = false;
+        List<PlantStrain> strain = new ArrayList<PlantStrain>();
+
+        try {
+            stmt = conn.prepareStatement("SELECT * FROM mg_strain WHERE strain_id = ?");
+            stmt.setInt(1, strain_id);
+            set = stmt.executeQuery();
+
+            while (set.next()) {
+                found = true;
+                PlantStrain strain1 = new PlantStrain(0, 0,null, null);
+                loadStrain(strain1, set, 1);
+                strain.add(strain1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("There was an error in the getStrainByStrainID method.");
+        } finally {
+            DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(set);
+        }
+
+        if (!found) {
+            System.out.println("There was no Strain found for the designated Strain ID");
+        }
+
+        return strain;
     }
 
     public String getPlantNameByGarden(final Garden garden) throws SQLException {
@@ -3311,7 +3396,7 @@ public class MySQLDatabase implements IDatabase {
 
             }
             if (found) {
-                stmt2 = conn.prepareStatement("SELECT plantName FROM mg_plant WHERE plant_ID = ?");
+                stmt2 = conn.prepareStatement("SELECT plant_name FROM mg_plant WHERE plant_ID = ?");
                 stmt2.setInt(1, plant_id);
                 set2 = stmt2.executeQuery();
                 result_set = set2.getString(1);
@@ -3435,6 +3520,17 @@ public class MySQLDatabase implements IDatabase {
         post.setUser_id(resultSet.getInt(index++));
         post.setGroupId(resultSet.getInt(index++));
         post.setComments(resultSet.getString(index++));
+    }
+
+    private void loadPlant(Plant plant, ResultSet resultSet, int index) throws SQLException {
+        plant.setPlantID(resultSet.getInt(index++));
+        plant.setPlantName(resultSet.getString(index++));
+    }
+
+    private void loadStrain(PlantStrain strain, ResultSet resultSet, int index) throws SQLException {
+        strain.setStrainID(resultSet.getInt(index++));
+        strain.setStrainName(resultSet.getString(index++));
+        strain.setStrainType(resultSet.getString(index++));
     }
 
     public interface Transaction<ResultType> {
