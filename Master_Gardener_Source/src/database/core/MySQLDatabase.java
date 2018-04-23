@@ -1277,7 +1277,7 @@ public class MySQLDatabase implements IDatabase {
             ResultSet rs = null;
             try {
 
-                stmt1 = conn.prepareStatement("SELECT county_ID FROM mg_county WHERE countyName = ?");
+                stmt1 = conn.prepareStatement("SELECT county_ID FROM mg_county WHERE county_name = ?");
                 stmt1.setString(1, county);
                 rs = stmt1.executeQuery();
 
@@ -1392,7 +1392,9 @@ public class MySQLDatabase implements IDatabase {
                 // Get all of these fields as a string so we can add them to the return set
                 // TODO: TEST THIS
                 for (int j = 1; j < 8; j++) {
-                    return_list.add(set1.getString(j));
+                    if(set1.next()) {
+                        return_list.add(set1.getString(j));
+                    }
                 }
 
                 // Now, do the hard stuff
@@ -1405,10 +1407,13 @@ public class MySQLDatabase implements IDatabase {
 
                 // Start off by getting garden name
                 stmt1 = conn.prepareStatement("SELECT garden_name FROM mg_garden WHERE garden_ID = ?");
-                stmt1.setInt(1, set1.getInt(1));
+                if(set1.next()) {
+                    stmt1.setInt(1, set1.getInt(1));
+                }
                 set2 = stmt1.executeQuery();
-                return_list.add(set2.getString(1));
-
+                if(set2.next()) {
+                    return_list.add(set2.getString(1));
+                }
                 // Get PVC stats for relevant DFs
                 stmt1 = conn.prepareStatement("SELECT id, plant_id, strain_id, visit_count FROM mg_pollinator_visit WHERE data_form_id = ?");
                 stmt1.setInt(1, cids.get(i));
@@ -1436,7 +1441,10 @@ public class MySQLDatabase implements IDatabase {
 
                     stmt1 = conn.prepareStatement("SELECT mg_plant_strain.name FROM mg_plant_strain, mg_pollinator_visit " +
                             "WHERE mg_pollinator_visit.id = ? AND mg_pollinator_visit.strain_id = mg_plant_strain.strain_id");
-                    stmt1.setInt(1, set1.getInt(3));
+
+                    if(set1.next()) {
+                        stmt1.setInt(1, set1.getInt(3));
+                    }
                     set2 = stmt1.executeQuery();
                     if(set2.next())
                     {

@@ -20,13 +20,13 @@ public class AdminServlet extends HttpServlet {
             throws ServletException, IOException {
 
 
-        String user = (String) req.getSession().getAttribute("username");
+        /*String user = (String) req.getSession().getAttribute("username");
         if (user == null) {
             System.out.println("User not logged in or session timed out");
             // User is not logged in, or the session expired
             resp.sendRedirect(req.getContextPath() + "/login");
             return;
-        }
+        }*/
 
         List<User> activeAccounts = new ArrayList<>();
         AdminController controller = new AdminController();
@@ -48,7 +48,8 @@ public class AdminServlet extends HttpServlet {
 
 
         System.out.println(activeAccounts);
-        for (int i = 0; i <= unconfirmed.size(); i++) {
+
+        for (int i = 0; i < unconfirmed.size(); i++) {
             System.out.println(unconfirmed.get(i));
         }
 

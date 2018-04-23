@@ -38,7 +38,7 @@ public class AdminController {
     }
 
     public List<String> getAllUnconfirmedDataForm() throws SQLException {
-        List<String> unconfirmed = database.getCountiesWithUnconfirmedDataforms();
+        List<String> unconfirmed = database.getUnconfirmedDataformsByCounty("Adams");
         if (unconfirmed.isEmpty()) {
             System.out.println("Empty");
             return null;
