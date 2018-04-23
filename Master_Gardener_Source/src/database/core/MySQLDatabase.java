@@ -3190,12 +3190,13 @@ public class MySQLDatabase implements IDatabase {
             stmt1.setTime(18, Time.valueOf(pdf.getMonitor_stop()));
             stmt1.executeUpdate();
 
-            stmt1 = conn.prepareStatement("SELECT id FROM mg_data_form WHERE garden_id = ?, generator_id1 = ?, generator_id2 = ?, date_generated = ?, temperature = ?, confirmed = 0");
+            stmt1 = conn.prepareStatement("SELECT id FROM mg_data_form WHERE garden_id = ?, generator_id1 = ?, generator_id2 = ?, date_generated = ?, temperature = ?, confirmed = ?");
             stmt1.setInt(1, pdf.getGarden_id());
             stmt1.setInt(2,  pdf.getGenerators().get(0).getUserId());
             stmt1.setInt(3,  pdf.getGenerators().get(1).getUserId());
             stmt1.setDate(4, (java.sql.Date) date_generated);
             stmt1.setInt(5, pdf.getTemperature());
+            stmt1.setInt(6, 0);
             set1 = stmt1.executeQuery();
 
             int df_id = -1;
@@ -3220,25 +3221,26 @@ public class MySQLDatabase implements IDatabase {
                     plant_id = plants.get(i).getPlantID();
 
                     for (int strain = 0; strain < pdf.getPlantStrains().size(); strain++) {
-                        int strain_id;
+                        int strain_id, plot_id;
                         PlantStrain str = pdf.getPlantStrains().get(strain);
                         strain_id = str.getStrainID();
+                        plot_id = (strain_id) + (9 * (pdf.getGarden_id() - 1));
 
                         if (pdf.getPollinators().size() > 0) {
                             // TODO: LOOP VARIABLE IS 9 BECAUSE EACH PLANT SHOULD HAVE 9 POLLINATORS, PERIOD.
                             for (int p_count = 0; p_count < 9; p_count++) {
-                                int poll_id, pvc_id, plot_id;
+                                int poll_id, pvc_id;
                                 Pollinator poll = pdf.getPollinators().get(p_count);
                                 PollinatorVisitCount pvc = pdf.getPollinatorVisitCounts().get(p_count);
                                 poll_id = poll.getPollinatorID();
 
                                 // plot_id only changes ON A PLANT-TO-PLANT BASIS
                                 // TODO: CHECK THIS
-                                plot_id = (strain_id) + (9 * (pdf.getGarden_id() - 1));
+
 
                                 stmt4 = conn.prepareStatement("INSERT INTO mg_pollinator_visit (data_form_id, pollinator_id, plot_id, plant_id, strain_id, visit_count)" +
                                         "VALUES (?, ?, ?, ?, ?, ?)");
-                                stmt4.setInt(1, pdf.getData_form_id());
+                                stmt4.setInt(1, df_id);
                                 stmt4.setInt(2, poll_id);
                                 stmt4.setInt(3, plot_id);
                                 stmt4.setInt(4, plant_id);
@@ -3280,13 +3282,13 @@ public class MySQLDatabase implements IDatabase {
                         // Update relevant plots
                         stmt5 = conn.prepareStatement("UPDATE mg_plot " +
                                 "SET percent_coverage = ?, plot_area_dbl = ?, plot_height = ?, blooms_open_status = ? " +
-                                " WHERE plant_id = ? AND plant_strain_id = ?");
+                                " WHERE plant_id = ? AND plot_id = ?");
                         stmt5.setDouble(1, pdf.getPlots().get(strain).getPercent_coverage());
                         stmt5.setDouble(2, pdf.getPlots().get(strain).getPlot_area_dbl());
                         stmt5.setDouble(3, pdf.getPlots().get(strain).getPlot_height());
                         stmt5.setString(4, pdf.getPlots().get(strain).getBlooms_open_status());
                         stmt5.setInt(5, pdf.getPlants().get(i).getPlantID());
-                        stmt5.setInt(6, pdf.getPlantStrains().get(strain).getStrainID());
+                        stmt5.setInt(6, plot_id);
                     }
                 }
             }
