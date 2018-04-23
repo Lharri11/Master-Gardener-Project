@@ -3289,6 +3289,8 @@ public class MySQLDatabase implements IDatabase {
                         stmt5.setString(4, pdf.getPlots().get(strain).getBlooms_open_status());
                         stmt5.setInt(5, pdf.getPlants().get(i).getPlantID());
                         stmt5.setInt(6, plot_id);
+
+                        stmt5.executeUpdate();
                     }
                 }
             }
