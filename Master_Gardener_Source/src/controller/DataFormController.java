@@ -2,12 +2,10 @@
 package controller;
 
 import database.core.*;
-import model.Plant;
-import model.PlantStrain;
-import model.PollinatorDataForm;
-import model.User;
+import model.*;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class DataFormController
 {
@@ -18,6 +16,10 @@ public class DataFormController
 		database = DatabaseProvider.getInstance();
 	}
 
+    public List<Integer> getAllDataFormIDs() throws SQLException {
+        return this.database.getAllDataFormIDs();
+    }
+
     public int getGardenIDByGardenName(final String garden_name) throws SQLException {
         return this.database.getGardenIDByGardenName(garden_name);
     }
@@ -26,16 +28,24 @@ public class DataFormController
         return this.database.getPlantIDByPlantName(plant_name);
     }
 
-	public int getStrainIDByStrainName(final String strain_name) throws SQLException {
-	    return this.database.getStrainIDByStrainName(strain_name);
-    }
-
     public Plant getPlantByPlantID(final int plant_id) throws SQLException {
         return this.database.getPlantByPlantID(plant_id);
     }
 
+	public int getStrainIDByStrainName(final String strain_name) throws SQLException {
+	    return this.database.getStrainIDByStrainName(strain_name);
+    }
+
     public PlantStrain getStrainByStrainID(final int strain_id) throws SQLException {
         return this.database.getStrainByStrainID(strain_id);
+    }
+
+    public int getPollinatorIDByPollinatorName(final String pollinator_name) throws SQLException {
+        return this.database.getPollinatorIDByPollinatorName(pollinator_name);
+    }
+
+    public Pollinator getPollinatorByPollinatorID(final int pollinator_id) throws SQLException {
+        return this.database.getPollinatorByPollinatorID(pollinator_id);
     }
 
     public int getCountyIDByGardenName(final String garden_name) throws SQLException {

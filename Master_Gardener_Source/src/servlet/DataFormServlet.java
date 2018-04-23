@@ -94,6 +94,7 @@ public class DataFormServlet extends HttpServlet {
         //Dataform Plant, Strain, Plot, & Pollinator Information
         String plant_name = null;
         String strain_name = null;
+        String pollinator_name = null;
         String plot_blooms_open_status = null;
         double plot_height = 0.0;
         double plot_area_dbl = 0.0;
@@ -242,7 +243,7 @@ public class DataFormServlet extends HttpServlet {
                 for(int i = 1; i <= (plants.size()+1); i++)
                 {
                     //Set Plant
-                    plant_name = req.getParameter("plantName" + i);//Variable from Drop-Down
+                    plant_name = req.getParameter("plant" + i);//Variable from Drop-Down
                     if ("".equals(plant_name) || plant_name == null) {
                         errorMessage = "Please enter the genus (plant) name for the plot";
                         System.out.printf("%s", errorMessage);
@@ -261,7 +262,7 @@ public class DataFormServlet extends HttpServlet {
                     for(int j = 1; j <= (strains.size()+1); j++)
                     {
                         //Set Strain
-                        strain_name = req.getParameter("strainName" + j);//Variable from Drop-Down
+                        strain_name = req.getParameter("plant" + i + "strain" + j);//Variable from Drop-Down
                         if ("".equals(strain_name) || strain_name == null) {
                             errorMessage = "Please enter the species (strain) name for the first pollinator";
                             System.out.printf("%s", errorMessage);
@@ -290,9 +291,36 @@ public class DataFormServlet extends HttpServlet {
                         //Pollinators Loop
                         for(int k = 1; k <= (pollinators.size()+1); k++)
                         {
+                            //Set Pollinator
+                            Pollinator pollinator;
+                            pollinator_name = req.getParameter("plant" + i + "strain" + j +"pollinator" + k);//Variable from Drop-Down
+                            if ("".equals(pollinator_name) || pollinator_name == null) {
+                                errorMessage = "Please enter the pollinator name for pollinator #" + k;
+                                System.out.printf("%s", errorMessage);
+                                pollinator_name = null;
+                                req.setAttribute("errorMessage", errorMessage);
+                                req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
+                            }
+                            try {
+                                pollinators.add(controller.getPollinatorByPollinatorID(controller.getPollinatorIDByPollinatorName(pollinator_name)));
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+
+                            //Jenky DataForm ID Initialization
+                            int dataform_id = 0;
+                            try {
+                                dataform_id = (controller.getAllDataFormIDs().size()+1);
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+
                             //Set Pollinator Visit Counts
-                            visit_count = Integer.parseInt(req.getParameter("visitCountStrain" + j + "Pollinator" + k));//Variable From Input Form
-                            if(!"".equals(visit_count) && visit_count != 0) { };
+                            PollinatorVisitCount pollinatorVisitCount = new PollinatorVisitCount(dataform_id, k, polldataForm.getPlants().get(i).getPlantID(),
+                                    dataForm.getPlantStrains().get(j).getStrainID(),
+                                    0, 0, 0);
+                            visit_count = Integer.parseInt(req.getParameter("plant" + i + "strain" + j +"pollinator" + k + "visitCount"));//Variable From Input Form
+                            if(!"".equals(visit_count) && visit_count != 0) { visitCounts. };
                         }
 
                     }

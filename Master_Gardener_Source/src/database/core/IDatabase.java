@@ -27,6 +27,7 @@ public interface IDatabase {
 	public int getPlantIDByPlantName(final String plant_name) throws SQLException;
 	public int getStrainIDByStrainName(final String strain_name) throws SQLException;
 	public int getPollinatorIDByPollinatorName(final String poll_name) throws SQLException;
+	public Pollinator getPollinatorByPollinatorID(final int pollinator_id) throws SQLException;
 	public String getPollinatorNameByPollinatorID(final int pollinator_id) throws SQLException;
 	public String getCountyByCountyID(final int county_id);
 	public String getCountyByStateName(final String state_name);
@@ -53,8 +54,9 @@ public interface IDatabase {
 	public int queryForLoginIdByUsername(String username);
 	//public User queryForUserAccountByUsername(String username); // TODO:: ADD this method
 	public String queryForPasswordByUsername(String username);
-	public List<Integer> getUnconfirmedDataformIDsByCounty(String county) throws SQLException;
-	public List<String> getUnconfirmedDataformsByCounty(String county) throws SQLException;
+	public List<Integer> getAllDataFormIDs() throws SQLException;
+	public List<Integer> getUnconfirmedDataFormIDsByCounty(String county) throws SQLException;
+	public List<String> getUnconfirmedDataFormsByCounty(String county) throws SQLException;
 	public String hashString(String password) throws SQLException;
 
 	//========================================================================================================

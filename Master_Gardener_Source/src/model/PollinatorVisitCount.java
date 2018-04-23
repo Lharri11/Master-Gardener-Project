@@ -4,13 +4,13 @@ public class PollinatorVisitCount
 {
 	private int id, data_form_id, pollinator_id, plant_id, strain_id, visit_count;
 
-	public PollinatorVisitCount(int id, int data_form_id, int pollinator_id, int plant_id, int count)
+	public PollinatorVisitCount(int id, int data_form_id, int pollinator_id, int plant_id, int strain_id, int count)
 	{
 		this.setId(id);
 		this.setData_form_id(data_form_id);
 		this.setPollinator_id(pollinator_id);
 		this.setPlant_id(plant_id);
-		//this.setStrain_id(strain_id);
+		this.setStrain_id(strain_id);
 		this.setVisit_count(count);
 	}
 

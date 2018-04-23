@@ -1060,6 +1060,34 @@ public class MySQLDatabase implements IDatabase {
         }
     }
 
+    public Pollinator getPollinatorByPollinatorID(final int pollinator_id) throws SQLException {
+        {
+            DataSource ds = getMySQLDataSource();
+            Connection conn = ds.getConnection();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            Pollinator pollinator = new Pollinator(0, null, null);
+
+            try {
+
+                stmt = conn.prepareStatement(" SELECT * FROM mg_pollinator WHERE pollinator_id = ? ");
+                stmt.setInt(1, pollinator_id);
+                rs = stmt.executeQuery();
+
+                if (!rs.next()) {
+                    System.out.println("No Pollinator matching ID <" + pollinator_id + "> found");
+                }
+                else{
+                    loadPollinator(pollinator, rs, 1);
+                }
+            } finally {
+                DBUtil.closeQuietly(stmt);
+                DBUtil.closeQuietly(rs);
+            }
+            return pollinator;
+        }
+    }
+
     public String getPollinatorNameByPollinatorID(final int pollinator_id) throws SQLException {
         {
             DataSource ds = getMySQLDataSource();
@@ -1085,7 +1113,7 @@ public class MySQLDatabase implements IDatabase {
     }
 
     /** This is a backend helper method for the primary method getUnconfirmedDataformsByCounty**/
-    public List<Integer> getUnconfirmedDataformIDsByCounty(String county) throws SQLException
+    public List<Integer> getUnconfirmedDataFormIDsByCounty(String county) throws SQLException
     {
         {
             DataSource ds = getMySQLDataSource();
@@ -1127,13 +1155,13 @@ public class MySQLDatabase implements IDatabase {
         }
     }
     /** Use this for frontend work, this is the primary method for getting unconfirmed dataforms **/
-    public List<String> getUnconfirmedDataformsByCounty(String county) throws SQLException
+    public List<String> getUnconfirmedDataFormsByCounty(String county) throws SQLException
     {
         DataSource ds = getMySQLDataSource();
         Connection conn = ds.getConnection();
 
         // Get list of county IDs
-        List<Integer> cids = getUnconfirmedDataformIDsByCounty(county);
+        List<Integer> cids = getUnconfirmedDataFormIDsByCounty(county);
 
         ArrayList<String> return_list = new ArrayList<>();
         PreparedStatement stmt1 = null;
@@ -1209,6 +1237,33 @@ public class MySQLDatabase implements IDatabase {
         }
 
         return return_list;
+    }
+
+    public List<Integer> getAllDataFormIDs() throws SQLException {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt1 = null;
+        ResultSet rs = null;
+        ArrayList<Integer> data_form_ids = new ArrayList<Integer>();
+
+        try {
+
+            stmt1 = conn.prepareStatement("SELECT id FROM mg_data_form");
+            rs = stmt1.executeQuery();
+            if(!rs.next()) {
+                System.out.println("Error Acquiring DataForm IDs");
+                return new ArrayList<Integer>();
+            }
+            else {
+                while(rs.next()){
+                    data_form_ids.add(rs.getInt(1));
+                }
+            }
+        } finally {
+            DBUtil.closeQuietly(stmt1);
+            DBUtil.closeQuietly(rs);
+        }
+        return data_form_ids;
     }
 
     private boolean insertUserIntoUsers(Connection conn, User user) throws SQLException {
@@ -3590,6 +3645,12 @@ public class MySQLDatabase implements IDatabase {
         strain.setStrainID(resultSet.getInt(index++));
         strain.setStrainName(resultSet.getString(index++));
         strain.setStrainType(resultSet.getString(index++));
+    }
+
+    private void loadPollinator(Pollinator pollinator, ResultSet resultSet, int index) throws SQLException {
+        pollinator.setPollinatorID(resultSet.getInt(index++));
+        pollinator.setPollinatorName(resultSet.getString(index++));
+        pollinator.setPollinatorType(resultSet.getString(index++));
     }
 
     public interface Transaction<ResultType> {
