@@ -12,12 +12,12 @@ public class PollinatorDataForm
 	private int who_confirmed_id;
 	private int week_number;
 	private int temperature;
-	private ArrayList<Plot> plot;
-	private ArrayList<PollinatorVisitCount> pvc;
+	private ArrayList<Plot> plots;
+	private ArrayList<PollinatorVisitCount> visitCounts;
 	private ArrayList<User> generators;
 	private ArrayList<Pollinator> pollinators;
 	private ArrayList<Plant> plants;
-	private ArrayList<PlantStrain> plantStrains;
+	private ArrayList<PlantStrain> strains;
 
 	private LocalDate date_collected;
 	private LocalDate date_generated;
@@ -25,38 +25,41 @@ public class PollinatorDataForm
 	private LocalTime monitor_start;
 	private LocalTime monitor_stop;
 	private String comments;
+    private String butterfly_moth_comments = null;
 	private String cloud_status;
 	private String wind_status;
 	private int confirmed;
-	private String butterfly_moth_comments = null;
 
-	public PollinatorDataForm(int data_form_id, int garden_id, int county_id, ArrayList<User> generators, int week_number, int temperature, LocalDate date_collected, LocalDate date_generated, LocalDate date_confirmed,
-							  LocalTime monitor_start, LocalTime monitor_stop, String comments, String butterfly_moth_comments, String cloud_status, String wind_status, ArrayList<Plot> plot, ArrayList<Plant> plants, ArrayList<PlantStrain> strains,
-							  ArrayList<Pollinator> poll, ArrayList<PollinatorVisitCount> pvc)
+	public PollinatorDataForm(int data_form_id, int garden_id, int county_id, ArrayList<User> generators, int week_number, LocalDate date_collected,
+                              LocalDate date_generated, LocalDate date_confirmed, String wind_status, String cloud_status, String comments,
+                              String butterfly_moth_comments, int temperature, LocalTime monitor_start, LocalTime monitor_stop, int confirmed,
+                              ArrayList<Plot> plots, ArrayList<Plant> plants, ArrayList<PlantStrain> strains, ArrayList<Pollinator> pollinators,
+                              ArrayList<PollinatorVisitCount> visitCounts)
 	{
 		this.data_form_id = data_form_id;
 		this.garden_id = garden_id;
 		this.county_id = county_id;
 		this.generators = generators;
 		this.week_number = week_number;
-		this.temperature = temperature;
-		this.date_collected = date_collected;
-		this.date_generated = date_generated;
-		this.monitor_start = monitor_start;
-		this.monitor_stop = monitor_stop;
+        this.date_collected = date_collected;
+        this.date_generated = date_generated;
+        this.date_confirmed = date_confirmed;
+        this.wind_status = wind_status;
+        this.cloud_status = cloud_status;
         this.comments = comments;
         this.butterfly_moth_comments = butterfly_moth_comments;
-		this.cloud_status = cloud_status;
-		this.wind_status = wind_status;
-		this.plot = plot;
+		this.temperature = temperature;
+		this.monitor_start = monitor_start;
+		this.monitor_stop = monitor_stop;
+        this.confirmed = 0;
+		this.plots = plots;
 		this.plants = plants;
-		this.plantStrains = strains;
-		this.pollinators = poll;
-		this.pvc = pvc;
-		this.confirmed = 0;
+		this.strains = strains;
+		this.pollinators = pollinators;
+		this.visitCounts = visitCounts;
 	}
 
-	public String getButterflyMothComments()
+    public String getButterflyMothComments()
 	{
 		return this.butterfly_moth_comments;
 	}
@@ -199,10 +202,10 @@ public class PollinatorDataForm
 	public void setPlants(ArrayList<Plant> plants) { this.plants = plants; }
 
 	public ArrayList<PlantStrain> getPlantStrains() {
-		return plantStrains;
+		return strains;
 	}
 
-	public void setPlantStrains(ArrayList<PlantStrain> plantStrains) { this.plantStrains = plantStrains; }
+	public void setPlantStrains(ArrayList<PlantStrain> plantStrains) { this.strains = strains; }
 
 	public ArrayList<User> getGenerators() {
 		return generators;
@@ -213,21 +216,21 @@ public class PollinatorDataForm
 	}
 
     public ArrayList<PollinatorVisitCount> getPollinatorVisitCounts() {
-        return pvc;
+        return visitCounts;
     }
 
     public void setPollinatorVisitCounts(ArrayList<PollinatorVisitCount> pvc) {
-        this.pvc = pvc;
+        this.visitCounts = visitCounts;
     }
 
-	public void setPlot(ArrayList<Plot> plot)
+	public void setPlots(ArrayList<Plot> plot)
 	{
-		this.plot = plot;
+		this.plots = plots;
 	}
 
-	public ArrayList<Plot> getPlot()
+	public ArrayList<Plot> getPlots()
 	{
-		return this.plot;
+		return this.plots;
 	}
 
 	public int getConfirmedStatus()

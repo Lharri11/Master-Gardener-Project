@@ -16,7 +16,7 @@ import javax.mail.internet.MimeMessage;
 
 public class EmailUtility {
     public static void sendEmail(String host, String port,
-                                 final String userName, final String password, String toAddress,
+                                 final String user_name, final String password, String toAddress,
                                  String subject, String message) throws AddressException,
             MessagingException {
 
@@ -30,7 +30,7 @@ public class EmailUtility {
         // creates a new session with an authenticator
         Authenticator auth = new Authenticator() {
             public PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(userName, password);
+                return new PasswordAuthentication(user_name, password);
             }
         };
 
@@ -39,7 +39,7 @@ public class EmailUtility {
         // creates a new e-mail message
         Message msg = new MimeMessage(session);
 
-        msg.setFrom(new InternetAddress(userName));
+        msg.setFrom(new InternetAddress(user_name));
         InternetAddress[] toAddresses = { new InternetAddress(toAddress) };
         msg.setRecipients(Message.RecipientType.TO, toAddresses);
         msg.setSubject(subject);

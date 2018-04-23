@@ -30,6 +30,8 @@ public interface IDatabase {
 	public String getPollinatorNameByPollinatorID(final int pollinator_id) throws SQLException;
 	public String getCountyByCountyID(final int county_id);
 	public String getCountyByStateName(final String state_name);
+	public User getUserFromUserID(final int user_id) throws SQLException;
+	public User getUserFromUserName(final String user_name) throws SQLException;
 	public int getUserIDFromFirstNameAndLastName(final String first_name, final String last_name) throws SQLException;
 	public String getGardenAddressByGardenID(final int garden_id);
 	public List<User> getAllUsernames() throws SQLException;
@@ -127,7 +129,8 @@ public interface IDatabase {
 	// get strain by plant
 	//
 	public List<String> getStrainByPlant(final Plant plant) throws SQLException;
-	public List<PlantStrain> getStrainByStrainID(final int strain_id) throws SQLException;
+	public PlantStrain getStrainByStrainID(final int strain_id) throws SQLException;
 	public String getPlantNameByGarden(final Garden garden) throws SQLException;
+	public Plant getPlantByPlantID(final int plant_id) throws SQLException;
 	public int queryForVisitCountByFieldsFromPollVisit(final int data_form_id, int pollinator_id, int plant_id, int strain_id);
 }

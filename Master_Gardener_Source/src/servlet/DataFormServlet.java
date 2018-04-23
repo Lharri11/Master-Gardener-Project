@@ -57,19 +57,22 @@ public class DataFormServlet extends HttpServlet {
         int plants_total = 2;
         int strains_total = 9;
         int pollinators_total = 9;
-        ArrayList<Plant> plants = new ArrayList<>();
-        ArrayList<PlantStrain> strains = new ArrayList<>();
-        ArrayList<Pollinator> pollinators = new ArrayList<>();
-        ArrayList<PollinatorVisitCount> visitCounts = new ArrayList<>();
-        ArrayList<Plot> plotData = new ArrayList<>();
+        PollinatorDataForm dataForm = new PollinatorDataForm(-1, -1, -1, null, -1,
+                null, null,  null, null, null, null, null,
+                0, null, null , 0, null, null, null, null, null);
+        ArrayList<Plot> plots = new ArrayList<Plot>();
+        ArrayList<Plant> plants = new ArrayList<Plant>();
+        ArrayList<PlantStrain> strains = new ArrayList<PlantStrain>();
+        ArrayList<Pollinator> pollinators = new ArrayList<Pollinator>();
+        ArrayList<PollinatorVisitCount> visitCounts = new ArrayList<PollinatorVisitCount>();
         String buttonPress = null;
         String errorMessage = null;
 
         //DataForm Generators & Garden Information
-        String generator_name1 = null;
-        String generator_name2 = null;
-        String generator_name3 = null;
-        String generator_name4 = null;
+        String generator_user_name1 = null;
+        String generator_user_name2 = null;
+        String generator_user_name3 = null;
+        String generator_user_name4 = null;
         String county = null;
         String garden_name = null;
 
@@ -113,10 +116,10 @@ public class DataFormServlet extends HttpServlet {
         {
             System.out.println("DataForm submitted");
             //DataForm Generators & Garden Information
-            generator_name1 = req.getParameter("generatorName1");
-            generator_name2 = req.getParameter("generatorName2");
-            generator_name3 = req.getParameter("generatorName3");
-            generator_name4 = req.getParameter("generatorName4");
+            generator_user_name1 = req.getParameter("generatorUserName1");
+            generator_user_name2 = req.getParameter("generatorUserName2");
+            generator_user_name3 = req.getParameter("generatorUserName3");
+            generator_user_name4 = req.getParameter("generatorUserName4");
             garden_name = req.getParameter("garden_name");
 
             //DataForm Date & Time Information
@@ -139,10 +142,10 @@ public class DataFormServlet extends HttpServlet {
             plot_area_dbl = Double.parseDouble(req.getParameter("plotAreaDbl"));
             plot_percent_coverage = Double.parseDouble(req.getParameter("plotPercentCoverage"));
 
-            if ("".equals(generator_name1) || generator_name1 == null) {
+            if ("".equals(generator_user_name1) || generator_user_name1 == null) {
                 errorMessage = "Please enter the name of at least one (1) DataForm Generator";
                 System.out.printf("%s", errorMessage);
-                generator_name1 = null;
+                generator_user_name1 = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
             }
@@ -199,9 +202,30 @@ public class DataFormServlet extends HttpServlet {
 
                 System.out.println("All parameters accepted successfully");
 
+                //
+                // ------------------------------ Set DataForm Fields ------------------------------ //
+                //
+                dataForm.setWeek_number(week_num);
+                dataForm.setWeek_number(week_num);
+                dataForm.setWeek_number(week_num);
+                dataForm.setWeek_number(week_num);
+                dataForm.setWeek_number(week_num);
+                try {
+                    //Set Generators
+                    dataForm.getGenerators().add(controller.getUserFromUserName(generator_user_name1));
+                    if("".equals(generator_user_name2)){ dataForm.getGenerators().add(controller.getUserFromUserName(generator_user_name2)); }
+                    if("".equals(generator_user_name3)){ dataForm.getGenerators().add(controller.getUserFromUserName(generator_user_name3)); }
+                    if("".equals(generator_user_name4)){ dataForm.getGenerators().add(controller.getUserFromUserName(generator_user_name4)); }
+                    dataForm.getGenerators().add(controller.getUserFromUserName(generator_user_name1));
+                    dataForm.setGarden_id(controller.getGardenIDByGardenName(garden_name));
+                    dataForm.setCounty_id(controller.getCountyIDByGardenName(garden_name));
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
                 for(int i = 1; i <= (plants.size()+1); i++)
                 {
-                    plant_name = req.getParameter("plantName" + i);
+                    plant_name = req.getParameter("plantName" + i);//Variable from Drop-Down
                     if ("".equals(plant_name) || plant_name == null) {
                         errorMessage = "Please enter the genus (plant) name for the plot";
                         System.out.printf("%s", errorMessage);
@@ -211,14 +235,15 @@ public class DataFormServlet extends HttpServlet {
                     }
 
                     try {
-                        plants.get(i).setPlantID(controller.getPlantIDByPlantName(plant_name));//Variable from Drop-Down
+                        plants.add(controller.getPlantByPlantID(controller.getPlantIDByPlantName(plant_name)));
+
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
 
                     for(int j = 1; j <= (strains.size()+1); j++)
                     {
-                        strain_name = req.getParameter("strainName" + j);
+                        strain_name = req.getParameter("strainName" + j);//Variable from Drop-Down
                         if ("".equals(strain_name) || strain_name == null) {
                             errorMessage = "Please enter the species (strain) name for the first pollinator";
                             System.out.printf("%s", errorMessage);
@@ -228,7 +253,7 @@ public class DataFormServlet extends HttpServlet {
                         }
 
                         try {
-                            strains.get(i).setStrainID(controller.getStrainIDByStrainName(strain_name));//Variable from Drop-Down
+                            strains.add(controller.getStrainByStrainID(controller.getStrainIDByStrainName(strain_name)));
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }

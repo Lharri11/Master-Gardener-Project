@@ -658,7 +658,7 @@ public class MySQLDatabase implements IDatabase {
 
             stmt3 = conn.prepareStatement(
                     "DELETE from mg_user "
-                            + " WHERE userName = ? ");
+                            + " WHERE user_name = ? ");
             stmt3.setString(1, user.getUsername());
             stmt3.executeUpdate();
 
@@ -709,7 +709,7 @@ public class MySQLDatabase implements IDatabase {
         try {
             String password = null;
 
-            stmt = conn.prepareStatement("SELECT passWord FROM mg_user WHERE userName = ? ");
+            stmt = conn.prepareStatement("SELECT passWord FROM mg_user WHERE user_name = ? ");
             stmt.setString(1, user.getUsername());
             //stmt.setString(2, user.getDescription());
             set = stmt.executeQuery();
@@ -811,17 +811,17 @@ public class MySQLDatabase implements IDatabase {
         return success;
     }
 
-    private User getUserFromUsername(Connection conn, String username) throws SQLException {
+    public User getUserFromUserName(String username) throws SQLException {
         DataSource ds = getMySQLDataSource();
-        conn = ds.getConnection();
-
-        User user;
+        Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
+        User user;
+
         try {
             stmt = conn.prepareStatement(
                     " SELECT * FROM mg_user "
-                            + " WHERE userName=?");
+                            + " WHERE user_name=?");
             stmt.setString(1, username);
 
             set = stmt.executeQuery();
@@ -831,6 +831,31 @@ public class MySQLDatabase implements IDatabase {
             loadUser(user, set, 1);
 
 
+        } finally {
+            DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(set);
+        }
+        return user;
+    }
+
+    public User getUserFromUserID(int user_id) throws SQLException {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+        User user = new User(null, null, 0, null, null, null, 0);;
+
+        try {
+            stmt = conn.prepareStatement(
+                    " SELECT * FROM mg_user "
+                            + " WHERE user_id = ?");
+            stmt.setInt(1, user_id);
+            set = stmt.executeQuery();
+            set.next();
+
+            if(set.next()) {
+                loadUser(user, set, 1);
+            }
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
@@ -1194,7 +1219,7 @@ public class MySQLDatabase implements IDatabase {
 
         try {
             stmt1 = conn.prepareStatement(
-                    "INSERT INTO mg_user (userName, passWord, login_id, name, email, description) "
+                    "INSERT INTO mg_user (user_name, passWord, login_id, name, email, description) "
                             + " VALUES(?, SHA2(?, 512),?,?,?,?)");
             stmt1.setString(1, user.getUsername());
             stmt1.setString(2, user.getPassword());
@@ -1208,7 +1233,7 @@ public class MySQLDatabase implements IDatabase {
 
             stmt2 = conn.prepareStatement(
                     "SELECT user_ID FROM mg_user "
-                            + " WHERE userName = ?");
+                            + " WHERE user_name = ?");
             stmt2.setString(1, user.getUsername());
             set = stmt2.executeQuery();
 
@@ -1368,7 +1393,7 @@ public class MySQLDatabase implements IDatabase {
 
         try
         {
-            stmt1 = conn.prepareStatement("SELECT user_id FROM mg_user WHERE userName = ? AND passWord = SHA2(?, 512)");
+            stmt1 = conn.prepareStatement("SELECT user_id FROM mg_user WHERE user_name = ? AND passWord = SHA2(?, 512)");
             stmt1.setString(1, user_name);
             stmt1.setString(2, old_password);
 
@@ -1382,7 +1407,7 @@ public class MySQLDatabase implements IDatabase {
 
             stmt1 = conn.prepareStatement("UPDATE mg_user" +
                     " SET passWord = SHA2(?, 512) " +
-                    " WHERE userName = ? ");
+                    " WHERE user_name = ? ");
 
             stmt1.setString(1, new_password);
             stmt1.setString(2, user_name);
@@ -1390,7 +1415,7 @@ public class MySQLDatabase implements IDatabase {
             stmt1.executeUpdate();
 
             // Check to see if password updated
-            stmt2 = conn.prepareStatement("SELECT user_ID FROM mg_user WHERE passWord = SHA2(?, 512) AND userName = ?");
+            stmt2 = conn.prepareStatement("SELECT user_ID FROM mg_user WHERE passWord = SHA2(?, 512) AND user_name = ?");
             stmt2.setString(1, new_password);
             stmt2.setString(2, user_name);
             rs = stmt2.executeQuery();
@@ -2375,7 +2400,7 @@ public class MySQLDatabase implements IDatabase {
                 public User query(Connection conn) throws SQLException {
                     User user = null;
                     if (verifyUserExistsByUsername(conn, username)) {
-                        user = getUserFromUsername(conn, username);
+                        user = getUserFromUserName(username);
                     }
                     return user;
                 }
@@ -3198,10 +3223,10 @@ public class MySQLDatabase implements IDatabase {
                         stmt5 = conn.prepareStatement("UPDATE mg_plot " +
                                 "SET percent_coverage = ?, plot_area_dbl = ?, plot_height = ?, blooms_open_status = ? " +
                                 " WHERE plant_id = ? AND plant_strain_id = ?");
-                        stmt5.setDouble(1, pdf.getPlot().get(strain).getPercent_coverage());
-                        stmt5.setDouble(2, pdf.getPlot().get(strain).getPlot_area_dbl());
-                        stmt5.setDouble(3, pdf.getPlot().get(strain).getPlot_height());
-                        stmt5.setString(4, pdf.getPlot().get(strain).getBlooms_open_status());
+                        stmt5.setDouble(1, pdf.getPlots().get(strain).getPercent_coverage());
+                        stmt5.setDouble(2, pdf.getPlots().get(strain).getPlot_area_dbl());
+                        stmt5.setDouble(3, pdf.getPlots().get(strain).getPlot_height());
+                        stmt5.setString(4, pdf.getPlots().get(strain).getBlooms_open_status());
                         stmt5.setInt(5, pdf.getPlants().get(i).getPlantID());
                         stmt5.setInt(6, pdf.getPlantStrains().get(strain).getStrainID());
                     }
@@ -3260,7 +3285,7 @@ public class MySQLDatabase implements IDatabase {
                     ResultSet resultSet = null;
                     try {
                         stmt = conn.prepareStatement(
-                                " SELECT userName, email, name FROM mg_user ");
+                                " SELECT user_name, email, name FROM mg_user ");
 
                         resultSet = stmt.executeQuery();
 
@@ -3337,13 +3362,13 @@ public class MySQLDatabase implements IDatabase {
         return result_set;
     }
 
-    public List<PlantStrain> getStrainByStrainID(final int strain_id) throws SQLException {
+    public PlantStrain getStrainByStrainID(final int strain_id) throws SQLException {
         DataSource ds = getMySQLDataSource();
         Connection conn = ds.getConnection();
         PreparedStatement stmt = null;
         ResultSet set = null;
         boolean found = false;
-        List<PlantStrain> strain = new ArrayList<PlantStrain>();
+        PlantStrain strain = new PlantStrain(0, 0,null, null);
 
         try {
             stmt = conn.prepareStatement("SELECT * FROM mg_strain WHERE strain_id = ?");
@@ -3352,9 +3377,7 @@ public class MySQLDatabase implements IDatabase {
 
             while (set.next()) {
                 found = true;
-                PlantStrain strain1 = new PlantStrain(0, 0,null, null);
-                loadStrain(strain1, set, 1);
-                strain.add(strain1);
+                loadStrain(strain, set, 1);
             }
 
         } catch (SQLException e) {
@@ -3370,6 +3393,39 @@ public class MySQLDatabase implements IDatabase {
         }
 
         return strain;
+    }
+
+    public Plant getPlantByPlantID(final int plant_id) throws SQLException {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+        boolean found = false;
+        Plant plant = new Plant(0,null);
+
+        try {
+            stmt = conn.prepareStatement("SELECT * FROM mg_plant WHERE plant_id = ?");
+            stmt.setInt(1, plant_id);
+            set = stmt.executeQuery();
+
+            while (set.next()) {
+                found = true;
+                loadPlant(plant, set, 1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("There was an error in the getPlantByPlantID method.");
+        } finally {
+            DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(set);
+        }
+
+        if (!found) {
+            System.out.println("There was no Plant found for the designated Plant ID");
+        }
+
+        return plant;
     }
 
     public String getPlantNameByGarden(final Garden garden) throws SQLException {

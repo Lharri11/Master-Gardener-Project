@@ -379,7 +379,7 @@ public class MySQLDatabaseTest {
 
         User user = new User("Alex", "Alex", -1, "Alex@gmail", "name", "desc", null);
         try {
-            stmt = conn.prepareStatement("insert into mg_user (user_ID, userName, passWord, login_id, email, name, description)" +
+            stmt = conn.prepareStatement("insert into mg_user (user_ID, user_name, passWord, login_id, email, name, description)" +
                     " VALUES (-3, 'Alex', 'Alex', -1, 'Alex@gmail', 'name', 'desc')");
             stmt.executeUpdate();
 
@@ -387,7 +387,7 @@ public class MySQLDatabaseTest {
             {
                 success = true;
             } else {
-                stmt = conn.prepareStatement("DELETE FROM mg_user WHERE userName = 'Alex' AND passWord = 'Alex' AND email = 'Alex@gmail'");
+                stmt = conn.prepareStatement("DELETE FROM mg_user WHERE user_name = 'Alex' AND passWord = 'Alex' AND email = 'Alex@gmail'");
                 stmt.executeUpdate();
             }
             assertEquals(success, true);
@@ -1197,12 +1197,12 @@ public class MySQLDatabaseTest {
 
         try
         {
-            stmt = conn.prepareStatement("INSERT INTO mg_user (user_id, userName, passWord, login_id, email, name, description)" +
+            stmt = conn.prepareStatement("INSERT INTO mg_user (user_id, user_name, passWord, login_id, email, name, description)" +
                     " VALUES (-42, 'Orange', SHA2('creamyPie', 512), -1, 'cykablyat@cheekibreeki.ivdamke', 'Ivan', 'i am of the russian man')");
 
             stmt.executeUpdate();
 
-            stmt = conn.prepareStatement("SELECT userName FROM mg_user WHERE userName = ? AND passWord = SHA2(?, 512) AND email = ? ");
+            stmt = conn.prepareStatement("SELECT user_name FROM mg_user WHERE user_name = ? AND passWord = SHA2(?, 512) AND email = ? ");
             stmt.setString(1, "Orange");
             stmt.setString(2, "creamyPie");
             stmt.setString(3, "cykablyat@cheekibreeki.ivdamke");
@@ -1212,7 +1212,7 @@ public class MySQLDatabaseTest {
             if(set.next())
             {
                 success = db.updatePassword("Orange", "creamyPie", "mother_russiA");
-                stmt = conn.prepareStatement("DELETE FROM mg_user WHERE userName = ? AND passWord = SHA2(?, 512) AND email = ? AND user_ID = ?");
+                stmt = conn.prepareStatement("DELETE FROM mg_user WHERE user_name = ? AND passWord = SHA2(?, 512) AND email = ? AND user_ID = ?");
 
                 stmt.setString(1, "Orange");
                 stmt.setString(2, "mother_russiA");
@@ -1223,7 +1223,7 @@ public class MySQLDatabaseTest {
             }
             else
             {
-                stmt = conn.prepareStatement("DELETE FROM mg_user WHERE userName = ? AND passWord = SHA2(?, 512) AND email = ? AND user_ID = ?");
+                stmt = conn.prepareStatement("DELETE FROM mg_user WHERE user_name = ? AND passWord = SHA2(?, 512) AND email = ? AND user_ID = ?");
 
                 stmt.setString(1, "Orange");
                 stmt.setString(2, "creamyPie");
