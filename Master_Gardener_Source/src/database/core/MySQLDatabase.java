@@ -1,3 +1,6 @@
+// MySQLDatabase primarily developed by Alex Brown and Logan Harris
+// Enjoy trying to figure out our convoluted an messy code.
+
 package database.core;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
