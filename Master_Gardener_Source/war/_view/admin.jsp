@@ -129,7 +129,7 @@
 
 <div class="container admin-page-top-padding">
     <div class="row">
-        <div class="col-lg-6 offset-lg-3 align-content-lg-center">
+        <div class="col-lg-4">
 
             <form id="register-form" action="${pageContext.servletContext.contextPath}/signup"
                   method="post"
