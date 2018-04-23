@@ -1326,6 +1326,11 @@ public class MySQLDatabase implements IDatabase {
 
             int county_id = 0;
             boolean cont;
+            if(!set1.next())
+            {
+                county_names.add("NO COUNTIES WITH UNCONFIRMED DFs.");
+                return county_names;
+            }
             while(set1.next())
             {
                 cont = true;
