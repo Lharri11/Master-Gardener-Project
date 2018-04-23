@@ -1306,6 +1306,63 @@ public class MySQLDatabase implements IDatabase {
             return df_list;
         }
     }
+    public List<String> getCountiesWithUnconfirmedDataforms () throws SQLException
+    {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+
+        ArrayList<Integer> county_ids = new ArrayList<>();
+        ArrayList<String> county_names = new ArrayList<>();
+
+        PreparedStatement stmt1 = null;
+        ResultSet set1 = null;
+
+        try
+        {
+            stmt1 = conn.prepareStatement("SELECT county_id FROM mg_data_form WHERE confirmed = ?");
+            stmt1.setInt(1, 0);
+
+            set1 = stmt1.executeQuery();
+
+            int county_id = 0;
+            boolean cont;
+            while(set1.next())
+            {
+                cont = true;
+                county_id = set1.getInt(1);
+
+                for(int i = 0; i < county_ids.size(); i++)
+                {
+                    if(county_id == county_ids.get(i))
+                    {
+                        cont = false;
+                    }
+                }
+                if(cont)
+                {
+                    county_ids.add(county_id);
+                }
+            }
+            for(int i = 0; i < county_ids.size(); i++) {
+                stmt1 = conn.prepareStatement("SELECT countyName FROM mg_county WHERE county_ID = ?");
+                stmt1.setInt(1, county_ids.get(i));
+                set1 = stmt1.executeQuery();
+
+                if(set1.next())
+                {
+                    county_names.add(set1.getString(1));
+                }
+            }
+        }
+        finally
+        {
+            DBUtil.closeQuietly(stmt1);
+            DBUtil.closeQuietly(set1);
+        }
+        return county_names;
+    }
+
+
     /** Use this for frontend work, this is the primary method for getting unconfirmed dataforms **/
     public List<String> getUnconfirmedDataformsByCounty(String county) throws SQLException
     {
