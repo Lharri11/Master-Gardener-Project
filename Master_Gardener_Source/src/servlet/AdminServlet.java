@@ -37,11 +37,24 @@ public class AdminServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+        List<String> unconfirmed = new ArrayList<>();
+        AdminController controller1 = new AdminController();
+        controller1 = new AdminController();
+        try {
+            unconfirmed = controller1.getAllUnconfirmedDataForm();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
 
         System.out.println(activeAccounts);
+        for (int i = 0; i <= unconfirmed.size(); i++) {
+            System.out.println(unconfirmed.get(i));
+        }
 
-
+        System.out.println("Worked!!!");
         req.setAttribute("activeAccounts", activeAccounts);
+        req.setAttribute("unconfirmed", unconfirmed);
         req.getRequestDispatcher("/_view/admin.jsp").forward(req, resp);
 
     }
