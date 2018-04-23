@@ -3,6 +3,7 @@ package controller;
 import database.core.DatabaseProvider;
 import database.core.MySQLDatabase;
 import database.core.IDatabase;
+import model.PollinatorDataForm;
 import model.User;
 
 import java.sql.SQLException;
@@ -26,8 +27,7 @@ public class AdminController {
     public List<User> getAllUsernames() throws SQLException {
         List<User> activeAccounts = database.getAllUsernames();
 
-        System.out.println("Active Accounts:");
-
+        System.out.println("Active Accountss:");
         if (activeAccounts.isEmpty()) {
             System.out.println("No active accounts. This shouldn't appear.....come'on you know why :P");
             return null;
@@ -36,6 +36,18 @@ public class AdminController {
         }
 
     }
+
+    public List<String> getAllUnconfirmedDataForm() throws SQLException {
+        List<String> unconfirmed = database.getUnconfirmedDataformsByCounty("Adams");
+        if (unconfirmed.isEmpty()) {
+            System.out.println("Empty");
+            return null;
+        } else {
+            System.out.println("Returned");
+            return unconfirmed;
+        }
+    }
+
     public boolean updatePollinatorVisitCountPlotIDs()
     {
         boolean success = false;
