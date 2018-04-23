@@ -108,7 +108,7 @@ public class AdminServlet extends HttpServlet {
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/admin.jsp").forward(req, resp);
             } else {
-                User user = new User(username, pass1, -1, name, email,"[Description]", new byte[1024]);
+                User user = new User(username, pass1, -1, name, email,"[Description]",0);
                 AdminController controller = new AdminController();
 
                 if (controller.createUser(user)) {

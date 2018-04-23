@@ -2,22 +2,19 @@ package model;
 
 public class Plot {
 
-    private int plot_id, plant_id, plant_strain_id;
+    private int plot_id, garden_id, plant_id, strain_id;
     private double plot_height, plot_area_dbl, percent_coverage;
-    private String plot_area_unit;
-    private String blooms_open_status, plant_vigor_status;
+    private String blooms_open_status;
 
-    public Plot(int plot_id, int plant_id, double plot_height, double percent_coverage, double plot_area_dbl, String plot_area_unit, String blooms_open_status, String plant_vigor_status)
+    public Plot(int garden_id, int plant_id, int strain_id, double plot_height, double plot_area_dbl, double percent_coverage, String blooms_open_status)
     {
-        this.plot_id = plot_id;
+        this.garden_id = garden_id;
         this.plant_id = plant_id;
+        this.strain_id = strain_id;
         this.plot_height = plot_height;
         this.plot_area_dbl = plot_area_dbl;
         this.percent_coverage = percent_coverage;
-        this.plot_area_unit = plot_area_unit;
         this.blooms_open_status = blooms_open_status;
-        this.plant_vigor_status = plant_vigor_status;
-        //this.plant_strain_id = plant_strain_id;
     }
 
     public int getPlot_id() {
@@ -60,35 +57,11 @@ public class Plot {
         this.percent_coverage = percent_coverage;
     }
 
-    public String getPlot_area_unit() {
-        return plot_area_unit;
-    }
-
-    public void setPlot_area_unit(String plot_area_unit) {
-        this.plot_area_unit = plot_area_unit;
-    }
-
     public String getBlooms_open_status() {
         return blooms_open_status;
     }
 
     public void setBlooms_open_status(String blooms_open_status) {
         this.blooms_open_status = blooms_open_status;
-    }
-
-    public String getPlant_vigor_status() {
-        return plant_vigor_status;
-    }
-
-    public void setPlant_vigor_status(String plant_vigor_status) {
-        this.plant_vigor_status = plant_vigor_status;
-    }
-
-    public int getPlant_strain_id() {
-        return plant_strain_id;
-    }
-
-    public void setPlant_strain_id(int plant_strain_id) {
-        this.plant_strain_id = plant_strain_id;
     }
 }
