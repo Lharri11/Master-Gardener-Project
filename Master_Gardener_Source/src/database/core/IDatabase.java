@@ -126,13 +126,10 @@ public interface IDatabase {
 	public boolean insertUserPortrait(String username, User user, String filePath);
 	public boolean insertGardenDocument(String garden, int garden_id, String filePath) throws SQLException;
 
-
-	// get plant by garden
-	// get strain by plant
-	//
-	public List<String> getStrainByPlant(final Plant plant) throws SQLException;
-	public PlantStrain getStrainByStrainID(final int strain_id) throws SQLException;
 	public String getPlantNameByGarden(final Garden garden) throws SQLException;
 	public Plant getPlantByPlantID(final int plant_id) throws SQLException;
+	public List<String> getStrainByPlant(final Plant plant) throws SQLException;
+	public PlantStrain getStrainByStrainID(final int strain_id) throws SQLException;
+	public Plot getPlotByGardenIDAndStrainID(final int garden_id, final int strain_id) throws SQLException;
 	public int queryForVisitCountByFieldsFromPollVisit(final int data_form_id, int pollinator_id, int plant_id, int strain_id);
 }

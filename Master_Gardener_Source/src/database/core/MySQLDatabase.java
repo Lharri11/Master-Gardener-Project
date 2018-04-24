@@ -1248,7 +1248,7 @@ public class MySQLDatabase implements IDatabase {
 
         try {
 
-            stmt1 = conn.prepareStatement("SELECT id FROM mg_data_form");
+            stmt1 = conn.prepareStatement("SELECT id FROM mg_data_form ORDER BY id DESC");
             rs = stmt1.executeQuery();
             if(!rs.next()) {
                 System.out.println("Error Acquiring DataForm IDs");
@@ -1716,6 +1716,76 @@ public class MySQLDatabase implements IDatabase {
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Something when wrong in the updatePlotHeight method.");
+        } finally {
+            DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(stmt2);
+            DBUtil.closeQuietly(set);
+        }
+        return completed;
+    }
+    public Plot getPlotByGardenIDAndStrainID(final int garden_id, final int strain_id) throws SQLException {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+        Plot plot = new Plot(-1, -1, -1, -1, -1, -1, null);
+
+        try {
+            stmt = conn.prepareStatement("SELECT * FROM mg_plot " +
+                    "WHERE garden_id = ? AND plant_strain_id = ?");
+            stmt.setInt(1, garden_id);
+            stmt.setInt(2, strain_id);
+
+            set = stmt.executeQuery();
+
+            if(!set.next()){
+                System.out.println("No Plots found matching Garden ID <" + garden_id + "> and Strain ID<" + strain_id + ">");
+            }
+            else{
+                loadPlot(plot, set, 1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Something when wrong in the updatePlotArea method.");
+        } finally {
+            DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(set);
+        }
+        return plot;
+    }
+
+    public boolean getPlotByStrainAndGardenID(final double updated_area, final int plot_id) throws SQLException {
+        PreparedStatement stmt = null;
+        PreparedStatement stmt2 = null;
+        ResultSet set = null;
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+
+        boolean completed = false;
+        try {
+            stmt = conn.prepareStatement("UPDATE mg_plot " +
+                    "SET plot_area_dbl = ? " +
+                    "WHERE plot_id = ?");
+            stmt.setDouble(1, updated_area);
+            stmt.setInt(2, plot_id);
+
+            stmt.executeUpdate();
+
+            stmt2 = conn.prepareStatement("SELECT plot_id FROM mg_plot WHERE plot_id = ? AND plot_area_dbl = ?");
+            stmt2.setInt(1, plot_id);
+            stmt2.setDouble(2, updated_area);
+
+            set = stmt2.executeQuery();
+
+            if (set.next()) {
+                completed = true;
+            } else {
+                System.out.println("UNSUCCESSFUL UPDATE OF PLOT TABLE");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Something when wrong in the updatePlotArea method.");
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(stmt2);
@@ -3281,10 +3351,10 @@ public class MySQLDatabase implements IDatabase {
                         stmt5 = conn.prepareStatement("UPDATE mg_plot " +
                                 "SET percent_coverage = ?, plot_area_dbl = ?, plot_height = ?, blooms_open_status = ? " +
                                 " WHERE plant_id = ? AND plant_strain_id = ?");
-                        stmt5.setDouble(1, pdf.getPlots().get(strain).getPercent_coverage());
+                        stmt5.setDouble(1, pdf.getPlots().get(strain).getPlot_percent_coverage());
                         stmt5.setDouble(2, pdf.getPlots().get(strain).getPlot_area_dbl());
                         stmt5.setDouble(3, pdf.getPlots().get(strain).getPlot_height());
-                        stmt5.setString(4, pdf.getPlots().get(strain).getBlooms_open_status());
+                        stmt5.setString(4, pdf.getPlots().get(strain).getPlot_blooms_open_status());
                         stmt5.setInt(5, pdf.getPlants().get(i).getPlantID());
                         stmt5.setInt(6, pdf.getPlantStrains().get(strain).getStrainID());
                     }
@@ -3645,6 +3715,17 @@ public class MySQLDatabase implements IDatabase {
         strain.setStrainID(resultSet.getInt(index++));
         strain.setStrainName(resultSet.getString(index++));
         strain.setStrainType(resultSet.getString(index++));
+    }
+
+    private void loadPlot(Plot plot, ResultSet resultSet, int index) throws SQLException {
+        plot.setPlot_id(resultSet.getInt(index++));
+        plot.setGarden_id(resultSet.getInt(index++));
+        plot.setPlant_id(resultSet.getInt(index++));
+        plot.setStrain_id(resultSet.getInt(index++));
+        plot.setPlot_height(resultSet.getDouble(index++));
+        plot.setPlot_area_dbl(resultSet.getDouble(index++));
+        plot.setPlot_percent_coverage(resultSet.getDouble(index++));
+        plot.setPlot_blooms_open_status(resultSet.getString(index++));
     }
 
     private void loadPollinator(Pollinator pollinator, ResultSet resultSet, int index) throws SQLException {

@@ -40,6 +40,11 @@ public class DataFormController
         return this.database.getStrainByStrainID(strain_id);
     }
 
+    public Plot getPlotByGardenIDAndStrainID(final int garden_id, final int strain_id) throws SQLException {
+        return this.database.getPlotByGardenIDAndStrainID(garden_id, strain_id);
+    }
+
+
     public int getPollinatorIDByPollinatorName(final String pollinator_name) throws SQLException {
         return this.database.getPollinatorIDByPollinatorName(pollinator_name);
     }
@@ -52,12 +57,16 @@ public class DataFormController
         return this.database.getCountyIDByGardenName(garden_name);
     }
 
+    public User getUserFromUserID(final int user_id) throws SQLException {
+        return this.database.getUserFromUserID(user_id);
+    }
+
     public User getUserFromUserName(final String user_name) throws SQLException {
         return this.database.getUserFromUserName(user_name);
     }
 
-    public User getUserFromUserID(final int user_id) throws SQLException {
-        return this.database.getUserFromUserID(user_id);
+    public int getUserIDFromFirstNameAndLastName(final String first_name, final String last_name) throws SQLException {
+        return this.database.getUserIDFromFirstNameAndLastName(first_name, last_name);
     }
 
 	public boolean createDataInput(PollinatorDataForm pdf) throws SQLException {

@@ -25,6 +25,22 @@ public class Plot {
         this.plot_id = plot_id;
     }
 
+    public int getGarden_id() {
+        return garden_id;
+    }
+
+    public void setGarden_id(int garden_id) {
+        this.garden_id = garden_id;
+    }
+
+    public int getStrain_id() {
+        return strain_id;
+    }
+
+    public void setStrain_id(int strain_id) {
+        this.strain_id = strain_id;
+    }
+
     public int getPlant_id() {
         return plant_id;
     }
@@ -49,19 +65,19 @@ public class Plot {
         this.plot_area_dbl = plot_area_dbl;
     }
 
-    public double getPercent_coverage() {
+    public double getPlot_percent_coverage() {
         return percent_coverage;
     }
 
-    public void setPercent_coverage(double percent_coverage) {
+    public void setPlot_percent_coverage(double percent_coverage) {
         this.percent_coverage = percent_coverage;
     }
 
-    public String getBlooms_open_status() {
+    public String getPlot_blooms_open_status() {
         return blooms_open_status;
     }
 
-    public void setBlooms_open_status(String blooms_open_status) {
+    public void setPlot_blooms_open_status(String blooms_open_status) {
         this.blooms_open_status = blooms_open_status;
     }
 }
