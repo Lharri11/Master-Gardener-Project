@@ -92,7 +92,7 @@ public class SignupServlet extends HttpServlet {
                 req.setAttribute("errorMessageReg", errorMessageReg);
                 req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
             } else {
-                User account = new User(user, pass1, -1, first_name, last_name, email, null, new byte[1024]);
+                User account = new User(user, pass1, -1, first_name, last_name, email, null);
                 SignupController controller = new SignupController();
 
                 if (controller.createUser(account)) {
