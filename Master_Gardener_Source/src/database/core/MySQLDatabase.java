@@ -335,7 +335,7 @@ public class MySQLDatabase implements IDatabase {
 
 
         try{
-            stmt = conn.prepareStatement("SELECT salt from mg_user WHERE username = ?");
+            stmt = conn.prepareStatement("SELECT salt from mg_user WHERE user_name = ?");
             stmt.setString(1, username);
             set = stmt.executeQuery();
 
@@ -347,7 +347,7 @@ public class MySQLDatabase implements IDatabase {
 
             String check_pass = hashString(salt+password);
 
-            stmt = conn.prepareStatement("SELECT passWord from mg_user WHERE userName = ?");
+            stmt = conn.prepareStatement("SELECT passWord from mg_user WHERE user_name = ?");
             stmt.setString(1, username);
             set = stmt.executeQuery();
 
@@ -839,7 +839,7 @@ public class MySQLDatabase implements IDatabase {
                     stmt1 = conn.prepareStatement(
                             "select user_id " +
                                     " from mg_user " +
-                                    "where mg_user.username = ? "
+                                    "where mg_user.user_name = ? "
 
                     );
 
@@ -935,7 +935,7 @@ public class MySQLDatabase implements IDatabase {
 
             stmt3 = conn.prepareStatement(
                     "DELETE from mg_user "
-                            + " WHERE userName = ? ");
+                            + " WHERE user_name = ? ");
             stmt3.setString(1, user.getUsername());
             stmt3.executeUpdate();
 
@@ -986,7 +986,7 @@ public class MySQLDatabase implements IDatabase {
         try {
             String password = null;
             String salt = null;
-            stmt = conn.prepareStatement("SELECT passWord, salt FROM mg_user WHERE userName = ? ");
+            stmt = conn.prepareStatement("SELECT passWord, salt FROM mg_user WHERE user_name = ? ");
             stmt.setString(1, user.getUsername());
             //stmt.setString(2, user.getDescription());
             set = stmt.executeQuery();
@@ -997,7 +997,7 @@ public class MySQLDatabase implements IDatabase {
             stmt = conn.prepareStatement(
                     "UPDATE mg_user "
                             + " SET first_name = ?, last_name = ?, description = ? "
-                            + " WHERE username = ? AND password = ? AND salt = ?");
+                            + " WHERE user_name = ? AND password = ? AND salt = ?");
             stmt.setString(1, user.getFirstName());
             stmt.setString(2, user.getLastName());
             stmt.setString(3, user.getDescription());
@@ -1010,7 +1010,7 @@ public class MySQLDatabase implements IDatabase {
             //get user_id
             stmt2 = conn.prepareStatement(
                     "SELECT user_id FROM mg_user "
-                            + " WHERE first_name = ? AND username = ?");
+                            + " WHERE first_name = ? AND user_name = ?");
             stmt2.setString(1, user.getUsername());
             stmt2.setString(2, username);
             set = stmt2.executeQuery();
@@ -1034,7 +1034,7 @@ public class MySQLDatabase implements IDatabase {
 
         try {
             stmt = conn.prepareStatement(
-                    "INSERT into mg_user_portrait (username, filePath) "
+                    "INSERT into mg_user_portrait (user_name, filePath) "
                             + " VALUES(?,?)");
             stmt.setString(1, username);
             stmt.setString(2, filePath);
@@ -1075,8 +1075,8 @@ public class MySQLDatabase implements IDatabase {
 
             stmt2 = conn.prepareStatement(
                     "UPDATE mg_user_portrait "
-                            + " SET username = ?, filepath = ? "
-                            + " WHERE username = ? ");
+                            + " SET user_name = ?, filepath = ? "
+                            + " WHERE user_name = ? ");
             stmt2.setString(1, username);
             stmt2.setString(2, filepath);
 
@@ -1205,7 +1205,7 @@ public class MySQLDatabase implements IDatabase {
         ResultSet rs = null;
         try {
             conn = ds.getConnection();
-            stmt = conn.prepareStatement(" SELECT password FROM mg_user WHERE username=? ");
+            stmt = conn.prepareStatement(" SELECT password FROM mg_user WHERE user_name=? ");
             stmt.setString(1, username);
             rs = stmt.executeQuery();
 
@@ -1696,7 +1696,7 @@ public class MySQLDatabase implements IDatabase {
         int mod_status = -1;
         try
         {
-            stmt1 = conn.prepareStatement("SELECT moderator FROM mg_user WHERE userName = ?");
+            stmt1 = conn.prepareStatement("SELECT moderator FROM mg_user WHERE user_name = ?");
             stmt1.setString(1, username);
             set = stmt1.executeQuery();
             if(set.next())
@@ -1723,7 +1723,7 @@ public class MySQLDatabase implements IDatabase {
         try
         {
             for(int i = 0; i < names.length; i++) {
-                stmt1 = conn.prepareStatement("SELECT user_ID FROM mg_user WHERE userName = ?");
+                stmt1 = conn.prepareStatement("SELECT user_ID FROM mg_user WHERE user_name = ?");
                 stmt1.setString(1, names[i]);
                 set1 = stmt1.executeQuery();
                 if(set1.next())
@@ -1761,7 +1761,7 @@ public class MySQLDatabase implements IDatabase {
 
         try {
             stmt1 = conn.prepareStatement(
-                    "INSERT INTO mg_user (userName, passWord, salt, login_id, first_name, last_name, email, description) "
+                    "INSERT INTO mg_user (user_name, passWord, salt, login_id, first_name, last_name, email, description) "
                             + " VALUES(?, SHA2(SHA2(SHA2(?, 512), 512), 512), ?,?,?,?,?,?)");
             stmt1.setString(1, user.getUsername());
             stmt1.setString(2, password);
@@ -1777,7 +1777,7 @@ public class MySQLDatabase implements IDatabase {
 
             stmt2 = conn.prepareStatement(
                     "SELECT user_ID FROM mg_user "
-                            + " WHERE userName = ?");
+                            + " WHERE user_name = ?");
             stmt2.setString(1, user.getUsername());
             set = stmt2.executeQuery();
 
@@ -1939,7 +1939,7 @@ public class MySQLDatabase implements IDatabase {
         {
             String salt = null;
 
-            stmt1 = conn.prepareStatement("SELECT user_id, salt FROM mg_user WHERE userName = ? AND passWord = SHA2(SHA2(SHA2(?, 512), 512), 512)");
+            stmt1 = conn.prepareStatement("SELECT user_id, salt FROM mg_user WHERE user_name = ? AND passWord = SHA2(SHA2(SHA2(?, 512), 512), 512)");
             stmt1.setString(1, user_name);
             stmt1.setString(2, old_password);
 
@@ -1959,7 +1959,7 @@ public class MySQLDatabase implements IDatabase {
 
             stmt1 = conn.prepareStatement("UPDATE mg_user" +
                     " SET passWord = SHA2(SHA2(SHA2(?, 512), 512), 512) " +
-                    " WHERE userName = ? ");
+                    " WHERE user_name = ? ");
 
             stmt1.setString(1, new_password);
             stmt1.setString(2, user_name);
@@ -1967,7 +1967,7 @@ public class MySQLDatabase implements IDatabase {
             stmt1.executeUpdate();
 
             // Check to see if password updated
-            stmt2 = conn.prepareStatement("SELECT user_ID FROM mg_user WHERE passWord = SHA2(SHA2(SHA2(?, 512), 512), 512) AND userName = ? AND salt = ?");
+            stmt2 = conn.prepareStatement("SELECT user_ID FROM mg_user WHERE passWord = SHA2(SHA2(SHA2(?, 512), 512), 512) AND user_name = ? AND salt = ?");
             stmt2.setString(1, new_password);
             stmt2.setString(2, user_name);
             stmt2.setString(3, salt);
@@ -2678,7 +2678,7 @@ public class MySQLDatabase implements IDatabase {
         boolean registered = false;
 
         try {
-            stmt = conn.prepareStatement("SELECT * from mg_user WHERE username=? ");
+            stmt = conn.prepareStatement("SELECT * from mg_user WHERE user_name=? ");
             stmt.setString(1, username);
             set = stmt.executeQuery();
             if (set.next()) {
@@ -2700,7 +2700,7 @@ public class MySQLDatabase implements IDatabase {
         boolean registered = false;
 
         try {
-            stmt = conn.prepareStatement("SELECT * from mg_user_portrait WHERE username=? ");
+            stmt = conn.prepareStatement("SELECT * from mg_user_portrait WHERE user_name=? ");
             stmt.setString(1, username);
             set = stmt.executeQuery();
             if (set.next()) {
@@ -3064,7 +3064,7 @@ public class MySQLDatabase implements IDatabase {
                 try {
 
                     stmt1 = conn.prepareStatement(
-                            "select mg_garden.garden_id, mg_garden.garden_name, mg_garden.description from mg_garden, mg_user, mg_garden_member where mg_user.username = ? and mg_user.user_id = mg_garden_member.user_id and mg_garden_member.garden_id = mg_garden.garden_id"
+                            "select mg_garden.garden_id, mg_garden.garden_name, mg_garden.description from mg_garden, mg_user, mg_garden_member where mg_user.user_name = ? and mg_user.user_id = mg_garden_member.user_id and mg_garden_member.garden_id = mg_garden.garden_id"
                     );
                     stmt1.setString(1, user);
 
@@ -3847,7 +3847,7 @@ public class MySQLDatabase implements IDatabase {
                     ResultSet resultSet = null;
                     try {
                         stmt = conn.prepareStatement(
-                                " SELECT userName, email, first_name, last_name FROM mg_user ");
+                                " SELECT user_name email, first_name, last_name FROM mg_user ");
 
                         resultSet = stmt.executeQuery();
 
