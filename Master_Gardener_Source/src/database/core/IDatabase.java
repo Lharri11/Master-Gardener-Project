@@ -63,7 +63,6 @@ public interface IDatabase {
 	public int getModeratorStatusByUsername(String username) throws SQLException;
 	public ArrayList<Integer> getGeneratorListByUsernames(String[] names) throws SQLException;
 	public boolean checkPasswordByUsername(String username, String password)throws SQLException;
-	public List<String> getCountiesWithUnconfirmedDataforms() throws SQLException;
 	public ArrayList<String> getPlantsFromGarden(Garden garden) throws SQLException;
 	public int getNumberOfPlantsFromGarden(Garden garden) throws SQLException;
 	public ArrayList<String> getPollinatorsFromGarden(Garden garden) throws SQLException;

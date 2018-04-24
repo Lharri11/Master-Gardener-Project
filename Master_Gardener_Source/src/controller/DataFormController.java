@@ -5,17 +5,16 @@ import database.core.*;
 import model.*;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DataFormController
 {
-	private IDatabase database = null;
+    private IDatabase database = null;
 
-	public DataFormController() {
-		DatabaseProvider.setInstance(new MySQLDatabase());
-		database = DatabaseProvider.getInstance();
-	}
+    public DataFormController() {
+        DatabaseProvider.setInstance(new MySQLDatabase());
+        database = DatabaseProvider.getInstance();
+    }
 
     public List<Integer> getAllDataFormIDs() throws SQLException {
         return this.database.getAllDataFormIDs();
@@ -37,8 +36,8 @@ public class DataFormController
         return this.database.getPlantByPlantID(plant_id);
     }
 
-	public int getStrainIDByStrainName(final String strain_name) throws SQLException {
-	    return this.database.getStrainIDByStrainName(strain_name);
+    public int getStrainIDByStrainName(final String strain_name) throws SQLException {
+        return this.database.getStrainIDByStrainName(strain_name);
     }
 
     public PlantStrain getStrainByStrainID(final int strain_id) throws SQLException {
@@ -74,13 +73,7 @@ public class DataFormController
         return this.database.getUserIDFromFirstNameAndLastName(first_name, last_name);
     }
 
-	public boolean createDataInput(PollinatorDataForm pdf) throws SQLException {
-		return this.database.insertDataFromDataform(pdf);
-	}
-
-	public ArrayList<Integer> getGeneratorListByUsernames(String[] names) throws SQLException
-	{
-		return database.getGeneratorListByUsernames(names);
-	}
-
+    public boolean createDataInput(PollinatorDataForm pdf) throws SQLException {
+        return this.database.insertDataFromDataform(pdf);
+    }
 }

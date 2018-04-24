@@ -1,7 +1,7 @@
 package controller;
 
 import javax.servlet.http.HttpServletRequest;
-  
+
 import database.core.*;
 import model.User;
 import model.ObjectHandler;
@@ -9,14 +9,14 @@ import model.ObjectHandler;
 import java.sql.SQLException;
 
 public class LoginController {
-	
+
 	private IDatabase database = null;
 
 	public LoginController(){
 		DatabaseProvider.setInstance(new MySQLDatabase());
 		database = DatabaseProvider.getInstance();
 	}
-	
+
 	public boolean handleLoginCheck(HttpServletRequest req){
 		String user = ObjectHandler.castObject(req.getSession().getAttribute("username"));
 		if(user != null){
@@ -32,7 +32,7 @@ public class LoginController {
 		req.setAttribute("loggedin", false);
 		return false;
 	}
-	
+
 	// Returns new login id
 	public int validateLogin(String username, int loginId){
 		int persistantLoginId = this.database.queryForLoginIdByUsername(username);
@@ -64,7 +64,7 @@ public class LoginController {
 		}
 		return loginId;
 	}
-	
+
 	public User returnUserForUsername(String username){
 		return this.database.queryForUserByUsername(username);
 	}

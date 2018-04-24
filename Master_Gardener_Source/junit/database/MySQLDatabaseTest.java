@@ -377,7 +377,7 @@ public class MySQLDatabaseTest {
         ResultSet set = null;
         boolean success = false;
 
-        User user = new User("Alex", "Alex", -1, "Alex@gmail", "name", "lname", "desc", null);
+        User user = new User("Alex", "Alex", -1, "Alex@gmail", "name", "lname", "desc");
         try {
             stmt = conn.prepareStatement("insert into mg_user (user_ID, userName, passWord, login_id, email, first_name, last_name description)" +
                     " VALUES (-3, 'Alex', 'Alex', -1, 'Alex@gmail', 'name', 'lname' 'desc')");

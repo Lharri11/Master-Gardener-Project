@@ -8,8 +8,6 @@ public class PollinatorDataForm
 {private int data_form_id;
 	private int garden_id;
 	private int county_id;
-	private ArrayList<Integer> generator_ids;
-	private int researcher_id = -1;
 	private int who_submitted_id;
 	private int who_confirmed_id;
 	private int week_number;
@@ -27,42 +25,32 @@ public class PollinatorDataForm
 	private LocalTime monitor_start;
 	private LocalTime monitor_stop;
 	private String comments;
-    private String butterfly_moth_comments = null;
+	private String butterfly_moth_comments = null;
 	private String cloud_status;
 	private String wind_status;
 	private int confirmed;
 
-<<<<<<< HEAD
 	public PollinatorDataForm(int garden_id, int county_id, ArrayList<User> generators, int week_number, LocalDate date_collected,
-                              LocalDate date_generated, LocalDate date_confirmed, String wind_status, String cloud_status, String comments,
-                              String butterfly_moth_comments, int temperature, LocalTime monitor_start, LocalTime monitor_stop, int confirmed,
+							  LocalDate date_generated, LocalDate date_confirmed, String wind_status, String cloud_status, String comments,
+							  String butterfly_moth_comments, int temperature, LocalTime monitor_start, LocalTime monitor_stop, int confirmed,
 							  ArrayList<Plant> plants, ArrayList<PlantStrain> strains, ArrayList<Plot> plots, ArrayList<Pollinator> pollinators,
-                              ArrayList<PollinatorVisitCount> visitCounts)
-=======
-	public PollinatorDataForm(int data_form_id, int garden_id, int county_id, ArrayList<Integer> generator_ids, int week_number, int temperature, LocalDate date_created, LocalDate date_generated,
-							  LocalTime monitor_start, LocalTime monitor_stop, String comments, String cloud_status, String wind_status, ArrayList<Plot> plot, Plant plant, ArrayList<PlantStrain> strain,
-							  ArrayList<Pollinator> poll, ArrayList<PollinatorVisitCount> pvc)
->>>>>>> origin/22-April-dataform
+							  ArrayList<PollinatorVisitCount> visitCounts)
 	{
 		this.garden_id = garden_id;
 		this.county_id = county_id;
-<<<<<<< HEAD
 		this.generators = generators;
-=======
-		this.generator_ids = generator_ids;
->>>>>>> origin/22-April-dataform
 		this.week_number = week_number;
-        this.date_collected = date_collected;
-        this.date_generated = date_generated;
-        this.date_confirmed = date_confirmed;
-        this.wind_status = wind_status;
-        this.cloud_status = cloud_status;
-        this.comments = comments;
-        this.butterfly_moth_comments = butterfly_moth_comments;
+		this.date_collected = date_collected;
+		this.date_generated = date_generated;
+		this.date_confirmed = date_confirmed;
+		this.wind_status = wind_status;
+		this.cloud_status = cloud_status;
+		this.comments = comments;
+		this.butterfly_moth_comments = butterfly_moth_comments;
 		this.temperature = temperature;
 		this.monitor_start = monitor_start;
 		this.monitor_stop = monitor_stop;
-        this.confirmed = 0;
+		this.confirmed = 0;
 		this.plots = plots;
 		this.plants = plants;
 		this.strains = strains;
@@ -70,7 +58,7 @@ public class PollinatorDataForm
 		this.visitCounts = visitCounts;
 	}
 
-    public String getButterflyMothComments()
+	public String getButterflyMothComments()
 	{
 		return this.butterfly_moth_comments;
 	}
@@ -150,13 +138,13 @@ public class PollinatorDataForm
 		this.date_generated = date_generated;
 	}
 
-    public LocalDate getDate_confirmed() {
-        return date_confirmed;
-    }
+	public LocalDate getDate_confirmed() {
+		return date_confirmed;
+	}
 
-    public void setDate_confirmed(LocalDate date_confirmed) {
-        this.date_confirmed = date_confirmed;
-    }
+	public void setDate_confirmed(LocalDate date_confirmed) {
+		this.date_confirmed = date_confirmed;
+	}
 
 	public LocalTime getMonitor_start() {
 		return monitor_start;
@@ -226,13 +214,13 @@ public class PollinatorDataForm
 		this.generators = generators;
 	}
 
-    public ArrayList<PollinatorVisitCount> getPollinatorVisitCounts() {
-        return visitCounts;
-    }
+	public ArrayList<PollinatorVisitCount> getPollinatorVisitCounts() {
+		return visitCounts;
+	}
 
-    public void setPollinatorVisitCounts(ArrayList<PollinatorVisitCount> pvc) {
-        this.visitCounts = visitCounts;
-    }
+	public void setPollinatorVisitCounts(ArrayList<PollinatorVisitCount> pvc) {
+		this.visitCounts = visitCounts;
+	}
 
 	public void setPlots(ArrayList<Plot> plot)
 	{
