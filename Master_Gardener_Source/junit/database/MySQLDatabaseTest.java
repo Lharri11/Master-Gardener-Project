@@ -69,7 +69,7 @@ public class MySQLDatabaseTest {
         ResultSet set = null;
         boolean success = false;
         try {
-            stmt = conn.prepareStatement("INSERT INTO mg_county (county_ID, countyName, stateName) VALUES (-420, 'CrubCounty', 'PAYEEHAW')");
+            stmt = conn.prepareStatement("INSERT INTO mg_county (county_ID, county_name, state_name) VALUES (-420, 'CrubCounty', 'PAYEEHAW')");
             stmt.executeUpdate();
 
             String[] col = {"county_ID", "countyName", "stateName"};
@@ -79,10 +79,10 @@ public class MySQLDatabaseTest {
                 success = true;
             }
             if (success) {
-                stmt = conn.prepareStatement("DELETE FROM mg_county WHERE county_ID = -1000 AND countyName = 'ALEXCOUNTY' AND stateName = 'Nay'");
+                stmt = conn.prepareStatement("DELETE FROM mg_county WHERE county_ID = -1000 AND county_name = 'ALEXCOUNTY' AND stateName = 'Nay'");
                 stmt.executeUpdate();
             } else {
-                stmt = conn.prepareStatement("DELETE FROM mg_county WHERE county_ID = -420 AND countyName = 'CrubCounty' AND stateName = 'PAYEEHAW'");
+                stmt = conn.prepareStatement("DELETE FROM mg_county WHERE county_ID = -420 AND county_name = 'CrubCounty' AND stateName = 'PAYEEHAW'");
                 stmt.executeUpdate();
             }
             assertEquals(success, true);
@@ -104,7 +104,7 @@ public class MySQLDatabaseTest {
         ResultSet set = null;
         boolean success = false;
         try {
-            stmt = conn.prepareStatement("INSERT INTO mg_county (county_ID, countyName, stateName) VALUES (-420, 'CrubCounty', 'PAYEEHAW')");
+            stmt = conn.prepareStatement("INSERT INTO mg_county (county_ID, county_name, state_name) VALUES (-420, 'CrubCounty', 'PAYEEHAW')");
             stmt.executeUpdate();
 
             String[] where = {"county_ID", "-420", "countyName", "'CrubCounty'", "stateName", "'PAYEEHAW'"};
@@ -113,7 +113,7 @@ public class MySQLDatabaseTest {
                 success = true;
             }
             if (!success) {
-                stmt = conn.prepareStatement("DELETE FROM mg_county WHERE county_ID = -420 AND countyName = 'CrubCounty' AND stateName = 'PAYEEHAW'");
+                stmt = conn.prepareStatement("DELETE FROM mg_county WHERE county_ID = -420 AND county_name = 'CrubCounty' AND stateName = 'PAYEEHAW'");
                 stmt.executeUpdate();
             }
 
@@ -169,14 +169,14 @@ public class MySQLDatabaseTest {
         boolean success = false;
 
         try {
-            stmt = conn.prepareStatement("INSERT INTO mg_county (county_ID, countyName, stateName) VALUES (-430, 'Memes', 'Dank')");
+            stmt = conn.prepareStatement("INSERT INTO mg_county (county_ID, county_name, state_name) VALUES (-430, 'Memes', 'Dank')");
             stmt.executeUpdate();
 
             if (db.getCountyIDByCountyName("Memes") == -430) {
                 success = true;
             }
 
-            stmt = conn.prepareStatement("DELETE FROM mg_county WHERE county_ID = -430 AND countyName = 'Memes' AND stateName = 'Dank'");
+            stmt = conn.prepareStatement("DELETE FROM mg_county WHERE county_ID = -430 AND county_name = 'Memes' AND stateName = 'Dank'");
             stmt.executeUpdate();
 
             assertEquals(success, true);
@@ -198,14 +198,14 @@ public class MySQLDatabaseTest {
         boolean success = false;
 
         try {
-            stmt = conn.prepareStatement("INSERT INTO mg_plant(plant_ID, plantName) VALUES (-942, 'Dank')");
+            stmt = conn.prepareStatement("INSERT INTO mg_plant(plant_ID, plant_name) VALUES (-942, 'Dank')");
             stmt.executeUpdate();
 
             if (db.getPlantIDByPlantName("Dank") == -942) {
                 success = true;
             }
 
-            stmt = conn.prepareStatement("DELETE FROM mg_plant WHERE plant_ID = -942 AND plantName = 'Dank'");
+            stmt = conn.prepareStatement("DELETE FROM mg_plant WHERE plant_ID = -942 AND plant_name = 'Dank'");
             stmt.executeUpdate();
 
             assertEquals(success, true);
@@ -285,7 +285,7 @@ public class MySQLDatabaseTest {
         boolean success = false;
 
         try {
-            stmt = conn.prepareStatement("INSERT INTO mg_county (county_ID, countyName, stateName) VALUES (-232, 'Alexs', 'Za Warudo')");
+            stmt = conn.prepareStatement("INSERT INTO mg_county (county_ID, county_name, state_name) VALUES (-232, 'Alexs', 'Za Warudo')");
             stmt.executeUpdate();
 
             if (db.getCountyByCountyID(-232).equals("Alexs")) {
@@ -316,7 +316,7 @@ public class MySQLDatabaseTest {
         boolean success = false;
 
         try {
-            stmt = conn.prepareStatement("INSERT INTO mg_county (county_ID, countyName, stateName) VALUES (-233, 'Alexs', 'Za Warudo')");
+            stmt = conn.prepareStatement("INSERT INTO mg_county (county_ID, county_name, state_name) VALUES (-233, 'Alexs', 'Za Warudo')");
             stmt.executeUpdate();
 
             if (db.getCountyByStateName("Za Warudo").equals("Alexs")) {
@@ -387,7 +387,7 @@ public class MySQLDatabaseTest {
             {
                 success = true;
             } else {
-                stmt = conn.prepareStatement("DELETE FROM mg_user WHERE userName = 'Alex' AND passWord = 'Alex' AND email = 'Alex@gmail'");
+                stmt = conn.prepareStatement("DELETE FROM mg_user WHERE user_name = 'Alex' AND passWord = 'Alex' AND email = 'Alex@gmail'");
                 stmt.executeUpdate();
             }
             assertEquals(success, true);
@@ -488,7 +488,7 @@ public class MySQLDatabaseTest {
         Plant pl = new Plant(-4, "Crub");
 
         try {
-            stmt = conn.prepareStatement("INSERT INTO mg_plant (plant_ID, plantName) VALUES (-4, 'Crub')");
+            stmt = conn.prepareStatement("INSERT INTO mg_plant (plant_ID, plant_name) VALUES (-4, 'Crub')");
             stmt.executeUpdate();
 
             if (db.deletePlantFromDatabase(pl))
@@ -659,7 +659,7 @@ public class MySQLDatabaseTest {
                 success = true;
             }
 
-            stmt = conn.prepareStatement("SELECT * FROM mg_plant WHERE plantName = 'Skrip'");
+            stmt = conn.prepareStatement("SELECT * FROM mg_plant WHERE plant_name = 'Skrip'");
             set = stmt.executeQuery();
 
             if(!set.next())
@@ -669,7 +669,7 @@ public class MySQLDatabaseTest {
             }
             if(success)
             {
-                stmt = conn.prepareStatement("DELETE FROM mg_plant WHERE plantName = 'Skrip'");
+                stmt = conn.prepareStatement("DELETE FROM mg_plant WHERE plant_name = 'Skrip'");
                 stmt.executeUpdate();
             }
             assertEquals(success, true);
@@ -787,7 +787,7 @@ public class MySQLDatabaseTest {
 
         try
         {
-            stmt = conn.prepareStatement("INSERT INTO mg_plant (plant_ID, plantName) VALUES (-42, 'Sexy_Crub')");
+            stmt = conn.prepareStatement("INSERT INTO mg_plant (plant_ID, plant_name) VALUES (-42, 'Sexy_Crub')");
             stmt.executeUpdate();
 
             if(db.updatePlantName("Sexy_Crub", "Less Sexy Crub"))
@@ -795,7 +795,7 @@ public class MySQLDatabaseTest {
                 success = true;
             }
 
-            stmt = conn.prepareStatement("SELECT * FROM mg_plant WHERE plantName = 'Less Sexy Crub'");
+            stmt = conn.prepareStatement("SELECT * FROM mg_plant WHERE plant_name = 'Less Sexy Crub'");
             set = stmt.executeQuery();
 
             if(!set.next())

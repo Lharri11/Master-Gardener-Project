@@ -5,9 +5,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator"
+          content="Script Eden ( http://scripteden.net/ ) Template Builder v2.0.0">
+    <title></title>
+    <!--pageMeta-->
+
+    <!-- Loading Bootstrap -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <title>${user.firstName} - Pollinator Preferences</title>
     <!--pageMeta-->
@@ -125,59 +130,27 @@
                     <!--/row-->
                 </div>
 
-                <div class="tab-pane" id="edit">
-                    <form id="change-user-settings" action="${pageContext.servletContext.contextPath}/editUser"
-                          method="post" role="form">
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">First name</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" name="editName" type="text" value="${user.firstName}">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Last name</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" name="lastname" type="text" value="${user.lastName}">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" name="email" type="email" value="${user.email}">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Username</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" name="username" type="text" value="${user.username}">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Add or change bio</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" name="editBio" type="text" value="About You">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Password</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="password" value="New Password">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="password" value="Confirm New Pssword">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label"></label>
-                            <div class="col-lg-9">
-                                <p>Please note: Saving changes will log you out</p>
-                                <input type="reset" class="btn btn-secondary" value="Clear">
-                                <input type="submit" class="btn btn-primary" value="Save Changes" name="EditSubmit">
-                            </div>
-                        </div>
+            <!--pageContent-->
+            <div>
+                <div id="coverPhotoContainer">
+                    <img src="portraits/${user.username}.jpg" id="userPhoto">
+                </div>
+                <div class="pageInfo" style="height: 100px;">
+                    <p id="userName">${user.username}</p>
+                    <div id="bio">${user.description}</div>
+
+                    <h1 style="position:relative;left:10px;">Gardens you belong to:</h1>
+
+                    <form id="GroupGet" method="post">
+                        <table id="userGroups">
+                            <c:forEach items="${gardens}" var="garden">
+                                <tr class="groupList">
+                                    <td style="color:white"><input type="submit" value="${garden.garden_name}" id="groupDisplay"
+                                                                   name="Submit" class="buttonAsLink"></td>
+                                    <td class="descriptionCol" style="color:white">"${garden.description}"</td>
+                                </tr>
+                            </c:forEach>
+                        </table>
                     </form>
                 </div>
             </div>

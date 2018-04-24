@@ -23,15 +23,19 @@ public interface IDatabase {
 	// TODO: ↓↓↓ CREATE CUSTOM QUERY EXPORT ONLY EXPORTS TO ONE SPECIFIC FOLDER (MAYBE), CHANGE THIS SO USER SELECTS LOCATION ↓↓↓
 	public String createCustomQuery(final String[] select_array, final String[] from_array, final String[] where_array, final boolean export);
 	public int getGardenIDByGardenName(final String garden_name) throws SQLException;
+	public int getCountyIDByGardenName(final String garden_name) throws SQLException;
 	public int getCountyIDByCountyName(final String county_name) throws SQLException;
 	public int getPlantIDByPlantName(final String plant_name) throws SQLException;
 	public int getStrainIDByStrainName(final String strain_name) throws SQLException;
 	public int getPollinatorIDByPollinatorName(final String poll_name) throws SQLException;
+	public Pollinator getPollinatorByPollinatorID(final int pollinator_id) throws SQLException;
+	public String getPollinatorNameByPollinatorID(final int pollinator_id) throws SQLException;
 	public String getCountyByCountyID(final int county_id);
 	public String getCountyByStateName(final String state_name);
-	//public String getUsernameByCounty(final String county_name);
+	public User getUserFromUserID(final int user_id) throws SQLException;
+	public User getUserFromUserName(final String user_name) throws SQLException;
+	public int getUserIDFromFirstNameAndLastName(final String first_name, final String last_name) throws SQLException;
 	public String getGardenAddressByGardenID(final int garden_id);
-	//public String getUsernameByCountyID(final int county_id);
 	public List<User> getAllUsernames() throws SQLException;
 	public List<String> getAllPollinators() throws SQLException;
 	public List<String> getAllPlants() throws SQLException;
@@ -51,8 +55,10 @@ public interface IDatabase {
 	public int queryForLoginIdByUsername(String username);
 	//public User queryForUserAccountByUsername(String username); // TODO:: ADD this method
 	public String queryForPasswordByUsername(String username);
-	public List<Integer> getUnconfirmedDataformIDsByCounty(String county) throws SQLException;
-	public List<String> getUnconfirmedDataformsByCounty(String county) throws SQLException;
+	public List<Integer> getAllDataFormIDs() throws SQLException;
+	public List<Integer> getAllVisitCountIDs() throws SQLException;
+	public List<Integer> getUnconfirmedDataFormIDsByCounty(String county) throws SQLException;
+	public List<String> getUnconfirmedDataFormsByCounty(String county) throws SQLException;
 	public String hashString(String password) throws SQLException;
 	public int getModeratorStatusByUsername(String username) throws SQLException;
 	public ArrayList<Integer> getGeneratorListByUsernames(String[] names) throws SQLException;
@@ -136,6 +142,10 @@ public interface IDatabase {
     public boolean updatePollinatorVisitPlotIDs() throws SQLException;
 	public List<String> getStrainByPlant(final Plant plant) throws SQLException;
 	public String getPlantNameByGarden(final Garden garden) throws SQLException;
+	public Plant getPlantByPlantID(final int plant_id) throws SQLException;
+	public List<String> getStrainByPlant(final Plant plant) throws SQLException;
+	public PlantStrain getStrainByStrainID(final int strain_id) throws SQLException;
+	public Plot getPlotByGardenIDAndStrainID(final int garden_id, final int strain_id) throws SQLException;
 	public int queryForVisitCountByFieldsFromPollVisit(final int data_form_id, int pollinator_id, int plant_id, int strain_id);
 	public String saltPassword(String username, String password) throws SQLException;
 }

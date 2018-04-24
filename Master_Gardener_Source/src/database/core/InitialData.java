@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class InitialData {
-	
+
 	public static List<GardenMember> getGardenMembers() throws IOException {
 		List<GardenMember> gardenMemberList = new ArrayList<GardenMember>();
 		ReadCSV readGardenMembers = new ReadCSV("mg_garden_member.csv");
@@ -32,7 +32,7 @@ public class InitialData {
 			readGardenMembers.close();
 		}
 	}
-	
+
 	public static List<Post> getPosts() throws IOException {
 		List<Post> postList = new ArrayList<Post>();
 		ReadCSV readPosts = new ReadCSV("mg_post.csv");
@@ -57,7 +57,7 @@ public class InitialData {
 			readPosts.close();
 		}
 	}
-	
+
 	public static List<User> getAccounts() throws IOException {
 		List<User> userList = new ArrayList<User>();
 		ReadCSV readAccounts = new ReadCSV("mg_account.csv");
@@ -86,7 +86,7 @@ public class InitialData {
 			readAccounts.close();
 		}
 	}
-	
+
 	public static List<County> getCounties() throws IOException {
 		List<County> countyList = new ArrayList<County>();
 		ReadCSV readCounties = new ReadCSV("mg_county.csv");
@@ -110,7 +110,7 @@ public class InitialData {
 			readCounties.close();
 		}
 	}
-	
+
 	public static List<Garden> getGardens() throws IOException {
 		List<Garden> gardenList = new ArrayList<Garden>();
 		ReadCSV readGardens = new ReadCSV("mg_garden.csv");
@@ -134,7 +134,7 @@ public class InitialData {
 			readGardens.close();
 		}
 	}
-	
+
 	public static List<Pollinator> getPollinators() throws IOException {
 		List<Pollinator> pollinatorList = new ArrayList<Pollinator>();
 		ReadCSV readPollinators = new ReadCSV("mg_pollinator.csv");
