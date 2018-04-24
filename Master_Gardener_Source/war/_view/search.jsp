@@ -240,12 +240,6 @@
 
 <script>
     $(document).ready(function () {
-       var all_Gardens = ${allGardens};
-       var gardenNames = [];
-
-       for(var i = 0; i < all_Gardens.length; i++) {
-           gardenNames.push(all_Gardens[i].garden_name)
-       }
 
 
         $('#allGardensTable').DataTable({
