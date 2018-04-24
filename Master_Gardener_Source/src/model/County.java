@@ -4,31 +4,31 @@ public class County
 {
 	private int countyID;
 	
-	private String countyName, stateName;
+	private String county_name, state_name;
 	
-	public County(int countyID, String countyName, String stateName)
+	public County(int countyID, String county_name, String state_name)
 	{
         this.countyID = countyID;
-		this.countyName = countyName;
-		this.stateName = stateName;
+		this.county_name = county_name;
+		this.state_name = state_name;
 	}
 	
 	public void setCountyID(int countyID)
 	{
 		this.countyID = countyID;
 	}
-	public void setCountyName(String countyName)
+	public void setCountyName(String county_name)
 	{
-		this.countyName = countyName;
+		this.county_name = county_name;
 	}
 	
 	/**
 	 * 
 	 * @param stateName If you aren't sure what the state is, pass it at PENNSYLVANIA (temporary punctuation, subject to change).
 	 */
-	public void setStateName(String stateName)
+	public void setStateName(String state_name)
 	{
-		this.stateName = stateName;
+		this.state_name = state_name;
 	}
 	
 	public int getCountyID()
@@ -38,7 +38,7 @@ public class County
 	
 	public String getCountyName()
 	{
-		return this.countyName;
+		return this.county_name;
 	}
 	
 	/**
@@ -47,6 +47,6 @@ public class County
 	 */
 	public String getStateName()
 	{
-		return this.stateName;
+		return this.state_name;
 	}
 }

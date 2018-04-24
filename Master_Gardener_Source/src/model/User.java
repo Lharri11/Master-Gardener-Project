@@ -9,34 +9,28 @@ public class User {
 	private String username = null;
 	private String password = null;
 	private int loginId = -1;
-	private String first_name = null;
-	private String last_name = null;
+	private String name = null;
 	private String email = null;
 	private String description = null;
-	private byte[] portrait;
 	private int moderator_status = 0;
 
-	public User(String username, String password, int id, String first_name, String last_name, String email, String description, byte[] portrait){
+	public User(String username, String password, int id, String name, String email, String description, int moderator_status){
 		this.username = username;
 		this.password = password;
 		this.loginId = id;
-		this.first_name = first_name;
-		this.last_name = last_name;
+		this.name = name;
 		this.email = email;
 		this.description = description;
-		this.portrait = portrait;
-		this.moderator_status = 0;
+		this.moderator_status = moderator_status;
 	}
 	
 	public User(){
 		this.username = "";
 		this.password = "";
 		this.loginId = 0;
-		this.first_name = "";
-		this.last_name = "";
+		this.name = "";
 		this.email = "";
 		this.description = "";
-		this.portrait = new byte[1024];
 		this.moderator_status = 0;
 	}
 	
@@ -56,24 +50,16 @@ public class User {
 		return this.loginId;
 	}
 	
-	public String getFirstName(){
-		return this.first_name;
+	public String getName(){
+		return this.name;
 	}
-
-	public String getLastName(){
-		return this.last_name;
-	}
-
+	
 	public String getEmail(){
 		return this.email;
 	}
 	
 	public String getDescription(){
 		return this.description;
-	}
-
-	public byte[] getPortrait() {
-		return portrait;
 	}
 	
 	public void setUserId(int userId) {
@@ -92,14 +78,10 @@ public class User {
 		this.loginId = id;
 	}
 	
-	public void setFirstName(String name){
-		this.first_name = name;
+	public void setName(String name){
+		this.name = name;
 	}
-
-	public void setLastName(String name){
-		this.last_name = name;
-	}
-
+	
 	public void setEmail(String email){
 		this.email = email;
 	}
@@ -116,10 +98,6 @@ public class User {
 	public void setModeratorStatus(int status)
 	{
 		this.moderator_status = status;
-	}
-
-	public void setPortrait(byte[] portrait) {
-		this.portrait = portrait;
 	}
 
 	/*

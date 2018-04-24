@@ -2,6 +2,7 @@ package servlet;
 
 import controller.AdminController;
 import controller.DataFormController;
+import controller.SearchController;
 import model.*;
 
 import java.io.IOException;
@@ -17,671 +18,248 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import controller.DataFormController;
-
 
 public class DataFormServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private DataFormController controller = null;
 
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
+        // Initialization
+        int plants_total = 2;
+        int strains_total = 9;
+        int pollinators_total = 9;
+        req.setAttribute("plantsTotal", plants_total);
+        req.setAttribute("strainsTotal", strains_total);
+        req.setAttribute("pollinatorsTotal", pollinators_total);
 
         req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
     }
 
-    @SuppressWarnings("unlikely-arg-type")
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
+        //
+        // ------------------------------ Begin DataForm Initialization ------------------------------ //
+        //
 
-        // The servlet will be setup to handle only 10 strains. The check to see if the strain is available,
-        // the servlet will check to see if the id for the next div is there. If so, the 'if' block will
-        // execute.
+        // Future Data-Cycle Work: Change total # of plants, strains, and pollinators to match the necessary amounts that pertain to each data cycle
+        // Current totals:
+        // 2 plants (Coreopsis Verticillata & Monarda)
+        // 9 Strains (STRAIGHT, MoonBeam, Zagreb, Crème Brulee, Route 66, Didyma Straight, Didyma Petite Delight, Didyma Marshalls Delight, X Peters Fancy Fuschia)
+        // 9 Pollinators (Honey Bee, Carpenter Bee, Bumble Bee, Green Metallic Bee, Green Sweat Bee, Dark Sweat Bee, Butterfly and Moth, Other Bees, Other Pollinators)
 
-
-        //Main form data, constant for single form submission
-
-        String userCollected = null;
-        String gardenName = null;
-        String county = null;
-        int week = 0;
-        LocalDate dateCreated = null;
-        LocalDate dateGenerated = LocalDate.parse("2017-03-20");
-        LocalTime startTime = LocalTime.parse("04:00");
-        LocalTime endTime = LocalTime.parse("14:00");
-        // Initialization to -1 indicates a null value
-        int temperature = 0;
-        String wind = null;
-        String cloudCover = null;
-        String plantGenus = null;
-        ArrayList<Plot> plotData = new ArrayList<>();
+        // Initialization (Loop Variables, ArrayLists, Servlet Variables)
+        int plants_total = 2;
+        int strains_total = 9;
+        int pollinators_total = 9;
+        ArrayList<Plant> plants = new ArrayList<>();
         ArrayList<PlantStrain> strains = new ArrayList<>();
-
-        //Strain 1
-        String StrainDiv1 = null;
-        String Strain1Name = null;
-        String Strain1Vigor = null;
-        double Strain1Height = 0;
-        double Strain1PlotSize = 0;
-        String Strain1Blooms = null;
-        double Strain1Coverage = 0;
-        String Strain1Genus1 = null;
-        String Strain1Species1 = null;
-        int Strain1Count1 = 0;
-        String Strain1Genus2 = null;
-        String Strain1Species2 = null;
-        int Strain1Count2 = 0;
-        String Strain1Genus3 = null;
-        String Strain1Species3 = null;
-        int Strain1Count3 = 0;
-        String Strain1Genus4 = null;
-        String Strain1Species4 = null;
-        int Strain1Count4 = 0;
-        String Strain1Genus5 = null;
-        String Strain1Species5 = null;
-        int Strain1Count5 = 0;
-        String Strain1Genus6 = null;
-        String Strain1Species6 = null;
-        int Strain1Count6 = 0;
-
-
-        //Strain 2
-        String StrainDiv2 = null;
-        String Strain2Name = null;
-        String Strain2Vigor = null;
-        int Strain2Height = 0;
-        int Strain2PlotSize = 0;
-        String Strain2Blooms = null;
-        int Strain2Coverage = 0;
-        String Strain2Genus1 = null;
-        String Strain12Species1 = null;
-        int Strain2Count1 = 0;
-        String Strain2Genus2 = null;
-        String Strain2Species2 = null;
-        int Strain2Count2 = 0;
-        String Strain2Genus3 = null;
-        String Strain2Species3 = null;
-        int Strain2Count3 = 0;
-        String Strain2Genus4 = null;
-        String Strain2Species4 = null;
-        int Strain2Count4 = 0;
-        String Strain2Genus5 = null;
-        String Strain2Species5 = null;
-        int Strain2Count5 = 0;
-        String Strain2Genus6 = null;
-        String Strain2Species6 = null;
-        int Strain2Count6 = 0;
-
-
-        //Strain 3
-        String StrainDiv3 = null;
-        String Strain3Name = null;
-        String Strain3Vigor = null;
-        int Strain3Height = 0;
-        int Strain3PlotSize = 0;
-        String Strain3Blooms = null;
-        int Strain3Coverage = 0;
-        String Strain3Genus1 = null;
-        String Strain3Species1 = null;
-        int Strain3Count1 = 0;
-        String Strain3Genus2 = null;
-        String Strain3Species2 = null;
-        int Strain3Count2 = 0;
-        String Strain3Genus3 = null;
-        String Strain3Species3 = null;
-        int Strain3Count3 = 0;
-        String Strain3Genus4 = null;
-        String Strain3Species4 = null;
-        int Strain3Count4 = 0;
-        String Strain3Genus5 = null;
-        String Strain3Species5 = null;
-        int Strain3Count5 = 0;
-        String Strain3Genus6 = null;
-        String Strain3Species6 = null;
-        int Strain3Count6 = 0;
-
-
-        //Strain 4
-        String StrainDiv4 = null;
-        String Strai4Name = null;
-        String Strain4Vigor = null;
-        int Strain4Height = 0;
-        int Strain4PlotSize = 0;
-        String Strain4Blooms = null;
-        int Strain4Coverage = 0;
-        String Strain4Genus1 = null;
-        String Strain4Species1 = null;
-        int Strain4Count1 = 0;
-        String Strain4Genus2 = null;
-        String Strain4Species2 = null;
-        int Strain4Count2 = 0;
-        String Strain4Genus3 = null;
-        String Strain4Species3 = null;
-        int Strain4Count3 = 0;
-        String Strain4Genus4 = null;
-        String Strain4Species4 = null;
-        int Strain4Count4 = 0;
-        String Strain4Genus5 = null;
-        String Strain4Species5 = null;
-        int Strain4Count5 = 0;
-        String Strain4Genus6 = null;
-        String Strain4Species6 = null;
-        int Strain4Count6 = 0;
-
-
-        //Strain 5
-        String StrainDiv5 = null;
-        String Strain5Name = null;
-        String Strain5Vigor = null;
-        int Strain5Height = 0;
-        int Strain5PlotSize = 0;
-        String Strain5Blooms = null;
-        int Strain5Coverage = 0;
-        String Strain5Genus1 = null;
-        String Strain5Species1 = null;
-        int Strain5Count1 = 0;
-        String Strain5Genus2 = null;
-        String Strain5Species2 = null;
-        int Strain5Count2 = 0;
-        String Strain5Genus3 = null;
-        String Strain5Species3 = null;
-        int Strain5Count3 = 0;
-        String Strain5Genus4 = null;
-        String Strain5Species4 = null;
-        int Strain5Count4 = 0;
-        String Strain5Genus5 = null;
-        String Strain5Species5 = null;
-        int Strain5Count5 = 0;
-        String Strain5Genus6 = null;
-        String Strain5Species6 = null;
-        int Strain5Count6 = 0;
-
-
-        //Strain 6
-        String StrainDiv6 = null;
-        String Strain6Name = null;
-        String Strain6Vigor = null;
-        int Strain6Height = 0;
-        int Strain6PlotSize = 0;
-        String Strain6Blooms = null;
-        int Strain6Coverage = 0;
-        String Strain6Genus1 = null;
-        String Strain6Species1 = null;
-        int Strain6Count1 = 0;
-        String Strain6Genus2 = null;
-        String Strain6Species2 = null;
-        int Strain6Count2 = 0;
-        String Strain6Genus3 = null;
-        String Strain6Species3 = null;
-        int Strain6Count3 = 0;
-        String Strain6Genus4 = null;
-        String Strain6Species4 = null;
-        int Strain6Count4 = 0;
-        String Strain6Genus5 = null;
-        String Strain6Species5 = null;
-        int Strain6Count5 = 0;
-        String Strain6Genus6 = null;
-        String Strain6Species6 = null;
-        int Strain6Count6 = 0;
-
-
-        //Strain 7
-        String StrainDiv7 = null;
-        String Strain7Name = null;
-        String Strain7Vigor = null;
-        int Strain7Height = 0;
-        int Strain7PlotSize = 0;
-        String Strain7Blooms = null;
-        int Strain7Coverage = 0;
-        String Strain7Genus1 = null;
-        String Strain7Species1 = null;
-        int Strain7Count1 = 0;
-        String Strain7Genus2 = null;
-        String Strain7Species2 = null;
-        int Strain7Count2 = 0;
-        String Strain7Genus3 = null;
-        String Strain7Species3 = null;
-        int Strain7Count3 = 0;
-        String Strain7Genus4 = null;
-        String Strain7Species4 = null;
-        int Strain7Count4 = 0;
-        String Strain7Genus5 = null;
-        String Strain7Species5 = null;
-        int Strain7Count5 = 0;
-        String Strain7Genus6 = null;
-        String Strain7Species6 = null;
-        int Strain7Count6 = 0;
-
-
-        //Strain 8
-        String StrainDiv8 = null;
-        String Strain8Name = null;
-        String Strain8Vigor = null;
-        int Strain8Height = 0;
-        int Strain8PlotSize = 0;
-        String Strain8Blooms = null;
-        int Strain8Coverage = 0;
-        String Strain8Genus1 = null;
-        String Strain8Species1 = null;
-        int Strain8Count1 = 0;
-        String Strain8Genus2 = null;
-        String Strain8Species2 = null;
-        int Strain8Count2 = 0;
-        String Strain8Genus3 = null;
-        String Strain8Species3 = null;
-        int Strain8Count3 = 0;
-        String Strain8Genus4 = null;
-        String Strain8Species4 = null;
-        int Strain8Count4 = 0;
-        String Strain8Genus5 = null;
-        String Strain8Species5 = null;
-        int Strain8Count5 = 0;
-        String Strain8Genus6 = null;
-        String Strain8Species6 = null;
-        int Strain8Count6 = 0;
-
-
-        //Strain 9
-        String StrainDiv9 = null;
-        String Strain9Name = null;
-        String Strain9Vigor = null;
-        int Strain9Height = 0;
-        int Strain9PlotSize = 0;
-        String Strain9Blooms = null;
-        int Strain9Coverage = 0;
-        String Strain9Genus1 = null;
-        String Strain9Species1 = null;
-        int Strain9Count1 = 0;
-        String Strain9Genus2 = null;
-        String Strain9Species2 = null;
-        int Strain9Count2 = 0;
-        String Strain9Genus3 = null;
-        String Strain9Species3 = null;
-        int Strain9Count3 = 0;
-        String Strain9Genus4 = null;
-        String Strain9Species4 = null;
-        int Strain9Count4 = 0;
-        String Strain9Genus5 = null;
-        String Strain9Species5 = null;
-        int Strain9Count5 = 0;
-        String Strain9Genus6 = null;
-        String Strain9Species6 = null;
-        int Strain9Count6 = 0;
-
-
-        //Strain 10
-        String StrainDiv10 = null;
-        String Strain10Name = null;
-        String Strain10Vigor = null;
-        int Strain10Height = 0;
-        int Strain10PlotSize = 0;
-        String Strain10Blooms = null;
-        int Strain10Coverage = 0;
-        String Strain10Genus1 = null;
-        String Strain10Species1 = null;
-        int Strain10Count1 = 0;
-        String Strain10Genus2 = null;
-        String Strain10Species2 = null;
-        int Strain10Count2 = 0;
-        String Strain10Genus3 = null;
-        String Strain10Species3 = null;
-        int Strain10Count3 = 0;
-        String Strain10Genus4 = null;
-        String Strain10Species4 = null;
-        int Strain10Count4 = 0;
-        String Strain10Genus5 = null;
-        String Strain10Species5 = null;
-        int Strain10Count5 = 0;
-        String Strain10Genus6 = null;
-        String Strain10Species6 = null;
-        int Strain10Count6 = 0;
-        String comments = null;
-        String errorMessage = null;
+        ArrayList<Pollinator> pollinators = new ArrayList<>();
+        ArrayList<PollinatorVisitCount> visitCounts = new ArrayList<>();
+        ArrayList<Plot> plotData = new ArrayList<>();
         String buttonPress = null;
+        String errorMessage = null;
 
+        //DataForm Generators & Garden Information
+        String generator_name1 = null;
+        String generator_name2 = null;
+        String generator_name3 = null;
+        String generator_name4 = null;
+        String county = null;
+        String garden_name = null;
+
+        //DataForm Date Information
+        int week_num = 0;
+        LocalDate date_collected = null;
+        LocalDate date_generated = null;
+        LocalDate date_confirmed = null;
+        LocalTime start_time = null;
+        LocalTime end_time = null;
+
+        //DataForm Weather Conditions & Other Information
+        int temperature = 0;
+        String wind_status = null;
+        String cloud_status = null;
+        String comments = null;
+        String butterfly_moth_comments = null;
+
+        //Dataform Plant, Strain, Plot, & Pollinator Information
+        String plant_name = null;
+        String strain_name = null;
+        String plot_blooms_open = null;
+        double plot_height = 0.0;
+        double plot_area_dbl = 0.0;
+        double plot_percent_coverage = 0.0;
+
+        //Visit Count Information
+        int visit_count = 0;
+
+        //
+        // ------------------------------ End DataForm Initialization ------------------------------ //
+        //
+
+        //
+        // ------------------------------ Begin DataForm Content ------------------------------ //
+        //
 
         buttonPress = req.getParameter("dataFormSubmit");
 
+        if (buttonPress != null)
+        {
+            System.out.println("DataForm submitted");
+            //DataForm Generators & Garden Information
+            generator_name1 = req.getParameter("generatorName1");
+            generator_name2 = req.getParameter("generatorName2");
+            generator_name3 = req.getParameter("generatorName3");
+            generator_name4 = req.getParameter("generatorName4");
+            garden_name = req.getParameter("garden_name");
 
-        if (buttonPress != null) {
-            System.out.println("pressed");
+            //DataForm Date & Time Information
+            week_num = Integer.parseInt(req.getParameter("garden_name"));
+            date_collected = getDateFromParameter(req.getParameter("dateCollected"));
+            date_generated = getDateFromParameter(req.getParameter("dateGenerated"));
+            date_confirmed = getDateFromParameter(req.getParameter("dateConfirmed"));
+            start_time = getTimeFromParameter(req.getParameter("startTime"));
+            end_time = getTimeFromParameter(req.getParameter("endTime"));
 
-
-            PlantStrain strain = new PlantStrain(1, 1, "hello", "maybe");
-            strains.add(strain);
-            System.out.println("passed this");
-
-            //userCollected = req.getParameter("genUsers");
-            //gardenName = req.getParameter("garden");
-            //county = req.getParameter("county");
-
-            //Uncomment     LocalDate.parse
-
-            dateCreated = getDateFromParameter(req.getParameter("dateCollected"));
-            System.out.println("passed this1");
-
-            //  startTime = LocalTime.parse(req.getParameter("startTime"));
-            //endTime = req.getParameter("endTime");
-            temperature = getIntFromParameter(req.getParameter("temperature"));
-            wind = req.getParameter("wind");
-            cloudCover = req.getParameter("cloudCover");
-            plantGenus = req.getParameter("plantGenus");
-
-            //Strain 1
-            // strainDiv1 = req.getParameter("");
-            // Strain1Name = req.getParameter("Strain1Name");
-            Strain1Vigor = req.getParameter("Strain1Vigor");
-            Strain1Height = Double.parseDouble(req.getParameter("Strain1Height"));
-            Strain1PlotSize = Double.parseDouble(req.getParameter("Strain1PlotSize"));
-            Strain1Blooms = req.getParameter("Strain1Blooms");
-            Strain1Coverage = Double.parseDouble(req.getParameter("Strain1Coverage"));
-
-            Strain1Genus1 = req.getParameter("Strain1Genus1");
-            Strain1Species1 = req.getParameter("Strain1Species1");
-            Strain1Count1 = getIntFromParameter(req.getParameter("Strain1Count1"));
-
-            Strain1Genus2 = req.getParameter("Strain1Genus2");
-            Strain1Species2 = req.getParameter("Strain1Species2");
-            Strain1Count2 = getIntFromParameter(req.getParameter("Strain1Count2"));
-
-            Strain1Genus3 = req.getParameter("Strain1Genus3");
-            Strain1Species3 = req.getParameter("Strain1Species3");
-            Strain1Count3 = getIntFromParameter(req.getParameter("Strain1Count3"));
-
-            Strain1Genus4 = req.getParameter("Strain1Genus4");
-            Strain1Species4 = req.getParameter("Strain1Species4");
-            Strain1Count4 = getIntFromParameter(req.getParameter("Strain1Count4"));
-
-            Strain1Genus5 = req.getParameter("Strain1Genus5");
-            Strain1Species5 = req.getParameter(" Strain1Species5");
-            Strain1Count5 = getIntFromParameter(req.getParameter("Strain1Count5"));
-
-            Strain1Genus6 = req.getParameter("Strain1Genus6");
-            Strain1Species6 = req.getParameter("Strain1Species6");
-            Strain1Count6 = getIntFromParameter(req.getParameter("Strain1Count6"));
-
-
+            //DataForm Weather Conditions & Other Information
+            temperature = Integer.parseInt(req.getParameter("temperature"));
+            wind_status = req.getParameter("windStatus");
+            cloud_status = req.getParameter("cloudStatus");
             comments = req.getParameter("comments");
+            butterfly_moth_comments = req.getParameter("butterflyMothComments");
 
+            plot_blooms_open = req.getParameter("plotBloomsOpen");
+            plot_height = Double.parseDouble(req.getParameter("plotHeight"));
+            plot_area_dbl = Double.parseDouble(req.getParameter("plotAreaDbl"));
+            plot_percent_coverage = Double.parseDouble(req.getParameter("plotPercentCoverage"));
 
-
-
-
-            /*
-            if (dateCreated == null || dateCreated.equals("")) {
-                errorMessage = "Enter the day of collection in the format YYYY-MM-DD";
+            if ("".equals(generator_name1) || generator_name1 == null) {
+                errorMessage = "Please enter the name of at least one (1) DataForm Generator";
                 System.out.printf("%s", errorMessage);
-               dateCreated = null;
+                generator_name1 = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-
-            } else {
-                dateCreated = LocalDate.parse(req.getParameter("dateCollected"));
-            } */
-
-
-            if ("".equals(dateCreated) || dateCreated == null) {
-                errorMessage = "Enter the day of collection in the format YYYY-MM-DD";
+            }
+            else if ("".equals(garden_name) || garden_name == null) {
+                errorMessage = "Please enter the name of the garden";
                 System.out.printf("%s", errorMessage);
-                dateCreated = null;
+                garden_name = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-
-                /*
-
-
-            if ("".equals(userCollected) || userCollected == null) {
-                errorMessage = "Enter the name of the users colleced";
+            }
+            else if ("".equals(date_collected) || date_collected == null) {
+                errorMessage = "Please enter the data collection date";
                 System.out.printf("%s", errorMessage);
-                userCollected = null;
+                date_collected = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-
-            } else if ("".equals(gardenName) || gardenName == null) {
-                errorMessage = "Enter the name of the garden";
+            }
+            else if ("".equals(date_generated) || date_generated == null) {
+                errorMessage = "Please enter the DataForm generation date";
                 System.out.printf("%s", errorMessage);
-                gardenName = null;
+                date_generated = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-
-            } else if ("".equals(county) || county == null) {
-                errorMessage = "Enter the date";
+            }
+            else if ("".equals(start_time) || start_time == null) {
+                errorMessage = "Please enter a start time";
                 System.out.printf("%s", errorMessage);
-                county = null;
+                start_time = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-
-            } else if ("".equals(startTime) || startTime == null) {
-                errorMessage = "Enter a start time";
+            }
+            else if ("".equals(end_time) || end_time == null) {
+                errorMessage = "Please enter a end time";
                 System.out.printf("%s", errorMessage);
+                end_time = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-
-            } else if ("".equals(endTime) || endTime == null) {
-                errorMessage = "Enter a end time";
+            }
+            else if ("".equals(plot_blooms_open) || plot_blooms_open == null) {
+                errorMessage = "Please enter the bloom status of the plot";
                 System.out.printf("%s", errorMessage);
+                plot_blooms_open = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-*/
-
-            } else if ("".equals(temperature) || temperature == 0) {
-                errorMessage = "Enter a temperature";
+            }
+            else if ("".equals(plot_percent_coverage) || plot_percent_coverage == 0) {
+                errorMessage = "Please enter flower coverage percentage of the plot";
                 System.out.printf("%s", errorMessage);
+                plot_percent_coverage = 0;
                 req.setAttribute("errorMessage", errorMessage);
+                req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
+            }
+            else {
+
+                System.out.println("All parameters accepted successfully");
+
+                for(int i = 1; i <= (plants.size()+1); i++)
+                {
+                    plant_name = req.getParameter("plantName" + i);
+                    if ("".equals(plant_name) || plant_name == null) {
+                        errorMessage = "Please enter the genus (plant) name for the plot";
+                        System.out.printf("%s", errorMessage);
+                        plant_name = null;
+                        req.setAttribute("errorMessage", errorMessage);
+                        req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
+                    }
+
+                    try {
+                        plants.get(i).setPlantID(controller.getPlantIDByPlantName(plant_name));//Variable from Drop-Down
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                    for(int j = 1; j <= (strains.size()+1); j++)
+                    {
+                        strain_name = req.getParameter("strainName" + j);
+                        if ("".equals(strain_name) || strain_name == null) {
+                            errorMessage = "Please enter the species (strain) name for the first pollinator";
+                            System.out.printf("%s", errorMessage);
+                            strain_name = null;
+                            req.setAttribute("errorMessage", errorMessage);
+                            req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
+                        }
+
+                        try {
+                            strains.get(i).setStrainID(controller.getStrainIDByStrainName(strain_name));//Variable from Drop-Down
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+
+                        plotData.get(0).setPlot_height(4.0);
+                        plotData.get(0).setPlot_area_dbl(11);
+                        plotData.get(0).setBlooms_open_status("11");
+                        plotData.get(0).setPercent_coverage(11);
+
+                        for(int k = 1; k <= (pollinators.size()+1); k++)
+                        {
+                            //Visit Count Information
+                            visit_count = Integer.parseInt(req.getParameter("visitCountStrain" + j + "Pollinator" + k));
+                            Pollinator poll = new Pollinator(1, "Crub1", "Meme1");
+                            PollinatorVisitCount pvc = new PollinatorVisitCount(2, 111, 59, 4, Strain1Count1);
+                        }
+
+                    }
+                }
 
 
-            } else if ("".equals(wind) || wind == null) {
-                errorMessage = "Enter a wind condition";
-                System.out.printf("%s", errorMessage);
-                wind = null;
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(cloudCover) || cloudCover == null) {
-                errorMessage = "Enter a cloud cover condition";
-                System.out.printf("%s", errorMessage);
-                cloudCover = null;
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(plantGenus) || plantGenus == null) {
-                errorMessage = "Enter the plant genus";
-                System.out.printf("%s", errorMessage);
-                plantGenus = null;
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Vigor) || Strain1Vigor == null) {
-                errorMessage = "Enter the vigor of the plot";
-                System.out.printf("%s", errorMessage);
-                Strain1Vigor = null;
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Height) || Strain1Height == 0) {
-                errorMessage = "Enter the avgerage height of the plot";
-                System.out.printf("%s", errorMessage);
-                Strain1Height = 0;
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1PlotSize) || Strain1PlotSize == 0) {
-                errorMessage = "Enter the average height of the plot";
-                System.out.printf("%s", errorMessage);
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Blooms) || Strain1Blooms == null) {
-                errorMessage = "Enter the blooms of the strain";
-                System.out.printf("%s", errorMessage);
-                Strain1Blooms = null;
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Coverage) || Strain1Coverage == 0) {
-                errorMessage = "Enter coverage of the plot";
-                System.out.printf("%s", errorMessage);
-                Strain1Coverage = 0;
-                req.setAttribute("errorMessage", errorMessage);
-
-           /* } else if ("".equals(Strain1Name) || Strain1Name == null) {
-                errorMessage = "Enter the the name of the strain";
-                System.out.printf("%s", errorMessage);
-                Strain1Name = null;
-                req.setAttribute("errorMessage", errorMessage);
-                req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp); */
-
-            } else if ("".equals(Strain1Genus1) || Strain1Genus1 == null) {
-                errorMessage = "Enter the genus for the first pollinator";
-                System.out.printf("%s", errorMessage);
-                Strain1Genus1 = null;
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Species1) || Strain1Species1 == null) {
-                errorMessage = "Enter the species for the first pollinator";
-                System.out.printf("%s", errorMessage);
-                Strain1Species1 = null;
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Count1) || Strain1Count1 == 0) {
-                errorMessage = "Enter the count for the first pollinator";
-                System.out.printf("%s", errorMessage);
-                Strain1Count1 = 0;
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Genus2) || Strain1Genus2 == null) {
-                errorMessage = "Enter the 2nd genus for second pollinator, first ";
-                System.out.printf("%s", errorMessage);
-                Strain1Genus2 = null;
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Species2) || Strain1Species2 == null) {
-                errorMessage = "Enter the 2nd speices for the first strain";
-                System.out.printf("%s", errorMessage);
-                Strain1Species1 = null;
-                req.setAttribute("errorMessage", errorMessage);
-
-
-//            } else if ("".equals(Strain1Count2) || Strain1Count2 == 0) {
-//                errorMessage = "Enter count for 2nd pollinator";
-//                System.out.printf("%s", errorMessage);
-//                Strain1Count2 = 0;
-//                req.setAttribute("errorMessage", errorMessage);
-//                req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-//
-            } else if ("".equals(Strain1Genus3) || Strain1Genus3 == null) {
-                errorMessage = "Enter the 3st speices";
-                System.out.printf("%s", errorMessage);
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Species3) || Strain1Species3 == null) {
-                errorMessage = "Enter the 33st speices";
-                System.out.printf("%s", errorMessage);
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Count3) || Strain1Count3 == 0) {
-                errorMessage = "3rd Count";
-                System.out.printf("%s", errorMessage);
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Genus4) || Strain1Genus4 == null) {
-                errorMessage = "Enter the 1st speicees";
-                System.out.printf("%s", errorMessage);
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Species4) || Strain1Species4 == null) {
-                errorMessage = "Enter the 1st speiceas";
-                System.out.printf("%s", errorMessage);
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Count4) || Strain1Count4 == 0) {
-                errorMessage = "Enter the 1st speieces";
-                System.out.printf("%s", errorMessage);
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Genus5) || Strain1Genus5 == null) {
-                errorMessage = "Enter the 1st speiwes";
-                System.out.printf("%s", errorMessage);
-                req.setAttribute("errorMessage", errorMessage);
-
-
-            } else if ("".equals(Strain1Count5) || Strain1Count5 == 0) {
-                errorMessage = "Enter the 1st speiwces";
-                System.out.printf("%s", errorMessage);
-                req.setAttribute("errorMessage", errorMessage);
-
-            } else if ("".equals(Strain1Genus6) || Strain1Genus6 == null) {
-                errorMessage = "Enter the 1st speicegs";
-                System.out.printf("%s", errorMessage);
-                req.setAttribute("errorMessage", errorMessage);
-
-            } else if ("".equals(Strain1Species6) || Strain1Species6 == null) {
-                errorMessage = "Enter the 1st speicbes";
-                System.out.printf("%s", errorMessage);
-                req.setAttribute("errorMessage", errorMessage);
-
-            } else if ("".equals(Strain1Count6) || Strain1Count6 == 0) {
-                errorMessage = "Enter the 1st speiwces";
-                System.out.printf("%s", errorMessage);
-                req.setAttribute("errorMessage", errorMessage);
-
-            } else
-
-            {
-
-                Plot plot = new Plot(1, 1, 1, 0.0, 0.0, null, null, null);
-                plotData.add(plot);
-
-                /*
-                plotData.get(0).setPlant_vigor_status(Strain1Vigor);
-                plotData.get(0).setPlot_height(Strain1Height);
-                plotData.get(0).setPlot_area_dbl(Strain1PlotSize);
-                plotData.get(0).setBlooms_open_status(Strain1Blooms);
-                plotData.get(0).setPercent_coverage(Strain1Coverage); */
-                plotData.get(0).setPlant_vigor_status("11");
-                plotData.get(0).setPlot_height(4.0);
-                plotData.get(0).setPlot_area_dbl(11);
-                plotData.get(0).setBlooms_open_status("11");
-                plotData.get(0).setPercent_coverage(11);
-
-                System.out.println("Before Else");
-                ArrayList<Pollinator> polls = new ArrayList<Pollinator>();
-                ArrayList<PollinatorVisitCount> pvcs = new ArrayList<PollinatorVisitCount>();
-
-                Pollinator poll = new Pollinator(1, "Crub1", "Meme1");
                 Pollinator poll1 = new Pollinator(2, "Crub1", "Meme1");
                 Pollinator poll2 = new Pollinator(13, "Crub2", "Meme1");
                 Pollinator poll3 = new Pollinator(14, "Crub3", "Meme1");
                 Pollinator poll4 = new Pollinator(15, "Crub4", "Meme1");
                 Pollinator poll5 = new Pollinator(16, "Crub5", "Meme1");
-                PollinatorVisitCount pvc = new PollinatorVisitCount(2, 111, 59, 4, Strain1Count1);
                 PollinatorVisitCount pvc1 = new PollinatorVisitCount(22, 111, 60, 4, Strain1Count2);
                 PollinatorVisitCount pvc2 = new PollinatorVisitCount(23, 111, 61, 4, Strain1Count3);
                 PollinatorVisitCount pvc3 = new PollinatorVisitCount(24, 111, 62, 4, Strain1Count4);
                 PollinatorVisitCount pvc4 = new PollinatorVisitCount(26, 111, 63, 4, Strain1Count5);
                 PollinatorVisitCount pvc5 = new PollinatorVisitCount(27, 111, 64, 4, Strain1Count6);
-
-                // TODO: Fix this
-                ArrayList<Integer> gatherer_ids = null;
-                gatherer_ids.add(-1);
-                gatherer_ids.add(-2);
-                gatherer_ids.add(-3);
-                gatherer_ids.add(-4);
-                // End fix this
 
                 polls.add(poll);
                 polls.add(poll1);
@@ -697,8 +275,9 @@ public class DataFormServlet extends HttpServlet {
                 pvcs.add(pvc5);
 
                 System.out.println("Set pdf");
-                PollinatorDataForm pdf = new PollinatorDataForm(1, 1, 1, gatherer_ids, 1, temperature,                        dateCreated, dateGenerated, startTime, endTime, comments, cloudCover,
-                        wind, plotData, new Plant(1, "yes"), strains, polls, pvcs);
+                PollinatorDataForm pdf = new PollinatorDataForm(1, 1, 1, 1, 1, temperature,
+                        dateCreated, dateGenerated, startTime, endTime, comments, cloudCover,
+                        wind, plotData, plants, strains, polls, pvcs);
                 DataFormController controller = new DataFormController();
                 try {
 
@@ -713,6 +292,7 @@ public class DataFormServlet extends HttpServlet {
                 }
                 resp.sendRedirect(req.getContextPath() + "/garden");
             }
+
             req.setAttribute("dateCollected", dateCreated);
             req.setAttribute("temperature", temperature);
             req.setAttribute("wind", wind);
@@ -754,25 +334,6 @@ public class DataFormServlet extends HttpServlet {
             req.setAttribute("comments", comments);
         }
 
-        /*
-        req.setAttribute("gardenname", gardenName);
-        req.setAttribute("date", date);
-        req.setAttribute("starttime", startTime);
-        req.setAttribute("endtime", endTime);
-
-
-
-        req.setAttribute("planttype", plantType);
-        req.setAttribute("pollinatortype", pollinatorType);
-        req.setAttribute("pollinatorcount", pollinatorCount);
-        req.setAttribute("avgheightofplot", avgHeightofPlot);
-        req.setAttribute("sizeplot", sizePlot);
-        req.setAttribute("bloomsopen", bloomsOpen);
-        req.setAttribute("flowercoverage", flowerCoverage);
-        req.setAttribute("plantvigor", plantVigor);
-        req.setAttribute("comments", comments); */
-
-
     }
 
     private int getIntFromParameter(String s) {
@@ -791,5 +352,11 @@ public class DataFormServlet extends HttpServlet {
         }
     }
 
-
+    private LocalTime getTimeFromParameter(String s) {
+        if (s == null || s.equals("")) {
+            return null;
+        } else {
+            return LocalTime.parse(s);
+        }
+    }
 }

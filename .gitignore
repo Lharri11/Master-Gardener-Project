@@ -55,3 +55,12 @@ Jetty/_project
 .idea
 Derby/.classpath
 .recommenders
+Master_Gardener_Source/war/images/pages/home/beautiful-bloom-blooming-414160.jpg
+Master_Gardener_Source/war/css/additional-style.css
+Master_Gardener_Source/war/images/pages/home/animal-bee-bloom-460961.jpg
+Master_Gardener_Source/war/images/pages/home/dewdrops-flora-flower-56866.jpg
+Master_Gardener_Source/war/vendor/bootstrap/css/bootstrap.css
+Master_Gardener_Source/war/vendor/bootstrap/js/bootstrap.bundle.js
+Master_Gardener_Source/war/vendor/jquery-easing/jquery.easing.js
+Master_Gardener_Source/war/vendor/jquery/jquery.js
+Master_Gardener_Source/war/vendor/scrollreveal/scrollreveal.js
