@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 //import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import controller.SearchController;
 //import controller.UserController;
 //import model.User;
@@ -33,21 +35,34 @@ public class SearchServlet extends HttpServlet {
 			return;
 		}
 				
-		controller = new SearchController();
-		String keyword;
-		keyword = (String) req.getSession().getAttribute("keyword");
-		List<Garden> gardens = null;
+		//controller = new SearchController();
+
+		/*String keyword;
+		keyword = (String) req.getSession().getAttribute("keyword");*/
+
+
+		List<Garden> gardens = new ArrayList<>();
+		SearchController controller = new SearchController();
+
 		try {
-			if(keyword == null){
-				System.out.println("Keyword not found");
-			}
-			else{
-			gardens = controller.getGardensLike(keyword);
-			}
+			gardens = controller.getAllGardens();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		req.setAttribute("gardens", gardens);
+
+		/*List<String> everyGardens = new ArrayList<>();
+		for (int i = 0; i < gardens.size(); i++) {
+			everyGardens.add(gardens.get(i).getGarden_name());
+		}
+
+*/
+		String allGardens = new Gson().toJson(gardens);
+
+
+		System.out.println(allGardens);
+
+		req.setAttribute("allGardens", allGardens);
 		req.getRequestDispatcher("/_view/search.jsp").forward(req, resp);	
 	}
 

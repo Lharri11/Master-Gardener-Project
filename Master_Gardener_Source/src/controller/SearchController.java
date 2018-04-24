@@ -4,7 +4,7 @@ import model.Garden;
 import java.sql.SQLException;
 import java.util.List;
 import database.core.*;
- 
+
 public class SearchController {
 
 	private IDatabase database = null;
@@ -13,13 +13,25 @@ public class SearchController {
 
 		// creating DB instance here
 		DatabaseProvider.setInstance(new MySQLDatabase());
-		database = DatabaseProvider.getInstance();		
+		database = DatabaseProvider.getInstance();
 	}
 
-	public List<Garden> getGardensLike(String keyword) throws SQLException {
-		
-		List<Garden> gardens = database.getGardensLikeKeyword(keyword);
+
+	public List<Garden> getAllGardens() throws SQLException {
+
+
+		List<Garden> gardens = database.getAllGardens();
+
 		if (gardens.isEmpty()) {
+			System.out.println("No gardens found");
+			return null;
+		} else {
+			return gardens;
+		}
+	}
+
+	// TODO: Delete if above is working
+		/*if (gardens.isEmpty()) {
 			System.out.println("No gardens found that match the keyphrase provided");
 			return null;
 		}
@@ -29,8 +41,8 @@ public class SearchController {
 				System.out.println(gardens.get(x).getGarden_name());
 			}
 			return gardens;
-		}			
-	}
+		}
+	}*/
 
 	public int getGardenIDbyGardenname(String name) {
 		List<Garden> garden = database.getGardenbyGardenName(name);

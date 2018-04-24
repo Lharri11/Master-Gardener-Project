@@ -30,7 +30,6 @@ public class AdminServlet extends HttpServlet {
 
         List<User> activeAccounts = new ArrayList<>();
         AdminController controller = new AdminController();
-        controller = new AdminController();
         try {
             activeAccounts = controller.getAllUsernames();
         } catch (SQLException e) {
@@ -130,7 +129,7 @@ public class AdminServlet extends HttpServlet {
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/admin.jsp").forward(req, resp);
             } else {
-                User user = new User(username, pass1, -1, name, email,"[Description]",0);
+                User user = new User(username, pass1, -1, firstname, lastname, email,"[Description]");
                 AdminController controller = new AdminController();
 
                 if (controller.createUser(user)) {

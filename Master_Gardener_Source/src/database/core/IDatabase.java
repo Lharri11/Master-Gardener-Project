@@ -37,6 +37,7 @@ public interface IDatabase {
 	public int getUserIDFromFirstNameAndLastName(final String first_name, final String last_name) throws SQLException;
 	public String getGardenAddressByGardenID(final int garden_id);
 	public List<User> getAllUsernames() throws SQLException;
+	public List<Garden> getAllGardens() throws SQLException;
 	public List<String> getAllPollinators() throws SQLException;
 	public List<String> getAllPlants() throws SQLException;
 	public List<String> getAllStrains() throws SQLException;
@@ -57,8 +58,8 @@ public interface IDatabase {
 	public String queryForPasswordByUsername(String username);
 	public List<Integer> getAllDataFormIDs() throws SQLException;
 	public List<Integer> getAllVisitCountIDs() throws SQLException;
-	public List<Integer> getUnconfirmedDataFormIDsByCounty(String county) throws SQLException;
-	public List<String> getUnconfirmedDataFormsByCounty(String county) throws SQLException;
+	public List<Integer> getUnconfirmedDataformIDsByCounty(String county) throws SQLException;
+	public List<String> getUnconfirmedDataformsByCounty(String county) throws SQLException;
 	public String hashString(String password) throws SQLException;
 	public int getModeratorStatusByUsername(String username) throws SQLException;
 	public ArrayList<Integer> getGeneratorListByUsernames(String[] names) throws SQLException;

@@ -36,6 +36,19 @@ public class AdminController {
         }
 
     }
+
+    public List<String> getAllUnconfirmedDataForm() throws SQLException {
+        List<String> unconfirmed =  database.getUnconfirmedDataFormsByCounty("Adams");
+                //database.getUnconfirmedDataformsByCounty("Adams");
+        if (unconfirmed.isEmpty()) {
+            System.out.println("Empty");
+            return null;
+        } else {
+            System.out.println("Returned");
+            return unconfirmed;
+        }
+    }
+
     public boolean updatePollinatorVisitCountPlotIDs()
     {
         boolean success = false;
