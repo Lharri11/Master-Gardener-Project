@@ -23,12 +23,15 @@
     <!-- Custom styles -->
     <link href="css/additional-style.css" rel="stylesheet">
 
+    <!-- Datatables style -->
+    <link href="vendor/DataTables/DataTables-1.10.16/css/jquery.dataTables.css" rel="stylesheet">
+
 
 </head>
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" id="mainNav">
     <div class="container">
         <a class="navbar-brand" href="${pageContext.servletContext.contextPath}/home">Pollinator Preferences</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -36,9 +39,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <%--TODO: Fix logout function, does not function as inteneded...add seperate servlet--%>
 
-        <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.servletContext.contextPath}/user">My Account</a>
@@ -55,77 +56,6 @@
     </div>
 </nav>
 
-<%--<div class="container">
-    <div class="col-lg-7 col-md-6 col-sm-12">
-        <div class="editContent">
-            <h2>Create New User</h2>
-        </div>
-        <div class="editContent">
-            <form action="${pageContext.servletContext.contextPath}/admin" method="post">
-                <table>
-                    <tr>
-                        <td>Username:</td>
-                        <td><input type="text" class="text-control" name="userName"
-                                   placeholder="Username"
-                                   value="${userName}" required autocomplete="off"></td>
-
-                    </tr>
-
-                    <tr>
-                        <td> Password:</td>
-
-                        <td><input type="password" class="text-control" name="pass1" placeholder="Password"
-                                   value="${password}" required autocomplete="off">
-
-                    </tr>
-
-                    <tr>
-                        <td> Re-Enter:</td>
-                        <td><input type="password" class="text-control" name="pass2" placeholder="Re-Enter Password"
-                                   value="${pass2}" required autocomplete="off">
-                        </td>
-
-                    </tr>
-
-                    <tr>
-                        <td> First Name:</td>
-
-                        <td><input type="text" class="text-control" firstname="firstname" placeholder="First Name"
-                                   value="${name}" required autocomplete="off"></td>
-
-                    </tr>
-                    <tr>
-                        <td> Last Name:</td>
-
-                        <td><input type="text" class="text-control" lastname="lastname" placeholder="Last Name"
-                                   value="${name}" required autocomplete="off"></td>
-
-                    </tr>
-
-                    <tr>
-                        <td> Email:</td>
-
-                        <td><input type="text" class="text-control" name="email" placeholder="Email"
-                                   value="${email}" required autocomplete="off"></td>
-
-                    </tr>
-
-                    <tr>
-                        <td><input type="submit" id="loginSubmit" name="userCreate" value="Create">
-                        </td>
-                    </tr>
-                </table>
-                <c:if test="${! empty errorMessage}">
-                    <tr>${errorMessage}</tr>
-                </c:if>
-            </form>
-        </div>
-    </div>
-
-
-    <!--/pageContent-->
-
-</div>--%>
 
 <div class="container admin-page-top-padding">
     <div class="row">
@@ -215,8 +145,121 @@
                 </div>--%>
 
             </form>
+
+
         </div>
+
+        <div class="col-lg-8">
+            <div class="row">
+                <%--
+                            <form id="delete" action="${pageContext.servletContext.contextPath}/admin" method="post">
+
+
+
+
+                            </form>--%>
+
+                <table id="activeAccountTable">
+                    <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>E-mail</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <c:forEach items="${activeAccounts}" var="activeAccounts">
+                        <tr>
+                            <td>${activeAccounts.username}</td>
+                            <td>${activeAccounts.firstName}</td>
+                            <td>${activeAccounts.lastName}</td>
+                            <td>${activeAccounts.email}</td>
+
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+
+
+            </div>
+
+        </div>
+
+        <%--   <h2>Delete Existing User</h2>
+       </div>
+       <div>
+           <form id="delete" action="${pageContext.servletContext.contextPath}/admin" method="post">
+               <table>
+                   <tr>
+                       <td>User to delete:</td>
+
+                       <td><input type="text" class="text-control" id="usernameDelete" name="username2"
+                                  placeholder="User to Delete"
+                                  value="${usernameDelete}" required autocomplete="off"></td>
+                       <td><input type="submit" class="text-control" name="userDelete"
+                                  value="Delete">
+                       </td>
+                   </tr>
+               </table>
+               <c:if test="${! empty errorMessage2}">
+                   <tr>${errorMessage2}</tr>
+               </c:if>
+           </form>
+       </div>
+
+       <div>
+           <div id="intro"></div>
+       </div>
+
+
+       <div class="col-lg-8 col-md-6 col-sm-12">
+           <table id="activeAccountTable">
+               <thead>
+               <tr>
+                   <th class="col-xs-3">Username</th>
+                   <th class="col-xs-3">First Name</th>
+                   <th class="col-xs-3">Last Name</th>
+                   <th class="col-xs-6">E-mail</th>
+               </tr>
+               </thead>
+               <tbody>
+
+               <c:forEach items="${activeAccounts}" var="activeAccounts">
+                   <tr>
+                       <td class="col-xs-3">${activeAccounts.username}</td>
+                       <td class="col-xs-3">${activeAccounts.firstName}</td>
+                       <td class="col-xs-3">${activeAccounts.lastName}</td>
+                       <td class="col-xs-3">${activeAccounts.email}</td>
+
+                   </tr>
+               </c:forEach>
+               </tbody>
+           </table>
+
+
+           <!--
+           <table id="dataTable" class="table table-bordered">
+               <thead>
+               <tr>
+                   <th class="col-xs-3">Username</th>
+                   <th class="col-xs-3">Name</th>
+                   <th class="col-xs-6">E-mail</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+                   <td class="col-xs-3">gfhgf</td>
+                   <td class="col-xs-3">gfhfgh</td>
+                   <td class="col-xs-6">gfhfgh</td>
+               </tr>
+               </tbody>
+           </table> -->
+       </div>--%>
     </div>
+
+
 </div>
 
 
@@ -226,6 +269,71 @@
 <script src="vendor/jquery-easing/jquery.easing.js"></script>
 <script src="vendor/scrollreveal/scrollreveal.js"></script>
 <script src="vendor/Popper/Popper.js"></script>
+<script src="vendor/DataTables/datatables.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#activeAccountTable').DataTable().draw();
+        ;
+    });
+</script>
+
+<script>
+    document.getElementById("delete").onsubmit = function () {
+        location.reload(true);
+    }
+</script>
+
+<script>
+    (function($) {
+        "use strict"; // Start of use strict
+        // Configure tooltips for collapsed side navigation
+        $('.navbar-sidenav [data-toggle="tooltip"]').tooltip({
+            template: '<div class="tooltip navbar-sidenav-tooltip" role="tooltip" style="pointer-events: none;"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+        })
+        // Toggle the side navigation
+        $("#sidenavToggler").click(function(e) {
+            e.preventDefault();
+            $("body").toggleClass("sidenav-toggled");
+            $(".navbar-sidenav .nav-link-collapse").addClass("collapsed");
+            $(".navbar-sidenav .sidenav-second-level, .navbar-sidenav .sidenav-third-level").removeClass("show");
+        });
+        // Force the toggled class to be removed when a collapsible nav link is clicked
+        $(".navbar-sidenav .nav-link-collapse").click(function(e) {
+            e.preventDefault();
+            $("body").removeClass("sidenav-toggled");
+        });
+        // Prevent the content wrapper from scrolling when the fixed side navigation hovered over
+        $('body.fixed-nav .navbar-sidenav, body.fixed-nav .sidenav-toggler, body.fixed-nav .navbar-collapse').on('mousewheel DOMMouseScroll', function(e) {
+            var e0 = e.originalEvent,
+                delta = e0.wheelDelta || -e0.detail;
+            this.scrollTop += (delta < 0 ? 1 : -1) * 30;
+            e.preventDefault();
+        });
+        // Scroll to top button appear
+        $(document).scroll(function() {
+            var scrollDistance = $(this).scrollTop();
+            if (scrollDistance > 100) {
+                $('.scroll-to-top').fadeIn();
+            } else {
+                $('.scroll-to-top').fadeOut();
+            }
+        });
+        // Configure tooltips globally
+        $('[data-toggle="tooltip"]').tooltip()
+        // Smooth scrolling using jQuery easing
+        $(document).on('click', 'a.scroll-to-top', function(event) {
+            var $anchor = $(this);
+            $('html, body').stop().animate({
+                scrollTop: ($($anchor.attr('href')).offset().top)
+            }, 1000, 'easeInOutExpo');
+            event.preventDefault();
+        });
+    })(jQuery); // End of use strict
+
+
+</script>
+
 
 
 </body>
