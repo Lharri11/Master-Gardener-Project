@@ -1458,6 +1458,11 @@ public class MySQLDatabase implements IDatabase {
 
             int county_id = 0;
             boolean cont;
+            if(!set1.next())
+            {
+                county_names.add("NO COUNTIES WITH UNCONFIRMED DFs.");
+                return county_names;
+            }
             while(set1.next())
             {
                 cont = true;
@@ -1509,36 +1514,88 @@ public class MySQLDatabase implements IDatabase {
         ResultSet set2 = null;
 
         try {
-            for (int i = 0; i < cids.size(); i++) {
-                // First, add the current ID to the result list
-                return_list.add(cids.get(i).toString());
+            if(cids.size() > 0) {
+                for (int i = 0; i < cids.size(); i++) {
+                    // First, add the current ID to the result list
+                    return_list.add(cids.get(i).toString());
 
-                // Then, get miscellaneous (easy) fields
-                stmt1 = conn.prepareStatement("SELECT temperature, date_collected,, date_generated, monitor_start, monitor_stop,"
-                        + " wind_status, cloud_status, comments FROM mg_data_form WHERE id = ?");
-                stmt1.setInt(1, cids.get(i));
-                // Hopefully, this loads 8 fields into the ResultSet from columns 1 to 8
-                set1 = stmt1.executeQuery();
+                    // Then, get miscellaneous (easy) fields
+                    stmt1 = conn.prepareStatement("SELECT temperature, date_confirmed, date_generated, monitor_start, monitor_stop,"
+                            + " wind_status, cloud_status, comments FROM mg_data_form WHERE id = ?");
+                    stmt1.setInt(1, cids.get(i));
+                    // Hopefully, this loads 8 fields into the ResultSet from columns 1 to 8
+                    set1 = stmt1.executeQuery();
 
-                // Get all of these fields as a string so we can add them to the return set
-                for (int j = 1; j < 9; j++) {
-                    return_list.add(set1.getString(j));
-                }
+                    // Get all of these fields as a string so we can add them to the return set
+                    // TODO: TEST THIS
+                    for (int j = 1; j < 8; j++) {
+                        if (set1.next()) {
+                            return_list.add(set1.getString(j));
+                        }
+                    }
 
-                // Now, do the hard stuff
-                stmt1 = conn.prepareStatement("SELECT garden_id, plant_id, pollinator_id, visitcount_id FROM" +
-                        " mg_dataform_insert WHERE dataform_id = ?");
-                stmt1.setInt(1, cids.get(i));
+                    // Now, do the hard stuff
+                    stmt1 = conn.prepareStatement("SELECT garden_id FROM" +
+                            " mg_data_form WHERE id = ?");
+                    stmt1.setInt(1, cids.get(i));
 
-                // Load all of the IDs into the ResultSet so we can begin parsing them
-                set1 = stmt1.executeQuery();
+                    // Load all of the IDs into the ResultSet so we can begin parsing them
+                    set1 = stmt1.executeQuery();
 
-                // Start off by getting garden name
-                stmt1 = conn.prepareStatement("SELECT garden_name FROM mg_garden WHERE garden_ID = ?");
-                stmt1.setInt(1, set1.getInt(1));
-                set2 = stmt1.executeQuery();
-                return_list.add(set2.getString(1));
+                    // Start off by getting garden name
+                    stmt1 = conn.prepareStatement("SELECT garden_name FROM mg_garden WHERE garden_ID = ?");
+                    if (set1.next()) {
+                        stmt1.setInt(1, set1.getInt(1));
+                    }
+                    set2 = stmt1.executeQuery();
+                    if (set2.next()) {
+                        return_list.add(set2.getString(1));
+                    }
+                    // Get PVC stats for relevant DFs
+                    stmt1 = conn.prepareStatement("SELECT id, plant_id, strain_id, visit_count FROM mg_pollinator_visit WHERE data_form_id = ?");
+                    stmt1.setInt(1, cids.get(i));
+                    set1 = stmt1.executeQuery();
 
+                    while (set1.next()) {
+                        stmt1 = conn.prepareStatement("SELECT plant_name FROM mg_plant WHERE plant_ID = ?");
+                        // Use column 2 because that's the plant ID
+                        stmt1.setInt(1, set1.getInt(2));
+                        set2 = stmt1.executeQuery();
+                        if (set2.next()) {
+                            return_list.add(set2.getString(1));
+                        }
+
+                        // Get Pollinator_name for column 1 of the set
+                        stmt1 = conn.prepareStatement("SELECT mg_pollinator.pollinatorName FROM mg_pollinator, mg_pollinator_visit" +
+                                " WHERE mg_pollinator_visit.id = ? AND mg_pollinator.pollinator_ID = mg_pollinator_visit.pollinator_id");
+                        // Get first column which contains dataform IDs (which is just repeated. A lot.)
+                        stmt1.setInt(1, set1.getInt(1));
+                        set2 = stmt1.executeQuery();
+                        if (set2.next()) {
+                            return_list.add(set2.getString(1));
+                        }
+
+                        if (set1.next()) {
+                            stmt1 = conn.prepareStatement("SELECT mg_plant_strain.name FROM mg_plant_strain, mg_pollinator_visit " +
+                                    "WHERE mg_pollinator_visit.id = ? AND mg_pollinator_visit.strain_id = mg_plant_strain.strain_id");
+                            stmt1.setInt(1, set1.getInt(3));
+                            set2 = stmt1.executeQuery();
+                        }
+
+                        if (set2.next()) {
+                            return_list.add(set2.getString(1));
+                        }
+                        if (set1.next()) {
+                            return_list.add(set1.getString(4));
+                        }
+
+
+                    }
+
+
+
+
+                /*
                 // Next, get Plant name. Seperate this from getting Strain name because it's easier to manage.
                 stmt1 = conn.prepareStatement("SELECT plant_name FROM mg_plant WHERE plant_ID = ?");
                 stmt1.setInt(1, set1.getInt(2));
@@ -1566,7 +1623,13 @@ public class MySQLDatabase implements IDatabase {
                 stmt1.setInt(2, set1.getInt(3));
                 stmt1.setInt(3, set1.getInt(2));
                 set2 = stmt1.executeQuery();
-                return_list.add(set2.getString(1));
+                return_list.add(set2.getString(1));*/
+
+                    return_list.add("END");
+                }
+            }
+            else{
+                return_list.add("NO DATA TO DISPLAY");
             }
         }
         finally

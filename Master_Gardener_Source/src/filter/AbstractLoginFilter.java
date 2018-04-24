@@ -23,7 +23,7 @@ public class AbstractLoginFilter {
 
         String username = null;
         try {
-            username = req.getSession().getAttribute("username").toString();
+            username = (String) req.getSession().getAttribute("username");
         }
         catch(NullPointerException e)
         {

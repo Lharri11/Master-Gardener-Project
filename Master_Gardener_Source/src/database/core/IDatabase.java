@@ -67,6 +67,7 @@ public interface IDatabase {
 	public ArrayList<String> getPlantsFromGarden(Garden garden) throws SQLException;
 	public int getNumberOfPlantsFromGarden(Garden garden) throws SQLException;
 	public ArrayList<String> getPollinatorsFromGarden(Garden garden) throws SQLException;
+	public List<String> getCountiesWithUnconfirmedDataforms () throws SQLException;
 	//========================================================================================================
 
 

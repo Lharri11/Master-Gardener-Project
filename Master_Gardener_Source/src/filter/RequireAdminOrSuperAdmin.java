@@ -29,8 +29,8 @@ public class RequireAdminOrSuperAdmin extends AbstractLoginFilter implements Fil
     {
         if(!checkLogin(req_, resp_))
         {
-            throw new ServletException("User is not logged in.");
-            //return;
+            //throw new ServletException("User is not logged in.");
+            return;
         }
         HttpServletRequest req = (HttpServletRequest) req_;
         HttpServletResponse resp = (HttpServletResponse) resp_;

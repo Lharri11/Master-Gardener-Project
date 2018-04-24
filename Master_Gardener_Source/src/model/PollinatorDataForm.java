@@ -32,15 +32,25 @@ public class PollinatorDataForm
 	private String wind_status;
 	private int confirmed;
 
+<<<<<<< HEAD
 	public PollinatorDataForm(int garden_id, int county_id, ArrayList<User> generators, int week_number, LocalDate date_collected,
                               LocalDate date_generated, LocalDate date_confirmed, String wind_status, String cloud_status, String comments,
                               String butterfly_moth_comments, int temperature, LocalTime monitor_start, LocalTime monitor_stop, int confirmed,
 							  ArrayList<Plant> plants, ArrayList<PlantStrain> strains, ArrayList<Plot> plots, ArrayList<Pollinator> pollinators,
                               ArrayList<PollinatorVisitCount> visitCounts)
+=======
+	public PollinatorDataForm(int data_form_id, int garden_id, int county_id, ArrayList<Integer> generator_ids, int week_number, int temperature, LocalDate date_created, LocalDate date_generated,
+							  LocalTime monitor_start, LocalTime monitor_stop, String comments, String cloud_status, String wind_status, ArrayList<Plot> plot, Plant plant, ArrayList<PlantStrain> strain,
+							  ArrayList<Pollinator> poll, ArrayList<PollinatorVisitCount> pvc)
+>>>>>>> origin/22-April-dataform
 	{
 		this.garden_id = garden_id;
 		this.county_id = county_id;
+<<<<<<< HEAD
 		this.generators = generators;
+=======
+		this.generator_ids = generator_ids;
+>>>>>>> origin/22-April-dataform
 		this.week_number = week_number;
         this.date_collected = date_collected;
         this.date_generated = date_generated;
