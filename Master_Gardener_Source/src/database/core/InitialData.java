@@ -70,7 +70,7 @@ public class InitialData {
 					break;
 				}
 				Iterator<String> i = tuple.iterator();
-				User user = new User("Egg", "12345678", userId, "memes", "memes", "memes", new byte[104857600]);
+				User user = new User("Egg", "12345678", userId, "memes", "memes", "memes", 0);
 				user.setUserId(userId++);
 				user.setUsername(i.next());
 				user.setPassword(i.next());

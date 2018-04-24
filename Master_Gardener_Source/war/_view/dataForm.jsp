@@ -347,8 +347,6 @@ be greyed out except the plot size.
 
             <%-- Form Starts here --%>
 
-
-
             <div class="tab" id="form-submission">
                 <div class="row">
                     <div class="col-md-12">
