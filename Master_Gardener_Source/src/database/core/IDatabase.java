@@ -55,6 +55,7 @@ public interface IDatabase {
 	//public User queryForUserAccountByUsername(String username); // TODO:: ADD this method
 	public String queryForPasswordByUsername(String username);
 	public List<Integer> getAllDataFormIDs() throws SQLException;
+	public List<Integer> getAllVisitCountIDs() throws SQLException;
 	public List<Integer> getUnconfirmedDataFormIDsByCounty(String county) throws SQLException;
 	public List<String> getUnconfirmedDataFormsByCounty(String county) throws SQLException;
 	public String hashString(String password) throws SQLException;

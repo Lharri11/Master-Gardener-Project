@@ -20,6 +20,10 @@ public class DataFormController
         return this.database.getAllDataFormIDs();
     }
 
+    public List<Integer> getAllVisitCountIDs() throws SQLException {
+        return this.database.getAllVisitCountIDs();
+    }
+
     public int getGardenIDByGardenName(final String garden_name) throws SQLException {
         return this.database.getGardenIDByGardenName(garden_name);
     }
