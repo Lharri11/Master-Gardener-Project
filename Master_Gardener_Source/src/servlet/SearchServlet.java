@@ -51,13 +51,18 @@ public class SearchServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
+		/*List<String> everyGardens = new ArrayList<>();
+		for (int i = 0; i < gardens.size(); i++) {
+			everyGardens.add(gardens.get(i).getGarden_name());
+		}
 
-		String json = new Gson().toJson(gardens);
-		resp.setContentType("application/json");
-		resp.setCharacterEncoding("UTF-8");
-		resp.getWriter().write(json);
+*/
+		String allGardens = new Gson().toJson(gardens);
 
-		//req.setAttribute("gardens", gardens);
+
+		System.out.println(allGardens);
+
+		req.setAttribute("allGardens", allGardens);
 		req.getRequestDispatcher("/_view/search.jsp").forward(req, resp);	
 	}
 

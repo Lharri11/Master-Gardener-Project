@@ -3765,7 +3765,7 @@ public class MySQLDatabase implements IDatabase {
         }
     }
 
-    public List<Garden> getAllGardens() throws SQLException {
+    /*public List<Garden> getAllGardens() throws SQLException {
 
         List<Garden> result_set = new ArrayList<>();
         DataSource ds = getMySQLDataSource();
@@ -3808,6 +3808,52 @@ public class MySQLDatabase implements IDatabase {
             e.getStackTrace();
             // return empty list
             return new ArrayList<Garden>();
+        }
+    }*/
+
+    public List<Garden> getAllGardens() throws SQLException {
+
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+        List<Garden> gardens = new ArrayList<>();
+
+        try {
+            return doQueryLoop(new Query<List<Garden>>() {
+                @Override
+                //          (column probably does not exist in any tables
+                public List<Garden> query(Connection conn) throws SQLException {
+
+                    PreparedStatement stmt = null;
+                    ResultSet set = null;
+                    try {
+                        stmt = conn.prepareStatement(
+                                "SELECT * FROM mg_garden");
+
+                        set = stmt.executeQuery();
+
+                        boolean found = false;
+                        while (set.next())
+                        {
+                            found = true;
+                            Garden garden = new Garden(null,null);
+                            loadGarden(garden, set, 1);
+
+                            gardens.add(garden);
+                        }
+                        if (!found) {
+                            System.out.println("getAllGardens query: No gardens were found in the database (NANI?!)");
+                        }
+                    } finally {
+                        DBUtil.closeQuietly(stmt);
+                        DBUtil.closeQuietly(set);
+                    }
+                    return gardens;
+                }
+            });
+        } catch (SQLException e) {
+            e.getStackTrace();
+            // return empty list
+            return new ArrayList<>();
         }
     }
 
@@ -3990,8 +4036,9 @@ public class MySQLDatabase implements IDatabase {
 
     private void loadGarden(Garden garden, ResultSet resultSet, int index) throws SQLException {
         garden.setGarden_id(resultSet.getInt(index++));
-        garden.setGarden_name(resultSet.getString(index++));
+        garden.setCounty_id(resultSet.getInt(index++));
         garden.setDescription(resultSet.getString(index++));
+        garden.setGarden_name(resultSet.getString(index++));
     }
 
     private void loadGardenMember(GardenMember groupMember, ResultSet resultSet, int index) throws SQLException {

@@ -234,15 +234,24 @@
 <script src="vendor/scrollreveal/scrollreveal.js"></script>
 <script src="vendor/DataTables/datatables.js"></script>
 
+
+
+<input type="hidden" id="allGardens" value='${allGardens}'>
+
 <script>
     $(document).ready(function () {
+       var all_Gardens = ${allGardens};
+       var gardenNames = [];
+
+       for(var i = 0; i < all_Gardens.length; i++) {
+           gardenNames.push(all_Gardens[i].garden_name)
+       }
+
+
         $('#allGardensTable').DataTable({
-            "processing" : true,
-            "ajax" : {
-                "url" : "SearchServlet"
-        }
-        })
-        ;
+            "data" : gardenNames
+
+        });
     });
 </script>
 
