@@ -2277,7 +2277,7 @@ be greyed out except the plot size.
         <div style="overflow:auto;">
             <div style="float:right;">
                 <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1), window.scrollTo(0, 0);">Next</button>
             </div>
         </div>
         <!-- Circles which indicates the steps of the form: -->
