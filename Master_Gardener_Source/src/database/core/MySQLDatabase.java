@@ -996,15 +996,16 @@ public class MySQLDatabase implements IDatabase {
             }
             stmt = conn.prepareStatement(
                     "UPDATE mg_user "
-                            + " SET first_name = ?, last_name = ?, description = ? "
+                            + " SET first_name = ?, last_name = ?, email = ?, description = ? "
                             + " WHERE user_name = ? AND password = ? AND salt = ?");
             stmt.setString(1, user.getFirstName());
             stmt.setString(2, user.getLastName());
-            stmt.setString(3, user.getDescription());
-            stmt.setString(4, user.getUsername());
+            stmt.setString(3, user.getEmail());
+            stmt.setString(4, user.getDescription());
+            stmt.setString(5, user.getUsername());
             //stmt.setBlob(3, inputStream);
-            stmt.setString(5, password);
-            stmt.setString(6, salt);
+            stmt.setString(6, password);
+            stmt.setString(7, salt);
             stmt.executeUpdate();
 
             //get user_id

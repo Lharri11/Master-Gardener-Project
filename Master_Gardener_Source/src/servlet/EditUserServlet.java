@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -41,24 +42,44 @@ public class EditUserServlet extends HttpServlet {
 		String newlastname = null;
 		String bio = null;
 		String button = null;
+		String email = null;
+//		String oldpassword = null;
+//		String newpassword = null;
+//		String confirmpassword = null;
+		//boolean success = false;
 		button = req.getParameter("EditSubmit");
 
 		if(button != null){
 			newusername = req.getParameter("editName");
 			newlastname = req.getParameter("lastname");
+			email = req.getParameter("email");
 			bio = req.getParameter("editBio");
+//			newpassword = req.getParameter("newPassword");
+//			confirmpassword = req.getParameter("confirmPassword");
+//			oldpassword = req.getParameter("oldPassword");
 
 			EditUserController controller = new EditUserController();
 			//controller.updateUserbyUsername(username , newusername, bio, inputStream);
-			controller.updateUserCredentialsbyUsername(username, newusername, newlastname, bio);
+			controller.updateUserCredentialsbyUsername(username, newusername, newlastname, email, bio);
+
+//			if(!newpassword.equals("") && !oldpassword.equals("") && newpassword.equals(confirmpassword))
+//			{
+//				try {
+//					success = controller.updatePassword(username, oldpassword, newpassword);
+//					System.out.println("Password update status: "+success);
+//				}
+//				catch(SQLException e){
+//					e.printStackTrace();
+//				}
+//			}
 			req.getSession().setAttribute("username", newusername);
 
 			//resp.sendRedirect(req.getContextPath() + "/user");
-			//req.getRequestDispatcher("/_view/user.jsp").forward(req, resp);
+
 			req.getSession().setAttribute("loggedin", false);
 			req.getSession().setAttribute("username", null);
 			req.getSession().setAttribute("login_id", -1);
-			resp.sendRedirect(req.getContextPath()+"/login");
+			resp.sendRedirect(req.getContextPath() + "/login");
 
 		}
 	}
