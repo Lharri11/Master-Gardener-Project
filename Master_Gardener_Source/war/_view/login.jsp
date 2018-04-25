@@ -66,7 +66,7 @@
                                            placeholder="Username" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" tabindex="2"
+                                    <input type="password" name="password"  tabindex="2"
                                            class="form-control" placeholder="Password" required>
                                 </div>
                                 <div class="form-group text-lg-center text-center">
@@ -100,7 +100,7 @@
 
                                 <%--<div class="tab">--%>
                                 <div class="form-group">
-                                    <input type="text" name="firstname" tabindex="1"
+                                    <input type="text" name="firstname" id = "firstname" tabindex="1"
                                            class="form-control" placeholder="First Name" required>
                                 </div>
                                 <div class="form-group">
@@ -121,7 +121,7 @@
 
 
                                 <div class="form-group">
-                                    <input type="password" name="pass1" id="password1" tabindex="5"
+                                    <input type="password" name="pass1" id="password1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" tabindex="5"
                                            class="form-control" placeholder="Password" required>
                                 </div>
                                 <div class="row">
@@ -160,7 +160,7 @@
                                         <div class="col-sm-6 offset-sm-3">
                                             <input type="submit" name="register-submit" id="register-submit"
                                                    tabindex="7" class="form-control btn btn-register"
-                                                   value="Create Account">
+                                                   value="Create Account" disabled="disabled">
                                         </div>
                                     </div>
                                 </div>
@@ -269,15 +269,21 @@
             $("#num").css("color", "#FF0004");
         }
 
-        if ($("#password1").val() == $("#confirm-password").val() && $("#confirm-password").val().isEmpty()) {
+        if ($("#password1").val() !== null && $("#password1").val() !== "" && $("#confirm-password").val() != null && $("#password1").val() === $("#confirm-password").val()) {
+            $("#register-submit").prop("disabled", false);
+            pcheck = true;
             $("#pwmatch").removeClass("fa-times");
             $("#pwmatch").addClass("fa-check");
             $("#pwmatch").css("color", "#00A41E");
-        } else {
+        }
+        if($("#password1").val() !== $("#confirm-password").val()) {
+            $("#register-submit").prop("disabled", true);
+
             $("#pwmatch").removeClass("fa-check");
             $("#pwmatch").addClass("fa-times");
             $("#pwmatch").css("color", "#FF0004");
         }
+
     });
 
 </script>

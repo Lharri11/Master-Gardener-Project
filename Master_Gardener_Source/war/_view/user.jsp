@@ -133,50 +133,52 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">First name</label>
                             <div class="col-lg-9">
-                                <input class="form-control" name="editName" type="text" value="${user.firstName}">
+                                <input class="form-control" name="editName" type="text" value="${user.firstName}" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Last name</label>
                             <div class="col-lg-9">
-                                <input class="form-control" name="lastname" type="text" value="${user.lastName}">
+                                <input class="form-control" name="lastname" type="text" value="${user.lastName}" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Email</label>
                             <div class="col-lg-9">
-                                <input class="form-control" name="email" type="email" value="${user.email}">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Username</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" name="username" type="text" value="${user.username}">
+                                <input class="form-control" name="email" type="email" value="${user.email}" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Add or change bio</label>
                             <div class="col-lg-9">
-                                <input class="form-control" name="editBio" type="text" value="About You">
+                                <input class="form-control" name="editBio" type="text" value="${user.description}">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Password</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="password" value="New Password">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="password" value="Confirm New Pssword">
-                            </div>
-                        </div>
+                        <%--<div class="form-group row">--%>
+                            <%--<label class="col-lg-3 col-form-label form-control-label">Current Password*</label>--%>
+                            <%--<div class="col-lg-9">--%>
+                                <%--<input class="form-control" name="oldPassword" type="password" value="">--%>
+                                <%--*Required for creating New Password.--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="form-group row">--%>
+                            <%--<label class="col-lg-3 col-form-label form-control-label">New Password</label>--%>
+                            <%--<div class="col-lg-9">--%>
+                                <%--<input class="form-control" name="newPassword" type="password" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"--%>
+                                <%--title="Must contain at least one number, one uppercase letter, at least one lowercase letter and at least 8 or more characters.">--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="form-group row">--%>
+                            <%--<label class="col-lg-3 col-form-label form-control-label">Confirm password</label>--%>
+                            <%--<div class="col-lg-9">--%>
+                                <%--<input class="form-control" name="confirmPassword" type="password" value="">--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
-                                <p>Please note: Saving changes will log you out</p>
-                                <input type="reset" class="btn btn-secondary" value="Clear">
+                                <p>Please note: Successfully saving changes will log you out</p>
+                                <input type="reset" class="btn btn-secondary" value="Revert Changes">
                                 <input type="submit" class="btn btn-primary" value="Save Changes" name="EditSubmit">
                             </div>
                         </div>
@@ -194,6 +196,7 @@
 <script src="vendor/jquery-easing/jquery.easing.js"></script>
 <script src="vendor/scrollreveal/scrollreveal.js"></script>
 <script src="vendor/Popper/Popper.js"></script>
+
 <script>
 
     function toggleSideBar() {

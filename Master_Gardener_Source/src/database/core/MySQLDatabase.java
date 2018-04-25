@@ -996,15 +996,16 @@ public class MySQLDatabase implements IDatabase {
             }
             stmt = conn.prepareStatement(
                     "UPDATE mg_user "
-                            + " SET first_name = ?, last_name = ?, description = ? "
+                            + " SET first_name = ?, last_name = ?, email = ?, description = ? "
                             + " WHERE user_name = ? AND password = ? AND salt = ?");
             stmt.setString(1, user.getFirstName());
             stmt.setString(2, user.getLastName());
-            stmt.setString(3, user.getDescription());
-            stmt.setString(4, user.getUsername());
+            stmt.setString(3, user.getEmail());
+            stmt.setString(4, user.getDescription());
+            stmt.setString(5, user.getUsername());
             //stmt.setBlob(3, inputStream);
-            stmt.setString(5, password);
-            stmt.setString(6, salt);
+            stmt.setString(6, password);
+            stmt.setString(7, salt);
             stmt.executeUpdate();
 
             //get user_id
@@ -1515,7 +1516,7 @@ public class MySQLDatabase implements IDatabase {
                     return_list.add(cids.get(i).toString());
 
                     // Then, get miscellaneous (easy) fields
-                    stmt1 = conn.prepareStatement("SELECT temperature, date_confirmed, date_generated, monitor_start, monitor_stop,"
+                    stmt1 = conn.prepareStatement("SELECT temperature, date_collected, date_generated, date_confirmed, monitor_start, monitor_stop,"
                             + " wind_status, cloud_status, comments FROM mg_data_form WHERE id = ?");
                     stmt1.setInt(1, cids.get(i));
                     // Hopefully, this loads 8 fields into the ResultSet from columns 1 to 8
@@ -1523,8 +1524,8 @@ public class MySQLDatabase implements IDatabase {
 
                     // Get all of these fields as a string so we can add them to the return set
                     // TODO: TEST THIS
-                    for (int j = 1; j < 8; j++) {
-                        if (set1.next()) {
+                    while(set1.next()) {
+                        for (int j = 1; j < 10; j++) {
                             return_list.add(set1.getString(j));
                         }
                     }
@@ -1543,6 +1544,7 @@ public class MySQLDatabase implements IDatabase {
                         stmt1.setInt(1, set1.getInt(1));
                     }
                     set2 = stmt1.executeQuery();
+
                     if (set2.next()) {
                         return_list.add(set2.getString(1));
                     }
@@ -1550,6 +1552,8 @@ public class MySQLDatabase implements IDatabase {
                     stmt1 = conn.prepareStatement("SELECT id, plant_id, strain_id, visit_count FROM mg_pollinator_visit WHERE data_form_id = ?");
                     stmt1.setInt(1, cids.get(i));
                     set1 = stmt1.executeQuery();
+
+                    // TODO: Everything prior to this is good to go
 
                     while (set1.next()) {
                         stmt1 = conn.prepareStatement("SELECT plant_name FROM mg_plant WHERE plant_ID = ?");
@@ -3757,11 +3761,11 @@ public class MySQLDatabase implements IDatabase {
                 System.out.println("Populating DataForm Lists");
 
                 // Get Plant
-                for (int i = 0; i <= pdf.getPlants().size(); i++) {
+                for (int i = 0; i < pdf.getPlants().size(); i++) {
                     Plant plant = pdf.getPlants().get(i);
 
                     // Get Strain
-                    for (int j = 0; j <= pdf.getPlantStrains().size(); j++) {
+                    for (int j = 0; j < pdf.getPlantStrains().size(); j++) {
                         PlantStrain strain = pdf.getPlantStrains().get(j);
                         Plot plot = pdf.getPlots().get(j);
 
@@ -3778,7 +3782,7 @@ public class MySQLDatabase implements IDatabase {
 
                         stmt2.executeUpdate();
 
-                        for (int k = 0; k <= 9; k++) {
+                        for (int k = 0; k < 9; k++) {
                             int poll_id, pvc_id;
                             Pollinator pollinator = pdf.getPollinators().get(k);
                             PollinatorVisitCount pvc = pdf.getPollinatorVisitCounts().get(k);
