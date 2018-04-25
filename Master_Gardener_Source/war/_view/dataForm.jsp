@@ -78,7 +78,7 @@ be greyed out except the plot size.
 <div class="container dataform-page-top-padding">
     <form id="regForm" action="${pageContext.servletContext.contextPath}/dataForm" method="post"
           class="form-horizontal" role="form" data-parsley-validate novalidate onsubmit=getSubmitTime()>
-        <div class="container-fluid shadow">
+        <div class="container shadow">
             <div class="tab">
                 <div class="row">
                     <div class="col-md-12">
@@ -2283,6 +2283,14 @@ be greyed out except the plot size.
         </div>
         <!-- Circles which indicates the steps of the form: -->
         <div style="text-align:center;margin-top:40px;">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
             <span class="step"></span>
             <span class="step"></span>
             <span class="step"></span>
