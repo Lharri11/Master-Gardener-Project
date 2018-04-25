@@ -112,4 +112,8 @@ public class SignupServlet extends HttpServlet {
             req.setAttribute("email", email);
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/design-overhaul

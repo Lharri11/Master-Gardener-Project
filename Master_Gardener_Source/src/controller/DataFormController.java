@@ -1,4 +1,4 @@
-// Alex - Use this to create forms later eventually. 
+// Alex - Use this to create forms later eventually.
 package controller;
 
 import database.core.*;

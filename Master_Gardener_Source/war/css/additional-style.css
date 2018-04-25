@@ -324,64 +324,17 @@ header.masthead .bg-circle-4 {
     padding-top: 7.813rem;
 }
 
-.button-search {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 15.63rem;
-    height: 2.625rem;
-    padding: 0 1.25rem;
-    overflow: hidden;
-    border: none;
-    -webkit-border-radius: 1.313rem;
-    border-radius:0.625rem;
-    font: normal 1.25rem/normal "Antic", Helvetica, sans-serif;
-    color: rgba(140, 140, 140, 1);
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    background: rgba(40, 40, 40, 0.4);
-    -webkit-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.5) inset;
-    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.5) inset;
-    -webkit-transition: all 502ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
-    -moz-transition: all 502ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
-    -o-transition: all 502ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
-    transition: all 502ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+.stylish-input-group .input-group-addon{
+    background: white !important;
 }
-
-.button-search:hover {
-    width: 21.88rem;
-    opacity: 0.82;
-    color: rgba(181, 181, 181, 1);
-    background: rgba(0, 0, 0, 0.4);
-    -webkit-transition: all 500ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
-    -moz-transition: all 500ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
-    -o-transition: all 500ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
-    transition: all 500ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+.stylish-input-group .form-control{
+    border-right:0;
+    box-shadow:0 0 0;
+    border-color:#ccc;
 }
-
-.button-search:focus {
-    width: 30.63rem;
-    cursor: default;
-    padding: -0.8125rem 1.25rem 0;
-    color: rgba(255, 255, 255, 1);
-    -webkit-transition: all 601ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
-    -moz-transition: all 601ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
-    -o-transition: all 601ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
-    transition: all 601ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
-}
-
-.text-search {
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    border: none;
-    font: normal 1.563rem/1 "amaranth", Helvetica, sans-serif;
-    color: #ffffff;
-    text-align: center;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+.stylish-input-group button{
+    border:0;
+    background:transparent;
 }
 
 .search-backgorund {
@@ -391,3 +344,30 @@ header.masthead .bg-circle-4 {
 
 
 /* Serach Page - End */
+
+
+
+/* Admin Page - Begin */
+
+.admin-page-top-padding {
+    padding-top: 7.813rem;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    color: white !important;
+    border: 1px solid #2980B9!important;
+    background-color: #2980B9!important;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2980B9), color-stop(100%, #2980B9))!important;
+    background: -webkit-linear-gradient(top, #2980B9 0%, #2980B9 100%)!important;
+    background: -moz-linear-gradient(top, #2980B9 0%, #2980B9 100%)!important;
+    background: -ms-linear-gradient(top, #2980B9 0%, #2980B9 100%)!important;
+    background: -o-linear-gradient(top, #2980B9 0%, #2980B9 100%)!important;
+    background: linear-gradient(to bottom, #2980B9 0%, #2980B9 100%)!important;
+}
+
+
+
+/* Admin Page - End */
+
+
+
