@@ -176,7 +176,7 @@ be greyed out except the plot size.
                         </div>
 
                         <div class="form-group" style="display: block;">
-                            <label class="control-label" for="">Tempeture <span
+                            <label class="control-label" for="">Temperature<span
                                     class="req"> *</span></label>
                             <div class="controls">
 
