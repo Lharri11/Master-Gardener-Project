@@ -144,3 +144,4 @@ $.getJSON("http://localhost:8081/Master-Gardener/chartGen", function(json) {
     });
 
 >>>>>>> 73eb097f4af665c377689fb76db3eb3e4b786c18
+>>>>>>> b47ebe2722994a21525582cc3e1cca1c41b5977a
