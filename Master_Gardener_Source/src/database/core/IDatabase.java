@@ -51,11 +51,8 @@ public interface IDatabase {
 	public List<Garden> getGardensByUser(String user);
 	public List<Garden> getGardensLikeKeyword(String keyword);
 	public List<Garden> getGardenbyGardenName(String name);
-	public List<Pollinator> getAllPollinators() throws SQLException;
-	public List<County> getAllCounties() throws SQLException;
-	public List<String> getAllPollinatorNames() throws SQLException;
 	public Garden getGardenbyGardenID(int iD);
-	public List<Pair<User, Post>> getPostsbyGardenID(int iD);
+	public  List<Pair<User, Post>> getPostsbyGardenID(int iD);
 	public int queryForLoginIdByUsername(String username);
 	//public User queryForUserAccountByUsername(String username); // TODO:: ADD this method
 	public String queryForPasswordByUsername(String username);
