@@ -23,6 +23,8 @@
     <!-- Custom styles -->
     <link href="css/additional-style.css" rel="stylesheet">
 
+    <!-- Font-Awesome javascript library -->
+    <script defer src="vendor/font-awesome/fontawesome-all.js"></script>
 
 </head>
 <body>

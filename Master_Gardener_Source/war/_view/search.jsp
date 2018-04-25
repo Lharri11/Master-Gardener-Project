@@ -93,21 +93,8 @@
      </div>--%>
 
 
-    <table id="allGardensTable" class="display">
-        <thead>
-        <tr>
-            <th>Garden Name</th>
-            <th>Join!</th>
-        </tr>
-        </thead>
-        <tfoot>
-        <tr>
-            <th>Garden Name</th>
-            <th>Join!</th>
-        </tr>
-        </tfoot>
-
-    </table>
+   <table id="allGardensTable" class="display"></table>
+        <%--<table id="example" class="display"></table>--%>
 
 
     <%-- <div class="row">
@@ -236,18 +223,60 @@
 
 
 
-<input type="hidden" id="allGardens" value='${allGardens}'>
-
 <script>
-    $(document).ready(function () {
+        var allGardens = ${allGardens};
 
 
-        $('#allGardensTable').DataTable({
-            "data" : gardenNames
+        var table = $('#allGardensTable').DataTable({
+            data: allGardens,
 
+            columns: [{
+                data: 'garden_name',
+                title: 'Garden Name'
+            },
+                {
+                    width: '50%',
+                    orderable: false,
+                    title: 'Join A Garden'
+
+                },
+            ],
+            "columnDefs": [{
+                "targets": -1,       // -1 = last column
+                "data": null,        // no data for this column, instead we will show default content, described in 'defaultContent'
+                "defaultContent": "<button id='submit-btn'>Submit</button>"
+            }],
         });
-    });
+
+        $('#allGardensTable').on('click', 'button', function() {
+            // create an object from a row data
+            var rowData = table.row($(this).parents('tr')).data();
+            // fire a function, based on the button id that was clicked
+            if (this.id === 'submit-btn') {
+                submitData(rowData);
+            }
+        });
+
+
+        function submitData(data) {
+            // Process your row data and submit here.
+            // e.g. data === { id: '1', type: 'pen', color: 'orange' }
+            // Even though your table shows only selected columns, the row data
+            // will still contain the complete object.
+            // I would recommend against sending a complete object. In your case,
+            // with a single data point, perhaps it is fine though. However,
+            // always send bare minimum. For example, if you want to delete an
+            // entry on the server side, just send the id of the entry and let
+            // the server locate it and delete it by id. It doesn't need all other
+            // fields.
+        }
+
+
+
+
+
 </script>
+
 
 
 </body>

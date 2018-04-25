@@ -52,7 +52,7 @@
 <header class="masthead text-center text-master-gardener-home-page">
     <div class="masthead-content">
         <div class="container">
-            <h1 class="masthead-heading mb-0">Master Gardener</h1>
+            <h1 class="masthead-heading mb-0">Master Gardeners</h1>
             <h2 class="masthead-subheading mb-0"><br></h2>
             <a class="btn btn-primary btn-xl rounded-pill mt-5 js-scroll-trigger" href="#learn-more">Learn More</a>
         </div>
@@ -139,6 +139,8 @@
 <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
 <script src="vendor/jquery-easing/jquery.easing.js"></script>
 <script src="vendor/scrollreveal/scrollreveal.js"></script>
+<script src="vendor/DataTables/datatables.js"></script>
+
 <%--<script src="js/contact.js"></script>--%>
 
 <script>

@@ -112,24 +112,6 @@ public class GardenServlet extends HttpServlet {
 			}
 		}
 		
-		int gardenID = 0;
-		UserController controller3 = new UserController();
-		String buttonPress = req.getParameter("Submit");
-		
-		if(buttonPress != null){
-			try{
-				gardenID = controller3.getGardenIDbyGardenname(buttonPress);
-				req.getSession().setAttribute("GardenID", gardenID);
-				if(gardenID == 0){
-					resp.sendRedirect(req.getContextPath()+"/user");
-				}
-				else{
-					resp.sendRedirect(req.getContextPath()+"/garden");
-				}
-				return;
-			}catch (SQLException e){
-				e.printStackTrace();
-			}
-		}
+
 	}
 }
