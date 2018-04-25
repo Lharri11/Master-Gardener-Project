@@ -3761,11 +3761,11 @@ public class MySQLDatabase implements IDatabase {
                 System.out.println("Populating DataForm Lists");
 
                 // Get Plant
-                for (int i = 0; i <= pdf.getPlants().size(); i++) {
+                for (int i = 0; i < pdf.getPlants().size(); i++) {
                     Plant plant = pdf.getPlants().get(i);
 
                     // Get Strain
-                    for (int j = 0; j <= pdf.getPlantStrains().size(); j++) {
+                    for (int j = 0; j < pdf.getPlantStrains().size(); j++) {
                         PlantStrain strain = pdf.getPlantStrains().get(j);
                         Plot plot = pdf.getPlots().get(j);
 
@@ -3782,7 +3782,7 @@ public class MySQLDatabase implements IDatabase {
 
                         stmt2.executeUpdate();
 
-                        for (int k = 0; k <= 9; k++) {
+                        for (int k = 0; k < 9; k++) {
                             int poll_id, pvc_id;
                             Pollinator pollinator = pdf.getPollinators().get(k);
                             PollinatorVisitCount pvc = pdf.getPollinatorVisitCounts().get(k);
