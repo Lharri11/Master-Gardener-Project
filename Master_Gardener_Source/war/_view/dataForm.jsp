@@ -85,34 +85,17 @@ be greyed out except the plot size.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group" rel="popover" data-trigger="hover"
-                                     data-content="County name of data collection" data-original-title="">
-                                    <label class="control-label control-label-left col-sm-3"
-                                           for="">County</label>
-                                    <div class="controls col-sm-9">
-
-                                        <input id="" type="text" class="form-control k-textbox"
-                                               data-role="text"
-                                               placeholder="County Auto-populated" name="countyName"
-                                               data-parsley-errors-container="#errId1"><span id="errId1"
-                                                                                             class="error"></span>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group" rel="popover" data-trigger="hover"
                                      data-content="Garden name for collection" data-original-title="">
                                     <label class="control-label control-label-left col-sm-3"
                                            for="">Garden</label>
                                     <div class="controls col-sm-9">
 
-                                        <select id="" class="form-control" data-role="select"
-                                                selected="selected"
-                                                name="gardenName" data-parsley-errors-container="#errId2">
-
-
-                                            <option value=""></option>
-                                        </select><span id="errId2" class="error"></span></div>
+                                        <input id="" type="text" class="form-control k-textbox"
+                                               data-role="text"
+                                               placeholder="Garden Name" name="gardenName"
+                                               data-parsley-errors-container="#errId1"><span id="errId1"
+                                                                                             class="error"></span>
+                                    </div>
 
                                 </div>
                             </div>
@@ -2273,6 +2256,9 @@ be greyed out except the plot size.
                         </div>
                     </div>
                 </div>
+                <input type="submit" name="dataformSubmit" id="register-submit"
+                       class="form-control btn btn-register"
+                       value="Create DataForm">
             </div>
         </div>
         <div style="overflow:auto;">
