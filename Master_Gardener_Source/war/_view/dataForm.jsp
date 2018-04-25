@@ -551,7 +551,7 @@ be greyed out except the plot size.
                                            for="">Species</label>
                                     <div class="controls col-sm-9">
                                         <input id="" type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Straight" name="plant[1]Strain[2]Name" value="Straight">
+                                               placeholder="Moonbeam" name="plant[1]Strain[2]Name" value="Moonbeam">
                                     </div>
                                 </div>
                             </div>
@@ -766,7 +766,7 @@ be greyed out except the plot size.
                                            for="">Species</label>
                                     <div class="controls col-sm-9">
                                         <input id="" type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Straight" name="plant[1]Strain[3]Name" value="Straight">
+                                               placeholder="Zagreb" name="plant[1]Strain[3]Name" value="Zagreb">
                                     </div>
                                 </div>
                             </div>
@@ -981,7 +981,7 @@ be greyed out except the plot size.
                                            for="">Species</label>
                                     <div class="controls col-sm-9">
                                         <input id="" type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Straight" name="plant[1]Strain[4]Name" value="Straight">
+                                               placeholder="Crème Brulee" name="plant[1]Strain[4]Name" value="Crème Brulee">
                                     </div>
                                 </div>
                             </div>
@@ -1196,7 +1196,7 @@ be greyed out except the plot size.
                                            for="">Species</label>
                                     <div class="controls col-sm-9">
                                         <input id="" type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Straight" name="plant[1]Strain[5]Name" value="Straight">
+                                               placeholder="Route 66" name="plant[1]Strain[5]Name" value="Route 66">
                                     </div>
                                 </div>
                             </div>
@@ -1400,7 +1400,7 @@ be greyed out except the plot size.
                                            for="">Genus</label>
                                     <div class="controls col-sm-9">
                                         <input id="" type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Coreopsis Verticillata" name="plant[1]Name"
+                                               placeholder="Monarda" name="plant[1]Name"
                                                value="Coreopsis Verticillata">
                                     </div>
                                 </div>
@@ -1411,7 +1411,7 @@ be greyed out except the plot size.
                                            for="">Species</label>
                                     <div class="controls col-sm-9">
                                         <input id="" type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Straight" name="plant[1]Strain[6]Name" value="Straight">
+                                               placeholder="Didyma Straight" name="plant[1]Strain[6]Name" value="Didyma Straight">
                                     </div>
                                 </div>
                             </div>
@@ -1626,7 +1626,7 @@ be greyed out except the plot size.
                                            for="">Species</label>
                                     <div class="controls col-sm-9">
                                         <input id="" type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Straight" name="plant[1]Strain[7]Name" value="Straight">
+                                               placeholder="Didyma Petite Delight" name="plant[1]Strain[7]Name" value="Didyma Petite Delight">
                                     </div>
                                 </div>
                             </div>
@@ -1841,7 +1841,7 @@ be greyed out except the plot size.
                                            for="">Species</label>
                                     <div class="controls col-sm-9">
                                         <input id="" type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Straight" name="plant[1]Strain[8]Name" value="Straight">
+                                               placeholder="Didyma Marshalls Delight" name="plant[1]Strain[8]Name" value="Didyma Marshalls Delight">
                                     </div>
                                 </div>
                             </div>
@@ -2057,7 +2057,8 @@ be greyed out except the plot size.
                                            for="">Species</label>
                                     <div class="controls col-sm-9">
                                         <input id="" type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Straight" name="plant[1]Strain[9]Name" value="Straight">
+                                               placeholder="X Peters Fancy Fuschia" name="plant[1]Strain[9]Name"
+                                               value="X Peters Fancy Fuschia">
                                     </div>
                                 </div>
                             </div>
