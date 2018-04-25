@@ -88,6 +88,7 @@ be greyed out except the plot size.
                                 <div class="form-group">
                                     <label class="control-label control-label-left col-sm-3"
                                            >County</label>
+                                           for="">Garden</label>
                                     <div class="controls col-sm-9">
                                         <input type="text" class="form-control"
                                                data-role="text"
@@ -2218,6 +2219,9 @@ be greyed out except the plot size.
                         </div>
                     </div>
                 </div>
+                <input type="submit" name="dataformSubmit" id="register-submit"
+                       class="form-control btn btn-register"
+                       value="Create DataForm">
             </div>
         </div>
         <div style="overflow:auto;">
@@ -2387,5 +2391,3 @@ be greyed out except the plot size.
 
 </body>
 </html>
-
-

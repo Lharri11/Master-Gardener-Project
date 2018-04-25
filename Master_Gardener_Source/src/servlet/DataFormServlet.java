@@ -113,7 +113,7 @@ public class DataFormServlet extends HttpServlet {
         //
         // ------------------------------ Begin DataForm Content ------------------------------ //
         //
-        buttonPress = req.getParameter("dataFormSubmit");
+        buttonPress = req.getParameter("dataformSubmit");
 
         if (buttonPress != null)
         {
