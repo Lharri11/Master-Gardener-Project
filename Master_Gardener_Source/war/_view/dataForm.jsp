@@ -78,41 +78,35 @@ be greyed out except the plot size.
 <div class="container dataform-page-top-padding">
     <form id="regForm" action="${pageContext.servletContext.contextPath}/dataForm" method="post"
           class="form-horizontal" role="form" data-parsley-validate novalidate onsubmit=getSubmitTime()>
-        <div class="container shadow">
+
+        <div class="container">
             <div class="tab">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group" rel="popover" data-trigger="hover"
-                                     data-content="County name of data collection" data-original-title="">
+                                <div class="form-group">
                                     <label class="control-label control-label-left col-sm-3"
                                            for="">County</label>
                                     <div class="controls col-sm-9">
-
-                                        <input id="" type="text" class="form-control k-textbox"
+                                        <input type="text" class="form-control"
                                                data-role="text"
-                                               placeholder="County Auto-populated" name="countyName"
-                                               data-parsley-errors-container="#errId1"><span id="errId1"
-                                                                                             class="error"></span>
+                                               placeholder="County Auto-populated" name="countyName">
                                     </div>
 
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group" rel="popover" data-trigger="hover"
-                                     data-content="Garden name for collection" data-original-title="">
+                                <div class="form-group">
                                     <label class="control-label control-label-left col-sm-3"
                                            for="">Garden</label>
                                     <div class="controls col-sm-9">
 
-                                        <select id="" class="form-control" data-role="select"
+                                        <select class="form-control" data-role="select"
                                                 selected="selected"
-                                                name="gardenName" data-parsley-errors-container="#errId2">
-
-
+                                                name="gardenName">
                                             <option value=""></option>
-                                        </select><span id="errId2" class="error"></span></div>
+                                        </select></div>
 
                                 </div>
                             </div>
@@ -128,10 +122,9 @@ be greyed out except the plot size.
                                     class="req"> *</span></label>
                             <div class="controls">
 
-                                <input id="" type="text" class="form-control k-textbox" data-role="text"
-                                       placeholder="First Name" name="firstNameSurveyor" required="required"
-                                       data-parsley-errors-container="#errId3"><span id="errId3"
-                                                                                     class="error"></span>
+                                <input type="text" class="form-control" data-role="text"
+                                       placeholder="First Name" name="firstNameSurveyor" required="required">
+
                             </div>
 
                         </div>
@@ -140,11 +133,8 @@ be greyed out except the plot size.
                         <div class="form-group">
                             <label class="control-label" for="">Last Name<span class="req"> *</span></label>
                             <div class="controls">
-
-                                <input id="" type="text" class="form-control k-textbox" data-role="text"
-                                       placeholder="Last Name" name="lastNameSurveyor" required="required"
-                                       data-parsley-errors-container="#errId4"><span id="errId4"
-                                                                                     class="error"></span>
+                                <input type="text" class="form-control" data-role="text"
+                                       placeholder="Last Name" name="lastNameSurveyor" required="required">
                             </div>
 
                         </div>
@@ -154,15 +144,14 @@ be greyed out except the plot size.
                             <label class="control-label" for="">Username<span class="req"> *</span></label>
                             <div class="controls">
 
-                                <select id="" class="form-control" data-role="select" required="required"
-                                        selected="selected" name="userNameSurveyor"
-                                        data-parsley-errors-container="#errId5">
+                                <select class="form-control" data-role="select" required="required"
+                                        selected="selected" name="userNameSurveyor">
 
 
                                     <option value=""></option>
                                     <option value=""></option>
-                                </select><span id="errId5" class="error"></span></div>
-
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -174,139 +163,91 @@ be greyed out except the plot size.
                         <div class="form-group">
                             <label class="control-label" for="">Collection Date<span
                                     class="req"> *</span></label>
-                            <div class="controls">
 
-                                    <span class="k-widget k-datepicker k-header form-control" style=""><span
-                                            class="k-picker-wrap k-state-default"><input id="" type="text"
-                                                                                         class="form-control k-input"
-                                                                                         data-role="date" role="textbox"
-                                                                                         aria-haspopup="true"
-                                                                                         aria-expanded="false"
-                                                                                         aria-owns="field24_dateview"
-                                                                                         aria-disabled="false"
-                                                                                         aria-readonly="false"
-                                                                                         aria-label="Current focused date is null"
-                                                                                         data-error-container="#errfield24"
-                                                                                         required="required"
-                                                                                         name="collectionDate"
-                                                                                         style="width: 100%;"
-                                                                                         data-parsley-errors-container="#errId6"><span
-                                            unselectable="on" class="k-select" role="button"
-                                            aria-controls="field24_dateview"><span unselectable="on"
-                                                                                   class="k-icon k-i-calendar">select</span></span></span></span><span
-                                    id="errId6" class="error"></span></div>
 
+                            <div class="input-group date" id="collectionDate" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input"
+                                       data-target="#collectionDate" name="dateCollected"/>
+                                <div class="input-group-append" data-target="#collectionDate"
+                                     data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="form-group" style="display: block;">
                             <label class="control-label" for="">Tempeture <span
                                     class="req"> *</span></label>
                             <div class="controls">
 
-                                    <span class="k-widget k-numerictextbox form-control" style=""><span
-                                            class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                          class="k-formatted-value form-control k-input"
-                                                                                          tabindex="0"
-                                                                                          aria-disabled="false"
-                                                                                          aria-readonly="false"
-                                                                                          placeholder="Temperature"
-                                                                                          id="" name="temperture "
-                                                                                          style="display: inline-block;"
-                                                                                          data-parsley-errors-container="#errId7"><input
-                                            id="" value="" type="text" class="form-control k-input" data-role="numeric"
-                                            data-format="integer" role="spinbutton" aria-valuenow=""
-                                            aria-disabled="false" aria-readonly="false"
-                                            data-error-container="#errfield27" required="required"
-                                            data-parsley-max="130" name="temperture " style="display: none;"
-                                            data-parsley-errors-container="#errId7"><span class="k-select"><span
-                                            unselectable="on" class="k-link"><span unselectable="on"
-                                                                                   class="k-icon k-i-arrow-n"
-                                                                                   title="Increase value">Increase value</span></span><span
-                                            unselectable="on" class="k-link"><span unselectable="on"
-                                                                                   class="k-icon k-i-arrow-s"
-                                                                                   title="Decrease value">Decrease value</span></span></span></span></span><span
-                                    id="errId7" class="error"></span></div>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Temperature"
+                                       name="temperature">
+                            </div>
 
                         </div>
                     </div>
+
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="control-label" for="">Start Time<span
                                     class="req"> *</span></label>
-                            <div class="controls">
-
-                                    <span class="k-widget k-timepicker k-header form-control" style=""><span
-                                            class="k-picker-wrap k-state-default"><input id="" type="text"
-                                                                                         class="form-control k-input"
-                                                                                         data-role="time" role="textbox"
-                                                                                         aria-haspopup="true"
-                                                                                         aria-expanded="false"
-                                                                                         aria-owns="field25_timeview"
-                                                                                         aria-disabled="false"
-                                                                                         aria-readonly="false"
-                                                                                         data-error-container="#errfield25"
-                                                                                         required="required"
-                                                                                         name="startTime"
-                                                                                         style="width: 100%;"
-                                                                                         data-parsley-errors-container="#errId8"><span
-                                            unselectable="on" class="k-select" role="button"
-                                            aria-controls="field25_timeview"><span unselectable="on"
-                                                                                   class="k-icon k-i-clock">select</span></span></span></span><span
-                                    id="errId8" class="error"></span></div>
+                            <div class="input-group date" id="timePickerStart" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input"
+                                       data-target="#timePickerStart" name="startTime"/>
+                                <div class="input-group-append" data-target="#timePickerStart"
+                                     data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-clock"></i></div>
+                                </div>
+                            </div>
 
                         </div>
-                        <div class="form-group" style="display: block;">
+
+
+                        <div class="form-group">
                             <label class="control-label" for="">Wind<span class="req"> *</span></label>
                             <div class="controls">
 
-                                <select id="" class="form-control" data-role="select" name="Wind"
-                                        required="required" data-parsley-errors-container="#errId9">
+                                <select class="form-control" data-role="select" name="windStatus"
+                                        required="required">
                                     <option value=""></option>
                                     <option value="S">Still</option>
                                     <option value="L">Light Breeze</option>
                                     <option value="W">Windy</option>
                                     <option value="G">Gusty</option>
-                                </select><span id="errId9" class="error"></span></div>
+                                </select>
+                            </div>
 
                         </div>
                     </div>
+
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="control-label" for="">End Time<span class="req"> *</span></label>
-                            <div class="controls">
-
-                                    <span class="k-widget k-timepicker k-header form-control" style=""><span
-                                            class="k-picker-wrap k-state-default"><input id="" type="text"
-                                                                                         class="form-control k-input"
-                                                                                         data-role="time" role="textbox"
-                                                                                         aria-haspopup="true"
-                                                                                         aria-expanded="false"
-                                                                                         aria-owns="field26_timeview"
-                                                                                         aria-disabled="false"
-                                                                                         aria-readonly="false"
-                                                                                         data-error-container="#errfield26"
-                                                                                         name="endTime"
-                                                                                         required="required"
-                                                                                         style="width: 100%;"
-                                                                                         data-parsley-errors-container="#errId10"><span
-                                            unselectable="on" class="k-select" role="button"
-                                            aria-controls="field26_timeview"><span unselectable="on"
-                                                                                   class="k-icon k-i-clock">select</span></span></span></span><span
-                                    id="errId10" class="error"></span></div>
+                            <div class="input-group date" id="timePickerEnd" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input"
+                                       data-target="#timePickerEnd" name="stopTime"/>
+                                <div class="input-group-append" data-target="#timePickerEnd"
+                                     data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-clock"></i></div>
+                                </div>
+                            </div>
 
                         </div>
-                        <div class="form-group" style="display: block;">
+                        <div class="form-group">
                             <label class="control-label" for="">Cloud Cover<span
                                     class="req"> *</span></label>
                             <div class="controls">
 
-                                <select id="" class="form-control" data-role="select" required="required"
-                                        name="cloudCover" data-parsley-errors-container="#errId11">
+                                <select class="form-control" required="required"
+                                        name="cloudCover">
                                     <option value=""></option>
                                     <option value="C">Clear</option>
                                     <option value="P">Partly Cloudy</option>
                                     <option value="M">Mostly Cloudy</option>
                                     <option value="O">Overcast</option>
-                                </select><span id="errId11" class="error"></span></div>
+                                </select></div>
 
                         </div>
                     </div>
@@ -981,7 +922,8 @@ be greyed out except the plot size.
                                            for="">Species</label>
                                     <div class="controls col-sm-9">
                                         <input id="" type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Crème Brulee" name="plant[1]Strain[4]Name" value="Crème Brulee">
+                                               placeholder="Crème Brulee" name="plant[1]Strain[4]Name"
+                                               value="Crème Brulee">
                                     </div>
                                 </div>
                             </div>
@@ -1411,7 +1353,8 @@ be greyed out except the plot size.
                                            for="">Species</label>
                                     <div class="controls col-sm-9">
                                         <input id="" type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Didyma Straight" name="plant[1]Strain[6]Name" value="Didyma Straight">
+                                               placeholder="Didyma Straight" name="plant[1]Strain[6]Name"
+                                               value="Didyma Straight">
                                     </div>
                                 </div>
                             </div>
@@ -1626,7 +1569,8 @@ be greyed out except the plot size.
                                            for="">Species</label>
                                     <div class="controls col-sm-9">
                                         <input id="" type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Didyma Petite Delight" name="plant[1]Strain[7]Name" value="Didyma Petite Delight">
+                                               placeholder="Didyma Petite Delight" name="plant[1]Strain[7]Name"
+                                               value="Didyma Petite Delight">
                                     </div>
                                 </div>
                             </div>
@@ -1841,7 +1785,8 @@ be greyed out except the plot size.
                                            for="">Species</label>
                                     <div class="controls col-sm-9">
                                         <input id="" type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Didyma Marshalls Delight" name="plant[1]Strain[8]Name" value="Didyma Marshalls Delight">
+                                               placeholder="Didyma Marshalls Delight" name="plant[1]Strain[8]Name"
+                                               value="Didyma Marshalls Delight">
                                     </div>
                                 </div>
                             </div>
