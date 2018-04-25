@@ -1811,7 +1811,8 @@
                                             <label class="control-label" for="">Estimated Height of Plot (Feet)</label>
                                             <div class="controls">
                                               <span class="k-widget k-numerictextbox form-control" style="">
-                                                <span class="k-numeric-wrap k-state-default"><input type="text" placeholder="Plot Height" id="" name="plant[1]Strain[9]Plot[9]Height">
+                                                  <span class="k-numeric-wrap k-state-default"><input type="text" placeholder="Plot Height" id="" name="plant[1]Strain[9]Plot[9]Height"></span>
+                                              </span>
                                             </div>
                                         </div>
                                     </div>
@@ -1913,7 +1914,7 @@
                                     <label class="control-label" for="">Butterflies &amp; Moths</label>
                                     <div class="controls">
                                       <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text" name="plant[1]Strain[9]Plot[9]Pollinator[7]"id=""></span>
+                                        <span class="k-numeric-wrap k-state-default"><input type="text" name="plant[1]Strain[9]Plot[9]Pollinator[7]" id=""></span>
                                       </span>
                                     </div>
                                 </div>
