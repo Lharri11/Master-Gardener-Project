@@ -21,9 +21,9 @@ public class ChartGenServlet extends HttpServlet {
 
         // Initialize a list of type DataObject
         List<Pollinator> pollinators = new ArrayList<>();
-        pollinators.add(new Pollinator(0,"Honey Bee", "Bee"));
-        pollinators.add(new Pollinator(0,"Bumblebee", "Bee"));
-        pollinators.add(new Pollinator(0,"Monarch", "Butterfly"));
+        pollinators.add(new Pollinator("Honey Bee", "Bee"));
+        pollinators.add(new Pollinator("Bumblebee", "Bee"));
+        pollinators.add(new Pollinator("Monarch", "Butterfly"));
 
         // Convert the object to a JSON string
         String json = new Gson().toJson(pollinators);
