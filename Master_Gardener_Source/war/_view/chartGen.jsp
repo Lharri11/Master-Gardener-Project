@@ -24,14 +24,10 @@
 
     <!-- <link href="css/style.css" rel="stylesheet"> -->
 
-    <link href="css/newstyle.css" rel="stylesheet">
+
 
     <link href="css/datatables.css" rel="stylesheet">
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
     <![endif]-->
 
     <!--headerIncludes-->
@@ -143,20 +139,11 @@
 </div>
 <!-- /#page -->
 <!-- Load JS here for greater good =============================-->
-<script src="js/jquery-1.8.3.min.js"></script>
-<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
-<script src="js/jquery.ui.touch-punch.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap-select.js"></script>
-<script src="js/bootstrap-switch.js"></script>
-<script src="js/flatui-checkbox.js"></script>
-<script src="js/flatui-radio.js"></script>
-<script src="js/jquery.tagsinput.js"></script>
-<script src="js/jquery.placeholder.js"></script>
-<script src="js/jquery.nivo.slider.pack.js"></script>
-<script src="js/application.js"></script>
-<script src="js/over.js"></script>
-<script src="js/datatables.js"></script>
+<script src="vendor/jquery/jquery.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.js"></script>
+<script src="vendor/scrollreveal/scrollreveal.js"></script>
+<script src="vendor/Popper/Popper.js"></script>
 <script src="js/Chart.js"></script>
 <script src="js/BarGraph.js"></script>
 <script>

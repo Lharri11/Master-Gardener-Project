@@ -1,98 +1,66 @@
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<html lang="en">
+
 <head>
-    <link rel="icon" type="image/png" href="images/nittany_lions_logo.jpg">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator"
-          content="Script Eden ( http://scripteden.net/ ) Template Builder v2.0.0">
-    <title>Data Charts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-
+    <title>${user.firstName} - Pollinator Preferences</title>
     <!--pageMeta-->
 
-    <!-- Loading Bootstrap -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-    <!-- Loading Flat UI -->
-    <link href="css/flat-ui.css" rel="stylesheet">
+    <!-- Custom fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
+          rel="stylesheet">
 
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/newstyle.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link href="css/additional-style.css" rel="stylesheet">
 
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-
-    <!--headerIncludes-->
+    <!-- Font-Awesome javascript library -->
+    <script defer src="vendor/font-awesome/fontawesome-all.js"></script>
 
 </head>
 <body>
 
-<div id="page" class="page">
 
-    <header class="item header margin-top-0 header10" id="header10">
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="${pageContext.servletContext.contextPath}/home">Pollinator Preferences</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="wrapper">
+        <%--TODO: Fix logout function, does not function as inteneded...add seperate servlet--%>
 
-            <nav role="navigation"
-                 class="navbar navbar-blue navbar-embossed navbar-lg navbar-fixed-top">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <form id="logout" action="${pageContext.servletContext.contextPath}/login" method="post">
+                    <li class="nav-item">
 
-                <div class="container">
 
-                    <div class="navbar-header">
-                        <button data-target="#navbar-collapse-02" data-toggle="collapse"
-                                class="navbar-toggle" type="button">
-                            <span class="sr-only">Toggle navigation</span>
+                        <button class="nav-link" name="loginSubmit" value="Logout" type="submit"
+                                alt="submit" title="Log Out">Logout
                         </button>
-                        <a href="home" class="navbar-brand brand"><img
-                                src="images/nittany_lions_logo.jpg" id="logo"></a>
-                    </div>
-                    <!--/.navbar-header -->
-                    <!-- HERE IS YOUR SEARCH JSP THING -->
-                    <form class="search-collapse"
-                          action="${pageContext.servletContext.contextPath}/user"
-                          method="post">
-                        <input type="text" id="searchText" name="keyword"
-                               placeholder="Search..." required> <input type="image"
-                                                                        src="images/search_black.jpg" value="Search" id="searchButton">
-                    </form>
-                    <br>
+                        <%--<a class="nav-link" name="loginSubmit"
+                           href="javascript:;" onclick="document.getElementById('logout_form').submit()">Logout</a>
+                        <input type="hidden" name="logout" value="Logout"/>--%>
+                    </li>
+                </form>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-                    <div id="navbar-collapse-02" class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="propClone">
-                                <form action="${pageContext.servletContext.contextPath}/dataForm" method="get">
-                                    <button class="homeLinks-nav" type="submit">Data Input</button>
-                                </form>
-                            </li>
-
-                            <li class="propClone">
-                                <form action="${pageContext.servletContext.contextPath}/upload" method="get">
-                                    <button class="homeLinks-nav" type="submit">Document Upload</button>
-                                </form>
-                            </li>
-
-                            <li class="propClone">
-                                <form action="${pageContext.servletContext.contextPath}/user" method="get">
-                                    <button class="homeLinks-nav" type="submit">My Account</button>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--/.navbar-collapse -->
-                </div>
-                <!-- /.container -->
-            </nav>
-
-            <div id="intro"></div>
-            <div id="intro"></div>
-            <div id="container" class="container">
-                <div>
+<div class="container user-page-top-padding">
+    <div class="row">
                     <table class="table">
                         <thead>
                         <tr>
@@ -206,7 +174,7 @@
 <script src="js/jquery.nivo.slider.pack.js"></script>
 <script src="js/application.js"></script>
 <script src="js/over.js"></script>
-<script src="js/Chart.js"></script>
+<script src="vendor/Charts/js/Chart.js"></script>
 <script>
 
     function toggleSideBar() {
