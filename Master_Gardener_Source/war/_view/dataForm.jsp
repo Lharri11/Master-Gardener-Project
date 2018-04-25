@@ -87,27 +87,13 @@ be greyed out except the plot size.
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label control-label-left col-sm-3"
-                                           >County</label>
-                                           for="">Garden</label>
-                                    <div class="controls col-sm-9">
-                                        <input type="text" class="form-control"
-                                               data-role="text"
-                                               placeholder="County Auto-populated" name="countyName">
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
                                            >Garden</label>
                                     <div class="controls col-sm-9">
 
-                                        <select class="form-control" data-role="select"
-                                                selected="selected"
-                                                name="gardenName">
-                                            <option value=""></option>
-                                        </select></div>
+                                        <input class="form-control" data-role="select"
+                                                type="text"
+                                                name="garden_name">
+                                        </div>
 
                                 </div>
                             </div>
