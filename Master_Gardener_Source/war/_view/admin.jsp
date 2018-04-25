@@ -40,7 +40,6 @@
         </button>
 
 
-<<<<<<< HEAD
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="${pageContext.servletContext.contextPath}/user">My Account</a>
@@ -54,21 +53,6 @@
             </form>
         </ul>
     </div>
-=======
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.servletContext.contextPath}/user">My Account</a>
-                </li>
-                <form id="logout_form" method="post" name="loginSubmit"
-                      action="${pageContext.servletContext.contextPath}/login">
-                    <li class="nav-item">
-                        <a class="nav-link" name="loginSubmit"
-                           href="javascript:{}" onclick="document.getElementById('logout_form').submit()">Logout</a>
-                    </li>
-                </form>
-            </ul>
-        </div>
->>>>>>> origin/design-overhaul
     </div>
 </nav>
 

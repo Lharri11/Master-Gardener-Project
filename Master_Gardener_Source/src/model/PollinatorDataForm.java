@@ -30,17 +30,11 @@ public class PollinatorDataForm
 	private String wind_status;
 	private int confirmed;
 
-<<<<<<< HEAD
 	public PollinatorDataForm(int garden_id, int county_id, ArrayList<User> generators, int week_number, LocalDate date_collected,
 							  LocalDate date_generated, LocalDate date_confirmed, String wind_status, String cloud_status, String comments,
 							  String butterfly_moth_comments, int temperature, LocalTime monitor_start, LocalTime monitor_stop, int confirmed,
 							  ArrayList<Plant> plants, ArrayList<PlantStrain> strains, ArrayList<Plot> plots, ArrayList<Pollinator> pollinators,
 							  ArrayList<PollinatorVisitCount> visitCounts)
-=======
-	public PollinatorDataForm(int data_form_id, int garden_id, int county_id, ArrayList<User> generators, int week_number, int temperature, LocalDate date_collected, LocalDate date_generated, LocalDate date_confirmed,
-							  LocalTime monitor_start, LocalTime monitor_stop, String comments, String butterfly_moth_comments, String cloud_status, String wind_status, ArrayList<Plot> plot, ArrayList<Plant> plants, ArrayList<PlantStrain> strains,
-							  ArrayList<Pollinator> poll, ArrayList<PollinatorVisitCount> pvc)
->>>>>>> origin/design-overhaul
 	{
 		this.garden_id = garden_id;
 		this.county_id = county_id;

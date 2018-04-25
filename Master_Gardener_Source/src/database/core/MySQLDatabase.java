@@ -1,8 +1,8 @@
 package database.core;
 
+import com.mysql.fabric.xmlrpc.base.Array;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import model.*;
-
 import javax.sql.DataSource;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.SecureRandom;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -49,7 +50,7 @@ public class MySQLDatabase implements IDatabase {
         try {
             con = ds.getConnection();
             stmt = con.createStatement();
-            rs = stmt.executeQuery("select user_ID, name from mg_user");
+            rs = stmt.executeQuery("select user_ID, first_name, last_name from mg_user");
             while (rs.next()) {
                 System.out.println("\nUser ID = " + rs.getInt("user_ID") + ", Name = " + rs.getString("name"));
             }
@@ -991,6 +992,7 @@ public class MySQLDatabase implements IDatabase {
             set = stmt.executeQuery();
             if(set.next()) {
                 password = set.getString(1);
+                salt = set.getString(2);
             }
             stmt = conn.prepareStatement(
                     "UPDATE mg_user "
@@ -1001,7 +1003,8 @@ public class MySQLDatabase implements IDatabase {
             stmt.setString(3, user.getDescription());
             stmt.setString(4, user.getUsername());
             //stmt.setBlob(3, inputStream);
-            stmt.setString(4, password);
+            stmt.setString(5, password);
+            stmt.setString(6, salt);
             stmt.executeUpdate();
 
             //get user_id
@@ -1177,7 +1180,7 @@ public class MySQLDatabase implements IDatabase {
 
         try
         {
-            stmt = conn.prepareStatement("SELECT SHA2(?, 512)");
+            stmt = conn.prepareStatement("SELECT SHA2(SHA2(SHA2(?, 512), 512), 512)");
             stmt.setString(1, str);
             set = stmt.executeQuery();
             if(set.next())
@@ -1506,9 +1509,10 @@ public class MySQLDatabase implements IDatabase {
         ResultSet set2 = null;
 
         try {
-            for (int i = 0; i < cids.size(); i++) {
-                // First, add the current ID to the result list
-                return_list.add(cids.get(i).toString());
+            if(cids.size() > 0) {
+                for (int i = 0; i < cids.size(); i++) {
+                    // First, add the current ID to the result list
+                    return_list.add(cids.get(i).toString());
 
                     // Then, get miscellaneous (easy) fields
                     stmt1 = conn.prepareStatement("SELECT temperature, date_confirmed, date_generated, monitor_start, monitor_stop,"
@@ -1582,7 +1586,7 @@ public class MySQLDatabase implements IDatabase {
 
 
                     }
-
+                /*
                 // Next, get Plant name. Seperate this from getting Strain name because it's easier to manage.
                 stmt1 = conn.prepareStatement("SELECT plantName FROM mg_plant WHERE plant_ID = ?");
                 stmt1.setInt(1, set1.getInt(2));
@@ -1610,7 +1614,13 @@ public class MySQLDatabase implements IDatabase {
                 stmt1.setInt(2, set1.getInt(3));
                 stmt1.setInt(3, set1.getInt(2));
                 set2 = stmt1.executeQuery();
-                return_list.add(set2.getString(1));
+                return_list.add(set2.getString(1));*/
+
+                    return_list.add("END");
+                }
+            }
+            else{
+                return_list.add("NO DATA TO DISPLAY");
             }
         }
         finally
@@ -1738,6 +1748,15 @@ public class MySQLDatabase implements IDatabase {
         PreparedStatement stmt2 = null;
         ResultSet set = null;
 
+        SecureRandom random = new SecureRandom();
+        // Create array for salt
+        byte[] salt = new byte[64];
+        // Get a random salt (this is cryptographically secure)
+        random.nextBytes(salt);
+        // use salt.toString(); to print out a salt.
+        // pre-pend salt to password for when we hash it
+        String password = salt.toString() + user.getPassword();
+
         boolean success = false;
 
         try {
@@ -1745,11 +1764,13 @@ public class MySQLDatabase implements IDatabase {
                     "INSERT INTO mg_user (user_name, passWord, salt, login_id, first_name, last_name, email, description) "
                             + " VALUES(?, SHA2(SHA2(SHA2(?, 512), 512), 512), ?,?,?,?,?,?)");
             stmt1.setString(1, user.getUsername());
-            stmt1.setString(2, user.getPassword());
-            stmt1.setInt(3, user.getLoginId());
-            stmt1.setString(4, user.getName());
-            stmt1.setString(5, user.getEmail());
-            stmt1.setString(6, user.getDescription());
+            stmt1.setString(2, password);
+            stmt1.setString(3, salt.toString());
+            stmt1.setInt(4, user.getLoginId());
+            stmt1.setString(5, user.getFirstName());
+            stmt1.setString(6, user.getLastName());
+            stmt1.setString(7, user.getEmail());
+            stmt1.setString(8, user.getDescription());
 
 
             stmt1.executeUpdate();
@@ -1924,11 +1945,17 @@ public class MySQLDatabase implements IDatabase {
 
             rs = stmt1.executeQuery();
 
-            if(!rs.next())
+            if(rs.next())
+            {
+                salt = rs.getString(2);
+            }
+            else
             {
                 System.out.println("Incorrect username or password.");
                 return false;
             }
+
+            new_password = salt+new_password;
 
             stmt1 = conn.prepareStatement("UPDATE mg_user" +
                     " SET passWord = SHA2(SHA2(SHA2(?, 512), 512), 512) " +
@@ -1943,6 +1970,7 @@ public class MySQLDatabase implements IDatabase {
             stmt2 = conn.prepareStatement("SELECT user_ID FROM mg_user WHERE passWord = SHA2(SHA2(SHA2(?, 512), 512), 512) AND user_name = ? AND salt = ?");
             stmt2.setString(1, new_password);
             stmt2.setString(2, user_name);
+            stmt2.setString(3, salt);
             rs = stmt2.executeQuery();
 
             if(rs.next())
@@ -3830,7 +3858,8 @@ public class MySQLDatabase implements IDatabase {
                             User user = new User(null,null, -1,null,null,null,null);
                             user.setUsername(resultSet.getString(1));
                             user.setEmail(resultSet.getString(2));
-                            user.setName(resultSet.getString(3));
+                            user.setFirstName(resultSet.getString(3));
+                            user.setLastName(resultSet.getString(4));
 
                             result_set.add(user);
                         }
@@ -4138,7 +4167,8 @@ public class MySQLDatabase implements IDatabase {
         user.setPassword(resultSet.getString(index++));
         user.setLoginId(resultSet.getInt(index++));
         user.setEmail(resultSet.getString(index++));
-        user.setName(resultSet.getString(index++));
+        user.setFirstName(resultSet.getString(index++));
+        user.setLastName(resultSet.getString(index++));
         user.setDescription(resultSet.getString(index++));
     }
 

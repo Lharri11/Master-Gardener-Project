@@ -373,7 +373,6 @@ public class DataFormServlet extends HttpServlet {
                         }
                     }
                 }
-<<<<<<< HEAD
                 //
                 // ------------------------------ End List Population Loop ------------------------------ //
                 //
@@ -387,39 +386,6 @@ public class DataFormServlet extends HttpServlet {
                         dataForm.getDate_collected(), dataForm.getDate_generated(), dataForm.getDate_confirmed(), dataForm.getWind_status(), dataForm.getCloud_status(),
                         dataForm.getComments(),dataForm.getButterflyMothComments(), dataForm.getTemperature(), dataForm.getMonitor_start(), dataForm.getMonitor_stop(),
                         0, dataForm.getPlants(), dataForm.getPlantStrains(), dataForm.getPlots(), dataForm.getPollinators(), dataForm.getPollinatorVisitCounts() );
-=======
-
-
-                Pollinator poll1 = new Pollinator(2, "Crub1", "Meme1");
-                Pollinator poll2 = new Pollinator(13, "Crub2", "Meme1");
-                Pollinator poll3 = new Pollinator(14, "Crub3", "Meme1");
-                Pollinator poll4 = new Pollinator(15, "Crub4", "Meme1");
-                Pollinator poll5 = new Pollinator(16, "Crub5", "Meme1");
-                PollinatorVisitCount pvc1 = new PollinatorVisitCount(22, 111, 60, 4, Strain1Count2);
-                PollinatorVisitCount pvc2 = new PollinatorVisitCount(23, 111, 61, 4, Strain1Count3);
-                PollinatorVisitCount pvc3 = new PollinatorVisitCount(24, 111, 62, 4, Strain1Count4);
-                PollinatorVisitCount pvc4 = new PollinatorVisitCount(26, 111, 63, 4, Strain1Count5);
-                PollinatorVisitCount pvc5 = new PollinatorVisitCount(27, 111, 64, 4, Strain1Count6);
-
-                polls.add(poll);
-                polls.add(poll1);
-                polls.add(poll2);
-                polls.add(poll3);
-                polls.add(poll4);
-                polls.add(poll5);
-                pvcs.add(pvc);
-                pvcs.add(pvc1);
-                pvcs.add(pvc2);
-                pvcs.add(pvc3);
-                pvcs.add(pvc4);
-                pvcs.add(pvc5);
-
-                System.out.println("Set pdf");
-                PollinatorDataForm pdf = new PollinatorDataForm(1, 1, 1, 1, 1, temperature,
-                        dateCreated, dateGenerated, startTime, endTime, comments, cloudCover,
-                        wind, plotData, plants, strains, polls, pvcs);
-                DataFormController controller = new DataFormController();
->>>>>>> origin/design-overhaul
                 try {
                     controller.createDataInput(pdf);
                 } catch (SQLException e) {
