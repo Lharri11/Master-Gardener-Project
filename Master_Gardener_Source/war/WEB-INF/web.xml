@@ -95,6 +95,22 @@
         <servlet-name>UpdatePasswordServlet</servlet-name>
         <servlet-class>servlet.UpdatePasswordServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>pollVisitsByCountyServlet</servlet-name>
+        <servlet-class>servlet.pollVisitsByCountyServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>pollVisitsByPlantCoreopsisServlet</servlet-name>
+        <servlet-class>servlet.pollVisitsByPlantCoreopsisServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>pollVisitsByPlantMonardaServlet</servlet-name>
+        <servlet-class>servlet.pollVisitsByPlantMonardaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>pollVisitsByPollTypeServlet</servlet-name>
+        <servlet-class>servlet.pollVisitsByPollTypeServlet</servlet-class>
+    </servlet>
 
     <!-- Servlet mappings -->
     <servlet-mapping>
@@ -164,6 +180,22 @@
     <servlet-mapping>
         <servlet-name>UpdatePasswordServlet</servlet-name>
         <url-pattern>/updatePassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pollVisitsByCountyServlet</servlet-name>
+        <url-pattern>/pvCounty</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pollVisitsByPlantCoreopsisServlet</servlet-name>
+        <url-pattern>/pvCoreopsis</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pollVisitsByPlantMonardaServlet</servlet-name>
+        <url-pattern>/pvMonarda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pollVisitsByPollTypeServlet</servlet-name>
+        <url-pattern>/pvPollType</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home.jsp</welcome-file>
