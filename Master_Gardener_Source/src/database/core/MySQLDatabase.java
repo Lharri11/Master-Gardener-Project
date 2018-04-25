@@ -1515,7 +1515,7 @@ public class MySQLDatabase implements IDatabase {
                     return_list.add(cids.get(i).toString());
 
                     // Then, get miscellaneous (easy) fields
-                    stmt1 = conn.prepareStatement("SELECT temperature, date_confirmed, date_generated, monitor_start, monitor_stop,"
+                    stmt1 = conn.prepareStatement("SELECT temperature, date_collected, date_generated, date_confirmed, monitor_start, monitor_stop,"
                             + " wind_status, cloud_status, comments FROM mg_data_form WHERE id = ?");
                     stmt1.setInt(1, cids.get(i));
                     // Hopefully, this loads 8 fields into the ResultSet from columns 1 to 8
@@ -1523,8 +1523,8 @@ public class MySQLDatabase implements IDatabase {
 
                     // Get all of these fields as a string so we can add them to the return set
                     // TODO: TEST THIS
-                    for (int j = 1; j < 8; j++) {
-                        if (set1.next()) {
+                    while(set1.next()) {
+                        for (int j = 1; j < 10; j++) {
                             return_list.add(set1.getString(j));
                         }
                     }
@@ -1543,6 +1543,7 @@ public class MySQLDatabase implements IDatabase {
                         stmt1.setInt(1, set1.getInt(1));
                     }
                     set2 = stmt1.executeQuery();
+
                     if (set2.next()) {
                         return_list.add(set2.getString(1));
                     }
@@ -1550,6 +1551,8 @@ public class MySQLDatabase implements IDatabase {
                     stmt1 = conn.prepareStatement("SELECT id, plant_id, strain_id, visit_count FROM mg_pollinator_visit WHERE data_form_id = ?");
                     stmt1.setInt(1, cids.get(i));
                     set1 = stmt1.executeQuery();
+
+                    // TODO: Everything prior to this is good to go
 
                     while (set1.next()) {
                         stmt1 = conn.prepareStatement("SELECT plant_name FROM mg_plant WHERE plant_ID = ?");
