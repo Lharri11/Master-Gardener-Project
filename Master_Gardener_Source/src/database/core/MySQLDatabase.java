@@ -3847,7 +3847,7 @@ public class MySQLDatabase implements IDatabase {
                     ResultSet resultSet = null;
                     try {
                         stmt = conn.prepareStatement(
-                                " SELECT user_name email, first_name, last_name FROM mg_user ");
+                                " SELECT user_name, email, first_name, last_name FROM mg_user ");
 
                         resultSet = stmt.executeQuery();
 
