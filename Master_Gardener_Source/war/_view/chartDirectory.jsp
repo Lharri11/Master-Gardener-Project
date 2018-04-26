@@ -61,51 +61,38 @@
 
 
 <div class="container global-top-padding">
-        <div class="row">
-            <h2>Data Chart Directory</h2>
-        </div>
-        <br>
-        <div>
-            <form action="${pageContext.servletContext.contextPath}/dataForm" method="post">
-                <div>
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th class="col-lg-2">Please select the desired data chart:</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <!-- Chart Selection -->
-                        <tr>
-                            <td>
-                                <form name="chartSelect">
-                                    <select class="form-control" name="chartSelect"
-                                            onChange="window.document.location.href=this.options[this.selectedIndex].value;"
-                                            value="GO">
-                                        <option style="display:none">Select</option>
-                                        <option value="${pageContext.servletContext.contextPath}/pvCounty">Pollinator
-                                            Visit Counts By County
-                                        </option>
-                                        <option value="${pageContext.servletContext.contextPath}/pvCoreopsis">Pollinator
-                                            Visit Counts For Coreopsis Plant
-                                        </option>
-                                        <option value="${pageContext.servletContext.contextPath}/pvMonarda">Pollinator
-                                            Visit Counts For Monarda Plant
-                                        </option>
-                                        <option value="${pageContext.servletContext.contextPath}/pvPollType">Pollinator
-                                            Visit Counts By Pollinator Species
-                                        </option>
-                                    </select>
-                                </form>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </form>
-        </div>
+    <div class="row col-lg-12">
+        <h2>Data Chart Directory</h2>
     </div>
-    <!--/pageContent-->
+    <br>
+    <div class="col-lg-12">
+        <div>
+
+            <h6>Please select the desired data chart:</h6>
+
+            <select class="form-control" name="chartSelect"
+                    onChange="window.document.location.href=this.options[this.selectedIndex].value;"
+                    value="GO">
+                <option style="display:none">Select</option>
+                <option value="${pageContext.servletContext.contextPath}/pvCounty">Pollinator
+                    Visit Counts By County
+                </option>
+                <option value="${pageContext.servletContext.contextPath}/pvCoreopsis">Pollinator
+                    Visit Counts For Coreopsis Plant
+                </option>
+                <option value="${pageContext.servletContext.contextPath}/pvMonarda">Pollinator
+                    Visit Counts For Monarda Plant
+                </option>
+                <option value="${pageContext.servletContext.contextPath}/pvPollType">Pollinator
+                    Visit Counts By Pollinator Species
+                </option>
+            </select>
+
+        </div>
+
+    </div>
+</div>
+<!--/pageContent-->
 
 <!-- Load JS here for greater good =============================-->
 <script src="vendor/jquery/jquery.js"></script>
