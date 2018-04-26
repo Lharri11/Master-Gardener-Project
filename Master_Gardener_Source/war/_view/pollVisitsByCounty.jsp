@@ -59,165 +59,126 @@
     </div>
 </nav>
 
-<div class="container user-page-top-padding">
-    <div class="row">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th class="col-lg-2">Please select the desired data chart:</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <!-- Chart Selection -->
-                        <tr>
-                            <td>
-                                <form name="chartSelect">
-                                    <select class="form-control" name="chartSelect" onChange="window.document.location.href=this.options[this.selectedIndex].value;" value="GO">
-                                        <option style="display:none">Select</option>
-                                        <option value="http://localhost:8081/Master-Gardener/pollVisits1">Pollinator Visit Counts By County</option>
-                                        <option value="http://localhost:8081/Master-Gardener/pollVisits2">Pollinator Visit Counts For Coreopsis Plant</option>
-                                        <option value="http://localhost:8081/Master-Gardener/pollVisits3">Pollinator Visit Counts For Monarda Plant</option>
-                                        <option value="http://localhost:8081/Master-Gardener/pollVisits4">Pollinator Visit Counts By Pollinator Species</option>
-                                    </select>
-                                </form>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+<div class="container global-top-padding">
+    <div class="col-lg-12">
+        <div>
 
-            <div class="pageContent">
-                <div>
-                    <!-- Adams County -->
-                    <div class="col-lg-10 col-md-6 col-sm-12">
-                        <div id="editContent" class="editContent">
-                            <div id="intro"></div>
-                            <h2>Adams County</h2>
-                        </div>
-                        <canvas id="adamsCountyChart" width="50em" height="20em"></canvas>
-                    </div>
-                    <!-- Allegheny County -->
-                    <div class="col-lg-10 col-md-6 col-sm-12">
-                        <div id="editContent" class="editContent">
-                            <div id="intro"></div>
-                            <h2>Allegheny County</h2>
-                        </div>
-                        <canvas id="alleghenyCountyChart" width="50em" height="20em"></canvas>
-                    </div>
-                    <!-- Beaver County -->
-                    <div class="col-lg-10 col-md-6 col-sm-12">
-                        <div id="editContent" class="editContent">
-                            <div id="intro"></div>
-                            <h2>Beaver County</h2>
-                        </div>
-                        <canvas id="beaverCountyChart" width="50em" height="20em"></canvas>
-                    </div>
-                    <!-- Berks County -->
-                    <div class="col-lg-10 col-md-6 col-sm-12">
-                        <div id="editContent" class="editContent">
-                            <div id="intro"></div>
-                            <h2>Berks County</h2>
-                        </div>
-                        <canvas id="berksCountyChart" width="50em" height="20em"></canvas>
-                    </div>
-                    <!-- Bradford County -->
-                    <div class="col-lg-10 col-md-6 col-sm-12">
-                        <div id="editContent" class="editContent">
-                            <div id="intro"></div>
-                            <h2>Bradford County</h2>
-                        </div>
-                        <canvas id="bradfordCountyChart" width="50em" height="20em"></canvas>
-                        <div id="intro"></div>
-                    </div>
-                </div>
+            <h6>Please select the desired data chart:</h6>
 
-                <div class="sidebar">
-                    <button onclick="toggleSideBar()" id="toggle" style="right: 0px;color: white">Garden Options</button>
-                    <div id="sideBar" style="right: -300px;">
-                        <form id="GardenGet" method="post">
-                            <ul class="list-unstyled">
-                                <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/documents" style="color: white">Documents</a></li>
-                                <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/chartGen" style="color: white">Generate Chart</a></li>
-                                <li class="sidebarItem"><a href="${pageContext.servletContext.contextPath}/createGarden" style="color: white">Create New Garden</a></li>
-                                <li class="sidebarItem"><span>--------------- Your Gardens: ---------------</span></li>
-                                <c:forEach items="${user_gardens}" var="user_garden">
-                                    <tr>
-                                        <td class="groupListItem"><input class="sidebarItem" type="Submit" value="${user_garden.garden_name}" id="Submit" name="Submit"></td>
-                                    </tr>
-                                </c:forEach>
-                            </ul>
-                        </form>
-                    </div>
-                </div>
-                <!--/sidebar-->
-            </div>
-            <!--/pageContent-->
+            <select class="form-control" name="chartSelect"
+                    onChange="window.document.location.href=this.options[this.selectedIndex].value;"
+                    value="GO">
+                <option style="display:none">Select</option>
+                <option value="${pageContext.servletContext.contextPath}/pvCounty">Pollinator
+                    Visit Counts By County
+                </option>
+                <option value="${pageContext.servletContext.contextPath}/pvCoreopsis">Pollinator
+                    Visit Counts For Coreopsis Plant
+                </option>
+                <option value="${pageContext.servletContext.contextPath}/pvMonarda">Pollinator
+                    Visit Counts For Monarda Plant
+                </option>
+                <option value="${pageContext.servletContext.contextPath}/pvPollType">Pollinator
+                    Visit Counts By Pollinator Species
+                </option>
+            </select>
+
         </div>
-        <!-- /.wrapper -->
-    </header>
-    <!-- /.item -->
+
+    </div>
 </div>
-<!-- /#page -->
+
+<div class="container">
+    <%--TODO: Add goto buttons for each garden and export to jpg.--%>
+</div>
+
+<div class="container global-top-padding">
+    <div class="row">
+
+        <!-- Adams County -->
+        <div class="col-lg-12">
+            <h2>Adams County</h2>
+            <canvas id="adamsCountyChart" class="col-lg-12"></canvas>
+        </div>
+    </div>
+
+    <br><br><br>
+    <div class="row">
+        <!-- Allegheny County -->
+        <div class="col-lg-12">
+            <h2>Allegheny County</h2>
+            <canvas id="alleghenyCountyChart" class="col-lg-12"></canvas>
+        </div>
+    </div>
+
+    <br><br><br>
+    <div class="row">
+        <!-- Beaver County -->
+        <div class="col-lg-12">
+            <h2>Beaver County</h2>
+            <canvas id="beaverCountyChart" class="col-lg-12"></canvas>
+        </div>
+    </div>
+
+    <br><br><br>
+    <div class="row">
+        <!-- Berks County -->
+        <div class="col-lg-12">
+            <h2>Berks County</h2>
+            <canvas id="berksCountyChart" class="col-lg-12"></canvas>
+        </div>
+    </div>
+
+    <br><br><br>
+    <div class="row">
+        <!-- Bradford County -->
+        <div class="col-lg-12">
+            <h2>Bradford County</h2>
+            <canvas id="bradfordCountyChart" class="col-lg-12"></canvas>
+        </div>
+    </div>
+
+</div>
+
 
 <!-- Load JS here for greater good =============================-->
-<script src="js/jquery-1.8.3.min.js"></script>
-<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
-<script src="js/jquery.ui.touch-punch.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap-select.js"></script>
-<script src="js/bootstrap-switch.js"></script>
-<script src="js/flatui-checkbox.js"></script>
-<script src="js/flatui-radio.js"></script>
-<script src="js/jquery.tagsinput.js"></script>
-<script src="js/jquery.placeholder.js"></script>
-<script src="js/jquery.nivo.slider.pack.js"></script>
-<script src="js/application.js"></script>
-<script src="js/over.js"></script>
+<script src="vendor/jquery/jquery.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.js"></script>
+<script src="vendor/scrollreveal/scrollreveal.js"></script>
+<script src="vendor/Popper/Popper.js"></script>
 <script src="vendor/Charts/js/Chart.js"></script>
+
 <script>
+    (function ($) {
+        "use strict"; // Start of use strict
 
-    function toggleSideBar() {
-        var x = document.getElementById('sideBar');
-        var y = document.getElementById('toggle');
-        if (x.style.right === '-300px') {
-            x.style.right = '0%';
-            y.style.right = '300px';
-        } else {
-            x.style.right = '-300px';
-            y.style.right = '0px';
-        }
-    }
-
-    function on() {
-        document.getElementById("overlay").style.display = "block";
-    }
-
-    function off() {
-        document.getElementById("overlay").style.display = "none";
-    }
-
-    $(function(){
-
-        if( $('#nivoSlider').size() > 0 ) {
-
-            $('#nivoSlider').nivoSlider({
-                effect: 'random',
-                pauseTime: 5000
-            });
-
-        }
-
-    })
+        // Smooth scrolling using jQuery easing
+        $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
+            if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: (target.offset().top - 57)
+                    }, 1000, "easeInOutExpo");
+                    return false;
+                }
+            }
+        });
+    })(jQuery);
 </script>
 
+
+
+
 <!--============================= Begin Chart Content =============================-->
-<input type="hidden" id="pollinatorString" value='${pollinatorJSON}' >
+<input type="hidden" id="pollinatorString" value='${pollinatorJSON}'>
 
 <script>
     <%-- Adams County --%>
     $(document).ready(
-        function() {
+        function () {
             var json;
             json = ${pollinatorJSON};
 
@@ -251,14 +212,14 @@
                     responsive: true
                 }
             });
-        },
+        }
     );
 </script>
 
 <script>
     <%-- Allegheny County --%>
     $(document).ready(
-        function() {
+        function () {
             var json;
             json = ${pollinatorJSON};
 
@@ -292,14 +253,14 @@
                     responsive: true
                 }
             });
-        },
+        }
     );
 </script>
 
 <script>
     <%-- Beaver County --%>
     $(document).ready(
-        function() {
+        function () {
             var json;
             json = ${pollinatorJSON};
 
@@ -333,14 +294,14 @@
                     responsive: true
                 }
             });
-        },
+        }
     );
 </script>
 
 <script>
     <%-- Berks County --%>
     $(document).ready(
-        function() {
+        function () {
             var json;
             json = ${pollinatorJSON};
 
@@ -374,14 +335,14 @@
                     responsive: true
                 }
             });
-        },
+        }
     );
 </script>
 
 <script>
     <%-- Bradford County --%>
     $(document).ready(
-        function() {
+        function () {
             var json;
             json = ${pollinatorJSON};
 
@@ -415,7 +376,7 @@
                     responsive: true
                 }
             });
-        },
+        }
     );
 </script>
 <!--============================== End Chart Content ==============================-->
