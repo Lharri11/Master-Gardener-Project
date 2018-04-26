@@ -39,7 +39,6 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="${pageContext.servletContext.contextPath}/user">My Account</a>

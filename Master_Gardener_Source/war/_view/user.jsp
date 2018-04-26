@@ -38,8 +38,6 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <%--TODO: Fix logout function, does not function as inteneded...add seperate servlet--%>
-
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <form id="logout" action="${pageContext.servletContext.contextPath}/login" method="post">

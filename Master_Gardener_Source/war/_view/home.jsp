@@ -141,7 +141,6 @@
 <script src="vendor/scrollreveal/scrollreveal.js"></script>
 <script src="vendor/DataTables/datatables.js"></script>
 
-<%--<script src="js/contact.js"></script>--%>
 
 <script>
     (function ($) {
@@ -161,8 +160,6 @@
             }
         });
     })(jQuery);
-
-
 </script>
 
 
