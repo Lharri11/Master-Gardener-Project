@@ -22,7 +22,7 @@ import org.json.JSONObject;
 public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private SearchController controller = null;
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 		throws ServletException, IOException {
@@ -87,7 +87,7 @@ public class SearchServlet extends HttpServlet {
 
 
 		req.setAttribute("allGardens", allGardens);
-		req.getRequestDispatcher("/_view/search.jsp").forward(req, resp);	
+		req.getRequestDispatcher("/_view/search.jsp").forward(req, resp);
 	}
 
 	@Override
@@ -121,6 +121,6 @@ public class SearchServlet extends HttpServlet {
 			}
 		}
 
-		req.getRequestDispatcher("/_view/search.jsp").forward(req, resp);	
+		req.getRequestDispatcher("/_view/user.jsp").forward(req, resp);
 	}
 }

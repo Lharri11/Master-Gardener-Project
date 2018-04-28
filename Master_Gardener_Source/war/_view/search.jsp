@@ -270,10 +270,20 @@
         } catch (err) {
             alert(err.message);
         } finally {
-            //alert("You added " + JSON.stringify(joining.garden_name) + " to your account");
+           //alert("You added " + JSON.stringify(joining.garden_name) + " to your account");
+            reloadTable();
 
         }
     }
+
+    //TODO: This does not work right. It works once and that's it
+    function reloadTable() {
+       var thisreDraw = $("#allGardensTable").DataTable().draw();
+       thisreDraw.draw();
+
+    }
+
+    
 
 </script>
 
