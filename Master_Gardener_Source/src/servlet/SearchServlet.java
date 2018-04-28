@@ -12,10 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
+import controller.GardenController;
 import controller.SearchController;
-//import controller.UserController;
-//import model.User;
+import controller.UserController;
+import model.User;
 import model.Garden;
+import org.json.JSONObject;
 
 public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -34,33 +36,55 @@ public class SearchServlet extends HttpServlet {
 			resp.sendRedirect(req.getContextPath() + "/login");
 			return;
 		}
-				
-		//controller = new SearchController();
-
-		/*String keyword;
-		keyword = (String) req.getSession().getAttribute("keyword");*/
 
 
-		List<Garden> gardens = new ArrayList<>();
-		SearchController controller = new SearchController();
+		List<Garden> everyGardens = new ArrayList<>();
+		SearchController controller1 = new SearchController();
 
 		try {
-			gardens = controller.getAllGardens();
+			everyGardens = controller1.getAllGardens();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		/*List<String> everyGardens = new ArrayList<>();
-		for (int i = 0; i < gardens.size(); i++) {
-			everyGardens.add(gardens.get(i).getGarden_name());
+
+
+		List<Garden> userGardensAvailable = new ArrayList<>();
+		SearchController controller2 = new SearchController();
+
+		try {
+			userGardensAvailable = controller2.removeUserGardensFromList(username);
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 
-*/
-		String allGardens = new Gson().toJson(gardens);
+		if (everyGardens != null && userGardensAvailable != null) {
+			for (int i = 0; i < userGardensAvailable.size(); i++) {
+				for (int j = 0; j < everyGardens.size(); j++) {
+					if(userGardensAvailable.get(i).getGarden_name().equals(everyGardens.get(j).getGarden_name())) {
+						everyGardens.remove(j);
+					}
+				}
+			}
+		}
+
+
+
+
+		String allGardens = new Gson().toJson(everyGardens);
 
 
 		System.out.println(allGardens);
+
+
+		User user = new User();
+		controller = new SearchController();
+		user = controller.returnUserForUsername(username);
+
+
+		req.setAttribute("user", user);
+
 
 		req.setAttribute("allGardens", allGardens);
 		req.getRequestDispatcher("/_view/search.jsp").forward(req, resp);	
@@ -69,18 +93,34 @@ public class SearchServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 		throws ServletException, IOException {
-		
-		int gardenID = 0;
-		String buttonPress = req.getParameter("Submit");
-		
-		if(buttonPress != null){
-			SearchController controller = new SearchController();
-			gardenID = controller.getGardenIDbyGardenname(buttonPress);
-			req.getSession().setAttribute("GardenID", gardenID);
-			resp.sendRedirect(req.getContextPath()+"/garden");
-			return;
-			
+
+
+		//Grab garden name for search page table
+		JSONObject garden = new JSONObject(req.getParameter("garden"));
+		String gardenChosen = null;
+		gardenChosen = garden.getString("garden_name");
+
+		String user = (String)req.getSession().getAttribute("username");
+
+
+		System.out.println(gardenChosen);
+		System.out.println(user);
+
+
+
+		if (gardenChosen != null) {
+			User account = new User();
+			UserController controllerUser = new UserController();
+			account = controllerUser.returnUserForUsername(user);
+
+			SearchController controllerSearch = new SearchController();
+			try {
+				controllerSearch.addNewUsertoGarden(gardenChosen, account.getUsername());
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
+
 		req.getRequestDispatcher("/_view/search.jsp").forward(req, resp);	
 	}
 }

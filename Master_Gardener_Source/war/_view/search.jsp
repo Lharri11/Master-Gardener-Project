@@ -29,7 +29,7 @@
 
 </head>
 
-<body class="search-backgorund">
+<body>
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
@@ -92,9 +92,8 @@
          </div>
      </div>--%>
 
-
-   <table id="allGardensTable" class="display"></table>
-        <%--<table id="example" class="display"></table>--%>
+    <table id="allGardensTable" class="table table-striped table-borded" style="width:100%"></table>
+    <%--<table id="example" class="display"></table>--%>
 
 
     <%-- <div class="row">
@@ -222,61 +221,61 @@
 <script src="vendor/DataTables/datatables.js"></script>
 
 
-
 <script>
-        var allGardens = ${allGardens};
+    var allGardens = ${allGardens};
 
 
-        var table = $('#allGardensTable').DataTable({
-            data: allGardens,
+    var table = $('#allGardensTable').resize().DataTable({
 
-            columns: [{
-                data: 'garden_name',
-                title: 'Garden Name'
+        data: allGardens,
+
+        columns: [{
+            data: 'garden_name',
+            className: 'center',
+            title: 'Garden Name'
+        },
+            {
+                width: '50%',
+                orderable: false,
+                title: 'Join A Garden'
+
             },
-                {
-                    width: '50%',
-                    orderable: false,
-                    title: 'Join A Garden'
+        ],
+        "columnDefs": [{
+            "targets": -1,       // -1 = last column
+            "data": null,        // no data for this column, instead we will show default content, described in 'defaultContent'
+            "defaultContent": "<button id='submit-btn' class='btn btn-primary rounded-pill align-content-lg-center'>Submit</button>"
+        }],
+    });
 
-                },
-            ],
-            "columnDefs": [{
-                "targets": -1,       // -1 = last column
-                "data": null,        // no data for this column, instead we will show default content, described in 'defaultContent'
-                "defaultContent": "<button id='submit-btn'>Submit</button>"
-            }],
-        });
-
-        $('#allGardensTable').on('click', 'button', function() {
-            // create an object from a row data
-            var rowData = table.row($(this).parents('tr')).data();
-            // fire a function, based on the button id that was clicked
-            if (this.id === 'submit-btn') {
-                submitData(rowData);
-            }
-        });
-
-
-        function submitData(data) {
-            // Process your row data and submit here.
-            // e.g. data === { id: '1', type: 'pen', color: 'orange' }
-            // Even though your table shows only selected columns, the row data
-            // will still contain the complete object.
-            // I would recommend against sending a complete object. In your case,
-            // with a single data point, perhaps it is fine though. However,
-            // always send bare minimum. For example, if you want to delete an
-            // entry on the server side, just send the id of the entry and let
-            // the server locate it and delete it by id. It doesn't need all other
-            // fields.
+    $('#allGardensTable').on('click', 'button', function () {
+        // create an object from a row data
+        var garden = table.row($(this).parents('tr')).data();
+        // fire a function, based on the button id that was clicked
+        if (this.id === 'submit-btn') {
+            joinSomeGarden(garden);
         }
+    });
 
 
+    function joinSomeGarden(joining) {
+        var gardenData = {garden: JSON.stringify(joining)};
 
+        try {
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.servletContext.contextPath}/search",
+                data: gardenData
+            });
+        } catch (err) {
+            alert(err.message);
+        } finally {
+            //alert("You added " + JSON.stringify(joining.garden_name) + " to your account");
 
+        }
+    }
 
 </script>
-
 
 
 </body>
