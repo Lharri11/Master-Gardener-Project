@@ -44,9 +44,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.servletContext.contextPath}/user">My Account</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.servletContext.contextPath}/login">Logout</a>
-                </li>
+                <form id="logout" action="${pageContext.servletContext.contextPath}/login" method="post">
+                    <li class="nav-item">
+
+
+                        <button class="nav-link" name="loginSubmit" value="Logout" type="submit"
+                                alt="submit" title="Log Out">Logout
+                        </button>
+                        <%--<a class="nav-link" name="loginSubmit"
+                           href="javascript:;" onclick="document.getElementById('logout_form').submit()">Logout</a>
+                        <input type="hidden" name="logout" value="Logout"/>--%>
+                    </li>
+                </form>
             </ul>
         </div>
     </div>
