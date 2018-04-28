@@ -90,6 +90,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return set;
     }
@@ -178,6 +179,7 @@ public class MySQLDatabase implements IDatabase {
                     if (fw != null) {
                         fw.close();
                     }
+
                 } catch (IOException f) {
                     System.out.println("exportCustomQuery method: Caught new IOException(1): " + f);
                 }
@@ -207,6 +209,7 @@ public class MySQLDatabase implements IDatabase {
         finally{
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
 
         return salt+password;
@@ -319,6 +322,7 @@ public class MySQLDatabase implements IDatabase {
         {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return true;
     }
@@ -364,6 +368,7 @@ public class MySQLDatabase implements IDatabase {
         finally{
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
     }
 
@@ -401,6 +406,8 @@ public class MySQLDatabase implements IDatabase {
         {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
+
         }
 
         return plant_list;
@@ -426,6 +433,7 @@ public class MySQLDatabase implements IDatabase {
         {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return plant_strain_id_list.size();
     }
@@ -483,6 +491,7 @@ public class MySQLDatabase implements IDatabase {
                     } finally {
                         DBUtil.closeQuietly(stmt);
                         DBUtil.closeQuietly(set);
+                        DBUtil.closeQuietly(conn);
                     }
                     return results;
                 }
@@ -526,6 +535,7 @@ public class MySQLDatabase implements IDatabase {
                     {
                         DBUtil.closeQuietly(stmt);
                         DBUtil.closeQuietly(resultSet);
+                        DBUtil.closeQuietly(conn);
                     }
 
                     return results;
@@ -568,6 +578,7 @@ public class MySQLDatabase implements IDatabase {
                     {
                         DBUtil.closeQuietly(stmt);
                         DBUtil.closeQuietly(resultSet);
+                        DBUtil.closeQuietly(conn);
                     }
                     return results;
 
@@ -607,6 +618,7 @@ public class MySQLDatabase implements IDatabase {
                     } finally {
                         DBUtil.closeQuietly(stmt);
                         DBUtil.closeQuietly(resultSet);
+                        DBUtil.closeQuietly(conn);
                     }
                     return results;
                 }
@@ -697,6 +709,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(set);
             DBUtil.closeQuietly(set2);
             DBUtil.closeQuietly(set3);
+            DBUtil.closeQuietly(conn);
         }
 
         return return_list;
@@ -762,6 +775,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(set);
             DBUtil.closeQuietly(set2);
             DBUtil.closeQuietly(set3);
+            DBUtil.closeQuietly(conn);
         }
 
         return return_list;
@@ -812,6 +826,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
             DBUtil.closeQuietly(set2);
+            DBUtil.closeQuietly(conn);
         }
 
         return return_list;
@@ -885,6 +900,7 @@ public class MySQLDatabase implements IDatabase {
                     DBUtil.closeQuietly(stmt1);
                     DBUtil.closeQuietly(stmt2);
                     DBUtil.closeQuietly(stmt3);
+                    DBUtil.closeQuietly(conn);
                 }
 
             }
@@ -908,6 +924,7 @@ public class MySQLDatabase implements IDatabase {
         finally
         {
             DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(conn);
         }
         return true;
     }
@@ -948,6 +965,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(stmt3);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return success;
     }
@@ -971,6 +989,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return success;
     }
@@ -1022,6 +1041,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return success;
     }
@@ -1046,6 +1066,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return success;
     }
@@ -1088,6 +1109,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(stmt2);
+            DBUtil.closeQuietly(conn);
         }
         return success;
     }
@@ -1115,6 +1137,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return user;
     }
@@ -1140,6 +1163,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return user;
     }
@@ -1166,6 +1190,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return user_id;
     }
@@ -1194,6 +1219,7 @@ public class MySQLDatabase implements IDatabase {
         {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
 
     }
@@ -1216,6 +1242,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(rs);
+            DBUtil.closeQuietly(conn);
         }
         return password;
     }
@@ -1239,6 +1266,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(rs);
+            DBUtil.closeQuietly(conn);
         }
         return id;
     }
@@ -1262,6 +1290,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(rs);
+            DBUtil.closeQuietly(conn);
         }
         return id;
     }
@@ -1285,6 +1314,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(rs);
+            DBUtil.closeQuietly(conn);
         }
         return id;
     }
@@ -1309,6 +1339,7 @@ public class MySQLDatabase implements IDatabase {
             } finally {
                 DBUtil.closeQuietly(stmt);
                 DBUtil.closeQuietly(rs);
+                DBUtil.closeQuietly(conn);
             }
             return id;
         }
@@ -1334,6 +1365,7 @@ public class MySQLDatabase implements IDatabase {
             } finally {
                 DBUtil.closeQuietly(stmt);
                 DBUtil.closeQuietly(rs);
+                DBUtil.closeQuietly(conn);
             }
             return id;
         }
@@ -1362,6 +1394,7 @@ public class MySQLDatabase implements IDatabase {
             } finally {
                 DBUtil.closeQuietly(stmt);
                 DBUtil.closeQuietly(rs);
+                DBUtil.closeQuietly(conn);
             }
             return pollinator;
         }
@@ -1386,6 +1419,7 @@ public class MySQLDatabase implements IDatabase {
             } finally {
                 DBUtil.closeQuietly(stmt);
                 DBUtil.closeQuietly(set);
+                DBUtil.closeQuietly(conn);
             }
             return pollinator_name;
         }
@@ -1429,6 +1463,7 @@ public class MySQLDatabase implements IDatabase {
                 DBUtil.closeQuietly(stmt1);
                 DBUtil.closeQuietly(stmt2);
                 DBUtil.closeQuietly(rs);
+                DBUtil.closeQuietly(conn);
             }
             return df_list;
         }
@@ -1491,6 +1526,7 @@ public class MySQLDatabase implements IDatabase {
         {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(set1);
+            DBUtil.closeQuietly(conn);
         }
         return county_names;
     }
@@ -1632,6 +1668,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(set1);
             DBUtil.closeQuietly(set2);
+            DBUtil.closeQuietly(conn);
         }
 
         return return_list;
@@ -1660,6 +1697,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(rs);
+            DBUtil.closeQuietly(conn);
         }
         return data_form_ids;
     }
@@ -1687,6 +1725,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(rs);
+            DBUtil.closeQuietly(conn);
         }
         return visit_count_ids;
     }
@@ -1712,6 +1751,7 @@ public class MySQLDatabase implements IDatabase {
         {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return mod_status;
     }
@@ -1740,6 +1780,7 @@ public class MySQLDatabase implements IDatabase {
         {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(set1);
+            DBUtil.closeQuietly(conn);
         }
 
         return generator_ids;
@@ -1789,6 +1830,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return success;
     }
@@ -1821,6 +1863,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return success;
     }
@@ -1854,6 +1897,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return success;
     }
@@ -1889,6 +1933,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return success;
     }
@@ -1926,6 +1971,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return completed;
     }
@@ -1988,6 +2034,7 @@ public class MySQLDatabase implements IDatabase {
         {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(rs);
+            DBUtil.closeQuietly(conn);
         }
     }
 
@@ -2026,6 +2073,7 @@ public class MySQLDatabase implements IDatabase {
                 DBUtil.closeQuietly(stmt);
                 DBUtil.closeQuietly(stmt2);
                 DBUtil.closeQuietly(set);
+                DBUtil.closeQuietly(conn);
             }
             return completed;
         }
@@ -2065,6 +2113,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return completed;
     }
@@ -2103,6 +2152,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return completed;
     }
@@ -2142,6 +2192,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return completed;
     }
@@ -2180,6 +2231,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return completed;
     }
@@ -2219,6 +2271,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return completed;
     }
@@ -2251,6 +2304,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return plot;
     }
@@ -2290,6 +2344,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return completed;
     }
@@ -2329,6 +2384,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return completed;
     }
@@ -2368,6 +2424,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return completed;
     }
@@ -2407,6 +2464,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return completed;
     }
@@ -2446,6 +2504,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return completed;
     }
@@ -2490,6 +2549,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return completed;
     }
@@ -2561,6 +2621,7 @@ public class MySQLDatabase implements IDatabase {
                 DBUtil.closeQuietly(stmt);
                 DBUtil.closeQuietly(stmt2);
                 DBUtil.closeQuietly(set);
+                DBUtil.closeQuietly(conn);
             }
         }
         return success;
@@ -2597,6 +2658,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return success;
     }
@@ -2634,6 +2696,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return success;
     }
@@ -2670,6 +2733,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return success;
     }
@@ -2691,6 +2755,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return registered;
     }
@@ -2713,6 +2778,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return registered;
     }
@@ -2747,6 +2813,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(stmt3);
+            DBUtil.closeQuietly(conn);
         }
 
         return success;
@@ -2780,6 +2847,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(stmt2);
+            DBUtil.closeQuietly(conn);
         }
 
         return success;
@@ -2819,6 +2887,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(stmt3);
+            DBUtil.closeQuietly(conn);
         }
 
         return success;
@@ -2864,6 +2933,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(stmt3);
             DBUtil.closeQuietly(stmt4);
+            DBUtil.closeQuietly(conn);
         }
 
         return success;
@@ -2903,6 +2973,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(stmt3);
+            DBUtil.closeQuietly(conn);
         }
 
         return success;
@@ -2960,6 +3031,7 @@ public class MySQLDatabase implements IDatabase {
         {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return success;
     }
@@ -3011,6 +3083,7 @@ public class MySQLDatabase implements IDatabase {
                     } finally {
                         DBUtil.closeQuietly(stmt);
                         DBUtil.closeQuietly(set);
+                        DBUtil.closeQuietly(conn);
                     }
                     return loginId;
                 }
@@ -3092,6 +3165,7 @@ public class MySQLDatabase implements IDatabase {
                 } finally {
                     DBUtil.closeQuietly(set);
                     DBUtil.closeQuietly(stmt1);
+                    DBUtil.closeQuietly(conn);
                 }
             }
         });
@@ -3174,6 +3248,7 @@ public class MySQLDatabase implements IDatabase {
                 } finally {
                     DBUtil.closeQuietly(set);
                     DBUtil.closeQuietly(stmt1);
+                    DBUtil.closeQuietly(conn);
                 }
             }
         });
@@ -3213,6 +3288,7 @@ public class MySQLDatabase implements IDatabase {
                 } finally {
                     DBUtil.closeQuietly(set);
                     DBUtil.closeQuietly(stmt1);
+                    DBUtil.closeQuietly(conn);
                 }
             }
         });
@@ -3253,6 +3329,7 @@ public class MySQLDatabase implements IDatabase {
                 } finally {
                     DBUtil.closeQuietly(set);
                     DBUtil.closeQuietly(stmt1);
+                    DBUtil.closeQuietly(conn);
                 }
             }
         });
@@ -3301,6 +3378,7 @@ public class MySQLDatabase implements IDatabase {
                 } finally {
                     DBUtil.closeQuietly(set);
                     DBUtil.closeQuietly(stmt1);
+                    DBUtil.closeQuietly(conn);
                 }
             }
         });
@@ -3377,6 +3455,7 @@ public class MySQLDatabase implements IDatabase {
                     } finally {
                         DBUtil.closeQuietly(stmt);
                         DBUtil.closeQuietly(set);
+                        DBUtil.closeQuietly(conn);
                     }
                     return garden_id;
                 }
@@ -3417,6 +3496,7 @@ public class MySQLDatabase implements IDatabase {
                     } finally {
                         DBUtil.closeQuietly(stmt);
                         DBUtil.closeQuietly(set);
+                        DBUtil.closeQuietly(conn);
                     }
                     return county_name;
                 }
@@ -3458,6 +3538,7 @@ public class MySQLDatabase implements IDatabase {
                     } finally {
                         DBUtil.closeQuietly(stmt);
                         DBUtil.closeQuietly(set);
+                        DBUtil.closeQuietly(conn);
                     }
                     return county_name;
                 }
@@ -3499,6 +3580,7 @@ public class MySQLDatabase implements IDatabase {
                     } finally {
                         DBUtil.closeQuietly(stmt);
                         DBUtil.closeQuietly(set);
+                        DBUtil.closeQuietly(conn);
                     }
                     return county_id;
                 }
@@ -3539,6 +3621,7 @@ public class MySQLDatabase implements IDatabase {
                     } finally {
                         DBUtil.closeQuietly(stmt);
                         DBUtil.closeQuietly(set);
+                        DBUtil.closeQuietly(conn);
                     }
                     return garden_address;
                 }
@@ -3587,6 +3670,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return registered;
     }
@@ -3668,6 +3752,7 @@ public class MySQLDatabase implements IDatabase {
                     }finally{
                         DBUtil.closeQuietly(stmt);
                         DBUtil.closeQuietly(set);
+                        DBUtil.closeQuietly(conn);
                     }
                     return Visitcounts;
                 }
@@ -3699,6 +3784,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
         return success;
     }
@@ -3821,6 +3907,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(set1);
             DBUtil.closeQuietly(set2);
             DBUtil.closeQuietly(set3);
+            DBUtil.closeQuietly(conn);
         }
 
         if(result) {
@@ -3873,6 +3960,7 @@ public class MySQLDatabase implements IDatabase {
                     } finally {
                         DBUtil.closeQuietly(stmt);
                         DBUtil.closeQuietly(resultSet);
+                        DBUtil.closeQuietly(conn);
                     }
                     return result_set;
                 }
@@ -3919,6 +4007,7 @@ public class MySQLDatabase implements IDatabase {
                     } finally {
                         DBUtil.closeQuietly(stmt);
                         DBUtil.closeQuietly(resultSet);
+                        DBUtil.closeQuietly(conn);
                     }
                     return result_set;
                 }
@@ -3966,6 +4055,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
             DBUtil.closeQuietly(set2);
+            DBUtil.closeQuietly(conn);
         }
 
         if (!found) {
@@ -4000,6 +4090,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
 
         if (!found) {
@@ -4034,6 +4125,7 @@ public class MySQLDatabase implements IDatabase {
         } finally {
             DBUtil.closeQuietly(stmt);
             DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
         }
 
         if (!found) {
@@ -4082,6 +4174,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(set);
             DBUtil.closeQuietly(set2);
+            DBUtil.closeQuietly(conn);
         }
 
         if (!found) {
