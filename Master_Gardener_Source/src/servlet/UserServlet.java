@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 //import controller.LoginController;
+import com.google.gson.Gson;
 import controller.AdminController;
 import controller.UserController;
 import model.User;
@@ -44,14 +45,20 @@ public class UserServlet extends HttpServlet {
 		try {
 			gardens = controller.getUsersGardens(username);
 		} catch (SQLException e) {
-
+			e.printStackTrace();
 		}
-		req.setAttribute("gardens", gardens);
+
+		String userGardens = new Gson().toJson(gardens);
+		System.out.println(userGardens);
+
+		req.setAttribute("userGardens", userGardens);
 
 		User user = new User();
 		controller = new UserController();
 		user = controller.returnUserForUsername(username);
 		req.setAttribute("user", user);
+
+
 
 		req.getRequestDispatcher("/_view/user.jsp").forward(req, resp);
 	}

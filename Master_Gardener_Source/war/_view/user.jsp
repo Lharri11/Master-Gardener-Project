@@ -26,6 +26,9 @@
     <!-- Font-Awesome javascript library -->
     <script defer src="vendor/font-awesome/fontawesome-all.js"></script>
 
+    <%-- DataTables css --%>
+    <link href="vendor/DataTables/datatables.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -91,33 +94,10 @@
 
                         </div>
                         <div class="col-md-12">
-                            <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Gardens you
-                                belong to:
-                            </h5>
-                            <h6>Click on the garden name to go to its page</h6>
+                            <h5 class="mt-2">Gardens you belong to:</h5>
+                            <br>
+                            <table id="userGardensTable" class="table table-striped table-borded" style="width:100%"></table>
 
-                            <form id="garden-nav" method="post">
-                                <table class="table table-sm table-hover table-striped">
-
-
-                                    <%--<a class="nav-link" href="${pageContext.servletContext.contextPath}/login">--%>
-
-
-                                    <tbody>
-                                    <c:forEach items="${gardens}" var="garden">
-                                        <tr>
-                                            <td>
-                                                <strong><input type="submit" value="${garden.garden_name}"
-                                                               id="groupDisplay"
-                                                               name="Submit">
-                                                </strong>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
-                                    </tbody>
-
-                                </table>
-                            </form>
                         </div>
 
 
@@ -194,84 +174,87 @@
 <script src="vendor/jquery-easing/jquery.easing.js"></script>
 <script src="vendor/scrollreveal/scrollreveal.js"></script>
 <script src="vendor/Popper/Popper.js"></script>
+<script src="vendor/DataTables/datatables.js"></script>
 
 <script>
+    var userGardens = ${userGardens};
 
-    function toggleSideBar() {
-        var x = document.getElementById('sideBar');
-        var y = document.getElementById('toggle');
-        if (x.style.right === '-300px') {
-            x.style.right = '0%';
-            y.style.right = '300px';
-        } else {
-            x.style.right = '-300px';
-            y.style.right = '0px';
-        }
-    }
 
-    $(function () {
 
-        if ($('#nivoSlider').size() > 0) {
 
-            $('#nivoSlider').nivoSlider({
-                effect: 'random',
-                pauseTime: 5000
-            });
+    var table = $('#userGardensTable').resize().DataTable({
 
-        }
+        data: userGardens,
 
-    })
-</script>
+        columns: [{
+            data: 'garden_name',
+            title: 'Garden Name'
+        },
+            {
+                orderable: false,
+                title: 'Create Dataform'
 
-<script>
-    // sandbox disable popups
-    if (window.self !== window.top && window.name != "view1") {
-        ;
-        window.alert = function () {/*disable alert*/
-        };
-        window.confirm = function () {/*disable confirm*/
-        };
-        window.prompt = function () {/*disable prompt*/
-        };
-        window.open = function () {/*disable open*/
-        };
-    }
+            },
 
-    // prevent href=# click jump
-    document.addEventListener("DOMContentLoaded", function () {
-        var links = document.getElementsByTagName("A");
-        for (var i = 0; i < links.length; i++) {
-            if (links[i].href.indexOf('#') != -1) {
-                links[i].addEventListener("click", function (e) {
-                    console.debug("prevent href=# click");
-                    if (this.hash) {
-                        if (this.hash == "#") {
-                            e.preventDefault();
-                            return false;
-                        }
-                        else {
-                            /*
-                            var el = document.getElementById(this.hash.replace(/#/, ""));
-                            if (el) {
-                              el.scrollIntoView(true);
-                            }
-                            */
-                        }
-                    }
-                    return false;
-                })
+            {
+                orderable: false,
+                title: 'Leave Garden'
+
+            },
+        ],
+        "columnDefs": [{
+            "targets": -1,       // -1 = last column
+            "data": null,        // no data for this column, instead we will show default content, described in 'defaultContent'
+            "defaultContent": "<button id='submit-btn' class='btn btn-primary rounded-pill align-content-lg-center'>Remove</button>"
+        },
+            {
+                "targets": -2,       // -1 = last column
+                "data": null,        // no data for this column, instead we will show default content, described in 'defaultContent'
+                "defaultContent": "<button id='submit-btn' class='btn btn-primary rounded-pill align-content-lg-center'>Dataform</button>"
             }
+        ],
+    });
+
+   /* $('#userGardensTable').on('click', 'button', function () {
+        // create an object from a row data
+        var garden = table.row($(this).parents('tr')).data();
+        // fire a function, based on the button id that was clicked
+        if (this.id === 'submit-btn') {
+            joinSomeGarden(garden);
         }
-    }, false);
+    });
+
+
+    function joinSomeGarden(joining) {
+        var gardenData = {garden: JSON.stringify(joining)};
+
+        try {
+            $.ajax({
+                type: "POST",
+                url: "{pageContext.servletContext.contextPath}/search",
+                data: gardenData
+            });
+        } catch (err) {
+            alert(err.message);
+        } finally {
+            //alert("You added " + JSON.stringify(joining.garden_name) + " to your account");
+            reloadTable();
+
+        }
+    }
+
+    //TODO: This does not work right. It works once and that's it
+    function reloadTable() {
+        var thisreDraw = $("#userGardensTable").DataTable().draw();
+        thisreDraw.draw();
+
+    }*/
+
+
+
 </script>
 
-<script>
-    $(document).ready(function () {
-        $("a.submit-garden[form='garden-nav']").click(function () {
-            document.getElementById("garden-nav").submit();
-        });
-    });
-</script>
+
 
 </body>
 </html>
