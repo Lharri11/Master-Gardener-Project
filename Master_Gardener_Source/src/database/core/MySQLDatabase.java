@@ -4007,7 +4007,7 @@ public class MySQLDatabase implements IDatabase {
                     } finally {
                         DBUtil.closeQuietly(stmt);
                         DBUtil.closeQuietly(resultSet);
-                        DBUtil.closeQuietly(conn);
+                        //conn.close();
                     }
                     return result_set;
                 }
