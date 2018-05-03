@@ -95,6 +95,17 @@ be greyed out except the plot size.
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label control-label-left col-lg-6"
+                                    >Collection Week Number</label>
+                                    <div class="controls col-lg-9">
+                                        <input class="form-control"
+                                               type="text"
+                                               name="weekNumber">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
