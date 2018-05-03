@@ -81,34 +81,32 @@ be greyed out except the plot size.
             <%-- Garden Name Tab --%>
 
             <div class="tab">
+
+
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label class="control-label control-label-left col-lg-6"
-                                    >This Dataform is for the garden</label>
-                                    <div class="controls col-lg-9">
-                                        <input class="form-control"
-                                               type="text"
-                                               name="garden_name">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label class="control-label control-label-left col-lg-6"
-                                    >Collection Week Number</label>
-                                    <div class="controls col-lg-9">
-                                        <input class="form-control"
-                                               type="text"
-                                               name="weekNumber">
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="control-label">This Dataform is for the garden</label>
+
+                            <input class="form-control"
+                                   type="text"
+                                   name="garden_name">
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="control-label"
+                            >Collection Week Number</label>
+
+                            <input class="form-control"
+                                   type="text"
+                                   name="weekNumber">
+
                         </div>
                     </div>
                 </div>
+
             </div>
 
 
@@ -119,33 +117,33 @@ be greyed out except the plot size.
                 <%-- Generator 1 --%>
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <label class="control-label">First Name<span
-                                    class="req"> *</span></label>
+                            > *</span></label>
                             <div class="controls">
-                                <input type="text" class="form-control" data-role="text"
+                                <input type="text" class="form-control"
                                        placeholder="First Name" name="generatorFirstName1" required="required">
                             </div>
 
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="control-label">Last Name<span class="req"> *</span></label>
+                            <label class="control-label">Last Name<span> *</span></label>
                             <div class="controls">
-                                <input type="text" class="form-control" data-role="text"
+                                <input type="text" class="form-control"
                                        placeholder="Last Name" name="generatorLastName1" required="required">
                             </div>
 
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="control-label">Username<span class="req"> *</span></label>
+                            <label class="control-label">Username<span> *</span></label>
                             <div class="controls">
-                                <select class="form-control" data-role="select" required="required"
-                                        selected="selected" name="userNameSurveyor">
+                                <select class="form-control" required="required"
+                                        name="userNameSurveyor">
                                     <option value=""></option>
                                     <option value=""></option>
                                 </select>
@@ -157,27 +155,27 @@ be greyed out except the plot size.
                 <%-- Generator 2 --%>
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <div class="controls">
-                                <input type="text" class="form-control" data-role="text"
+                                <input type="text" class="form-control"
                                        placeholder="First Name" name="generatorFirstName2" required="required">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <div class="controls">
-                                <input type="text" class="form-control" data-role="text"
+                                <input type="text" class="form-control"
                                        placeholder="Last Name" name="generatorLastName2" required="required">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <div class="controls">
-                                <select class="form-control" data-role="select" required="required"
-                                        selected="selected" name="userNameSurveyor">
+                                <select class="form-control" required="required"
+                                        name="userNameSurveyor">
                                     <option value=""></option>
                                     <option value=""></option>
                                 </select>
@@ -189,27 +187,27 @@ be greyed out except the plot size.
                 <%-- Generator 3 --%>
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <div class="controls">
-                                <input type="text" class="form-control" data-role="text"
+                                <input type="text" class="form-control"
                                        placeholder="First Name" name="generatorFirstName3" required="required">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <div class="controls">
-                                <input type="text" class="form-control" data-role="text"
+                                <input type="text" class="form-control"
                                        placeholder="Last Name" name="generatorLastName3" required="required">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <div class="controls">
-                                <select class="form-control" data-role="select" required="required"
-                                        selected="selected" name="userNameSurveyor">
+                                <select class="form-control" required="required"
+                                        name="userNameSurveyor">
                                     <option value=""></option>
                                     <option value=""></option>
                                 </select>
@@ -221,27 +219,27 @@ be greyed out except the plot size.
                 <%-- Generator 4 --%>
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <div class="controls">
-                                <input type="text" class="form-control" data-role="text"
+                                <input type="text" class="form-control"
                                        placeholder="First Name" name="generatorFirstName4" required="required">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <div class="controls">
-                                <input type="text" class="form-control" data-role="text"
+                                <input type="text" class="form-control"
                                        placeholder="Last Name" name="generatorLastName4" required="required">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <div class="controls">
-                                <select class="form-control" data-role="select" required="required"
-                                        selected="selected" name="userNameSurveyor">
+                                <select class="form-control" required="required"
+                                        name="userNameSurveyor">
                                     <option value=""></option>
                                     <option value=""></option>
                                 </select>
@@ -256,9 +254,9 @@ be greyed out except the plot size.
 
             <div class="tab">
                 <div class="row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-lg-4">
                         <label class="control-label">Collection Date<span
-                                class="req"> *</span></label>
+                        > *</span></label>
                         <div class="input-group date" id="collectionDate" data-target-input="nearest">
                             <input type="text" class="form-control datetimepicker-input"
                                    data-target="#collectionDate" name="dateCollected"/>
@@ -270,9 +268,9 @@ be greyed out except the plot size.
                     </div>
 
 
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-lg-4">
                         <label class="control-label">Start Time<span
-                                class="req"> *</span></label>
+                        > *</span></label>
                         <div class="input-group date" id="timePickerStart" data-target-input="nearest">
                             <input type="text" class="form-control datetimepicker-input"
                                    data-target="#timePickerStart" name="startTime"/>
@@ -283,8 +281,8 @@ be greyed out except the plot size.
                         </div>
                     </div>
 
-                    <div class="form-group col-md-4">
-                        <label class="control-label">End Time<span class="req"> *</span></label>
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">End Time<span> *</span></label>
                         <div class="input-group date" id="timePickerEnd" data-target-input="nearest">
                             <input type="text" class="form-control datetimepicker-input"
                                    data-target="#timePickerEnd" name="stopTime"/>
@@ -298,9 +296,9 @@ be greyed out except the plot size.
                 </div>
 
                 <div class="row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-lg-4">
                         <label class="control-label">Temperature<span
-                                class="req"> *</span></label>
+                        > *</span></label>
                         <div class="controls">
 
                             <input type="text"
@@ -312,11 +310,11 @@ be greyed out except the plot size.
                     </div>
 
 
-                    <div class="form-group col-md-4">
-                        <label class="control-label">Wind<span class="req"> *</span></label>
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Wind<span> *</span></label>
                         <div class="controls">
 
-                            <select class="form-control" data-role="select" name="windStatus"
+                            <select class="form-control" name="windStatus"
                                     required="required">
                                 <option value=""></option>
                                 <option value="S">Still</option>
@@ -329,9 +327,9 @@ be greyed out except the plot size.
                     </div>
 
 
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-lg-4">
                         <label class="control-label">Cloud Cover<span
-                                class="req"> *</span></label>
+                        > *</span></label>
                         <div class="controls">
                             <select class="form-control" required="required"
                                     name="cloudCover">
@@ -350,691 +348,725 @@ be greyed out except the plot size.
             <%------------------------------------------------------------ Begin DataForm Lists ------------------------------------------------------------%>
             <%-------------------------------------------------- Begin Form1 --------------------------------------------------%>
             <div class="tab" id="form-submission">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row" style="display: block;">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
-                                    >Genus</label>
-                                    <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Coreopsis Verticillata" name="plant[1]Name"
-                                               value="Coreopsis Verticillata">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
-                                    >Species</label>
-                                    <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Straight" name="plant[1]Strain[1]Name" value="Straight">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group brdbot" style="display: block;">
-                            <h4>Plot Survey</h4>
-                            <div class="controls col-sm-9">
-                                <p id="field123" data-default-label="Header" data-default-is-header="true"
-                                   data-control-type="header">
-                                    If plant strain is not blooming, select '0' for Flower Coverage and continue to
-                                    the
-                                    next plant strain.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group" style="display: block;">
-                                            <label class="control-label">Flower Coverage<span
-                                                    class="req">*</span></label>
-                                            <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
-                                                        name="plant[1]Strain[1]Plot[1]PercentCoverage">
-                                                    <option value=""></option>
-                                                    <option value="0">0</option>
-                                                    <option value="1">1%-25%</option>
-                                                    <option value="2">26%-50%</option>
-                                                    <option value="3">51%-75%</option>
-                                                    <option value="4">76%-100%</option>
-                                                </select><span
-                                                    id="errId15" class="error"></span></div>
-                                        </div>
-                                        <div class="form-group" style="display: block;">
-                                            <label class="control-label">Estimated Height of Plot (Feet)</label>
-                                            <div class="controls">
-                                              <span class="k-widget k-numerictextbox form-control" style="">
-                                                  <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                                      placeholder="Plot Height"
 
-                                                                                                      name="plant[1]Strain[1]Plot[1]Height"></span>
-                                              </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group" style="display: block;">
-                                            <label class="control-label">Plot Area Dimensions</label>
-                                            <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
-                                                        name="plant[1]Strain[1]Plot[1]AreaDbl">
-                                                    <option value=""></option>
-                                                    <option value="1">2'x2'</option>
-                                                    <option value="2">3'x3'</option>
-                                                    <option value="3">4'x4'</option>
-                                                    <option value="4">Greater</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group" style="display: block;">
-                                            <label class="control-label">Blooms Open</label>
-                                            <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        selected="selected"
-                                                        name="plant[1]Strain[1]Plot[1]BloomsOpen">
-                                                    <option value=""></option>
-                                                    <option value="E">Early</option>
-                                                    <option value="P">Peak</option>
-                                                    <option value="F">Faded</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" style="display: block;">
-                            <div class="col-md-6">
-                                <div class="form-group brdbot">
-                                    <h4>Pollinator Visit Counts</h4>
-                                    <div class="controls col-sm-9">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <p>
-                                        Time will be placed here. Hard set to 5 minutes. At the end, it will lock
-                                        the
-                                        count fields, but leave the comment section open for butterflies &amp; moths
-                                        if
-                                        &gt;0
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="control-label">Honey Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[1]Plot[1]Pollinator[1]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Carpenter Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[1]Plot[1]Pollinator[2]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Bumble Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[1]Plot[1]Pollinator[3]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Green Metallic Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[1]Plot[1]Pollinator[4]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Green Sweat Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[1]Plot[1]Pollinator[5]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Dark Sweat Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[1]Plot[1]Pollinator[6]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Butterflies &amp; Moths</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[1]Plot[1]Pollinator[7]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Other Bees</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[1]Plot[1]Pollinator[8]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label class="control-label">Genus</label>
+                        <input type="text" class="form-control"
+                               placeholder="Coreopsis Verticillata" name="plant[1]Name"
+                               value="Coreopsis Verticillata">
+                    </div>
+
+
+                    <div class="form-group col-lg-6">
+                        <label class="control-label">Species</label>
+                        <input type="text" class="form-control"
+                               placeholder="Straight" name="plant[1]Strain[1]Name" value="Straight">
+                    </div>
+                </div>
+
+                <br>
+
+
+                <div class="row">
+                    <div class="form-group">
+                        <h4>Plot Survey</h4>
+                        <p>
+                            If plant strain is not blooming, select '0' for Flower Coverage and continue to
+                            the
+                            next plant strain.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="row">
+
+                    <div class="form-group col-lg-6">
+                        <label class="control-label">Flower Coverage<span
+                        >*</span></label>
+
+                        <select class="form-control"
+                                required="required"
+                                name="plant[1]Strain[1]Plot[1]PercentCoverage">
+                            <option value=""></option>
+                            <option value="0">0</option>
+                            <option value="1">1%-25%</option>
+                            <option value="2">26%-50%</option>
+                            <option value="3">51%-75%</option>
+                            <option value="4">76%-100%</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label class="control-label">Plot Area Dimensions</label>
+                        <select class="form-control"
+                                required="required" name="plant[1]Strain[1]Plot[1]AreaDbl">
+                            <option value=""></option>
+                            <option value="1">2'x2'</option>
+                            <option value="2">3'x3'</option>
+                            <option value="3">4'x4'</option>
+                            <option value="4">Greater</option>
+                        </select>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="control-label">Other Pollinators</label>
-                            <div class="controls">
-                                <span class="k-widget k-numerictextbox form-control" style="">
-                                    <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                        name="plant[1]Strain[1]Plot[1]Pollinator[9]"
-                                    ></span>
-                                </span>
-                            </div>
+                            <h4>Pollinator Visit Counts</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <p>
+                                Time will be placed here. Hard set to 5 minutes. At the end, it will lock
+                                the
+                                count fields, but leave the comment section open for butterflies &amp; moths
+                                if
+                                &gt;0
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Honey Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[1]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Carpenter Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[2]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Bumble Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[3]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Green Metallic Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[4]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Green Sweat Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[5]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Dark Sweat Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[6]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Butterflies &amp; Moths</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[7]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Other Bees</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[8]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Other Pollinators</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[9]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
+
             <%-------------------------------------------------- End Form1 --------------------------------------------------%>
             <%-------------------------------------------------- Begin Form2 --------------------------------------------------%>
             <div class="tab" id="form-submission">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="row" style="display: block;">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
-                                    >Genus</label>
-                                    <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Coreopsis Verticillata" name="plant[1]Name"
-                                               value="Coreopsis Verticillata">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
-                                    >Species</label>
-                                    <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Moonbeam" name="plant[1]Strain[2]Name" value="Moonbeam">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group brdbot" style="display: block;">
-                            <h4>Plot Survey</h4>
-                            <div class="controls col-sm-9">
-                                <p id="field123" data-default-label="Header" data-default-is-header="true"
-                                   data-control-type="header">
-                                    If plant strain is not blooming, select '0' for Flower Coverage and continue to
-                                    the
-                                    next plant strain.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group" style="display: block;">
-                                            <label class="control-label">Flower Coverage<span
-                                                    class="req">*</span></label>
-                                            <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
-                                                        name="plant[1]Strain[2]Plot[2]PercentCoverage">
-                                                    <option value=""></option>
-                                                    <option value="0">0</option>
-                                                    <option value="1">1%-25%</option>
-                                                    <option value="2">26%-50%</option>
-                                                    <option value="3">51%-75%</option>
-                                                    <option value="4">76%-100%</option>
-                                                </select><span id="errId15" class="error"></span></div>
-                                        </div>
-                                        <div class="form-group" style="display: block;">
-                                            <label class="control-label">Estimated Height of Plot (Feet)</label>
-                                            <div class="controls">
-                                              <span class="k-widget k-numerictextbox form-control" style="">
-                                                <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                                    placeholder="Plot Height"
+                    <div class="form-group col-lg-6">
+                        <label class="control-label">Genus</label>
+                        <input type="text" class="form-control" placeholder="Coreopsis Verticillata" name="plant[1]Name"
+                               value="Coreopsis Verticillata">
+                    </div>
 
-                                                                                                    name="plant[1]Strain[2]Plot[2]Height"></span>
-                                              </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group" style="display: block;">
-                                            <label class="control-label">Plot Area Dimensions</label>
-                                            <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
-                                                        name="plant[1]Strain[2]Plot[2]AreaDbl">
-                                                    <option value=""></option>
-                                                    <option value="1">2'x2'</option>
-                                                    <option value="2">3'x3'</option>
-                                                    <option value="3">4'x4'</option>
-                                                    <option value="4">Greater</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group" style="display: block;">
-                                            <label class="control-label">Blooms Open</label>
-                                            <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        selected="selected"
-                                                        name="plant[1]Strain[2]Plot[2]BloomsOpen">
-                                                    <option value=""></option>
-                                                    <option value="E">Early</option>
-                                                    <option value="P">Peak</option>
-                                                    <option value="F">Faded</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" style="display: block;">
-                            <div class="col-md-6">
-                                <div class="form-group brdbot">
-                                    <h4>Pollinator Visit Counts</h4>
-                                    <div class="controls col-sm-9">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <p>
-                                        Time will be placed here. Hard set to 5 minutes. At the end, it will lock
-                                        the
-                                        count fields, but leave the comment section open for butterflies &amp; moths
-                                        if
-                                        &gt;0
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="control-label">Honey Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[2]Plot[2]Pollinator[1]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Carpenter Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[2]Plot[2]Pollinator[2]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Bumble Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[2]Plot[2]Pollinator[3]"
-                                        ></span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Green Metallic Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[2]Plot[2]Pollinator[4]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Green Sweat Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[2]Plot[2]Pollinator[5]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Dark Sweat Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[2]Plot[2]Pollinator[6]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Butterflies &amp; Moths</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[2]Plot[2]Pollinator[7]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Other Bees</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                            <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                                name="plant[1]Strain[2]Plot[2]Pollinator[8]"
-                                            ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="form-group col-lg-6">
+                        <label class="control-label">Species</label>
+                        <input type="text" class="form-control" placeholder="Moonbeam" name="plant[1]Strain[2]Name"
+                               value="Moonbeam">
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="form-group">
+                        <h4>Plot Survey</h4>
+                        <p>
+                            If plant strain is not blooming, select '0' for Flower Coverage and continue to
+                            the
+                            next plant strain.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label class="control-label">Flower Coverage<span>*</span></label>
+                        <select class="form-control"
+                                required="required"
+                                name="plant[1]Strain[2]Plot[2]PercentCoverage">
+                            <option value=""></option>
+                            <option value="0">0</option>
+                            <option value="1">1%-25%</option>
+                            <option value="2">26%-50%</option>
+                            <option value="3">51%-75%</option>
+                            <option value="4">76%-100%</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group col-lg-6">
+                        <label class="control-label">Plot Area Dimensions</label>
+                        <select class="form-control"
+                                required="required"
+                                name="plant[1]Strain[2]Plot[2]AreaDbl">
+                            <option value=""></option>
+                            <option value="1">2'x2'</option>
+                            <option value="2">3'x3'</option>
+                            <option value="3">4'x4'</option>
+                            <option value="4">Greater</option>
+                        </select>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="control-label">Other Pollinators</label>
-                            <div class="controls">
-                                <span class="k-widget k-numerictextbox form-control" style="">
-                                    <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                        name="plant[1]Strain[2]Plot[2]Pollinator[9]"
-                                    ></span>
-                                </span>
+                            <h4>Pollinator Visit Counts</h4>
+                            <div class="controls col-sm-9">
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <p>
+                                Time will be placed here. Hard set to 5 minutes. At the end, it will lock
+                                the
+                                count fields, but leave the comment section open for butterflies &amp; moths
+                                if
+                                &gt;0
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Honey Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[1]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Carpenter Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[2]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Bumble Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[3]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Green Metallic Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[4]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Green Sweat Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[5]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Dark Sweat Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[6]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Butterflies &amp; Moths</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[7]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Other Bees</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[8]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Other Pollinators</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[9]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
+
+
             <%-------------------------------------------------- End Form2 --------------------------------------------------%>
             <%-------------------------------------------------- Begin Form3 --------------------------------------------------%>
             <div class="tab" id="form-submission">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="row" style="display: block;">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
-                                    >Genus</label>
-                                    <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Coreopsis Verticillata" name="plant[1]Name"
-                                               value="Coreopsis Verticillata">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
-                                    >Species</label>
-                                    <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
-                                               placeholder="Zagreb" name="plant[1]Strain[3]Name" value="Zagreb">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group brdbot" style="display: block;">
-                            <h4>Plot Survey</h4>
-                            <div class="controls col-sm-9">
-                                <p id="field123" data-default-label="Header" data-default-is-header="true"
-                                   data-control-type="header">
-                                    If plant strain is not blooming, select '0' for Flower Coverage and continue to
-                                    the
-                                    next plant strain.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group" style="display: block;">
-                                            <label class="control-label">Flower Coverage<span
-                                                    class="req">*</span></label>
-                                            <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
-                                                        name="plant[1]Strain[3]Plot[3]PercentCoverage">
-                                                    <option value=""></option>
-                                                    <option value="0">0</option>
-                                                    <option value="1">1%-25%</option>
-                                                    <option value="2">26%-50%</option>
-                                                    <option value="3">51%-75%</option>
-                                                    <option value="4">76%-100%</option>
-                                                </select><span id="errId15" class="error"></span></div>
-                                        </div>
-                                        <div class="form-group" style="display: block;">
-                                            <label class="control-label">Estimated Height of Plot (Feet)</label>
-                                            <div class="controls">
-                                              <span class="k-widget k-numerictextbox form-control" style="">
-                                                <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                                    placeholder="Plot Height"
+                    <div class="form-group col-lg-6">
+                        <label class="control-label">Genus</label>
+                        <input type="text" class="form-control" placeholder="Coreopsis Verticillata" name="plant[1]Name"
+                               value="Coreopsis Verticillata">
+                    </div>
 
-                                                                                                    name="plant[1]Strain[3]Plot[3]Height"></span>
-                                              </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group" style="display: block;">
-                                            <label class="control-label">Plot Area Dimensions</label>
-                                            <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
-                                                        name="plant[1]Strain[3]Plot[3]AreaDbl">
-                                                    <option value=""></option>
-                                                    <option value="1">2'x2'</option>
-                                                    <option value="2">3'x3'</option>
-                                                    <option value="3">4'x4'</option>
-                                                    <option value="4">Greater</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group" style="display: block;">
-                                            <label class="control-label">Blooms Open</label>
-                                            <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        selected="selected"
-                                                        name="plant[1]Strain[3]Plot[3]BloomsOpen">
-                                                    <option value=""></option>
-                                                    <option value="E">Early</option>
-                                                    <option value="P">Peak</option>
-                                                    <option value="F">Faded</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" style="display: block;">
-                            <div class="col-md-6">
-                                <div class="form-group brdbot">
-                                    <h4>Pollinator Visit Counts</h4>
-                                    <div class="controls col-sm-9">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <p>
-                                        Time will be placed here. Hard set to 5 minutes. At the end, it will lock
-                                        the
-                                        count fields, but leave the comment section open for butterflies &amp; moths
-                                        if
-                                        &gt;0
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="control-label">Honey Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[3]Plot[3]Pollinator[1]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Carpenter Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[3]Plot[3]Pollinator[2]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Bumble Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[3]Plot[3]Pollinator[3]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Green Metallic Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[3]Plot[3]Pollinator[4]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Green Sweat Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[3]Plot[3]Pollinator[5]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Dark Sweat Bee</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[3]Plot[3]Pollinator[6]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Butterflies &amp; Moths</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[3]Plot[3]Pollinator[7]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Other Bees</label>
-                                    <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[3]Plot[3]Pollinator[8]"
-                                        ></span>
-                                      </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="form-group col-lg-6">
+                        <label class="control-label">Species</label>
+                        <input type="text" class="form-control" placeholder="Zagreb" name="plant[1]Strain[3]Name"
+                               value="Zagreb">
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="form-group">
+                        <h4>Plot Survey</h4>
+                        <p>
+                            If plant strain is not blooming, select '0' for Flower Coverage and continue to
+                            the
+                            next plant strain.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label class="control-label">Flower Coverage<span>*</span>
+                        </label>
+                        <select class="form-control"
+                                required="required"
+                                name="plant[1]Strain[3]Plot[3]PercentCoverage">
+                            <option value=""></option>
+                            <option value="0">0</option>
+                            <option value="1">1%-25%</option>
+                            <option value="2">26%-50%</option>
+                            <option value="3">51%-75%</option>
+                            <option value="4">76%-100%</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group col-lg-6">
+                        <label class="control-label">Plot Area Dimensions</label>
+                        <select class="form-control"
+                                required="required"
+                                name="plant[1]Strain[3]Plot[3]AreaDbl">
+                            <option value=""></option>
+                            <option value="1">2'x2'</option>
+                            <option value="2">3'x3'</option>
+                            <option value="3">4'x4'</option>
+                            <option value="4">Greater</option>
+                        </select>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <h4>Pollinator Visit Counts</h4>
+                    </div>
+                    <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="control-label">Other Pollinators</label>
-                            <div class="controls">
-                                <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[3]Plot[3]Pollinator[9]"
-                                        ></span>
-                                </span>
-                            </div>
+                            <p>
+                                Time will be placed here. Hard set to 5 minutes. At the end, it will lock
+                                the
+                                count fields, but leave the comment section open for butterflies &amp; moths
+                                if
+                                &gt;0
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Honey Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[1]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Carpenter Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[2]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Bumble Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[3]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Green Metallic Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[4]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Green Sweat Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[5]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Dark Sweat Bee</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[6]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Butterflies &amp; Moths</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[7]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Other Bees</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[8]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <label class="control-label">Other Pollinators</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[9]"
+                                   value="0">
+                            <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
+
             <%-------------------------------------------------- End Form3 --------------------------------------------------%>
             <%-------------------------------------------------- Begin Form4 --------------------------------------------------%>
             <div class="tab" id="form-submission">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row" style="display: block;">
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
+                                    <label class="control-label"
                                     >Genus</label>
                                     <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
+                                        <input type="text" class="form-control"
                                                placeholder="Coreopsis Verticillata" name="plant[1]Name"
                                                value="Coreopsis Verticillata">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
+                                    <label class="control-label"
                                     >Species</label>
                                     <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
+                                        <input type="text" class="form-control"
                                                placeholder="Crème Brulee" name="plant[1]Strain[4]Name"
                                                value="Crème Brulee">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group brdbot" style="display: block;">
+                        <div class="form-group" style="display: block;">
                             <h4>Plot Survey</h4>
                             <div class="controls col-sm-9">
                                 <p id="field123" data-default-label="Header" data-default-is-header="true"
@@ -1048,13 +1080,13 @@ be greyed out except the plot size.
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Flower Coverage<span
-                                                    class="req">*</span></label>
+                                            >*</span></label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
+                                                <select class="form-control"
+                                                        required="required"
                                                         name="plant[1]Strain[4]Plot[4]PercentCoverage">
                                                     <option value=""></option>
                                                     <option value="0">0</option>
@@ -1067,21 +1099,21 @@ be greyed out except the plot size.
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Estimated Height of Plot (Feet)</label>
                                             <div class="controls">
-                                              <span class="k-widget k-numerictextbox form-control" style="">
-                                                  <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                                      placeholder="Plot Height"
+                                              <span class="form-control" style="">
+                                                  <input class="form-control" type="text"
+                                                         placeholder="Plot Height"
 
-                                                                                                      name="plant[1]Strain[4]Plot[4]Height"></span>
-                                              </span>
+                                                         name="plant[1]Strain[4]Plot[4]Height"></span>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Plot Area Dimensions</label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
+                                                <select class="form-control"
+                                                        required="required"
                                                         name="plant[1]Strain[4]Plot[4]AreaDbl">
                                                     <option value=""></option>
                                                     <option value="1">2'x2'</option>
@@ -1094,8 +1126,8 @@ be greyed out except the plot size.
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Blooms Open</label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        selected="selected"
+                                                <select class="form-control"
+
                                                         name="plant[1]Strain[4]Plot[4]BloomsOpen">
                                                     <option value=""></option>
                                                     <option value="E">Early</option>
@@ -1109,14 +1141,14 @@ be greyed out except the plot size.
                             </div>
                         </div>
                         <div class="row" style="display: block;">
-                            <div class="col-md-6">
-                                <div class="form-group brdbot">
+                            <div class="col-lg-6">
+                                <div class="form-group">
                                     <h4>Pollinator Visit Counts</h4>
                                     <div class="controls col-sm-9">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <p>
                                         Time will be placed here. Hard set to 5 minutes. At the end, it will lock
@@ -1133,29 +1165,29 @@ be greyed out except the plot size.
                                 <div class="form-group">
                                     <label class="control-label">Honey Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[4]Plot[4]Pollinator[1]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[4]Plot[4]Pollinator[1]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Carpenter Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[4]Plot[4]Pollinator[2]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[4]Plot[4]Pollinator[2]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Bumble Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[4]Plot[4]Pollinator[3]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[4]Plot[4]Pollinator[3]"
                                         ></span>
                                         </span>
                                     </div>
@@ -1163,51 +1195,51 @@ be greyed out except the plot size.
                                 <div class="form-group">
                                     <label class="control-label">Green Metallic Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[4]Plot[4]Pollinator[4]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[4]Plot[4]Pollinator[4]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Green Sweat Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[4]Plot[4]Pollinator[5]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[4]Plot[4]Pollinator[5]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Dark Sweat Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[4]Plot[4]Pollinator[6]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[4]Plot[4]Pollinator[6]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Butterflies &amp; Moths</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[4]Plot[4]Pollinator[7]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[4]Plot[4]Pollinator[7]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Other Bees</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[4]Plot[4]Pollinator[8]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[4]Plot[4]Pollinator[8]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -1215,9 +1247,9 @@ be greyed out except the plot size.
                         <div class="form-group">
                             <label class="control-label">Other Pollinators</label>
                             <div class="controls">
-                                <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[4]Plot[4]Pollinator[9]"
+                                <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[4]Plot[4]Pollinator[9]"
                                         ></span>
                                 </span>
                             </div>
@@ -1231,29 +1263,29 @@ be greyed out except the plot size.
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row" style="display: block;">
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
+                                    <label class="control-label"
                                     >Genus</label>
                                     <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
+                                        <input type="text" class="form-control"
                                                placeholder="Coreopsis Verticillata" name="plant[1]Name"
                                                value="Coreopsis Verticillata">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
+                                    <label class="control-label"
                                     >Species</label>
                                     <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
+                                        <input type="text" class="form-control"
                                                placeholder="Route 66" name="plant[1]Strain[5]Name" value="Route 66">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group brdbot" style="display: block;">
+                        <div class="form-group" style="display: block;">
                             <h4>Plot Survey</h4>
                             <div class="controls col-sm-9">
                                 <p id="field123" data-default-label="Header" data-default-is-header="true"
@@ -1267,13 +1299,13 @@ be greyed out except the plot size.
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Flower Coverage<span
-                                                    class="req">*</span></label>
+                                            >*</span></label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
+                                                <select class="form-control"
+                                                        required="required"
                                                         name="plant[1]Strain[5]Plot[5]PercentCoverage">
                                                     <option value=""></option>
                                                     <option value="0">0</option>
@@ -1286,21 +1318,21 @@ be greyed out except the plot size.
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Estimated Height of Plot (Feet)</label>
                                             <div class="controls">
-                                              <span class="k-widget k-numerictextbox form-control" style="">
-                                                <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                                    placeholder="Plot Height"
+                                              <span class="form-control" style="">
+                                                <input class="form-control" type="text"
+                                                       placeholder="Plot Height"
 
-                                                                                                    name="plant[1]Strain[5]Plot[5]Height"></span>
-                                              </span>
+                                                       name="plant[1]Strain[5]Plot[5]Height"></span>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Plot Area Dimensions</label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
+                                                <select class="form-control"
+                                                        required="required"
                                                         name="plant[1]Strain[5]Plot[5]AreaDbl">
                                                     <option value=""></option>
                                                     <option value="1">2'x2'</option>
@@ -1313,8 +1345,8 @@ be greyed out except the plot size.
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Blooms Open</label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        selected="selected"
+                                                <select class="form-control"
+
                                                         name="plant[1]Strain[5]Plot[5]BloomsOpen">
                                                     <option value=""></option>
                                                     <option value="E">Early</option>
@@ -1328,14 +1360,14 @@ be greyed out except the plot size.
                             </div>
                         </div>
                         <div class="row" style="display: block;">
-                            <div class="col-md-6">
-                                <div class="form-group brdbot">
+                            <div class="col-lg-6">
+                                <div class="form-group">
                                     <h4>Pollinator Visit Counts</h4>
                                     <div class="controls col-sm-9">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <p>
                                         Time will be placed here. Hard set to 5 minutes. At the end, it will lock
@@ -1352,81 +1384,81 @@ be greyed out except the plot size.
                                 <div class="form-group">
                                     <label class="control-label">Honey Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[5]Plot[5]Pollinator[1]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[5]Plot[5]Pollinator[1]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Carpenter Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[5]Plot[5]Pollinator[2]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[5]Plot[5]Pollinator[2]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Bumble Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[5]Plot[5]Pollinator[3]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[5]Plot[5]Pollinator[3]"
                                         ></span>
-                                    </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Green Metallic Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[5]Plot[5]Pollinator[4]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[5]Plot[5]Pollinator[4]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Green Sweat Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[5]Plot[5]Pollinator[5]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[5]Plot[5]Pollinator[5]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Dark Sweat Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[5]Plot[5]Pollinator[6]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[5]Plot[5]Pollinator[6]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Butterflies &amp; Moths</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[5]Plot[5]Pollinator[7]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[5]Plot[5]Pollinator[7]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Other Bees</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[5]Plot[5]Pollinator[8]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[5]Plot[5]Pollinator[8]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -1434,8 +1466,8 @@ be greyed out except the plot size.
                         <div class="form-group">
                             <label class="control-label">Other Pollinators</label>
                             <div class="controls">
-                                <span class="k-widget k-numerictextbox form-control" style=""><span
-                                        class="k-numeric-wrap k-state-default"><input type="text"
+                                <span class="form-control" style=""><span
+                                        class="k-numeric-wrap k-state-default"><input class="form-control" type="text"
                                                                                       name="plant[1]Strain[5]Plot[5]Pollinator[9]"
                                 ></span>
                                 </span>
@@ -1450,30 +1482,30 @@ be greyed out except the plot size.
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row" style="display: block;">
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
+                                    <label class="control-label"
                                     >Genus</label>
                                     <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
+                                        <input type="text" class="form-control"
                                                placeholder="Monarda" name="plant[1]Name"
                                                value="Coreopsis Verticillata">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
+                                    <label class="control-label"
                                     >Species</label>
                                     <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
+                                        <input type="text" class="form-control"
                                                placeholder="Didyma Straight" name="plant[1]Strain[6]Name"
                                                value="Didyma Straight">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group brdbot" style="display: block;">
+                        <div class="form-group" style="display: block;">
                             <h4>Plot Survey</h4>
                             <div class="controls col-sm-9">
                                 <p id="field123" data-default-label="Header" data-default-is-header="true"
@@ -1487,13 +1519,13 @@ be greyed out except the plot size.
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Flower Coverage<span
-                                                    class="req">*</span></label>
+                                            >*</span></label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
+                                                <select class="form-control"
+                                                        required="required"
                                                         name="plant[1]Strain[6]Plot[6]PercentCoverage">
                                                     <option value=""></option>
                                                     <option value="0">0</option>
@@ -1506,21 +1538,21 @@ be greyed out except the plot size.
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Estimated Height of Plot (Feet)</label>
                                             <div class="controls">
-                                              <span class="k-widget k-numerictextbox form-control" style="">
-                                                  <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                                      placeholder="Plot Height"
+                                              <span class="form-control" style="">
+                                                  <input class="form-control" type="text"
+                                                         placeholder="Plot Height"
 
-                                                                                                      name="plant[1]Strain[6]Plot[6]Height"></span>
-                                              </span>
+                                                         name="plant[1]Strain[6]Plot[6]Height"></span>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Plot Area Dimensions</label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
+                                                <select class="form-control"
+                                                        required="required"
                                                         name="plant[1]Strain[6]Plot[6]AreaDbl">
                                                     <option value=""></option>
                                                     <option value="1">2'x2'</option>
@@ -1533,8 +1565,8 @@ be greyed out except the plot size.
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Blooms Open</label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        selected="selected"
+                                                <select class="form-control"
+
                                                         name="plant[1]Strain[6]Plot[6]BloomsOpen">
                                                     <option value=""></option>
                                                     <option value="E">Early</option>
@@ -1548,14 +1580,14 @@ be greyed out except the plot size.
                             </div>
                         </div>
                         <div class="row" style="display: block;">
-                            <div class="col-md-6">
-                                <div class="form-group brdbot">
+                            <div class="col-lg-6">
+                                <div class="form-group">
                                     <h4>Pollinator Visit Counts</h4>
                                     <div class="controls col-sm-9">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <p>
                                         Time will be placed here. Hard set to 5 minutes. At the end, it will lock
@@ -1572,29 +1604,29 @@ be greyed out except the plot size.
                                 <div class="form-group">
                                     <label class="control-label">Honey Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[6]Plot[6]Pollinator[1]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[6]Plot[6]Pollinator[1]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Carpenter Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[6]Plot[6]Pollinator[2]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[6]Plot[6]Pollinator[2]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Bumble Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[6]Plot[6]Pollinator[3]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[6]Plot[6]Pollinator[3]"
                                         ></span>
                                         </span>
                                     </div>
@@ -1602,51 +1634,51 @@ be greyed out except the plot size.
                                 <div class="form-group">
                                     <label class="control-label">Green Metallic Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[6]Plot[6]Pollinator[4]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[6]Plot[6]Pollinator[4]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Green Sweat Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[6]Plot[6]Pollinator[5]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[6]Plot[6]Pollinator[5]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Dark Sweat Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[6]Plot[6]Pollinator[6]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[6]Plot[6]Pollinator[6]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Butterflies &amp; Moths</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[6]Plot[6]Pollinator[7]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[6]Plot[6]Pollinator[7]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Other Bees</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[6]Plot[6]Pollinator[8]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[6]Plot[6]Pollinator[8]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -1654,9 +1686,9 @@ be greyed out except the plot size.
                         <div class="form-group">
                             <label class="control-label">Other Pollinators</label>
                             <div class="controls">
-                                <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[6]Plot[6]Pollinator[9]"
+                                <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[6]Plot[6]Pollinator[9]"
                                         ></span>
                                 </span>
                             </div>
@@ -1670,30 +1702,30 @@ be greyed out except the plot size.
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row" style="display: block;">
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
+                                    <label class="control-label"
                                     >Genus</label>
                                     <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
+                                        <input type="text" class="form-control"
                                                placeholder="Coreopsis Verticillata" name="plant[1]Name"
                                                value="Coreopsis Verticillata">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
+                                    <label class="control-label"
                                     >Species</label>
                                     <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
+                                        <input type="text" class="form-control"
                                                placeholder="Didyma Petite Delight" name="plant[1]Strain[7]Name"
                                                value="Didyma Petite Delight">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group brdbot" style="display: block;">
+                        <div class="form-group" style="display: block;">
                             <h4>Plot Survey</h4>
                             <div class="controls col-sm-9">
                                 <p id="field123" data-default-label="Header" data-default-is-header="true"
@@ -1707,13 +1739,13 @@ be greyed out except the plot size.
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Flower Coverage<span
-                                                    class="req">*</span></label>
+                                            >*</span></label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
+                                                <select class="form-control"
+                                                        required="required"
                                                         name="plant[1]Strain[7]Plot[7]PercentCoverage">
                                                     <option value=""></option>
                                                     <option value="0">0</option>
@@ -1726,21 +1758,21 @@ be greyed out except the plot size.
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Estimated Height of Plot (Feet)</label>
                                             <div class="controls">
-                                              <span class="k-widget k-numerictextbox form-control" style="">
-                                                  <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                                      placeholder="Plot Height"
+                                              <span class="form-control" style="">
+                                                  <input class="form-control" type="text"
+                                                         placeholder="Plot Height"
 
-                                                                                                      name="plant[1]Strain[7]Plot[7]Height"></span>
-                                              </span>
+                                                         name="plant[1]Strain[7]Plot[7]Height"></span>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Plot Area Dimensions</label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
+                                                <select class="form-control"
+                                                        required="required"
                                                         name="plant[1]Strain[7]Plot[7]AreaDbl">
                                                     <option value=""></option>
                                                     <option value="1">2'x2'</option>
@@ -1753,8 +1785,8 @@ be greyed out except the plot size.
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Blooms Open</label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        selected="selected"
+                                                <select class="form-control"
+
                                                         name="plant[1]Strain[7]Plot[7]BloomsOpen">
                                                     <option value=""></option>
                                                     <option value="E">Early</option>
@@ -1768,14 +1800,14 @@ be greyed out except the plot size.
                             </div>
                         </div>
                         <div class="row" style="display: block;">
-                            <div class="col-md-6">
-                                <div class="form-group brdbot">
+                            <div class="col-lg-6">
+                                <div class="form-group">
                                     <h4>Pollinator Visit Counts</h4>
                                     <div class="controls col-sm-9">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <p>
                                         Time will be placed here. Hard set to 5 minutes. At the end, it will lock
@@ -1792,81 +1824,81 @@ be greyed out except the plot size.
                                 <div class="form-group">
                                     <label class="control-label">Honey Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[7]Plot[7]Pollinator[1]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[7]Plot[7]Pollinator[1]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Carpenter Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[7]Plot[7]Pollinator[2]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[7]Plot[7]Pollinator[2]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Bumble Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                          <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                              name="plant[1]Strain[7]Plot[7]Pollinator[3]"
+                                      <span class="form-control" style="">
+                                          <input class="form-control" type="text"
+                                                 name="plant[1]Strain[7]Plot[7]Pollinator[3]"
                                           ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Green Metallic Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[7]Plot[7]Pollinator[4]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[7]Plot[7]Pollinator[4]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Green Sweat Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[7]Plot[7]Pollinator[5]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[7]Plot[7]Pollinator[5]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Dark Sweat Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[7]Plot[7]Pollinator[6]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[7]Plot[7]Pollinator[6]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Butterflies &amp; Moths</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[7]Plot[7]Pollinator[7]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[7]Plot[7]Pollinator[7]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Other Bees</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[7]Plot[7]Pollinator[8]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[7]Plot[7]Pollinator[8]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -1874,9 +1906,9 @@ be greyed out except the plot size.
                         <div class="form-group">
                             <label class="control-label">Other Pollinators</label>
                             <div class="controls">
-                                <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[7]Plot[7]Pollinator[9]"
+                                <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[7]Plot[7]Pollinator[9]"
                                         ></span>
                                 </span>
                             </div>
@@ -1890,30 +1922,30 @@ be greyed out except the plot size.
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row" style="display: block;">
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
+                                    <label class="control-label"
                                     >Genus</label>
                                     <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
+                                        <input type="text" class="form-control"
                                                placeholder="Coreopsis Verticillata" name="plant[1]Name"
                                                value="Coreopsis Verticillata">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
+                                    <label class="control-label"
                                     >Species</label>
                                     <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
+                                        <input type="text" class="form-control"
                                                placeholder="Didyma Marshalls Delight" name="plant[1]Strain[8]Name"
                                                value="Didyma Marshalls Delight">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group brdbot" style="display: block;">
+                        <div class="form-group" style="display: block;">
                             <h4>Plot Survey</h4>
                             <div class="controls col-sm-9">
                                 <p id="field123" data-default-label="Header" data-default-is-header="true"
@@ -1927,13 +1959,13 @@ be greyed out except the plot size.
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Flower Coverage<span
-                                                    class="req">*</span></label>
+                                            >*</span></label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
+                                                <select class="form-control"
+                                                        required="required"
                                                         name="plant[1]Strain[8]Plot[8]PercentCoverage">
                                                     <option value=""></option>
                                                     <option value="0">0</option>
@@ -1946,21 +1978,21 @@ be greyed out except the plot size.
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Estimated Height of Plot (Feet)</label>
                                             <div class="controls">
-                                              <span class="k-widget k-numerictextbox form-control" style="">
-                                                  <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                                      placeholder="Plot Height"
+                                              <span class="form-control" style="">
+                                                  <input class="form-control" type="text"
+                                                         placeholder="Plot Height"
 
-                                                                                                      name="plant[1]Strain[8]Plot[8]Height"></span>
-                                              </span>
+                                                         name="plant[1]Strain[8]Plot[8]Height"></span>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Plot Area Dimensions</label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
+                                                <select class="form-control"
+                                                        required="required"
                                                         name="plant[1]Strain[8]Plot[8]AreaDbl">
                                                     <option value=""></option>
                                                     <option value="1">2'x2'</option>
@@ -1973,8 +2005,8 @@ be greyed out except the plot size.
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Blooms Open</label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        selected="selected"
+                                                <select class="form-control"
+
                                                         name="plant[1]Strain[8]Plot[8]BloomsOpen">
                                                     <option value=""></option>
                                                     <option value="E">Early</option>
@@ -1988,14 +2020,14 @@ be greyed out except the plot size.
                             </div>
                         </div>
                         <div class="row" style="display: block;">
-                            <div class="col-md-6">
-                                <div class="form-group brdbot">
+                            <div class="col-lg-6">
+                                <div class="form-group">
                                     <h4>Pollinator Visit Counts</h4>
                                     <div class="controls col-sm-9">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <p>
                                         Time will be placed here. Hard set to 5 minutes. At the end, it will lock
@@ -2012,82 +2044,82 @@ be greyed out except the plot size.
                                 <div class="form-group">
                                     <label class="control-label">Honey Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[8]Plot[8]Pollinator[1]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[8]Plot[8]Pollinator[1]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Carpenter Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[8]Plot[8]Pollinator[2]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[8]Plot[8]Pollinator[2]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Bumble Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                          <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                              name="plant[1]Strain[8]Plot[8]Pollinator[3]"
+                                      <span class="form-control" style="">
+                                          <input class="form-control" type="text"
+                                                 name="plant[1]Strain[8]Plot[8]Pollinator[3]"
                                           ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Green Metallic Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[8]Plot[8]Pollinator[4]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[8]Plot[8]Pollinator[4]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label">Green Sweat Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[8]Plot[8]Pollinator[5]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[8]Plot[8]Pollinator[5]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Dark Sweat Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[8]Plot[8]Pollinator[6]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[8]Plot[8]Pollinator[6]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Butterflies &amp; Moths</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[8]Plot[8]Pollinator[7]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[8]Plot[8]Pollinator[7]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Other Bees</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[8]Plot[8]Pollinator[8]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[8]Plot[8]Pollinator[8]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -2095,9 +2127,9 @@ be greyed out except the plot size.
                         <div class="form-group">
                             <label class="control-label">Other Pollinators</label>
                             <div class="controls">
-                                <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[8]Plot[8]Pollinator[9]"
+                                <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[8]Plot[8]Pollinator[9]"
                                         ></span>
                                 </span>
                             </div>
@@ -2111,30 +2143,30 @@ be greyed out except the plot size.
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row" style="display: block;">
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
+                                    <label class="control-label"
                                     >Genus</label>
                                     <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
+                                        <input type="text" class="form-control"
                                                placeholder="Coreopsis Verticillata" name="plant[1]Name"
                                                value="Coreopsis Verticillata">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3"
+                                    <label class="control-label"
                                     >Species</label>
                                     <div class="controls col-sm-9">
-                                        <input type="text" class="form-control k-textbox" data-role="text"
+                                        <input type="text" class="form-control"
                                                placeholder="X Peters Fancy Fuschia" name="plant[1]Strain[9]Name"
                                                value="X Peters Fancy Fuschia">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group brdbot" style="display: block;">
+                        <div class="form-group" style="display: block;">
                             <h4>Plot Survey</h4>
                             <div class="controls col-sm-9">
                                 <p id="field123" data-default-label="Header" data-default-is-header="true"
@@ -2148,13 +2180,13 @@ be greyed out except the plot size.
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Flower Coverage<span
-                                                    class="req">*</span></label>
+                                            >*</span></label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
+                                                <select class="form-control"
+                                                        required="required"
                                                         name="plant[1]Strain[9]Plot[9]PercentCoverage">
                                                     <option value=""></option>
                                                     <option value="0">0</option>
@@ -2167,21 +2199,21 @@ be greyed out except the plot size.
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Estimated Height of Plot (Feet)</label>
                                             <div class="controls">
-                                              <span class="k-widget k-numerictextbox form-control" style="">
-                                                  <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                                      placeholder="Plot Height"
+                                              <span class="form-control" style="">
+                                                  <input class="form-control" type="text"
+                                                         placeholder="Plot Height"
 
-                                                                                                      name="plant[1]Strain[9]Plot[9]Height"></span>
-                                              </span>
+                                                         name="plant[1]Strain[9]Plot[9]Height"></span>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Plot Area Dimensions</label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        required="required" selected="selected"
+                                                <select class="form-control"
+                                                        required="required"
                                                         name="plant[1]Strain[9]Plot[9]AreaDbl">
                                                     <option value=""></option>
                                                     <option value="1">2'x2'</option>
@@ -2194,8 +2226,8 @@ be greyed out except the plot size.
                                         <div class="form-group" style="display: block;">
                                             <label class="control-label">Blooms Open</label>
                                             <div class="controls">
-                                                <select class="form-control" data-role="select"
-                                                        selected="selected"
+                                                <select class="form-control"
+
                                                         name="plant[1]Strain[9]Plot[9]BloomsOpen">
                                                     <option value=""></option>
                                                     <option value="E">Early</option>
@@ -2209,14 +2241,14 @@ be greyed out except the plot size.
                             </div>
                         </div>
                         <div class="row" style="display: block;">
-                            <div class="col-md-6">
-                                <div class="form-group brdbot">
+                            <div class="col-lg-6">
+                                <div class="form-group">
                                     <h4>Pollinator Visit Counts</h4>
                                     <div class="controls col-sm-9">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <p>
                                         Time will be placed here. Hard set to 5 minutes. At the end, it will lock
@@ -2233,91 +2265,91 @@ be greyed out except the plot size.
                                 <div class="form-group">
                                     <label class="control-label">Honey Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[9]Plot[9]Pollinator[1]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[9]Plot[9]Pollinator[1]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Carpenter Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[9]Plot[9]Pollinator[2]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[9]Plot[9]Pollinator[2]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Bumble Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                          <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                              name="plant[1]Strain[9]Plot[9]Pollinator[3]"
+                                      <span class="form-control" style="">
+                                          <input class="form-control" type="text"
+                                                 name="plant[1]Strain[9]Plot[9]Pollinator[3]"
                                           ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Green Metallic Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[9]Plot[9]Pollinator[4]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[9]Plot[9]Pollinator[4]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Green Sweat Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[9]Plot[9]Pollinator[5]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[9]Plot[9]Pollinator[5]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Dark Sweat Bee</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[9]Plot[9]Pollinator[6]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[9]Plot[9]Pollinator[6]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Butterflies &amp; Moths</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[9]Plot[9]Pollinator[7]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[9]Plot[9]Pollinator[7]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Other Bees</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[9]Plot[9]Pollinator[8]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[9]Plot[9]Pollinator[8]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Other Pollinators</label>
                                     <div class="controls">
-                                      <span class="k-widget k-numerictextbox form-control" style="">
-                                        <span class="k-numeric-wrap k-state-default"><input type="text"
-                                                                                            name="plant[1]Strain[9]Plot[9]Pollinator[9]"
+                                      <span class="form-control" style="">
+                                        <input class="form-control" type="text"
+                                               name="plant[1]Strain[9]Plot[9]Pollinator[9]"
                                         ></span>
-                                      </span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -2332,17 +2364,17 @@ be greyed out except the plot size.
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="control-label control-label-left col-sm-3">Butterflies &amp; Moths
+                            <label class="control-label">Butterflies &amp; Moths
                                 Comments</label>
                             <div class="controls col-sm-9">
-                                <textarea rows="3" class="form-control k-textbox" data-role="textarea"
+                                <textarea rows="3" class="form-control" data-role="textarea"
                                           data-maxwords="250" name="butterfliesMothsCommentStrain"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label control-label-left col-sm-3">Additional Comments?</label>
+                            <label class="control-label">Additional Comments?</label>
                             <div class="controls col-sm-9">
-                                <textarea rows="3" class="form-control k-textbox" data-role="textarea"
+                                <textarea rows="3" class="form-control" data-role="textarea"
                                           data-maxwords="1000" name="strainComments"></textarea>
                             </div>
                         </div>
@@ -2517,6 +2549,17 @@ be greyed out except the plot size.
         //... and adds the "active" class to the current step:
         x[n].className += " active";
     }
+</script>
+
+
+<script>
+    $('.btn-minus').on('click', function () {
+        $(this).parent().siblings('input').val(parseInt($(this).parent().siblings('input').val()) - 1)
+    })
+
+    $('.btn-plus').on('click', function () {
+        $(this).parent().siblings('input').val(parseInt($(this).parent().siblings('input').val()) + 1)
+    })
 </script>
 
 
