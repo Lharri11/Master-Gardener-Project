@@ -2514,8 +2514,8 @@ be greyed out except the plot size.
 <script src="vendor/Popper/Popper.js"></script>
 <script src="vendor/DataTables/datatables.js"></script>
 <script src="js/form.js"></script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="vendor/Tempus-Dominus/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="vendor/EasyTimer/js/easytimer.js"></script>
 
 
 <script>
