@@ -139,7 +139,7 @@ be greyed out except the plot size.
                         <div class="form-group">
                             <label class="control-label">Username<span> *</span></label>
                             <div class="controls">
-                                <select class="form-control" required="required"
+                                <select class="form-control"
                                         name="userNameSurveyor">
                                     <option value=""></option>
                                     <option value=""></option>
@@ -156,7 +156,7 @@ be greyed out except the plot size.
                         <div class="form-group">
                             <div class="controls">
                                 <input type="text" class="form-control"
-                                       placeholder="First Name" name="generatorFirstName2" required="required">
+                                       placeholder="First Name" name="generatorFirstName2">
                             </div>
                         </div>
                     </div>
@@ -164,14 +164,14 @@ be greyed out except the plot size.
                         <div class="form-group">
                             <div class="controls">
                                 <input type="text" class="form-control"
-                                       placeholder="Last Name" name="generatorLastName2" required="required">
+                                       placeholder="Last Name" name="generatorLastName2">
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
                             <div class="controls">
-                                <select class="form-control" required="required"
+                                <select class="form-control"
                                         name="userNameSurveyor">
                                     <option value=""></option>
                                     <option value=""></option>
@@ -188,7 +188,7 @@ be greyed out except the plot size.
                         <div class="form-group">
                             <div class="controls">
                                 <input type="text" class="form-control"
-                                       placeholder="First Name" name="generatorFirstName3" required="required">
+                                       placeholder="First Name" name="generatorFirstName3">
                             </div>
                         </div>
                     </div>
@@ -196,14 +196,14 @@ be greyed out except the plot size.
                         <div class="form-group">
                             <div class="controls">
                                 <input type="text" class="form-control"
-                                       placeholder="Last Name" name="generatorLastName3" required="required">
+                                       placeholder="Last Name" name="generatorLastName3">
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
                             <div class="controls">
-                                <select class="form-control" required="required"
+                                <select class="form-control"
                                         name="userNameSurveyor">
                                     <option value=""></option>
                                     <option value=""></option>
@@ -220,7 +220,7 @@ be greyed out except the plot size.
                         <div class="form-group">
                             <div class="controls">
                                 <input type="text" class="form-control"
-                                       placeholder="First Name" name="generatorFirstName4" required="required">
+                                       placeholder="First Name" name="generatorFirstName4">
                             </div>
                         </div>
                     </div>
@@ -228,14 +228,14 @@ be greyed out except the plot size.
                         <div class="form-group">
                             <div class="controls">
                                 <input type="text" class="form-control"
-                                       placeholder="Last Name" name="generatorLastName4" required="required">
+                                       placeholder="Last Name" name="generatorLastName4">
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
                             <div class="controls">
-                                <select class="form-control" required="required"
+                                <select class="form-control"
                                         name="userNameSurveyor">
                                     <option value=""></option>
                                     <option value=""></option>
