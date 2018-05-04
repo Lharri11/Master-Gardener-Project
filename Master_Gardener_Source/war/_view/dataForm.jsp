@@ -73,6 +73,7 @@ be greyed out except the plot size.
 </nav>
 
 
+
 <div class="container dataform-page-top-padding">
     <form id="regForm" action="${pageContext.servletContext.contextPath}/dataForm" method="post"
           class="form-horizontal" role="form" onsubmit=getSubmitTime()>
@@ -350,7 +351,7 @@ be greyed out except the plot size.
                     <div class="form-group col-lg-6">
                         <label class="control-label">Genus</label>
                         <input type="text" class="form-control"
-                               placeholder="Coreopsis Verticillata" name="plant[1]Name"
+                               placeholder="Coreopsis Verticillata" name="plant1Name"
                                value="Coreopsis Verticillata">
                     </div>
 
@@ -358,7 +359,7 @@ be greyed out except the plot size.
                     <div class="form-group col-lg-6">
                         <label class="control-label">Species</label>
                         <input type="text" class="form-control"
-                               placeholder="Straight" name="plant[1]Strain[1]Name" value="Straight">
+                               placeholder="Straight" name="plant1Strain1Name" value="Straight">
                     </div>
                 </div>
 
@@ -384,7 +385,7 @@ be greyed out except the plot size.
                         >*</span></label>
 
                         <select class="form-control"
-                                name="plant[1]Strain[1]Plot[1]PercentCoverage" required>
+                                name="plant1Strain1Plot1PercentCoverage" required>
                             <option value=""></option>
                             <option value="0">0</option>
                             <option value="1">1%-25%</option>
@@ -396,7 +397,7 @@ be greyed out except the plot size.
                     <div class="form-group col-lg-6">
                         <label class="control-label">Plot Area Dimensions</label>
                         <select class="form-control"
-                                name="plant[1]Strain[1]Plot[1]AreaDbl" required>
+                                name="plant1Strain1Plot1AreaDbl" required>
                             <option value=""></option>
                             <option value="1">2'x2'</option>
                             <option value="2">3'x3'</option>
@@ -433,7 +434,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[1]"
+                            <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator1"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -449,7 +450,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[2]"
+                            <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator2"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -465,7 +466,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[3]"
+                            <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator3"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -483,7 +484,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[4]"
+                            <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator4"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -498,7 +499,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[5]"
+                            <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator5"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -513,7 +514,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[6]"
+                            <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator6"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -531,7 +532,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[7]"
+                            <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator7"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -546,7 +547,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[8]"
+                            <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator8"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -563,7 +564,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[1]Plot[1]Pollinator[9]"
+                            <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator9"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -580,13 +581,13 @@ be greyed out except the plot size.
                 <div class="row">
                     <div class="form-group col-lg-6">
                         <label class="control-label">Genus</label>
-                        <input type="text" class="form-control" placeholder="Coreopsis Verticillata" name="plant[1]Name"
+                        <input type="text" class="form-control" placeholder="Coreopsis Verticillata" name="plant1Name"
                                value="Coreopsis Verticillata">
                     </div>
 
                     <div class="form-group col-lg-6">
                         <label class="control-label">Species</label>
-                        <input type="text" class="form-control" placeholder="Moonbeam" name="plant[1]Strain[2]Name"
+                        <input type="text" class="form-control" placeholder="Moonbeam" name="plant1Strain2Name"
                                value="Moonbeam">
                     </div>
                 </div>
@@ -609,7 +610,7 @@ be greyed out except the plot size.
                         <label class="control-label">Flower Coverage<span>*</span></label>
                         <select class="form-control"
                                 required="required"
-                                name="plant[1]Strain[2]Plot[2]PercentCoverage">
+                                name="plant1Strain2Plot2PercentCoverage">
                             <option value=""></option>
                             <option value="0">0</option>
                             <option value="1">1%-25%</option>
@@ -624,7 +625,7 @@ be greyed out except the plot size.
                         <label class="control-label">Plot Area Dimensions</label>
                         <select class="form-control"
                                 required="required"
-                                name="plant[1]Strain[2]Plot[2]AreaDbl">
+                                name="plant1Strain2Plot2AreaDbl">
                             <option value=""></option>
                             <option value="1">2'x2'</option>
                             <option value="2">3'x3'</option>
@@ -660,7 +661,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[1]"
+                            <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator1"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -676,7 +677,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[2]"
+                            <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator2"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -692,7 +693,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[3]"
+                            <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator3"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -710,7 +711,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[4]"
+                            <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator4"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -725,7 +726,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[5]"
+                            <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator5"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -740,7 +741,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[6]"
+                            <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator6"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -758,7 +759,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[7]"
+                            <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator7"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -773,7 +774,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[8]"
+                            <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator8"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -790,7 +791,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[2]Plot[2]Pollinator[9]"
+                            <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator9"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -809,13 +810,13 @@ be greyed out except the plot size.
                     <div class="form-group col-lg-6">
                         <label class="control-label">Genus</label>
                         <input type="text" class="form-control" placeholder="Coreopsis Verticillata"
-                               name="plant[1]Name"
+                               name="plant1Name"
                                value="Coreopsis Verticillata">
                     </div>
 
                     <div class="form-group col-lg-6">
                         <label class="control-label">Species</label>
-                        <input type="text" class="form-control" placeholder="Zagreb" name="plant[1]Strain[3]Name"
+                        <input type="text" class="form-control" placeholder="Zagreb" name="plant1Strain3Name"
                                value="Zagreb">
                     </div>
                 </div>
@@ -838,7 +839,7 @@ be greyed out except the plot size.
                         <label class="control-label">Flower Coverage<span>*</span></label>
                         <select class="form-control"
                                 required="required"
-                                name="plant[1]Strain[3]Plot[3]PercentCoverage">
+                                name="plant1Strain3Plot3PercentCoverage">
                             <option value=""></option>
                             <option value="0">0</option>
                             <option value="1">1%-25%</option>
@@ -853,7 +854,7 @@ be greyed out except the plot size.
                         <label class="control-label">Plot Area Dimensions</label>
                         <select class="form-control"
                                 required="required"
-                                name="plant[1]Strain[3]Plot[3]AreaDbl">
+                                name="plant1Strain3Plot3AreaDbl">
                             <option value=""></option>
                             <option value="1">2'x2'</option>
                             <option value="2">3'x3'</option>
@@ -888,7 +889,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[1]"
+                            <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator1"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -903,7 +904,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[2]"
+                            <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator2"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -918,7 +919,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[3]"
+                            <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator3"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -935,7 +936,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[4]"
+                            <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator4"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -950,7 +951,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[5]"
+                            <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator5"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -965,7 +966,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[6]"
+                            <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator6"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -982,7 +983,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[7]"
+                            <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator7"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -997,7 +998,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[8]"
+                            <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator8"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1013,7 +1014,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[3]Plot[3]Pollinator[9]"
+                            <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator9"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1031,7 +1032,7 @@ be greyed out except the plot size.
                     <div class="col-lg-6 form-group">
                         <label class="control-label">Genus</label>
                         <input type="text" class="form-control"
-                               placeholder="Coreopsis Verticillata" name="plant[1]Name"
+                               placeholder="Coreopsis Verticillata" name="plant1Name"
                                value="Coreopsis Verticillata">
                     </div>
 
@@ -1039,7 +1040,7 @@ be greyed out except the plot size.
                         <label class="control-label">Species</label>
 
                         <input type="text" class="form-control"
-                               placeholder="Crème Brulee" name="plant[1]Strain[4]Name"
+                               placeholder="Crème Brulee" name="plant1Strain4Name"
                                value="Crème Brulee">
                     </div>
                 </div>
@@ -1062,7 +1063,7 @@ be greyed out except the plot size.
                         <label class="control-label">Flower Coverage<span>*</span></label>
                         <select class="form-control"
                                 required="required"
-                                name="plant[1]Strain[4]Plot[4]PercentCoverage">
+                                name="plant1Strain4Plot4PercentCoverage">
                             <option value=""></option>
                             <option value="0">0</option>
                             <option value="1">1%-25%</option>
@@ -1075,7 +1076,7 @@ be greyed out except the plot size.
                         <label class="control-label">Plot Area Dimensions</label>
                         <select class="form-control"
                                 required="required"
-                                name="plant[1]Strain[4]Plot[4]AreaDbl">
+                                name="plant1Strain4Plot4AreaDbl">
                             <option value=""></option>
                             <option value="1">2'x2'</option>
                             <option value="2">3'x3'</option>
@@ -1113,7 +1114,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
-                                   name="plant[1]Strain[4]Plot[4]Pollinator[1]" value="0">
+                                   name="plant1Strain4Plot4Pollinator1" value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1129,7 +1130,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
-                                   name="plant[1]Strain[4]Plot[4]Pollinator[2]" value="0">
+                                   name="plant1Strain4Plot4Pollinator2" value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1145,7 +1146,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
-                                   name="plant[1]Strain[4]Plot[4]Pollinator[3]" value="0">
+                                   name="plant1Strain4Plot4Pollinator3" value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1162,7 +1163,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
-                                   name="plant[1]Strain[4]Plot[4]Pollinator[4]" value="0">
+                                   name="plant1Strain4Plot4Pollinator4" value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1178,7 +1179,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
-                                   name="plant[1]Strain[4]Plot[4]Pollinator[5]" value="0">
+                                   name="plant1Strain4Plot4Pollinator5" value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1194,7 +1195,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
-                                   name="plant[1]Strain[4]Plot[4]Pollinator[6]" value="0">
+                                   name="plant1Strain4Plot4Pollinator6" value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1212,7 +1213,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
-                                   name="plant[1]Strain[4]Plot[4]Pollinator[7]" value="0">
+                                   name="plant1Strain4Plot4Pollinator7" value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1228,7 +1229,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
-                                   name="plant[1]Strain[4]Plot[4]Pollinator[8]" value="0">
+                                   name="plant1Strain4Plot4Pollinator8" value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1243,7 +1244,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
-                                   name="plant[1]Strain[4]Plot[4]Pollinator[9]" value="0">
+                                   name="plant1Strain4Plot4Pollinator9" value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1260,14 +1261,14 @@ be greyed out except the plot size.
                     <div class="form-group col-lg-6">
                         <label class="control-label">Genus</label>
                         <input type="text" class="form-control"
-                               placeholder="Coreopsis Verticillata" name="plant[1]Name"
+                               placeholder="Coreopsis Verticillata" name="plant1Name"
                                value="Coreopsis Verticillata">
                     </div>
                     <div class="form-group col-lg-6">
                         <label class="control-label">Species</label>
 
                         <input type="text" class="form-control"
-                               placeholder="Route 66" name="plant[1]Strain[5]Name" value="Route 66">
+                               placeholder="Route 66" name="plant1Strain5Name" value="Route 66">
                     </div>
                 </div>
 
@@ -1291,7 +1292,7 @@ be greyed out except the plot size.
                         >*</span></label>
                         <select class="form-control"
                                 required="required"
-                                name="plant[1]Strain[5]Plot[5]PercentCoverage">
+                                name="plant1Strain5Plot5PercentCoverage">
                             <option value=""></option>
                             <option value="0">0</option>
                             <option value="1">1%-25%</option>
@@ -1307,7 +1308,7 @@ be greyed out except the plot size.
 
                         <select class="form-control"
                                 required="required"
-                                name="plant[1]Strain[5]Plot[5]AreaDbl">
+                                name="plant1Strain5Plot5AreaDbl">
                             <option value=""></option>
                             <option value="1">2'x2'</option>
                             <option value="2">3'x3'</option>
@@ -1345,7 +1346,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[5]Plot[5]Pollinator[1]"
+                            <input class="form-control" type="text" name="plant1Strain5Plot5Pollinator1"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1362,7 +1363,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
-                                   name="plant[1]Strain[5]Plot[5]Pollinator[2]" value="0">
+                                   name="plant1Strain5Plot5Pollinator2" value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1378,7 +1379,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
-                                   name="plant[1]Strain[5]Plot[5]Pollinator[3]" value="0">
+                                   name="plant1Strain5Plot5Pollinator3" value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1395,7 +1396,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
-                                   name="plant[1]Strain[5]Plot[5]Pollinator[4]" value="0">
+                                   name="plant1Strain5Plot5Pollinator4" value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1411,7 +1412,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
-                                   name="plant[1]Strain[5]Plot[5]Pollinator[5]" value="0"
+                                   name="plant1Strain5Plot5Pollinator5" value="0"
                             >
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1427,7 +1428,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
-                                   name="plant[1]Strain[5]Plot[5]Pollinator[6]" value="0"
+                                   name="plant1Strain5Plot5Pollinator6" value="0"
                             >
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1445,7 +1446,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
-                                   name="plant[1]Strain[5]Plot[5]Pollinator[7]" value="0"
+                                   name="plant1Strain5Plot5Pollinator7" value="0"
                             >
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1461,7 +1462,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
-                                   name="plant[1]Strain[5]Plot[5]Pollinator[8]" value="0">
+                                   name="plant1Strain5Plot5Pollinator8" value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1477,7 +1478,7 @@ be greyed out except the plot size.
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text" name="plant[1]Strain[5]Plot[5]Pollinator[9]"
+                            <input class="form-control" type="text" name="plant1Strain5Plot5Pollinator9"
                                    value="0">
                             <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1492,972 +1493,969 @@ be greyed out except the plot size.
 
 
             <%-------------------------------------------------- End Form5 --------------------------------------------------%>
-            <%-------------------------------------------------- Begin Form6 --------------------------------------------------%>
-            <div class="tab" id="form-submission">
-                <div class="row">
-                    <div class="form-group col-lg-6">
+                <%-------------------------------------------------- Begin Form6 --------------------------------------------------%>
+                <div class="tab" id="form-submission">
+                    <div class="row">
+                        <div class="form-group col-lg-6">
 
-                        <label class="control-label">Genus</label>
-                        <input type="text" class="form-control"
-                               placeholder="Monarda" name="plant[1]Name"
-                               value="Coreopsis Verticillata">
-                    </div>
-                    <div class="form-group col-lg-6">
-                        <label class="control-label">Species</label>
-                        <input type="text" class="form-control"
-                               placeholder="Didyma Straight" name="plant[1]Strain[6]Name"
-                               value="Didyma Straight">
-
-                    </div>
-                </div>
-
-                <br>
-
-                <div class="row">
-                    <div class="form-group">
-                        <h4>Plot Survey</h4>
-                        <p>
-                            If plant strain is not blooming, select '0' for Flower Coverage and continue to
-                            the
-                            next plant strain.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-lg-6">
-                        <label class="control-label">Flower Coverage<span>*</span></label>
-                        <select class="form-control"
-                                required="required"
-                                name="plant[1]Strain[6]Plot[6]PercentCoverage">
-                            <option value=""></option>
-                            <option value="0">0</option>
-                            <option value="1">1%-25%</option>
-                            <option value="2">26%-50%</option>
-                            <option value="3">51%-75%</option>
-                            <option value="4">76%-100%</option>
-                        </select>
-                    </div>
-
-
-                    <div class="form-group col-lg-6">
-
-                        <label class="control-label">Plot Area Dimensions</label>
-
-                        <select class="form-control"
-                                required="required"
-                                name="plant[1]Strain[6]Plot[6]AreaDbl">
-                            <option value=""></option>
-                            <option value="1">2'x2'</option>
-                            <option value="2">3'x3'</option>
-                            <option value="3">4'x4'</option>
-                            <option value="4">Greater</option>
-                        </select>
-                    </div>
-                </div>
-
-                <br>
-
-                <div class="row">
-                    <div class="form-group col-lg-6">
-
-                        <h4>Pollinator Visit Counts</h4>
-
-                    </div>
-                    <div class="form-group col-lg-6">
-                        <p>
-                            Time will be placed here. Hard set to 5 minutes. At the end, it will lock
-                            the
-                            count fields, but leave the comment section open for butterflies &amp; moths
-                            if
-                            &gt;0
-                        </p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Honey Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[6]Plot[6]Pollinator[1]" value="0">
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
+                            <label class="control-label">Genus</label>
+                            <input type="text" class="form-control"
+                                   placeholder="Monarda" name="plant1Name"
+                                   value="Coreopsis Verticillata">
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="control-label">Species</label>
+                            <input type="text" class="form-control"
+                                   placeholder="Didyma Straight" name="plant1Strain6Name" value="Didyma Straight">
                         </div>
                     </div>
 
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Carpenter Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[6]Plot[6]Pollinator[2]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Bumble Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
+                    <br>
 
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[6]Plot[6]Pollinator[3]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Green Metallic Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[6]Plot[6]Pollinator[4]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
+                    <div class="row">
+                        <div class="form-group">
+                            <h4>Plot Survey</h4>
+                            <p>
+                                If plant strain is not blooming, select '0' for Flower Coverage and continue to
+                                the
+                                next plant strain.
+                            </p>
                         </div>
                     </div>
 
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Green Sweat Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[6]Plot[6]Pollinator[5]" value="0">
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label class="control-label">Flower Coverage<span>*</span></label>
+                            <select class="form-control"
+                                    required="required"
+                                    name="plant1Strain6Plot6PercentCoverage">
+                                <option value=""></option>
+                                <option value="0">0</option>
+                                <option value="1">1%-25%</option>
+                                <option value="2">26%-50%</option>
+                                <option value="3">51%-75%</option>
+                                <option value="4">76%-100%</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group col-lg-6">
+
+                            <label class="control-label">Plot Area Dimensions</label>
+
+                            <select class="form-control"
+                                    required="required"
+                                    name="plant1Strain6Plot6AreaDbl">
+                                <option value=""></option>
+                                <option value="1">2'x2'</option>
+                                <option value="2">3'x3'</option>
+                                <option value="3">4'x4'</option>
+                                <option value="4">Greater</option>
+                            </select>
                         </div>
                     </div>
 
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Dark Sweat Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[6]Plot[6]Pollinator[6]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
+                    <br>
+
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+
+                            <h4>Pollinator Visit Counts</h4>
+
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Butterflies &amp; Moths</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[6]Plot[6]Pollinator[7]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
+                        <div class="form-group col-lg-6">
+                            <p>
+                                Time will be placed here. Hard set to 5 minutes. At the end, it will lock
+                                the
+                                count fields, but leave the comment section open for butterflies &amp; moths
+                                if
+                                &gt;0
+                            </p>
                         </div>
                     </div>
 
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Other Bees</label>
-                        <div class="input-group">
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Honey Bee</label>
+                            <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[6]Plot[6]Pollinator[8]" value="0"
-                            >
-                            <span class="input-group-btn">
+                                <input class="form-control" type="text"
+                                       name="plant1Strain6Plot6Pollinator1" value="0">
+                                <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
                             </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Carpenter Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain6Plot6Pollinator2" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Bumble Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+
+                                <input class="form-control" type="text"
+                                       name="plant1Strain6Plot6Pollinator3" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
                         </div>
                     </div>
-
-
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Other Pollinators</label>
-                        <div class="input-group">
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Green Metallic Bee</label>
+                            <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
 
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[6]Plot[6]Pollinator[9]" value="0"
-                            >
-                            <span class="input-group-btn">
+                                <input class="form-control" type="text"
+                                       name="plant1Strain6Plot6Pollinator4" value="0"
+                                >
+                                <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
                             </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Green Sweat Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain6Plot6Pollinator5" value="0">
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Dark Sweat Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain6Plot6Pollinator6" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <%-------------------------------------------------- End Form6 --------------------------------------------------%>
-            <%-------------------------------------------------- Begin Form7 --------------------------------------------------%>
-            <div class="tab" id="form-submission">
-                <div class="row">
-                    <div class="form-group col-lg-6">
-                        <label class="control-label">Genus</label>
-
-                        <input type="text" class="form-control"
-                               placeholder="Coreopsis Verticillata" name="plant[1]Name"
-                               value="Coreopsis Verticillata">
-
-                    </div>
-
-                    <div class="form-group col-lg-6">
-
-                        <label class="control-label"
-                        >Species</label>
-
-                        <input type="text" class="form-control"
-                               placeholder="Didyma Petite Delight" name="plant[1]Strain[7]Name"
-                               value="Didyma Petite Delight">
-                    </div>
-
-                </div>
-
-                <br>
-
-                <div class="row">
-                    <div class="form-group">
-                        <h4>Plot Survey</h4>
-
-                        <p>
-                            If plant strain is not blooming, select '0' for Flower Coverage and continue to
-                            the
-                            next plant strain.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-lg-6">
-
-                        <label class="control-label">Flower Coverage<span
-                        >*</span></label>
-                        <select class="form-control"
-                                required="required"
-                                name="plant[1]Strain[7]Plot[7]PercentCoverage">
-                            <option value=""></option>
-                            <option value="0">0</option>
-                            <option value="1">1%-25%</option>
-                            <option value="2">26%-50%</option>
-                            <option value="3">51%-75%</option>
-                            <option value="4">76%-100%</option>
-                        </select>
-                    </div>
-
-
-                    <div class="form-group col-lg-6">
-                        <label class="control-label">Plot Area Dimensions</label>
-                        <select class="form-control"
-                                required="required"
-                                name="plant[1]Strain[7]Plot[7]AreaDbl">
-                            <option value=""></option>
-                            <option value="1">2'x2'</option>
-                            <option value="2">3'x3'</option>
-                            <option value="3">4'x4'</option>
-                            <option value="4">Greater</option>
-                        </select>
-
-                    </div>
-                </div>
-
-                <br>
-
-
-                <div class="row">
-                    <div class="form-group col-lg-6">
-                        <h4>Pollinator Visit Counts</h4>
-
-                    </div>
-                    <div class="form-group col-lg-6">
-                        <p>
-                            Time will be placed here. Hard set to 5 minutes. At the end, it will lock
-                            the
-                            count fields, but leave the comment section open for butterflies &amp; moths
-                            if
-                            &gt;0
-                        </p>
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Honey Bee</label>
-                        <div class="input-group">
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Butterflies &amp; Moths</label>
+                            <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[7]Plot[7]Pollinator[1]" value="0">
-                            <span class="input-group-btn">
+                                <input class="form-control" type="text"
+                                       name="plant1Strain6Plot6Pollinator7" value="0"
+                                >
+                                <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
                             </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Carpenter Bee</label>
-                        <div class="input-group">
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Other Bees</label>
+                            <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
-
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[7]Plot[7]Pollinator[2]" value="0">
-                            <span class="input-group-btn">
+                                <input class="form-control" type="text"
+                                       name="plant1Strain6Plot6Pollinator8" value="0"
+                                >
+                                <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
                             </span>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Bumble Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[7]Plot[7]Pollinator[3]" value="0">
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Green Metallic Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[7]Plot[7]Pollinator[4]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Green Sweat Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[7]Plot[7]Pollinator[5]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Dark Sweat Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[7]Plot[7]Pollinator[6]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Butterflies &amp; Moths</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[7]Plot[7]Pollinator[7]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Other Bees</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[7]Plot[7]Pollinator[8]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Other Pollinators</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[7]Plot[7]Pollinator[9]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <%-------------------------------------------------- End Form7 --------------------------------------------------%>
-            <%-------------------------------------------------- Begin Form8 --------------------------------------------------%>
-            <div class="tab" id="form-submission">
-                <div class="row">
-                    <div class="form-group col-lg-6">
-                        <label class="control-label">Genus</label>
-                        <input type="text" class="form-control"
-                               placeholder="Coreopsis Verticillata" name="plant[1]Name"
-                               value="Coreopsis Verticillata">
-                    </div>
 
 
-                    <div class="form-group col-lg-6">
-                        <label class="control-label">Species</label>
-                        <input type="text" class="form-control"
-                               placeholder="Didyma Marshalls Delight" name="plant[1]Strain[8]Name"
-                               value="Didyma Marshalls Delight">
-                    </div>
-                </div>
-
-                <br>
-
-                <div class="row">
-                    <div class="form-group">
-                        <h4>Plot Survey</h4>
-                        <p>
-                            If plant strain is not blooming, select '0' for Flower Coverage and continue to
-                            the
-                            next plant strain.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-lg-6">
-                        <label class="control-label">Flower Coverage<span>*</span></label>
-                        <select class="form-control"
-                                required="required"
-                                name="plant[1]Strain[8]Plot[8]PercentCoverage">
-                            <option value=""></option>
-                            <option value="0">0</option>
-                            <option value="1">1%-25%</option>
-                            <option value="2">26%-50%</option>
-                            <option value="3">51%-75%</option>
-                            <option value="4">76%-100%</option>
-                        </select>
-                    </div>
-
-
-                    <div class="form-group col-lg-6">
-                        <label class="control-label">Plot Area Dimensions</label>
-                        <select class="form-control"
-                                required="required"
-                                name="plant[1]Strain[8]Plot[8]AreaDbl">
-                            <option value=""></option>
-                            <option value="1">2'x2'</option>
-                            <option value="2">3'x3'</option>
-                            <option value="3">4'x4'</option>
-                            <option value="4">Greater</option>
-                        </select>
-                    </div>
-                </div>
-
-                <br>
-
-                <div class="row">
-                    <div class="form-group col-lg-6">
-                        <h4>Pollinator Visit Counts</h4>
-                    </div>
-
-                    <div class="form-group col-lg-6">
-                        <p>
-                            Time will be placed here. Hard set to 5 minutes. At the end, it will lock
-                            the
-                            count fields, but leave the comment section open for butterflies &amp; moths
-                            if
-                            &gt;0
-                        </p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Honey Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[8]Plot[8]Pollinator[1]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Carpenter Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[8]Plot[8]Pollinator[2]" value="0">
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Bumble Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[8]Plot[8]Pollinator[3]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Green Metallic Bee</label>
-                        <div class="input-group">
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Other Pollinators</label>
+                            <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i
                                         class="fa fa-minus"></i></button>
                             </span>
 
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[8]Plot[8]Pollinator[4]" value="0">
-                            <span class="input-group-btn">
+                                <input class="form-control" type="text"
+                                       name="plant1Strain6Plot6Pollinator9" value="0"
+                                >
+                                <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
                             </span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Green Sweat Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[8]Plot[8]Pollinator[5]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Dark Sweat Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[8]Plot[8]Pollinator[6]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Butterflies &amp; Moths</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[8]Plot[8]Pollinator[7]" value="0">
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Other Bees</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[8]Plot[8]Pollinator[8]" value="0">
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Other Pollinators</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[8]Plot[8]Pollinator[9]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <%-------------------------------------------------- End Form8 --------------------------------------------------%>
-            <%-------------------------------------------------- Begin Form9 --------------------------------------------------%>
-            <div class="tab" id="form-submission">
-                <div class="row">
-                    <div class="form-group col-lg-6">
-                        <label class="control-label">Genus</label>
-                        <input type="text" class="form-control"
-                               placeholder="Coreopsis Verticillata" name="plant[1]Name"
-                               value="Coreopsis Verticillata">
-                    </div>
-
-                    <div class="form-group col-lg-6">
-                        <label class="control-label">Species</label>
-                        <input type="text" class="form-control"
-                               placeholder="X Peters Fancy Fuschia" name="plant[1]Strain[9]Name"
-                               value="X Peters Fancy Fuschia">
-                    </div>
-                </div>
-
-                <br>
-
-                <div class="row">
-                    <div class="form-group">
-                        <h4>Plot Survey</h4>
-                        <p>
-                            If plant strain is not blooming, select '0' for Flower Coverage and continue to
-                            the
-                            next plant strain.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-lg-6">
-                        <label class="control-label">Flower Coverage<span
-                        >*</span></label>
-                        <select class="form-control"
-                                required="required"
-                                name="plant[1]Strain[9]Plot[9]PercentCoverage">
-                            <option value=""></option>
-                            <option value="0">0</option>
-                            <option value="1">1%-25%</option>
-                            <option value="2">26%-50%</option>
-                            <option value="3">51%-75%</option>
-                            <option value="4">76%-100%</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group col-lg-6">
-                        <label class="control-label">Plot Area Dimensions</label>
-                        <select class="form-control"
-                                required="required"
-                                name="plant[1]Strain[9]Plot[9]AreaDbl">
-                            <option value=""></option>
-                            <option value="1">2'x2'</option>
-                            <option value="2">3'x3'</option>
-                            <option value="3">4'x4'</option>
-                            <option value="4">Greater</option>
-                        </select>
-                    </div>
-                </div>
-
-                <br>
-
-                <div class="row">
-                    <div class="form-group col-lg-6">
-                        <h4>Pollinator Visit Counts</h4>
-                    </div>
-                    <div class="form-group col-lg-6">
-                        <p>
-                            Time will be placed here. Hard set to 5 minutes. At the end, it will lock
-                            the
-                            count fields, but leave the comment section open for butterflies &amp; moths
-                            if
-                            &gt;0
-                        </p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Honey Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[9]Plot[9]Pollinator[1]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Carpenter Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[9]Plot[9]Pollinator[2]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Bumble Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[9]Plot[9]Pollinator[3]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Green Metallic Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[9]Plot[9]Pollinator[4]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Green Sweat Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[9]Plot[9]Pollinator[5]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Dark Sweat Bee</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[9]Plot[9]Pollinator[6]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Butterflies &amp; Moths</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[9]Plot[9]Pollinator[7]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Other Bees</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[9]Plot[9]Pollinator[8]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-lg-4">
-                        <label class="control-label">Other Pollinators</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
-                            </span>
-                            <input class="form-control" type="text"
-                                   name="plant[1]Strain[9]Plot[9]Pollinator[9]" value="0"
-                            >
-                            <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
-                            </span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-            </div>
-            <%-------------------------------------------------- End Form9 --------------------------------------------------%>
+                <%-------------------------------------------------- End Form6 --------------------------------------------------%>
+                <%-------------------------------------------------- Begin Form7 --------------------------------------------------%>
+                <div class="tab" id="form-submission">
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label class="control-label">Genus</label>
 
+                            <input type="text" class="form-control"
+                                   placeholder="Coreopsis Verticillata" name="plant1Name"
+                                   value="Coreopsis Verticillata">
+
+                        </div>
+
+                        <div class="form-group col-lg-6">
+
+                            <label class="control-label"
+                            >Species</label>
+
+                            <input type="text" class="form-control"
+                                   placeholder="Didyma Petite Delight" name="plant1Strain7Name"
+                                   value="Didyma Petite Delight">
+                        </div>
+
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <h4>Plot Survey</h4>
+
+                            <p>
+                                If plant strain is not blooming, select '0' for Flower Coverage and continue to
+                                the
+                                next plant strain.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+
+                            <label class="control-label">Flower Coverage<span
+                            >*</span></label>
+                            <select class="form-control"
+                                    required="required"
+                                    name="plant1Strain7Plot7PercentCoverage">
+                                <option value=""></option>
+                                <option value="0">0</option>
+                                <option value="1">1%-25%</option>
+                                <option value="2">26%-50%</option>
+                                <option value="3">51%-75%</option>
+                                <option value="4">76%-100%</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group col-lg-6">
+                            <label class="control-label">Plot Area Dimensions</label>
+                            <select class="form-control"
+                                    required="required"
+                                    name="plant1Strain7Plot7AreaDbl">
+                                <option value=""></option>
+                                <option value="1">2'x2'</option>
+                                <option value="2">3'x3'</option>
+                                <option value="3">4'x4'</option>
+                                <option value="4">Greater</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <br>
+
+
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <h4>Pollinator Visit Counts</h4>
+
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <p>
+                                Time will be placed here. Hard set to 5 minutes. At the end, it will lock
+                                the
+                                count fields, but leave the comment section open for butterflies &amp; moths
+                                if
+                                &gt;0
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Honey Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain7Plot7Pollinator1" value="0">
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Carpenter Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+
+                                <input class="form-control" type="text"
+                                       name="plant1Strain7Plot7Pollinator2" value="0">
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Bumble Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain7Plot7Pollinator3" value="0">
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Green Metallic Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain7Plot7Pollinator4" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Green Sweat Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain7Plot7Pollinator5" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Dark Sweat Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain7Plot7Pollinator6" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Butterflies &amp; Moths</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain7Plot7Pollinator7" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Other Bees</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain7Plot7Pollinator8" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Other Pollinators</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain7Plot7Pollinator9" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <%-------------------------------------------------- End Form7 --------------------------------------------------%>
+                <%-------------------------------------------------- Begin Form8 --------------------------------------------------%>
+                <div class="tab" id="form-submission">
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label class="control-label">Genus</label>
+                            <input type="text" class="form-control"
+                                   placeholder="Coreopsis Verticillata" name="plant1Name"
+                                   value="Coreopsis Verticillata">
+                        </div>
+
+
+                        <div class="form-group col-lg-6">
+                            <label class="control-label">Species</label>
+                            <input type="text" class="form-control"
+                                   placeholder="Didyma Marshalls Delight" name="plant1Strain8Name"
+                                   value="Didyma Marshalls Delight">
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <h4>Plot Survey</h4>
+                            <p>
+                                If plant strain is not blooming, select '0' for Flower Coverage and continue to
+                                the
+                                next plant strain.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label class="control-label">Flower Coverage<span>*</span></label>
+                            <select class="form-control"
+                                    required="required"
+                                    name="plant1Strain8Plot8PercentCoverage">
+                                <option value=""></option>
+                                <option value="0">0</option>
+                                <option value="1">1%-25%</option>
+                                <option value="2">26%-50%</option>
+                                <option value="3">51%-75%</option>
+                                <option value="4">76%-100%</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group col-lg-6">
+                            <label class="control-label">Plot Area Dimensions</label>
+                            <select class="form-control"
+                                    required="required"
+                                    name="plant1Strain8Plot8AreaDbl">
+                                <option value=""></option>
+                                <option value="1">2'x2'</option>
+                                <option value="2">3'x3'</option>
+                                <option value="3">4'x4'</option>
+                                <option value="4">Greater</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <h4>Pollinator Visit Counts</h4>
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <p>
+                                Time will be placed here. Hard set to 5 minutes. At the end, it will lock
+                                the
+                                count fields, but leave the comment section open for butterflies &amp; moths
+                                if
+                                &gt;0
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Honey Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain8Plot8Pollinator1" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Carpenter Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain8Plot8Pollinator2" value="0">
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Bumble Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain8Plot8Pollinator3" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Green Metallic Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+
+                                <input class="form-control" type="text"
+                                       name="plant1Strain8Plot8Pollinator4" value="0">
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Green Sweat Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain8Plot8Pollinator5" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Dark Sweat Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain8Plot8Pollinator6" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Butterflies &amp; Moths</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain8Plot8Pollinator7" value="0">
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Other Bees</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain8Plot8Pollinator8" value="0">
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Other Pollinators</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain8Plot8Pollinator9" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%-------------------------------------------------- End Form8 --------------------------------------------------%>
+                <%-------------------------------------------------- Begin Form9 --------------------------------------------------%>
+                <div class="tab" id="form-submission">
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label class="control-label">Genus</label>
+                            <input type="text" class="form-control"
+                                   placeholder="Coreopsis Verticillata" name="plant1Name"
+                                   value="Coreopsis Verticillata">
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label class="control-label">Species</label>
+                            <input type="text" class="form-control"
+                                   placeholder="X Peters Fancy Fuschia" name="plant1Strain9Name"
+                                   value="X Peters Fancy Fuschia">
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <h4>Plot Survey</h4>
+                            <p>
+                                If plant strain is not blooming, select '0' for Flower Coverage and continue to
+                                the
+                                next plant strain.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label class="control-label">Flower Coverage<span
+                            >*</span></label>
+                            <select class="form-control"
+                                    required="required"
+                                    name="plant1Strain9Plot9PercentCoverage">
+                                <option value=""></option>
+                                <option value="0">0</option>
+                                <option value="1">1%-25%</option>
+                                <option value="2">26%-50%</option>
+                                <option value="3">51%-75%</option>
+                                <option value="4">76%-100%</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label class="control-label">Plot Area Dimensions</label>
+                            <select class="form-control"
+                                    required="required"
+                                    name="plant1Strain9Plot9AreaDbl">
+                                <option value=""></option>
+                                <option value="1">2'x2'</option>
+                                <option value="2">3'x3'</option>
+                                <option value="3">4'x4'</option>
+                                <option value="4">Greater</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <h4>Pollinator Visit Counts</h4>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <p>
+                                Time will be placed here. Hard set to 5 minutes. At the end, it will lock
+                                the
+                                count fields, but leave the comment section open for butterflies &amp; moths
+                                if
+                                &gt;0
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Honey Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain9Plot9Pollinator1" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Carpenter Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain9Plot9Pollinator2" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Bumble Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain9Plot9Pollinator3" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Green Metallic Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain9Plot9Pollinator4" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Green Sweat Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain9Plot9Pollinator5" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Dark Sweat Bee</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain9Plot9Pollinator6" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Butterflies &amp; Moths</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain9Plot9Pollinator7" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Other Bees</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain9Plot9Pollinator8" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-4">
+                            <label class="control-label">Other Pollinators</label>
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn bg-danger btn-minus" type="button"><i
+                                        class="fa fa-minus"></i></button>
+                            </span>
+                                <input class="form-control" type="text"
+                                       name="plant1Strain9Plot9Pollinator9" value="0"
+                                >
+                                <span class="input-group-btn">
+                                <button class="btn bg-success btn-plus" type="button"><i
+                                        class="fa fa-plus"></i></button>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <%-------------------------------------------------- End Form9 --------------------------------------------------%>
             <%------------------------------------------------------------ End DataForm Lists ------------------------------------------------------------%>
             <div class="tab">
                 <div class="row">

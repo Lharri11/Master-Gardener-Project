@@ -2,13 +2,13 @@ package model;
 //TODO: define parameters
 public class PollinatorVisitCount
 {
-	private int id, data_form_id, pollinator_id, plant_id, strain_id, visit_count;
+	private int id, data_form_id, pollinator_id, plot_id, plant_id, strain_id, visit_count;
 
-	public PollinatorVisitCount(int id, int data_form_id, int pollinator_id, int plant_id, int strain_id, int count)
+	public PollinatorVisitCount(int data_form_id, int pollinator_id, int plot_id, int plant_id, int strain_id, int count)
 	{
-		this.setId(id);
 		this.setData_form_id(data_form_id);
 		this.setPollinator_id(pollinator_id);
+		this.setPlot_id(plot_id);
 		this.setPlant_id(plant_id);
 		this.setStrain_id(strain_id);
 		this.setVisit_count(count);
@@ -61,4 +61,8 @@ public class PollinatorVisitCount
 	public void setStrain_id(int strain_id) {
 		this.strain_id = strain_id;
 	}
+
+	public int getPlot_id() { return plot_id; }
+
+	public void setPlot_id(int plot_id) { this.plot_id = plot_id; }
 }

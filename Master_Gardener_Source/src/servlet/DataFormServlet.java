@@ -4,6 +4,7 @@ import com.sun.deploy.security.WinDeployNTLMAuthCallback;
 import controller.AdminController;
 import controller.DataFormController;
 import controller.SearchController;
+import controller.UserController;
 import model.*;
 
 import java.io.IOException;
@@ -29,14 +30,6 @@ public class DataFormServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        // Initialization
-        int plants_total = 2;
-        int strains_total = 9;
-        int pollinators_total = 9;
-        req.setAttribute("plantsTotal", plants_total);
-        req.setAttribute("strainsTotal", strains_total);
-        req.setAttribute("pollinatorsTotal", pollinators_total);
-
         req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
     }
 
@@ -54,12 +47,13 @@ public class DataFormServlet extends HttpServlet {
         // 9 Pollinators (Honey Bee, Carpenter Bee, Bumble Bee, Green Metallic Bee, Green Sweat Bee, Dark Sweat Bee, Butterfly and Moth, Other Bees, Other Pollinators)
 
         // Initialization (Loop Variables, ArrayLists, Servlet Variables)
-        int plants_total = 2;
+        int plants_total = 1;
         int strains_total = 9;
         int pollinators_total = 9;
         PollinatorDataForm dataForm = new PollinatorDataForm(-1, -1, null, -1,
                 null, null,  null, null, null, null, null,
                 0, null, null , 0, null, null, null, null, null);
+        ArrayList<User> generators = new ArrayList<User>();
         ArrayList<Plot> plots = new ArrayList<Plot>();
         ArrayList<Plant> plants = new ArrayList<Plant>();
         ArrayList<PlantStrain> strains = new ArrayList<PlantStrain>();
@@ -117,7 +111,7 @@ public class DataFormServlet extends HttpServlet {
 
         if (buttonPress != null)
         {
-            System.out.println("DataForm submitted");
+            System.out.println("DataForm Servlet: DataForm submitted");
             //DataForm Generators & Garden Information
             generator_first_name1 = req.getParameter("generatorFirstName1");
             generator_first_name2 = req.getParameter("generatorFirstName2");
@@ -146,82 +140,105 @@ public class DataFormServlet extends HttpServlet {
 
             if ("".equals(week_num) || week_num == 0) {
                 errorMessage = "Please enter the Data Collection Cycle week number";
-                System.out.printf("%s", errorMessage);
+                System.out.println(errorMessage);
                 week_num = 0;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
             }
             else if ("".equals(generator_first_name1) || generator_first_name1 == null) {
                 errorMessage = "Missing first name. Please enter the first and last name of at least one (1) DataForm Generator";
-                System.out.printf("%s", errorMessage);
+                System.out.println(errorMessage);
                 generator_first_name1 = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
             }
             else if ("".equals(generator_last_name1) || generator_last_name1 == null) {
                 errorMessage = "Missing last name. Please enter the first and last name of at least one (1) DataForm Generator";
-                System.out.printf("%s", errorMessage);
+                System.out.println(errorMessage);
                 generator_last_name1 = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
             }
             else if ("".equals(garden_name) || garden_name == null) {
                 errorMessage = "Please enter the name of the garden";
-                System.out.printf("%s", errorMessage);
+                System.out.println(errorMessage);
                 garden_name = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
             }
             else if ("".equals(date_collected) || date_collected == null) {
                 errorMessage = "Please enter the data collection date";
-                System.out.printf("%s", errorMessage);
+                System.out.println(errorMessage);
                 date_collected = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
             }
-            else if ("".equals(date_generated) || date_generated == null) {
+            /*else if ("".equals(date_generated) || date_generated == null) {
                 errorMessage = "Please enter the DataForm generation date";
-                System.out.printf("%s", errorMessage);
+                System.out.println(errorMessage);
                 date_generated = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
             }
             else if ("".equals(plot_blooms_open_status) || plot_blooms_open_status == null) {
                 errorMessage = "Please enter the bloom status of the plot";
-                System.out.printf("%s", errorMessage);
+                System.out.println(errorMessage);
                 plot_blooms_open_status = null;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-            }
-            else if ("".equals(plot_percent_coverage) || plot_percent_coverage == 0) {
+            }*/
+            else if ("".equals(plot_percent_coverage)) {
                 errorMessage = "Please enter flower coverage percentage of the plot";
-                System.out.printf("%s", errorMessage);
+                System.out.println(errorMessage);
                 plot_percent_coverage = 0;
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
             }
             else {
 
-                System.out.println("All parameters accepted successfully");
+                System.out.println("DataForm Servlet: All *required* parameters accepted successfully");
 
                 //
                 // ------------------------------ Set DataForm Fields ------------------------------ //
                 //
                 try {
+
+                    controller = new DataFormController();
                     //Set Week Number
                     dataForm.setWeek_number(week_num);
                     //Set Garden & County
                     dataForm.setGarden_id(controller.getGardenIDByGardenName(garden_name));
                     dataForm.setCounty_id(controller.getCountyIDByGardenName(garden_name));
                     //Set Generators
-                    dataForm.getGenerators().add(controller.getUserFromUserID(controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1)));
-                    if((!"".equals(generator_first_name2) && generator_first_name2 != null) && (!"".equals(generator_last_name2) && generator_last_name2 != null)){ dataForm.getGenerators().add(controller.getUserFromUserID(controller.getUserIDFromFirstNameAndLastName(generator_first_name2, generator_last_name2))); }
-                    if((!"".equals(generator_first_name3) && generator_first_name3 != null) && (!"".equals(generator_last_name3) && generator_last_name3 != null)){ dataForm.getGenerators().add(controller.getUserFromUserID(controller.getUserIDFromFirstNameAndLastName(generator_first_name3, generator_last_name3))); }
-                    if((!"".equals(generator_first_name4) && generator_first_name4 != null) && (!"".equals(generator_last_name4) && generator_last_name4 != null)){ dataForm.getGenerators().add(controller.getUserFromUserID(controller.getUserIDFromFirstNameAndLastName(generator_first_name4, generator_last_name4))); }
+                    generators.add(controller.getUserFromUserID(controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1)));
+                    if((!"".equals(generator_first_name2) && generator_first_name2 != null) && (!"".equals(generator_last_name2) && generator_last_name2 != null))
+                    {
+                        int generator_id = -1;
+                        generator_id = controller.getUserIDFromFirstNameAndLastName(generator_first_name2, generator_last_name2);
+                        if(generator_id > 0){
+                            generators.add(controller.getUserFromUserID(generator_id));
+                        }
+                    }
+                    if((!"".equals(generator_first_name3) && generator_first_name3 != null) && (!"".equals(generator_last_name3) && generator_last_name3 != null))
+                    {
+                        int generator_id = -1;
+                        generator_id = controller.getUserIDFromFirstNameAndLastName(generator_first_name3, generator_last_name3);
+                        if(generator_id > 0){
+                            generators.add(controller.getUserFromUserID(generator_id));
+                        }
+                    }
+                    if((!"".equals(generator_first_name4) && generator_first_name4 != null) && (!"".equals(generator_last_name4) && generator_last_name4 != null))
+                    {
+                        int generator_id = -1;
+                        generator_id = controller.getUserIDFromFirstNameAndLastName(generator_first_name4, generator_last_name4);
+                        if(generator_id > 0){
+                            generators.add(controller.getUserFromUserID(generator_id));
+                        }
+                    }
 
                     // Set Date & Time
                     dataForm.setDate_collected(date_collected);
-                    dataForm.setDate_generated(date_generated);
+                    //dataForm.setDate_generated(date_generated);
                     if(!"".equals(date_confirmed) && date_confirmed != null){ dataForm.setDate_confirmed(date_confirmed); }
                     if(!"".equals(start_time) && start_time != null){ dataForm.setMonitor_start(start_time); }
                     if(!"".equals(stop_time) && stop_time != null){ dataForm.setMonitor_stop(stop_time); }
@@ -262,13 +279,13 @@ public class DataFormServlet extends HttpServlet {
                 // ------------------------------ Begin List Population Loop ------------------------------ //
                 //
                 //Plants Loop
-                for(int i = 1; i <= (plants.size()+1); i++)
+                for(int i = 1; i <= plants_total; i++)
                 {
                     //Set Plant
                     plant_name = req.getParameter("plant" + i + "Name");//Variable from Drop-Down
                     if ("".equals(plant_name) || plant_name == null) {
                         errorMessage = "Please enter the genus (plant) name for the plot";
-                        System.out.printf("%s", errorMessage);
+                        System.out.println(errorMessage);
                         plant_name = null;
                         req.setAttribute("errorMessage", errorMessage);
                         req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
@@ -284,13 +301,13 @@ public class DataFormServlet extends HttpServlet {
                     req.setAttribute("plant" + i + "Name", plant_name);
 
                     //Strains Loop
-                    for(int j = 1; j <= (strains.size()+1); j++)
+                    for(int j = 1; j <= strains_total; j++)
                     {
                         //Set Strain
                         strain_name = req.getParameter("plant" + i + "Strain" + j + "Name");//Variable from Drop-Down
                         if ("".equals(strain_name) || strain_name == null) {
-                            errorMessage = "Please enter the species (strain) name for the first pollinator";
-                            System.out.printf("%s", errorMessage);
+                            errorMessage = "Please enter the species (strain) name for species #" + j;
+                            System.out.println(errorMessage);
                             strain_name = null;
                             req.setAttribute("errorMessage", errorMessage);
                             req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
@@ -310,66 +327,53 @@ public class DataFormServlet extends HttpServlet {
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }
-                        plot_height = Double.parseDouble(req.getParameter("plant" + i + "Strain" + j + "Plot" + j + "Height"));
+                        //plot_height = Double.parseDouble(req.getParameter("plant" + i + "Strain" + j + "Plot" + j + "Height"));
                         plot_area_dbl = Double.parseDouble(req.getParameter("plant" + i + "Strain" + j + "Plot" + j + "AreaDbl"));
                         plot_percent_coverage = Double.parseDouble(req.getParameter("plant" + i + "Strain" + j + "Plot" + j + "PercentCoverage"));
-                        plot_blooms_open_status = req.getParameter("plant" + i + "Strain" + j + "Plot" + j + "BloomsOpen");
+                        //plot_blooms_open_status = req.getParameter("plant" + i + "Strain" + j + "Plot" + j + "BloomsOpen");
 
-                        Plot plot = new Plot(dataForm.getGarden_id(), dataForm.getPlants().get(i-1).getPlantID(), dataForm.getPlantStrains().get(j-1).getStrainID(),
+                        /*Plot plot = new Plot(dataForm.getGarden_id(), dataForm.getPlants().get(i-1).getPlantID(), dataForm.getPlantStrains().get(j-1).getStrainID(),
                                 0, 0, 0, null);
                         if(!"".equals(plot_height) && plot_height != 0){ plot.setPlot_height(plot_height); }
-                        if(!"".equals(plot_area_dbl) && plot_area_dbl != 0){ plot.setPlot_area_dbl(plot_area_dbl); }
-                        if(!"".equals(plot_percent_coverage) && plot_percent_coverage != 0){ plot.setPlot_percent_coverage(plot_percent_coverage); }
-                        if(!"".equals(plot_blooms_open_status) && plot_blooms_open_status != null){ plot.setPlot_blooms_open_status(plot_blooms_open_status); }
-                        plots.add(plot);
-
+                        if(!"".equals(plot_blooms_open_status) && plot_blooms_open_status != null){ plot.setPlot_blooms_open_status(plot_blooms_open_status); }*/
+                        if(!"".equals(plot_area_dbl) && plot_area_dbl != 0){ plots.get(j-1).setPlot_area_dbl(plot_area_dbl); }
+                        if(!"".equals(plot_percent_coverage) && plot_percent_coverage != 0){ plots.get(j-1).setPlot_percent_coverage(plot_percent_coverage); }
 
                         // Reset JSP Plot Parameters
-                        req.setAttribute("plant" + i + "Strain" + j + "Plot" + j + "Height", plot_height);
+                        //req.setAttribute("plant" + i + "Strain" + j + "Plot" + j + "Height", plot_height);
                         req.setAttribute("plant" + i + "Strain" + j + "Plot" + j + "AreaDbl", plot_area_dbl);
                         req.setAttribute("plant" + i + "Strain" + j + "Plot" + j + "PercentCoverage", plot_percent_coverage);
-                        req.setAttribute("plant" + i + "Strain" + j + "Plot" + j + "BloomsOpen", plot_blooms_open_status);
+                        //req.setAttribute("plant" + i + "Strain" + j + "Plot" + j + "BloomsOpen", plot_blooms_open_status);
 
                         //
                         // ------------------------------ Set Pollinator Visit Count Fields ------------------------------ //
                         //
                         //Pollinators Loop
-                        for(int k = 1; k <= (pollinators.size()+1); k++)
+                        for(int k = 1; k <= pollinators_total; k++)
                         {
                             //Set Pollinator
-                            Pollinator pollinator;
-                            pollinator_name = req.getParameter("plant" + i + "Strain" + j + "Plot" + j + "Pollinator" + k + "Name");//Variable from Drop-Down
-                            if ("".equals(pollinator_name) || pollinator_name == null) {
-                                errorMessage = "Please enter the pollinator name for pollinator #" + k;
-                                System.out.printf("%s", errorMessage);
-                                pollinator_name = null;
-                                req.setAttribute("errorMessage", errorMessage);
-                                req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-                            }
                             try {
-                                pollinators.add(controller.getPollinatorByPollinatorID(controller.getPollinatorIDByPollinatorName(pollinator_name)));
+                                pollinators.add(controller.getPollinatorByPollinatorID(k));
                             } catch (SQLException e) {
                                 e.printStackTrace();
                             }
-
-                            // Reset JSP Pollinator Parameters
-                            req.setAttribute("plant" + i + "Strain" + j + "Plot" + j + "Pollinator" + k + "Name", pollinator_name);
 
                             //Jenky DataForm ID Initialization
                             int dataform_id = 0;
                             try {
-                                dataform_id = (controller.getAllDataFormIDs().get(0)+1);
+                                dataform_id = (controller.getAllDataFormIDs().get(0)+2);
                             } catch (SQLException e) {
                                 e.printStackTrace();
                             }
 
-                            //Set Pollinator Visit Counts
-                            PollinatorVisitCount pollinatorVisitCount = new PollinatorVisitCount(dataform_id, k, dataForm.getPlants().get(i-1).getPlantID(),
-                                    dataForm.getPlantStrains().get(j-1).getStrainID(),0, 0 );
-                            pollinatorVisitCounts.add(pollinatorVisitCount);
+                            visit_count = Integer.parseInt(req.getParameter("plant" + i + "Strain" + j + "Plot" + j + "Pollinator" + k));//Variable From Input Form
 
-                            visit_count = Integer.parseInt(req.getParameter("plant" + i + "Strain" + j + "Plot" + j + "Pollinator" + k + "VisitCount"));//Variable From Input Form
-                            if(!"".equals(visit_count) && visit_count != 0) { pollinatorVisitCount.setVisit_count(visit_count); };
+                            //Set Pollinator Visit Counts Record if Visit Count is > 0
+                            if(!"".equals(visit_count) && visit_count != 0) {
+                                PollinatorVisitCount pollinatorVisitCount = new PollinatorVisitCount(dataform_id, k, plots.get(j-1).getPlot_id(), plants.get(i-1).getPlantID(),
+                                        strains.get(j-1).getStrainID(), visit_count);
+                                pollinatorVisitCounts.add(pollinatorVisitCount);
+                            };
                         }
                     }
                 }
@@ -381,11 +385,15 @@ public class DataFormServlet extends HttpServlet {
                 //
 
                 // Populate & Generate DataForm
-                System.out.println("Generating DataForm...");
-                PollinatorDataForm pdf = new PollinatorDataForm(dataForm.getGarden_id(), dataForm.getCounty_id(), dataForm.getGenerators(), dataForm.getWeek_number(),
+                System.out.println("DataForm Servlet: Generating DataForm...");
+                /*PollinatorDataForm pdf = new PollinatorDataForm(dataForm.getGarden_id(), dataForm.getCounty_id(), dataForm.getGenerators(), dataForm.getWeek_number(),
                         dataForm.getDate_collected(), dataForm.getDate_generated(), dataForm.getDate_confirmed(), dataForm.getWind_status(), dataForm.getCloud_status(),
                         dataForm.getComments(),dataForm.getButterflyMothComments(), dataForm.getTemperature(), dataForm.getMonitor_start(), dataForm.getMonitor_stop(),
-                        0, dataForm.getPlants(), dataForm.getPlantStrains(), dataForm.getPlots(), dataForm.getPollinators(), dataForm.getPollinatorVisitCounts() );
+                        0, dataForm.getPlants(), dataForm.getPlantStrains(), dataForm.getPlots(), dataForm.getPollinators(), dataForm.getPollinatorVisitCounts() );*/
+                PollinatorDataForm pdf = new PollinatorDataForm(dataForm.getGarden_id(), dataForm.getCounty_id(), generators, dataForm.getWeek_number(),
+                        dataForm.getDate_collected(), null, null, dataForm.getWind_status(), dataForm.getCloud_status(),
+                        dataForm.getComments(),dataForm.getButterflyMothComments(), dataForm.getTemperature(), dataForm.getMonitor_start(), dataForm.getMonitor_stop(),
+                        0, plants, strains, plots, pollinators, pollinatorVisitCounts);
                 try {
                     controller.createDataInput(pdf);
                 } catch (SQLException e) {
@@ -395,8 +403,8 @@ public class DataFormServlet extends HttpServlet {
                     req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
                     e.printStackTrace();
                 }
-                System.out.println("DataForm successfully generated! Time to graduate :)");
-                resp.sendRedirect(req.getContextPath() + "/garden");
+                System.out.println("DataForm Servlet: DataForm successfully generated! Time to graduate :)");
+                resp.sendRedirect(req.getContextPath() + "/home");
             }
         }
     }

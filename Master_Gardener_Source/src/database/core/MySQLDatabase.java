@@ -393,7 +393,7 @@ public class MySQLDatabase implements IDatabase {
             }
 
             for(int i = 0; i < plant_strain_id_list.size(); i++) {
-                stmt = conn.prepareStatement("SELECT strand_name FROM mg_plant_strain WHERE plant_id = ?");
+                stmt = conn.prepareStatement("SELECT name FROM mg_plant_strain WHERE plant_id = ?");
                 stmt.setInt(1, plant_strain_id_list.get(i));
                 set = stmt.executeQuery();
                 while(set.next())
@@ -450,14 +450,16 @@ public class MySQLDatabase implements IDatabase {
 
 
     public List<String> getAllPollinatorsPlantsGardenVisitCount() throws SQLException {
-        DataSource ds = getMySQLDataSource();
-        Connection conn = ds.getConnection();
+
 
         try {
             return doQueryLoop(new Query<List<String>>() {
                 @Override
-                public List<String> query(Connection conn) throws SQLException {
+                public List<String> query() throws SQLException {
                     List<String> results = new ArrayList<String>();
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
+
                     PreparedStatement stmt = null;
                     ResultSet set = null;
                     try {
@@ -511,7 +513,7 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<List<String>>() {
                 @Override
-                public List<String> query(Connection conn) throws SQLException {
+                public List<String> query() throws SQLException {
                     List<String> results = new ArrayList<String>();
 
                     PreparedStatement stmt = null;
@@ -555,7 +557,7 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<List<String>>() {
                 @Override
-                public List<String> query(Connection conn) throws SQLException {
+                public List<String> query() throws SQLException {
                     List<String> results = new ArrayList<String>();
 
                     PreparedStatement stmt = null;
@@ -563,7 +565,7 @@ public class MySQLDatabase implements IDatabase {
                     try
 
                     {
-                        stmt = conn.prepareStatement("SELECT plantName FROM mg_plant");
+                        stmt = conn.prepareStatement("SELECT plant_name FROM mg_plant");
                         resultSet = stmt.executeQuery();
                         boolean found = false;
                         while (resultSet.next()) {
@@ -599,13 +601,13 @@ public class MySQLDatabase implements IDatabase {
             return doQueryLoop(new Query<List<String>>() {
                 @Override
 
-                public List<String> query(Connection conn) throws SQLException {
+                public List<String> query() throws SQLException {
                     List<String> results = new ArrayList<String>();
                     PreparedStatement stmt = null;
                     ResultSet resultSet = null;
 
                     try {
-                        stmt = conn.prepareStatement("SELECT strand_name FROM mg_plant_strain");
+                        stmt = conn.prepareStatement("SELECT name FROM mg_plant_strain");
                         resultSet = stmt.executeQuery();
                         boolean found = false;
                         while (resultSet.next()) {
@@ -1157,7 +1159,7 @@ public class MySQLDatabase implements IDatabase {
             set = stmt.executeQuery();
             set.next();
 
-            if(set.next()) {
+            if(set.next()){
                 loadUser(user, set, 1);
             }
         } finally {
@@ -1304,7 +1306,7 @@ public class MySQLDatabase implements IDatabase {
         ResultSet rs = null;
         try {
 
-            stmt = conn.prepareStatement(" SELECT plant_ID FROM mg_plant WHERE plantName = ? ");
+            stmt = conn.prepareStatement(" SELECT plant_ID FROM mg_plant WHERE plant_name = ? ");
             stmt.setString(1, plant_name);
             rs = stmt.executeQuery();
 
@@ -1329,7 +1331,7 @@ public class MySQLDatabase implements IDatabase {
             ResultSet rs = null;
             try {
 
-                stmt = conn.prepareStatement(" SELECT strand_id FROM mg_plant_strain WHERE strand_name = ? ");
+                stmt = conn.prepareStatement(" SELECT strain_id FROM mg_plant_strain WHERE name = ? ");
                 stmt.setString(1, strain_name);
                 rs = stmt.executeQuery();
 
@@ -1628,13 +1630,13 @@ public class MySQLDatabase implements IDatabase {
                     }
                 /*
                 // Next, get Plant name. Seperate this from getting Strain name because it's easier to manage.
-                stmt1 = conn.prepareStatement("SELECT plantName FROM mg_plant WHERE plant_ID = ?");
+                stmt1 = conn.prepareStatement("SELECT plant_name FROM mg_plant WHERE plant_ID = ?");
                 stmt1.setInt(1, set1.getInt(2));
                 set2 = stmt1.executeQuery();
                 return_list.add(set2.getString(1));
 
                 // Next, get Strain name
-                stmt1 = conn.prepareStatement("SELECT strand_name FROM mg_plant_strain WHERE plant_id = ?");
+                stmt1 = conn.prepareStatement("SELECT strain_name FROM mg_plant_strain WHERE plant_id = ?");
                 stmt1.setInt(1, set1.getInt(2));
                 set2 = stmt1.executeQuery();
                 while (set2.next()) {
@@ -2089,14 +2091,14 @@ public class MySQLDatabase implements IDatabase {
         boolean completed = false;
         try {
             stmt = conn.prepareStatement("UPDATE mg_plant " +
-                    "SET plantName = ? " +
-                    "WHERE plantName = ?");
+                    "SET plant_name = ? " +
+                    "WHERE plant_name = ?");
             stmt.setString(1, updated_name);
             stmt.setString(2, plant_name);
 
             stmt.executeUpdate();
 
-            stmt2 = conn.prepareStatement("SELECT plantName FROM mg_plant WHERE plantName = ?");
+            stmt2 = conn.prepareStatement("SELECT plant_name FROM mg_plant WHERE plant_name = ?");
             stmt2.setString(1, updated_name);
 
             set = stmt2.executeQuery();
@@ -2207,14 +2209,14 @@ public class MySQLDatabase implements IDatabase {
         boolean completed = false;
         try {
             stmt = conn.prepareStatement("UPDATE mg_plant_strain " +
-                    "SET strand_name = ? " +
-                    "WHERE strand_name = ?");
+                    "SET name = ? " +
+                    "WHERE name = ?");
             stmt.setString(1, updated_name);
             stmt.setString(2, current_name);
 
             stmt.executeUpdate();
 
-            stmt2 = conn.prepareStatement("SELECT strand_name FROM mg_plant_strain WHERE strand_name = ?");
+            stmt2 = conn.prepareStatement("SELECT name FROM mg_plant_strain WHERE name = ?");
             stmt2.setString(1, updated_name);
 
             set = stmt2.executeQuery();
@@ -2674,7 +2676,7 @@ public class MySQLDatabase implements IDatabase {
         try {
 
             stmt1 = conn.prepareStatement(
-                    "INSERT INTO mg_plant_strain (strand_name, plant_id) "
+                    "INSERT INTO mg_plant_strain (name, plant_id) "
                             + " VALUES(?, ?)");
             stmt1.setString(1, ps.getStrainName());
             stmt1.setInt(2, ps.getPlantID());
@@ -2682,8 +2684,8 @@ public class MySQLDatabase implements IDatabase {
             stmt1.executeUpdate();
 
             stmt2 = conn.prepareStatement(
-                    "SELECT strand_id FROM mg_plant_strain "
-                            + " WHERE strand_name = ? AND plant_id = ?");
+                    "SELECT strain_id FROM mg_plant_strain "
+                            + " WHERE name = ? AND plant_id = ?");
             stmt2.setString(1, ps.getStrainName());
             stmt2.setInt(2, ps.getPlantID());
 
@@ -2711,7 +2713,7 @@ public class MySQLDatabase implements IDatabase {
 
         try {
             stmt1 = conn.prepareStatement(
-                    "INSERT INTO mg_plant (plantName) "
+                    "INSERT INTO mg_plant (plant_name) "
                             + " VALUES(?)");
             stmt1.setString(1, plant.getPlantName());
 
@@ -2719,7 +2721,7 @@ public class MySQLDatabase implements IDatabase {
 
             stmt2 = conn.prepareStatement(
                     "SELECT plant_ID FROM mg_plant "
-                            + " WHERE plantName = ? ");
+                            + " WHERE plant_name = ? ");
             // TODO: A plant name does not have to be unique. This update does not necessarily work as intended.
             stmt2.setString(1, plant.getPlantName());
             //stmt2.setInt(2, plant.getPlantID()); might solve the above issue. Problem is, where the hell do we get the ID without a query?
@@ -2835,7 +2837,7 @@ public class MySQLDatabase implements IDatabase {
             stmt2.setInt(1, strain.getStrainID());
             stmt2.executeUpdate();
 
-            stmt1 = conn.prepareStatement("DELETE FROM mg_plant_strain WHERE strand_id = ?");
+            stmt1 = conn.prepareStatement("DELETE FROM mg_plant_strain WHERE strain_id = ?");
             stmt1.setInt(1, strain.getStrainID());
             stmt1.executeUpdate();
 
@@ -3066,7 +3068,9 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<Integer>() {
                 @Override
-                public Integer query(Connection conn) throws SQLException {
+                public Integer query() throws SQLException {
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
                     PreparedStatement stmt = null;
                     ResultSet set = null;
                     int loginId = -1;
@@ -3098,7 +3102,9 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<User>() {
                 @Override
-                public User query(Connection conn) throws SQLException {
+                public User query() throws SQLException {
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
                     User user = null;
                     if (verifyUserExistsByUsername(conn, username)) {
                         user = getUserFromUserName(username);
@@ -3116,7 +3122,9 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<String>() {
                 @Override
-                public String query(Connection conn) throws SQLException {
+                public String query() throws SQLException {
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
                     String password;
                     password = getPasswordByUsername(conn, username);
                     return password;
@@ -3175,7 +3183,9 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<Boolean>() {
                 @Override
-                public Boolean query(Connection conn) throws SQLException {
+                public Boolean query() throws SQLException {
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
                     boolean success = false;
                     if (!verifyUserExistsByUsername(conn, user.getUsername())) {
                         if (insertUserIntoUsers(conn, user)) ;
@@ -3195,7 +3205,9 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<Boolean>() {
                 @Override
-                public Boolean query(Connection conn) throws SQLException {
+                public Boolean query() throws SQLException {
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
                     boolean success = false;
                     if (!verifyGardenExistsbyGardenName(garden.getGarden_name())) {
                         if (insertGardenintoGardens(conn, garden)) ;
@@ -3388,7 +3400,9 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<Boolean>() {
                 @Override
-                public Boolean query(Connection conn) throws SQLException {
+                public Boolean query() throws SQLException {
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
                     boolean success = false;
                     if (insertPostintoPosts(conn, post)) {
                         success = true;
@@ -3407,7 +3421,9 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<Boolean>() {
                 @Override
-                public Boolean query(Connection conn) throws SQLException {
+                public Boolean query() throws SQLException {
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
                     boolean success = false;
                     if (!verifyGardenMemberexistsinGarden(conn, gardenMember)) {
                         if (insertGardenMemberintoGardenMembers(conn, gardenMember))
@@ -3427,7 +3443,9 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<Integer>() {
                 @Override
-                public Integer query(Connection conn) throws SQLException {
+                public Integer query() throws SQLException {
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
                     PreparedStatement stmt = null;
                     ResultSet set = null;
                     int garden_id = -1;
@@ -3470,7 +3488,9 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<String>() {
                 @Override
-                public String query(Connection conn) throws SQLException {
+                public String query() throws SQLException {
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
                     PreparedStatement stmt = null;
                     ResultSet set = null;
                     String county_name = "";
@@ -3511,7 +3531,9 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<String>() {
                 @Override
-                public String query(Connection conn) throws SQLException {
+                public String query() throws SQLException {
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
                     PreparedStatement stmt = null;
                     ResultSet set = null;
                     String county_name = "";
@@ -3553,7 +3575,9 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<Integer>() {
                 @Override
-                public Integer query(Connection conn) throws SQLException {
+                public Integer query() throws SQLException {
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
                     PreparedStatement stmt = null;
                     ResultSet set = null;
                     int county_id = 0;
@@ -3595,7 +3619,9 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<String>() {
                 @Override
-                public String query(Connection conn) throws SQLException {
+                public String query() throws SQLException {
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
                     PreparedStatement stmt = null;
                     ResultSet set = null;
                     String garden_address = "";
@@ -3636,7 +3662,9 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<Boolean>() {
                 @Override
-                public Boolean query(Connection conn) throws SQLException {
+                public Boolean query() throws SQLException {
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
                     boolean success;
                     if (deleteUserByUsername(conn, user)) ;
                     success = true;
@@ -3679,7 +3707,9 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<Boolean>() {
                 @Override
-                public Boolean query(Connection conn) throws SQLException {
+                public Boolean query() throws SQLException {
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
                     if (verifyUserExistsByUsername(conn, username))
                         //return updateUserByUsername(conn, username, user, inputStream);
                         return updateUserByUsername(username, user);
@@ -3697,7 +3727,9 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<Boolean>() {
                 @Override
-                public Boolean query(Connection conn) throws SQLException {
+                public Boolean query() throws SQLException {
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
                     if (verifyUserExistsByUsername(conn, username))
                         return updateUserPortraitByUsername(conn, username, user, filePath);
                     else
@@ -3714,7 +3746,9 @@ public class MySQLDatabase implements IDatabase {
         try {
             return doQueryLoop(new Query<Boolean>() {
                 @Override
-                public Boolean query(Connection conn) throws SQLException {
+                public Boolean query() throws SQLException {
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
                     if (verifyUserExistsByUsername(conn, username))
                         //return updateUserByUsername(conn, username, user, inputStream);
                         return insertUserPortraitByUsername(conn, username, user, filePath);
@@ -3732,7 +3766,9 @@ public class MySQLDatabase implements IDatabase {
         try{
             return doQueryLoop(new Query<Integer>(){
                 @Override
-                public Integer query(Connection conn) throws SQLException{
+                public Integer query() throws SQLException{
+                    DataSource ds = getMySQLDataSource();
+                    Connection conn = ds.getConnection();
                     PreparedStatement stmt = null;
                     ResultSet set = null;
                     int Visitcounts = -1;
@@ -3806,91 +3842,85 @@ public class MySQLDatabase implements IDatabase {
         // Total number of Pollinators
         int pollinators_total = 9;
 
-        System.out.println("Inserting data into dataform table.");
+        System.out.println("Inserting Dataform data...");
         try {
-
+            int index = 1;
+            int generators_total = 4;
             // This is required to make dateCreated and Generated work
             Date date_collected = java.sql.Date.valueOf(pdf.getDate_collected());
-            Date date_generated = java.sql.Date.valueOf(pdf.getDate_generated());
-            Date date_confirmed = java.sql.Date.valueOf(pdf.getDate_confirmed());
+            //Date date_generated = java.sql.Date.valueOf(pdf.getDate_generated());
+            //Date date_confirmed = java.sql.Date.valueOf(pdf.getDate_confirmed());
 
             // Insert into the main dataform table
             stmt1 = conn.prepareStatement("INSERT INTO mg_data_form (week_number, garden_id, county_id, generator_id1, generator_id2, generator_id3, generator_id4, " +
-                    "date_collected, date_generated, date_confirmed, wind_status, cloud_status, comments, butterfly_moth_comments, confirmed, temperature, monitor_start, monitor_stop)" +
-                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            stmt1.setInt(1, pdf.getWeek_number());
-            stmt1.setInt(2, pdf.getGarden_id());
-            stmt1.setInt(3, pdf.getCounty_id());
-            stmt1.setInt(4, pdf.getGenerators().get(0).getUserId());
-            stmt1.setInt(5, pdf.getGenerators().get(1).getUserId());
-            stmt1.setInt(6, pdf.getGenerators().get(2).getUserId());
-            stmt1.setInt(7, pdf.getGenerators().get(3).getUserId());
-            stmt1.setDate(8, (java.sql.Date) date_collected);
-            stmt1.setDate(9, (java.sql.Date) date_generated);
-            stmt1.setDate(10, (java.sql.Date) date_confirmed);
-            stmt1.setString(11, pdf.getWind_status());
-            stmt1.setString(12, pdf.getCloud_status());
-            stmt1.setString(13, pdf.getComments());
-            stmt1.setString(14, pdf.getButterflyMothComments());
-            stmt1.setInt(15, pdf.getConfirmedStatus());
-            stmt1.setInt(16, pdf.getTemperature());
-            stmt1.setTime(17, Time.valueOf(pdf.getMonitor_start()));
-            stmt1.setTime(18, Time.valueOf(pdf.getMonitor_stop()));
+                    "date_collected, wind_status, cloud_status, comments, butterfly_moth_comments, confirmed, temperature, monitor_start, monitor_stop)" +
+                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            stmt1.setInt(index++, pdf.getWeek_number());
+            stmt1.setInt(index++, pdf.getGarden_id());
+            stmt1.setInt(index++, pdf.getCounty_id());
+            //Generator ID Solution
+            for(int i = 0; i <= (pdf.getGenerators().size()-1); i++){
+                stmt1.setInt(index++, pdf.getGenerators().get(i).getUserId());
+            }
+            for(int i = 1; i <= (generators_total - pdf.getGenerators().size()); i++){
+                stmt1.setInt(index++, -1);
+            }
+            stmt1.setDate(index++, (java.sql.Date) date_collected);
+            stmt1.setString(index++, pdf.getWind_status());
+            stmt1.setString(index++, pdf.getCloud_status());
+            stmt1.setString(index++, pdf.getComments());
+            stmt1.setString(index++, pdf.getButterflyMothComments());
+            stmt1.setInt(index++, pdf.getConfirmedStatus());
+            stmt1.setInt(index++, pdf.getTemperature());
+            stmt1.setTime(index++, Time.valueOf(pdf.getMonitor_start()));
+            stmt1.setTime(index++, Time.valueOf(pdf.getMonitor_stop()));
             stmt1.executeUpdate();
 
             // Set DataForm ID
-            dataform_id = getAllDataFormIDs().get(0);
+            dataform_id = (getAllDataFormIDs().get(0)+1);
             if (dataform_id == 0) {
                 System.out.println("Error Acquiring DataForm ID");
             }
             else {
-                System.out.println("Populating DataForm Lists");
+                System.out.println("Updating Plot data...");
 
-                // Get Plant
-                for (int i = 0; i < pdf.getPlants().size(); i++) {
-                    Plant plant = pdf.getPlants().get(i);
+                // Update Plots
+                for (int j = 0; j <= (pdf.getPlots().size()-1); j++) {
+                    Plot plot = pdf.getPlots().get(j);
 
-                    // Get Strain
-                    for (int j = 0; j < pdf.getPlantStrains().size(); j++) {
-                        PlantStrain strain = pdf.getPlantStrains().get(j);
-                        Plot plot = pdf.getPlots().get(j);
+                    stmt2 = conn.prepareStatement("UPDATE mg_plot " +
+                            "SET percent_coverage = ?, plot_height = ?, plot_area_dbl = ?, blooms_open_status = ? " +
+                            " WHERE plant_id = ? AND plant_strain_id = ?");
+                    stmt2.setDouble(1, plot.getPlot_percent_coverage());
+                    stmt2.setDouble(3, plot.getPlot_height());
+                    stmt2.setDouble(2, plot.getPlot_area_dbl());
+                    stmt2.setString(4, plot.getPlot_blooms_open_status());
+                    stmt2.setInt(5, plot.getPlant_id());
+                    stmt2.setInt(6, plot.getStrain_id());
+                    stmt2.executeUpdate();
+                }
+                System.out.println("Inserting Pollinator Visit Count data...");
 
-                        // Update Plot
-                        stmt2 = conn.prepareStatement("UPDATE mg_plot " +
-                                "SET percent_coverage = ?, plot_height = ?, plot_area_dbl = ?, blooms_open_status = ? " +
-                                " WHERE plant_id = ? AND plant_strain_id = ?");
-                        stmt2.setDouble(1, plot.getPlot_percent_coverage());
-                        stmt2.setDouble(3, plot.getPlot_height());
-                        stmt2.setDouble(2, plot.getPlot_area_dbl());
-                        stmt2.setString(4, plot.getPlot_blooms_open_status());
-                        stmt2.setInt(5, plant.getPlantID());
-                        stmt2.setInt(6, strain.getStrainID());
+                // Insert Pollinator Visit Counts
+                for (int k = 0; k <= (pdf.getPollinatorVisitCounts().size()-1); k++) {
+                    PollinatorVisitCount pvc = pdf.getPollinatorVisitCounts().get(k);
 
-                        stmt2.executeUpdate();
+                    stmt3 = conn.prepareStatement("INSERT INTO mg_pollinator_visit (data_form_id, pollinator_id, plot_id, plant_id, strain_id, visit_count)" +
+                            "VALUES (?, ?, ?, ?, ?, ?)");
+                    stmt3.setInt(1, dataform_id);
+                    stmt3.setInt(2, pvc.getData_form_id());
+                    stmt3.setInt(3, pvc.getPlot_id());
+                    stmt3.setInt(4, pvc.getPlant_id());
+                    stmt3.setInt(5, pvc.getStrain_id());
+                    stmt3.setInt(6, pvc.getVisit_count());
+                    stmt3.executeUpdate();
 
-                        for (int k = 0; k < 9; k++) {
-                            int poll_id, pvc_id;
-                            Pollinator pollinator = pdf.getPollinators().get(k);
-                            PollinatorVisitCount pvc = pdf.getPollinatorVisitCounts().get(k);
-
-                            stmt3 = conn.prepareStatement("INSERT INTO mg_pollinator_visit (data_form_id, pollinator_id, plot_id, plant_id, strain_id, visit_count)" +
-                                    "VALUES (?, ?, ?, ?, ?, ?)");
-                            stmt3.setInt(1, dataform_id);
-                            stmt3.setInt(2, pollinator.getPollinatorID());
-                            stmt3.setInt(3, plot.getPlot_id());
-                            stmt3.setInt(4, plot.getPlant_id());
-                            stmt3.setInt(5, plot.getStrain_id());
-                            stmt3.setInt(6, pvc.getVisit_count());
-                            stmt3.executeUpdate();
-
-                            // Set VisitCount ID
-                            pollinator_visit_count_id = getAllVisitCountIDs().get(0);
-                            if (pollinator_visit_count_id == 0) {
-                                System.out.println("Error Acquiring VisitCount ID");
-                                result = false;
-                                break;
-                            }
-                        }
+                    // Set VisitCount ID
+                    pollinator_visit_count_id = getAllVisitCountIDs().get(0);
+                    if (pollinator_visit_count_id == 0) {
+                        System.out.println("Error Acquiring VisitCount ID");
+                        result = false;
+                        break;
                     }
                 }
             }
@@ -3932,7 +3962,7 @@ public class MySQLDatabase implements IDatabase {
             return doQueryLoop(new Query<List<User>>() {
                 @Override
                 //          (column probably does not exist in any tables
-                public List<User> query(Connection conn) throws SQLException {
+                public List<User> query() throws SQLException {
 
                     PreparedStatement stmt = null;
                     ResultSet resultSet = null;
@@ -3982,7 +4012,7 @@ public class MySQLDatabase implements IDatabase {
             return doQueryLoop(new Query<List<Garden>>() {
                 @Override
                 //          (column probably does not exist in any tables
-                public List<Garden> query(Connection conn) throws SQLException {
+                public List<Garden> query() throws SQLException {
 
                     PreparedStatement stmt = null;
                     ResultSet resultSet = null;
@@ -4041,7 +4071,7 @@ public class MySQLDatabase implements IDatabase {
             }
 
             for (int i = 0; i < id_set.size(); i++) {
-                stmt2 = conn.prepareStatement("SELECT strand_name FROM mg_plant_strain WHERE strand_id = ?");
+                stmt2 = conn.prepareStatement("SELECT name FROM mg_plant_strain WHERE strain_id = ?");
                 stmt2.setInt(1, id_set.get(i));
                 set2 = stmt2.executeQuery();
                 result_set.add(set2.getString(1));
@@ -4075,7 +4105,7 @@ public class MySQLDatabase implements IDatabase {
         PlantStrain strain = new PlantStrain(0, 0,null, null);
 
         try {
-            stmt = conn.prepareStatement("SELECT * FROM mg_strain WHERE strain_id = ?");
+            stmt = conn.prepareStatement("SELECT * FROM mg_plant_strain WHERE strain_id = ?");
             stmt.setInt(1, strain_id);
             set = stmt.executeQuery();
 
@@ -4129,7 +4159,7 @@ public class MySQLDatabase implements IDatabase {
         }
 
         if (!found) {
-            System.out.println("There was no Plant found for the designated Plant ID");
+            System.out.println("There was no Plant found for Plant ID <" + plant_id + ">");
         }
 
         return plant;
@@ -4160,7 +4190,7 @@ public class MySQLDatabase implements IDatabase {
 
             }
             if (found) {
-                stmt2 = conn.prepareStatement("SELECT plantName FROM mg_plant WHERE plant_ID = ?");
+                stmt2 = conn.prepareStatement("SELECT plant_name FROM mg_plant WHERE plant_ID = ?");
                 stmt2.setInt(1, plant_id);
                 set2 = stmt2.executeQuery();
                 result_set = set2.getString(1);
@@ -4194,7 +4224,9 @@ public class MySQLDatabase implements IDatabase {
         try {
             while (!done && times < MAX_ATTEMPTS) {
                 try {
-                    ret = query.query(conn);
+                    //DataSource ds = getMySQLDataSource();
+                    //Connection conn = ds.getConnection();
+                    ret = query.query();
                     conn.commit();
                     done = true;
                 } catch (SQLException e) {
@@ -4323,6 +4355,6 @@ public class MySQLDatabase implements IDatabase {
     }
 
     public interface Query<ReturnType> {
-        ReturnType query(Connection conn) throws SQLException;
+        ReturnType query() throws SQLException;
     }
 }

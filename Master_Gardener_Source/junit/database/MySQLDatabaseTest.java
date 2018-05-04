@@ -227,14 +227,14 @@ public class MySQLDatabaseTest {
         boolean success = false;
 
         try {
-            stmt = conn.prepareStatement("INSERT INTO mg_plant_strain(strand_id, strand_name, plant_id) VALUES (-920, 'Crunk', -5)");
+            stmt = conn.prepareStatement("INSERT INTO mg_plant_strain(strain_id, name, plant_id) VALUES (-920, 'Crunk', -5)");
             stmt.executeUpdate();
 
             if (db.getStrainIDByStrainName("Crunk") == -920) {
                 success = true;
             }
 
-            stmt = conn.prepareStatement("DELETE FROM mg_plant_strain WHERE strand_id = -920 AND strand_name = 'Crunk' AND plant_id = -5");
+            stmt = conn.prepareStatement("DELETE FROM mg_plant_strain WHERE strain_id = -920 AND name = 'Crunk' AND plant_id = -5");
             stmt.executeUpdate();
 
             assertEquals(success, true);
@@ -451,7 +451,7 @@ public class MySQLDatabaseTest {
         PlantStrain pl = new PlantStrain(-2, -410, "Pump", "Skrub");
 
         try {
-            stmt = conn.prepareStatement("INSERT INTO mg_plant_strain (strand_id, strand_name, plant_id) VALUES (-2, 'Pump', -410)");
+            stmt = conn.prepareStatement("INSERT INTO mg_plant_strain (strain_id, name, plant_id) VALUES (-2, 'Pump', -410)");
             stmt.executeUpdate();
 
             if (db.deleteStrainFromDatabase(pl))
@@ -459,7 +459,7 @@ public class MySQLDatabaseTest {
                 success = true;
 
             } else {
-                stmt = conn.prepareStatement("DELETE FROM mg_plant_strain WHERE strand_id = -2");
+                stmt = conn.prepareStatement("DELETE FROM mg_plant_strain WHERE strain_id = -2");
                 stmt.executeUpdate();
             }
             assertEquals(success, true);
@@ -614,7 +614,7 @@ public class MySQLDatabaseTest {
                 success = true;
             }
 
-            stmt = conn.prepareStatement("SELECT * FROM mg_plant_strain WHERE strand_name = 'Strayn' AND plant_id = -20");
+            stmt = conn.prepareStatement("SELECT * FROM mg_plant_strain WHERE name = 'Strayn' AND plant_id = -20");
             set = stmt.executeQuery();
 
             if(!set.next())
@@ -624,7 +624,7 @@ public class MySQLDatabaseTest {
             }
             if(success)
             {
-                stmt = conn.prepareStatement("DELETE FROM mg_plant_strain WHERE strand_name = 'Strayn' AND plant_id = -20");
+                stmt = conn.prepareStatement("DELETE FROM mg_plant_strain WHERE name = 'Strayn' AND plant_id = -20");
                 stmt.executeUpdate();
             }
             assertEquals(success, true);
@@ -922,7 +922,7 @@ public class MySQLDatabaseTest {
 
         try
         {
-            stmt = conn.prepareStatement("INSERT INTO mg_plant_strain (strand_id, strand_name, plant_id) VALUES (-32, 'egg', -24)");
+            stmt = conn.prepareStatement("INSERT INTO mg_plant_strain (strain_id, name, plant_id) VALUES (-32, 'egg', -24)");
             stmt.executeUpdate();
 
             if(db.updateStrainName("egg", "yogg"));
@@ -930,7 +930,7 @@ public class MySQLDatabaseTest {
                 success = true;
             }
 
-            stmt = conn.prepareStatement("SELECT * FROM mg_plant_strain WHERE strand_name = 'yogg'");
+            stmt = conn.prepareStatement("SELECT * FROM mg_plant_strain WHERE name = 'yogg'");
             set = stmt.executeQuery();
 
             if(!set.next())
@@ -939,7 +939,7 @@ public class MySQLDatabaseTest {
                 System.out.println("Something went wrong in tests");
             }
 
-            stmt = conn.prepareStatement("DELETE FROM mg_plant_strain WHERE strand_id = -32");
+            stmt = conn.prepareStatement("DELETE FROM mg_plant_strain WHERE strain_id = -32");
             stmt.executeUpdate();
 
             assertEquals(success, true);
