@@ -3882,41 +3882,25 @@ public class MySQLDatabase implements IDatabase {
             stmt1.setString(index++, pdf.getCloud_status());
             stmt1.setString(index++, pdf.getComments());
             stmt1.setString(index++, pdf.getButterflyMothComments());
-            stmt1.setInt(index++, pdf.getConfirmedStatus());
+            stmt1.setInt(index++, 0);
             stmt1.setInt(index++, pdf.getTemperature());
             stmt1.setTime(index++, Time.valueOf(pdf.getMonitor_start()));
             stmt1.setTime(index++, Time.valueOf(pdf.getMonitor_stop()));
             stmt1.executeUpdate();
 
-            // Set DataForm ID
+            // Get DataForm ID
             index = 1;
             generators_total = 4;
-            stmt4 = conn.prepareStatement("SELECT id FROM mg_data_form WHERE week_number = ?, garden_id = ?, county_id = ? , generator_id1 = ?, generator_id2 = ?," +
-                    " generator_id3 = ?, generator_id4 = ?, date_collected = ?, wind_status = ?, cloud_status = ?, comments = ?, butterfly_moth_comments = ?, confirmed = ?," +
-                    " temperature = ?, monitor_start = ?, monitor_stop = ?");
+            stmt4 = conn.prepareStatement("SELECT id FROM mg_data_form WHERE week_number = ? AND garden_id = ? AND county_id = ? AND generator_id1 = ? AND date_collected = ?");
 
-            stmt4.setInt(index++, pdf.getWeek_number());
-            stmt4.setInt(index++, pdf.getGarden_id());
-            stmt4.setInt(index++, pdf.getCounty_id());
-            //Generator ID Solution
-            for(int i = 0; i <= (pdf.getGenerators().size()-1); i++){
-                stmt4.setInt(index++, pdf.getGenerators().get(i).getUserId());
-            }
-            for(int i = 1; i <= (generators_total - pdf.getGenerators().size()); i++){
-                stmt4.setInt(index++, -1);
-            }
-            stmt4.setDate(index++, (java.sql.Date) date_collected);
-            stmt4.setString(index++, pdf.getWind_status());
-            stmt4.setString(index++, pdf.getCloud_status());
-            stmt4.setString(index++, pdf.getComments());
-            stmt4.setString(index++, pdf.getButterflyMothComments());
-            stmt4.setInt(index++, pdf.getConfirmedStatus());
-            stmt4.setInt(index++, pdf.getTemperature());
-            stmt4.setTime(index++, Time.valueOf(pdf.getMonitor_start()));
-            stmt4.setTime(index++, Time.valueOf(pdf.getMonitor_stop()));
+            stmt4.setInt(1, pdf.getWeek_number());
+            stmt4.setInt(2, pdf.getGarden_id());
+            stmt4.setInt(3, pdf.getCounty_id());
+            stmt4.setInt(4 , pdf.getGenerators().get(0).getUserId());
+            stmt4.setDate(5, (java.sql.Date) date_collected);
 
             set4 = stmt4.executeQuery();
-
+            //System.out.println(set4.getInt(1));
             if(set4.next())
             {
                 // It's very unlikely for two dataforms to have exactly the same amount of data,
@@ -3924,12 +3908,14 @@ public class MySQLDatabase implements IDatabase {
                 // the last DF id + 1
                 dataform_id = set4.getInt(1);
             }
-
-            //dataform_id = (getAllDataFormIDs().get(0)+1);
+            System.out.println("dataform id:" + dataform_id);
 
             if (dataform_id == 0) {
                 System.out.println("Error Acquiring DataForm ID");
             }
+
+            // TODO: FINISH TESTING THIS
+
             else {
                 System.out.println("Updating Plot data...");
 
@@ -3957,7 +3943,7 @@ public class MySQLDatabase implements IDatabase {
                     stmt3 = conn.prepareStatement("INSERT INTO mg_pollinator_visit (data_form_id, pollinator_id, plot_id, plant_id, strain_id, visit_count)" +
                             "VALUES (?, ?, ?, ?, ?, ?)");
                     stmt3.setInt(1, dataform_id);
-                    stmt3.setInt(2, pvc.getData_form_id());
+                    stmt3.setInt(2, pvc.getPollinator_id());
                     stmt3.setInt(3, pvc.getPlot_id());
                     stmt3.setInt(4, pvc.getPlant_id());
                     stmt3.setInt(5, pvc.getStrain_id());

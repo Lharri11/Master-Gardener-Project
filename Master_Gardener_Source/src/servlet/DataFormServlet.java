@@ -210,10 +210,10 @@ public class DataFormServlet extends HttpServlet {
                     dataForm.setGarden_id(controller.getGardenIDByGardenName(garden_name));
                     dataForm.setCounty_id(controller.getCountyIDByGardenName(garden_name));
                     //Set Generators
-                    System.out.println(generator_first_name1);
-                    System.out.println(generator_last_name1);
-                    System.out.println(controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1));
-                    System.out.println(controller.getUserFromUserID(controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1)).getUserId());
+                    //System.out.println(generator_first_name1);
+                    //System.out.println(generator_last_name1);
+                    //System.out.println(controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1));
+                   // System.out.println(controller.getUserFromUserID(controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1)).getUserId());
 
                     generators.add(controller.getUserFromUserID(controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1)));
 

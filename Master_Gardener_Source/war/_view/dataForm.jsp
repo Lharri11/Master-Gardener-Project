@@ -1501,7 +1501,7 @@ be greyed out except the plot size.
                             <label class="control-label">Genus</label>
                             <input type="text" class="form-control"
                                    placeholder="Monarda" name="plant1Name"
-                                   value="Coreopsis Verticillata">
+                                   value="Monarda">
                         </div>
                         <div class="form-group col-lg-6">
                             <label class="control-label">Species</label>
@@ -1741,8 +1741,8 @@ be greyed out except the plot size.
                             <label class="control-label">Genus</label>
 
                             <input type="text" class="form-control"
-                                   placeholder="Coreopsis Verticillata" name="plant1Name"
-                                   value="Coreopsis Verticillata">
+                                   placeholder="Monarda" name="plant1Name"
+                                   value="Monarda">
 
                         </div>
 
@@ -1990,8 +1990,8 @@ be greyed out except the plot size.
                         <div class="form-group col-lg-6">
                             <label class="control-label">Genus</label>
                             <input type="text" class="form-control"
-                                   placeholder="Coreopsis Verticillata" name="plant1Name"
-                                   value="Coreopsis Verticillata">
+                                   placeholder="Monarda" name="plant1Name"
+                                   value="Monarda">
                         </div>
 
 
@@ -2225,8 +2225,8 @@ be greyed out except the plot size.
                         <div class="form-group col-lg-6">
                             <label class="control-label">Genus</label>
                             <input type="text" class="form-control"
-                                   placeholder="Coreopsis Verticillata" name="plant1Name"
-                                   value="Coreopsis Verticillata">
+                                   placeholder="Monarda" name="plant1Name"
+                                   value="Monarda">
                         </div>
 
                         <div class="form-group col-lg-6">
