@@ -30,31 +30,30 @@
 </head>
 <body>
 
-
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" id="mainNav">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
         <a class="navbar-brand" href="${pageContext.servletContext.contextPath}/home">Pollinator Preferences</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="${pageContext.servletContext.contextPath}/user">My Account</a>
-            </li>
-            <form id="logout" action="${pageContext.servletContext.contextPath}/login" method="post">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <button class="nav-link" name="loginSubmit" value="Logout" type="submit"
-                            alt="submit" title="Log Out">Logout
-                    </button>
+                    <a class="nav-link" href="${pageContext.servletContext.contextPath}/user">My Account</a>
                 </li>
-            </form>
-        </ul>
-    </div>
+                <form id="logout" action="${pageContext.servletContext.contextPath}/login" method="post">
+                    <li class="nav-item">
+                        <button class="nav-link" name="loginSubmit" value="Logout" type="submit"
+                                alt="submit" title="Log Out">Logout
+                        </button>
+                    </li>
+                </form>
+            </ul>
+        </div>
     </div>
 </nav>
-
 
 <div class="container admin-page-top-padding">
     <div class="row">
@@ -150,13 +149,6 @@
 
         <div class="col-lg-8">
             <div class="row">
-                <%--
-                            <form id="delete" action="${pageContext.servletContext.contextPath}/admin" method="post">
-
-
-
-
-                            </form>--%>
 
                 <table id="activeAccountTable">
                     <thead>
@@ -186,79 +178,8 @@
 
         </div>
 
-        <%--   <h2>Delete Existing User</h2>
-       </div>
-       <div>
-           <form id="delete" action="${pageContext.servletContext.contextPath}/admin" method="post">
-               <table>
-                   <tr>
-                       <td>User to delete:</td>
 
-                       <td><input type="text" class="text-control" id="usernameDelete" name="username2"
-                                  placeholder="User to Delete"
-                                  value="${usernameDelete}" required autocomplete="off"></td>
-                       <td><input type="submit" class="text-control" name="userDelete"
-                                  value="Delete">
-                       </td>
-                   </tr>
-               </table>
-               <c:if test="${! empty errorMessage2}">
-                   <tr>${errorMessage2}</tr>
-               </c:if>
-           </form>
-       </div>
-
-       <div>
-           <div id="intro"></div>
-       </div>
-
-
-       <div class="col-lg-8 col-md-6 col-sm-12">
-           <table id="activeAccountTable">
-               <thead>
-               <tr>
-                   <th class="col-xs-3">Username</th>
-                   <th class="col-xs-3">First Name</th>
-                   <th class="col-xs-3">Last Name</th>
-                   <th class="col-xs-6">E-mail</th>
-               </tr>
-               </thead>
-               <tbody>
-
-               <c:forEach items="${activeAccounts}" var="activeAccounts">
-                   <tr>
-                       <td class="col-xs-3">${activeAccounts.username}</td>
-                       <td class="col-xs-3">${activeAccounts.firstName}</td>
-                       <td class="col-xs-3">${activeAccounts.lastName}</td>
-                       <td class="col-xs-3">${activeAccounts.email}</td>
-
-                   </tr>
-               </c:forEach>
-               </tbody>
-           </table>
-
-
-           <!--
-           <table id="dataTable" class="table table-bordered">
-               <thead>
-               <tr>
-                   <th class="col-xs-3">Username</th>
-                   <th class="col-xs-3">Name</th>
-                   <th class="col-xs-6">E-mail</th>
-               </tr>
-               </thead>
-               <tbody>
-               <tr>
-                   <td class="col-xs-3">gfhgf</td>
-                   <td class="col-xs-3">gfhfgh</td>
-                   <td class="col-xs-6">gfhfgh</td>
-               </tr>
-               </tbody>
-           </table> -->
-       </div>--%>
     </div>
-
-
 </div>
 
 
@@ -284,33 +205,33 @@
 </script>
 
 <script>
-    (function($) {
+    (function ($) {
         "use strict"; // Start of use strict
         // Configure tooltips for collapsed side navigation
         $('.navbar-sidenav [data-toggle="tooltip"]').tooltip({
             template: '<div class="tooltip navbar-sidenav-tooltip" role="tooltip" style="pointer-events: none;"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
         })
         // Toggle the side navigation
-        $("#sidenavToggler").click(function(e) {
+        $("#sidenavToggler").click(function (e) {
             e.preventDefault();
             $("body").toggleClass("sidenav-toggled");
             $(".navbar-sidenav .nav-link-collapse").addClass("collapsed");
             $(".navbar-sidenav .sidenav-second-level, .navbar-sidenav .sidenav-third-level").removeClass("show");
         });
         // Force the toggled class to be removed when a collapsible nav link is clicked
-        $(".navbar-sidenav .nav-link-collapse").click(function(e) {
+        $(".navbar-sidenav .nav-link-collapse").click(function (e) {
             e.preventDefault();
             $("body").removeClass("sidenav-toggled");
         });
         // Prevent the content wrapper from scrolling when the fixed side navigation hovered over
-        $('body.fixed-nav .navbar-sidenav, body.fixed-nav .sidenav-toggler, body.fixed-nav .navbar-collapse').on('mousewheel DOMMouseScroll', function(e) {
+        $('body.fixed-nav .navbar-sidenav, body.fixed-nav .sidenav-toggler, body.fixed-nav .navbar-collapse').on('mousewheel DOMMouseScroll', function (e) {
             var e0 = e.originalEvent,
                 delta = e0.wheelDelta || -e0.detail;
             this.scrollTop += (delta < 0 ? 1 : -1) * 30;
             e.preventDefault();
         });
         // Scroll to top button appear
-        $(document).scroll(function() {
+        $(document).scroll(function () {
             var scrollDistance = $(this).scrollTop();
             if (scrollDistance > 100) {
                 $('.scroll-to-top').fadeIn();
@@ -321,7 +242,7 @@
         // Configure tooltips globally
         $('[data-toggle="tooltip"]').tooltip()
         // Smooth scrolling using jQuery easing
-        $(document).on('click', 'a.scroll-to-top', function(event) {
+        $(document).on('click', 'a.scroll-to-top', function (event) {
             var $anchor = $(this);
             $('html, body').stop().animate({
                 scrollTop: ($($anchor.attr('href')).offset().top)
@@ -333,7 +254,12 @@
 
 </script>
 
-
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
 
 </body>
 </html>

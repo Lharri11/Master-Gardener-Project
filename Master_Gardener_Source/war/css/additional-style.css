@@ -1,6 +1,4 @@
-body {
-    font-family: 'Lato';
-}
+
 
 h1,
 h2,
@@ -451,4 +449,14 @@ header.masthead .bg-circle-4 {
 
 /* Dataform Page - End */
 
+
+
+/* Admin Page - Start */
+
+.admin-page-top-padding {
+    padding-top: 7.813rem;
+}
+
+
+/* Admin Page - End */
 
