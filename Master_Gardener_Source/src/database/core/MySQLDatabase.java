@@ -1157,10 +1157,19 @@ public class MySQLDatabase implements IDatabase {
                             + " WHERE user_id = ?");
             stmt.setInt(1, user_id);
             set = stmt.executeQuery();
-            set.next();
+            //set.next();
 
             if(set.next()){
                 loadUser(user, set, 1);
+                /*System.out.println("USERFROMUSERID TEST:");
+                System.out.println("user_id: "+ user.getUserId());
+                System.out.println("username: " + user.getUsername());
+                System.out.println("pasword: "+ user.getPassword());
+                System.out.println("login_id: "+ user.getLoginId());
+                System.out.println("email: " + user.getEmail());
+                System.out.println("first_name: "+ user.getFirstName());
+                System.out.println("last_name: " + user.getLastName());
+                System.out.println("description: "+ user.getDescription());*/
             }
         } finally {
             DBUtil.closeQuietly(stmt);
@@ -3827,14 +3836,17 @@ public class MySQLDatabase implements IDatabase {
 
     public boolean insertDataFromDataform(final PollinatorDataForm pdf) throws SQLException
     {
+
         DataSource ds = getMySQLDataSource();
         Connection conn = ds.getConnection();
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
         PreparedStatement stmt3 = null;
+        PreparedStatement stmt4 = null;
         ResultSet set1 = null;
         ResultSet set2 = null;
         ResultSet set3 = null;
+        ResultSet set4 = null;
         boolean result = true;
         int dataform_id = 0;
         int pollinator_visit_count_id = 0;
@@ -3877,7 +3889,44 @@ public class MySQLDatabase implements IDatabase {
             stmt1.executeUpdate();
 
             // Set DataForm ID
-            dataform_id = (getAllDataFormIDs().get(0)+1);
+            index = 1;
+            generators_total = 4;
+            stmt4 = conn.prepareStatement("SELECT id FROM mg_data_form WHERE week_number = ?, garden_id = ?, county_id = ? , generator_id1 = ?, generator_id2 = ?," +
+                    " generator_id3 = ?, generator_id4 = ?, date_collected = ?, wind_status = ?, cloud_status = ?, comments = ?, butterfly_moth_comments = ?, confirmed = ?," +
+                    " temperature = ?, monitor_start = ?, monitor_stop = ?");
+
+            stmt4.setInt(index++, pdf.getWeek_number());
+            stmt4.setInt(index++, pdf.getGarden_id());
+            stmt4.setInt(index++, pdf.getCounty_id());
+            //Generator ID Solution
+            for(int i = 0; i <= (pdf.getGenerators().size()-1); i++){
+                stmt4.setInt(index++, pdf.getGenerators().get(i).getUserId());
+            }
+            for(int i = 1; i <= (generators_total - pdf.getGenerators().size()); i++){
+                stmt4.setInt(index++, -1);
+            }
+            stmt4.setDate(index++, (java.sql.Date) date_collected);
+            stmt4.setString(index++, pdf.getWind_status());
+            stmt4.setString(index++, pdf.getCloud_status());
+            stmt4.setString(index++, pdf.getComments());
+            stmt4.setString(index++, pdf.getButterflyMothComments());
+            stmt4.setInt(index++, pdf.getConfirmedStatus());
+            stmt4.setInt(index++, pdf.getTemperature());
+            stmt4.setTime(index++, Time.valueOf(pdf.getMonitor_start()));
+            stmt4.setTime(index++, Time.valueOf(pdf.getMonitor_stop()));
+
+            set4 = stmt4.executeQuery();
+
+            if(set4.next())
+            {
+                // It's very unlikely for two dataforms to have exactly the same amount of data,
+                // but it's far more likely for errors to occur when getAllDataFormIDs tries to get
+                // the last DF id + 1
+                dataform_id = set4.getInt(1);
+            }
+
+            //dataform_id = (getAllDataFormIDs().get(0)+1);
+
             if (dataform_id == 0) {
                 System.out.println("Error Acquiring DataForm ID");
             }
@@ -3934,9 +3983,11 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(stmt1);
             DBUtil.closeQuietly(stmt2);
             DBUtil.closeQuietly(stmt3);
+            DBUtil.closeQuietly(stmt4);
             DBUtil.closeQuietly(set1);
             DBUtil.closeQuietly(set2);
             DBUtil.closeQuietly(set3);
+            DBUtil.closeQuietly(set4);
             DBUtil.closeQuietly(conn);
         }
 

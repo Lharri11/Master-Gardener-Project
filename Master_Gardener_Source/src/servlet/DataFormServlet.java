@@ -133,6 +133,7 @@ public class DataFormServlet extends HttpServlet {
 
             //DataForm Weather Conditions & Other Information
             temperature = Integer.parseInt(req.getParameter("temperature"));
+            temperature = Integer.parseInt(req.getParameter("temperature"));
             wind_status = req.getParameter("windStatus");
             cloud_status = req.getParameter("cloudStatus");
             comments = req.getParameter("comments");
@@ -210,7 +211,13 @@ public class DataFormServlet extends HttpServlet {
                     dataForm.setGarden_id(controller.getGardenIDByGardenName(garden_name));
                     dataForm.setCounty_id(controller.getCountyIDByGardenName(garden_name));
                     //Set Generators
+                    System.out.println(generator_first_name1);
+                    System.out.println(generator_last_name1);
+                    System.out.println(controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1));
+                    System.out.println(controller.getUserFromUserID(controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1)).getUserId());
+
                     generators.add(controller.getUserFromUserID(controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1)));
+
                     if((!"".equals(generator_first_name2) && generator_first_name2 != null) && (!"".equals(generator_last_name2) && generator_last_name2 != null))
                     {
                         int generator_id = -1;
