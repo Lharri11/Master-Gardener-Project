@@ -38,17 +38,35 @@ public class DataFormServlet extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/login");
             return;
         }
+       // req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
+
 
         //Grab garden name from User page table
-        System.out.println("Getting here ");
-        JSONObject gardenName = new JSONObject(req.getParameter("gardenNameUser"));
-        String gardenChosen;
-        gardenChosen = gardenName.getString("garden_name");
-        System.out.println("Testing " + gardenChosen);
+        //System.out.println(req.getParameter("gardenNameUser"));
 
-        req.setAttribute("gardenName", gardenChosen);
+        for (int i = 1; i <= 1; i++) {
+            JSONObject gardenName = new JSONObject(req.getParameter("gardenNameUser"));
+            System.out.println("Working? ");
+            if (gardenName != null) {
+                System.out.println(req.getParameter("gardenNameUser"));
+            } else {
 
-        //req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
+                System.out.println("This is null ");
+            }
+
+        }
+       // JSONObject gardenName = new JSONObject(req.getParameter("gardenNameUser"));
+       // JSONObject gardenDataName = gardenName.getJSONObject("garden_name");
+        //String gardenChosen = gar
+       // String gardenChosen;
+       // gardenChosen = gardenName.getString("garden_name");
+       // System.out.println("Testing " + gardenChosen);
+
+       // req.setAttribute("gardenName", gardenChosen);
+        //resp.sendRedirect(req.getContextPath()+"/dataForm");
+       req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
+
+        //resp.sendRedirect(req.getContextPath() + "/dataForm");
     }
 
     @Override
