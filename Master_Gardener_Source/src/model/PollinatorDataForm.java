@@ -30,6 +30,13 @@ public class PollinatorDataForm
 	private String wind_status;
 	private int confirmed;
 
+	// The basic usage of the below variables is mostly limited to GetUnconfirmedDataFormsByCountyID
+	private String garden_name = null;
+	private ArrayList<String> plant_name = null;
+	private ArrayList<String> pollinator_name = null;
+	private ArrayList<String> strain_name = null;
+	private ArrayList<Integer> visit_counts = null;
+
 	public PollinatorDataForm(int garden_id, int county_id, ArrayList<User> generators, int week_number, LocalDate date_collected,
 							  LocalDate date_generated, LocalDate date_confirmed, String wind_status, String cloud_status, String comments,
 							  String butterfly_moth_comments, int temperature, LocalTime monitor_start, LocalTime monitor_stop, int confirmed,
@@ -242,4 +249,43 @@ public class PollinatorDataForm
 		this.confirmed = confirmed;
 	}
 
+	public String getGarden_name() {
+		return garden_name;
+	}
+
+	public void setGarden_name(String garden_name) {
+		this.garden_name = garden_name;
+	}
+
+	public ArrayList<String> getPlant_names() {
+		return plant_name;
+	}
+
+	public void setPlant_names(ArrayList<String> plant_name) {
+		this.plant_name = plant_name;
+	}
+
+	public ArrayList<String> getPollinator_names() {
+		return pollinator_name;
+	}
+
+	public void setPollinator_names(ArrayList<String> pollinator_name) {
+		this.pollinator_name = pollinator_name;
+	}
+
+	public ArrayList<String> getStrain_names() {
+		return strain_name;
+	}
+
+	public void setStrain_names(ArrayList<String> strain_name) {
+		this.strain_name = strain_name;
+	}
+
+	public ArrayList<Integer> getVisit_counts() {
+		return visit_counts;
+	}
+
+	public void setVisit_counts(ArrayList<Integer> visit_counts) {
+		this.visit_counts = visit_counts;
+	}
 }

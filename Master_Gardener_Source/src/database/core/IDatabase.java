@@ -59,7 +59,7 @@ public interface IDatabase {
 	public List<Integer> getAllDataFormIDs() throws SQLException;
 	public List<Integer> getAllVisitCountIDs() throws SQLException;
 	public List<Integer> getUnconfirmedDataformIDsByCounty(String county) throws SQLException;
-	public List<String> getUnconfirmedDataformsByCounty(String county) throws SQLException;
+	public List<PollinatorDataForm> getUnconfirmedDataformsByCounty(String county) throws SQLException;
 	public String hashString(String password) throws SQLException;
 	public int getModeratorStatusByUsername(String username) throws SQLException;
 	public ArrayList<Integer> getGeneratorListByUsernames(String[] names) throws SQLException;

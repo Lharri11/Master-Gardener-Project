@@ -1543,15 +1543,20 @@ public class MySQLDatabase implements IDatabase {
     }
 
     /** Use this for frontend work, this is the primary method for getting unconfirmed dataforms **/
-    public List<String> getUnconfirmedDataformsByCounty(String county) throws SQLException
+    public List<PollinatorDataForm> getUnconfirmedDataformsByCounty(String county) throws SQLException
     {
         DataSource ds = getMySQLDataSource();
         Connection conn = ds.getConnection();
 
         // Get list of county IDs
         List<Integer> cids = getUnconfirmedDataformIDsByCounty(county);
+        List<PollinatorDataForm> return_list = new ArrayList<>();
+        //ArrayList<String> return_list = new ArrayList<>();
+        ArrayList<String> plant_names = new ArrayList<>();
+        ArrayList<String> poll_names = new ArrayList<>();
+        ArrayList<String> strain_names = new ArrayList<>();
+        ArrayList<Integer> visit_counts = new ArrayList<>();
 
-        ArrayList<String> return_list = new ArrayList<>();
         PreparedStatement stmt1 = null;
         ResultSet set1 = null;
         ResultSet set2 = null;
@@ -1560,20 +1565,61 @@ public class MySQLDatabase implements IDatabase {
             if(cids.size() > 0) {
                 for (int i = 0; i < cids.size(); i++) {
                     // First, add the current ID to the result list
-                    return_list.add(cids.get(i).toString());
+                    //return_list.add(cids.get(i).toString());
+
+                    // Create PDF object. This will not hold all information present in the constructor.
+                    // Side note: Must always re-initialize the variables plant_names, ... , visit_counts (shown below)
+                    // since the constructor does not handle them. (Design choice; the only place we use these
+                    // names is in this method)
+                    PollinatorDataForm pdf = new PollinatorDataForm(-1, -1, null, -1, null, null, null, null,
+                            null, null, null, -1, null, null, 0, null, null, null, null, null);
+                    plant_names.clear();
+                    poll_names.clear();
+                    strain_names.clear();
+                    visit_counts.clear();
+
+                    // County id == garden id
+                    // There's some logic later on that does not utilize this, but unless we REALLY
+                    // need those extra CPU cycles, it should be fine to not break anything right now.
+                    pdf.setCounty_id(cids.get(i));
+                    pdf.setGarden_id(cids.get(i));
 
                     // Then, get miscellaneous (easy) fields
-                    stmt1 = conn.prepareStatement("SELECT temperature, date_collected, date_generated, date_confirmed, monitor_start, monitor_stop,"
-                            + " wind_status, cloud_status, comments FROM mg_data_form WHERE id = ?");
+                    stmt1 = conn.prepareStatement("SELECT id, temperature, date_collected, date_generated, date_confirmed, monitor_start, monitor_stop,"
+                            + " wind_status, cloud_status, comments, butterfly_moth_comments FROM mg_data_form WHERE id = ?");
                     stmt1.setInt(1, cids.get(i));
                     // Hopefully, this loads 8 fields into the ResultSet from columns 1 to 8
                     set1 = stmt1.executeQuery();
 
                     // Get all of these fields as a string so we can add them to the return set
-                    // TODO: TEST THIS
+                    // TODO: FIX STRAIN
                     while(set1.next()) {
-                        for (int j = 1; j < 10; j++) {
-                            return_list.add(set1.getString(j));
+                        for (int j = 1; j < 12; j++) {
+                            //return_list.add(set1.getString(j));
+                            // As Logan would say, jenky way of getting the correct types from the above statement
+
+                            pdf.setData_form_id(set1.getInt((j++)));
+
+                            pdf.setTemperature(set1.getInt(j++));
+
+                            pdf.setDate_collected(set1.getDate(j++).toLocalDate());
+
+                            pdf.setDate_generated(set1.getDate(j++).toLocalDate());
+
+                            pdf.setDate_confirmed(set1.getDate(j++).toLocalDate());
+
+                            pdf.setMonitor_start(set1.getTime(j++).toLocalTime());
+
+                            pdf.setMonitor_stop(set1.getTime(j++).toLocalTime());
+
+                            pdf.setWind_status(set1.getString(j++));
+
+                            pdf.setCloud_status(set1.getString(j++));
+
+                            pdf.setComments(set1.getString(j++));
+
+                            pdf.setButterflyMothComments(set1.getString(j++));
+
                         }
                     }
 
@@ -1593,14 +1639,14 @@ public class MySQLDatabase implements IDatabase {
                     set2 = stmt1.executeQuery();
 
                     if (set2.next()) {
-                        return_list.add(set2.getString(1));
+                        pdf.setGarden_name(set2.getString(1));
                     }
                     // Get PVC stats for relevant DFs
                     stmt1 = conn.prepareStatement("SELECT id, plant_id, strain_id, visit_count FROM mg_pollinator_visit WHERE data_form_id = ?");
                     stmt1.setInt(1, cids.get(i));
                     set1 = stmt1.executeQuery();
 
-                    // TODO: Everything prior to this is good to go
+                    // TODO: Everything prior might work. Test it all.
 
                     // set1 = {PVC id, plant id, strain id, visit count number}, potentially multiple rows of this depending on how many PVCs
                     // are tied to a single dataform
@@ -1612,12 +1658,13 @@ public class MySQLDatabase implements IDatabase {
 
                         stmt1 = conn.prepareStatement("SELECT plant_name FROM mg_plant WHERE plant_ID = ?");
                         // Use column 2 because that's the plant ID
-                        System.out.println("column 2 before getInt: " + set1.getInt(2));
                         stmt1.setInt(1, set1.getInt(2));
-                        System.out.println("Column 2 after getInt: " +set1.getInt(2));
+
                         set2 = stmt1.executeQuery();
                         if (set2.next()) {
-                            return_list.add(set2.getString(1));
+                            plant_names.add(set2.getString(1));
+                            //pdf.setPlant_name(set2.getString(1));
+                            //return_list.add(set2.getString(1));
                         }
 
                         // Get Pollinator_name for column 1 of the set
@@ -1627,61 +1674,44 @@ public class MySQLDatabase implements IDatabase {
                         stmt1.setInt(1, set1.getInt(1));
                         set2 = stmt1.executeQuery();
                         if (set2.next()) {
-                            return_list.add(set2.getString(1));
+                            poll_names.add(set2.getString(1));
+                            // pdf.setPollinator_name(set2.getString(1));
+                            //return_list.add(set2.getString(1));
                         }
 
 
                         // get plant strain name
                         stmt1 = conn.prepareStatement("SELECT mg_plant_strain.name FROM mg_plant_strain, mg_pollinator_visit " +
                                 "WHERE mg_pollinator_visit.id = ? AND mg_pollinator_visit.strain_id = mg_plant_strain.strain_id");
-                        stmt1.setInt(1, set1.getInt(3));
+                        stmt1.setInt(1, set1.getInt(1));
                         set2 = stmt1.executeQuery();
 
                         // Add plant strain name
                         if (set2.next()) {
-                            return_list.add(set2.getString(1));
+                            strain_names.add(set2.getString(1));
+                            //pdf.setStrain_name(set2.getString(1));
+                            //return_list.add(set2.getString(1));
                         }
-                        return_list.add(set1.getString(4));
 
+                        visit_counts.add(set1.getInt(4));
+                        //pdf.setVisit_counts(set1.getInt(4));
+                        //return_list.add(set1.getString(4));
+
+                        pdf.setPlant_names(plant_names);
+                        pdf.setPollinator_names(poll_names);
+                        pdf.setStrain_names(strain_names);
+                        pdf.setVisit_counts(visit_counts);
 
                         //set1.next();
 
                     }
-                /*
-                // Next, get Plant name. Seperate this from getting Strain name because it's easier to manage.
-                stmt1 = conn.prepareStatement("SELECT plant_name FROM mg_plant WHERE plant_ID = ?");
-                stmt1.setInt(1, set1.getInt(2));
-                set2 = stmt1.executeQuery();
-                return_list.add(set2.getString(1));
-
-                // Next, get Strain name
-                stmt1 = conn.prepareStatement("SELECT strain_name FROM mg_plant_strain WHERE plant_id = ?");
-                stmt1.setInt(1, set1.getInt(2));
-                set2 = stmt1.executeQuery();
-                while (set2.next()) {
-                    return_list.add(set2.getString(1));
-                }
-
-                // Next, get Pollinator name
-                stmt1 = conn.prepareStatement("SELECT pollinatorName FROM mg_pollinator WHERE pollinator_ID = ?");
-                stmt1.setInt(1, set1.getInt(3));
-                set2 = stmt1.executeQuery();
-                return_list.add(set2.getString(1));
-
-                // Finally, get that Pollinator's visit count
-                stmt1 = conn.prepareStatement("SELECT visit_count FROM mg_pollinator_visit WHERE data_form_id = ? " +
-                        "AND pollinator_id = ? AND plant_id = ?");
-                stmt1.setInt(1, cids.get(i));
-                stmt1.setInt(2, set1.getInt(3));
-                stmt1.setInt(3, set1.getInt(2));
-                set2 = stmt1.executeQuery();
-                return_list.add(set2.getString(1));*/
-
-                    return_list.add("END");
+                    return_list.add(pdf);
+                    //return_list.add("END");
                 }
             }
             else{
-                return_list.add("NO DATA TO DISPLAY");
+                System.out.println("DATA IS NOT BEING GOT CORRECTLY");
+                //return_list.add("NO DATA TO DISPLAY");
             }
         }
         finally
@@ -1691,6 +1721,7 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(set2);
             DBUtil.closeQuietly(conn);
         }
+
 
         return return_list;
     }
