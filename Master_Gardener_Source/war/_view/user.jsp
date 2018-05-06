@@ -212,28 +212,31 @@
         // create an object from a row data
         e.stopImmediatePropagation();
         e.preventDefault();
-        var url = "${pageContext.servletContext.contextPath}/dataForm";
+        var isSubmitting = true;
         var gardenName = table.row($(this).parents('tr')).data();
-        //alert(JSON.stringify(gardenName.garden_name))
+
         // fire a function, based on the button id that was clicked
         if (this.id === 'Dataform') {
             var dataFormGardenName = {gardenNameUser: JSON.stringify(gardenName)};
             // try {
-            //alert("Submitting test");
+            if (isSubmitting) {
             $.ajax({
                     // e.stopImmediatePropagation(),
-                    type: "GET",
+                   // type: "get",
                     url: "${pageContext.servletContext.contextPath}/dataForm",
                     data: dataFormGardenName,
-                    success: function () {
+                    success: function (data) {
+
+                        alert(data);
                         //window.location = "pageContext.request.contextPath}/dataForm";
                         // alert("Submitting test");
                         e.stopImmediatePropagation();
                         forward();
                     }
                     //e.stopImmediatePropagation();
-                }
-            )
+                })
+            }
+            isSubmitting = false;
             e.stopImmediatePropagation();
         }
 
