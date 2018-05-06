@@ -330,7 +330,7 @@ be greyed out except the plot size.
                         > *</span></label>
                         <div class="controls">
                             <select class="form-control" required="required"
-                                    name="cloudCover">
+                                    name="cloudStatus">
                                 <option value=""></option>
                                 <option value="C">Clear</option>
                                 <option value="P">Partly Cloudy</option>
@@ -1500,13 +1500,13 @@ be greyed out except the plot size.
 
                             <label class="control-label">Genus</label>
                             <input type="text" class="form-control"
-                                   placeholder="Monarda" name="plant1Name"
+                                   placeholder="Monarda" name="plant2Name"
                                    value="Monarda">
                         </div>
                         <div class="form-group col-lg-6">
                             <label class="control-label">Species</label>
                             <input type="text" class="form-control"
-                                   placeholder="Didyma Straight" name="plant1Strain6Name" value="Didyma Straight">
+                                   placeholder="Didyma Straight" name="plant2Strain1Name" value="Didyma Straight">
                         </div>
                     </div>
 
@@ -1528,7 +1528,7 @@ be greyed out except the plot size.
                             <label class="control-label">Flower Coverage<span>*</span></label>
                             <select class="form-control"
                                     required="required"
-                                    name="plant1Strain6Plot6PercentCoverage">
+                                    name="plant2Strain1Plot1PercentCoverage">
                                 <option value=""></option>
                                 <option value="0">0</option>
                                 <option value="1">1%-25%</option>
@@ -1545,7 +1545,7 @@ be greyed out except the plot size.
 
                             <select class="form-control"
                                     required="required"
-                                    name="plant1Strain6Plot6AreaDbl">
+                                    name="plant2Strain1Plot1AreaDbl">
                                 <option value=""></option>
                                 <option value="1">2'x2'</option>
                                 <option value="2">3'x3'</option>
@@ -1583,7 +1583,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain6Plot6Pollinator1" value="0">
+                                       name="plant2Strain1Plot1Pollinator1" value="0">
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1599,7 +1599,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain6Plot6Pollinator2" value="0"
+                                       name="plant2Strain1Plot1Pollinator2" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1616,7 +1616,7 @@ be greyed out except the plot size.
                             </span>
 
                                 <input class="form-control" type="text"
-                                       name="plant1Strain6Plot6Pollinator3" value="0"
+                                       name="plant2Strain1Plot1Pollinator3" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1635,7 +1635,7 @@ be greyed out except the plot size.
                             </span>
 
                                 <input class="form-control" type="text"
-                                       name="plant1Strain6Plot6Pollinator4" value="0"
+                                       name="plant2Strain1Plot1Pollinator4" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1652,7 +1652,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain6Plot6Pollinator5" value="0">
+                                       name="plant2Strain1Plot1Pollinator5" value="0">
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1668,7 +1668,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain6Plot6Pollinator6" value="0"
+                                       name="plant2Strain1Plot1Pollinator6" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1686,7 +1686,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain6Plot6Pollinator7" value="0"
+                                       name="plant2Strain1Plot1Pollinator7" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1703,7 +1703,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain6Plot6Pollinator8" value="0"
+                                       name="plant2Strain1Plot1Pollinator8" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1722,7 +1722,7 @@ be greyed out except the plot size.
                             </span>
 
                                 <input class="form-control" type="text"
-                                       name="plant1Strain6Plot6Pollinator9" value="0"
+                                       name="plant2Strain1Plot1Pollinator9" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1741,7 +1741,7 @@ be greyed out except the plot size.
                             <label class="control-label">Genus</label>
 
                             <input type="text" class="form-control"
-                                   placeholder="Monarda" name="plant1Name"
+                                   placeholder="Monarda" name="plant2Name"
                                    value="Monarda">
 
                         </div>
@@ -1752,7 +1752,7 @@ be greyed out except the plot size.
                             >Species</label>
 
                             <input type="text" class="form-control"
-                                   placeholder="Didyma Petite Delight" name="plant1Strain7Name"
+                                   placeholder="Didyma Petite Delight" name="plant2Strain2Name"
                                    value="Didyma Petite Delight">
                         </div>
 
@@ -1779,7 +1779,7 @@ be greyed out except the plot size.
                             >*</span></label>
                             <select class="form-control"
                                     required="required"
-                                    name="plant1Strain7Plot7PercentCoverage">
+                                    name="plant2Strain2Plot2PercentCoverage">
                                 <option value=""></option>
                                 <option value="0">0</option>
                                 <option value="1">1%-25%</option>
@@ -1794,7 +1794,7 @@ be greyed out except the plot size.
                             <label class="control-label">Plot Area Dimensions</label>
                             <select class="form-control"
                                     required="required"
-                                    name="plant1Strain7Plot7AreaDbl">
+                                    name="plant2Strain2Plot2AreaDbl">
                                 <option value=""></option>
                                 <option value="1">2'x2'</option>
                                 <option value="2">3'x3'</option>
@@ -1834,7 +1834,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain7Plot7Pollinator1" value="0">
+                                       name="plant2Strain2Plot2Pollinator1" value="0">
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1851,7 +1851,7 @@ be greyed out except the plot size.
                             </span>
 
                                 <input class="form-control" type="text"
-                                       name="plant1Strain7Plot7Pollinator2" value="0">
+                                       name="plant2Strain2Plot2Pollinator2" value="0">
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1867,7 +1867,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain7Plot7Pollinator3" value="0">
+                                       name="plant2Strain2Plot2Pollinator3" value="0">
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -1884,7 +1884,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain7Plot7Pollinator4" value="0"
+                                       name="plant2Strain2Plot2Pollinator4" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1901,7 +1901,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain7Plot7Pollinator5" value="0"
+                                       name="plant2Strain2Plot2Pollinator5" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1918,7 +1918,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain7Plot7Pollinator6" value="0"
+                                       name="plant2Strain2Plot2Pollinator6" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1936,7 +1936,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain7Plot7Pollinator7" value="0"
+                                       name="plant2Strain2Plot2Pollinator7" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1953,7 +1953,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain7Plot7Pollinator8" value="0"
+                                       name="plant2Strain2Plot2Pollinator8" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1970,7 +1970,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain7Plot7Pollinator9" value="0"
+                                       name="plant2Strain2Plot2Pollinator9" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -1990,7 +1990,7 @@ be greyed out except the plot size.
                         <div class="form-group col-lg-6">
                             <label class="control-label">Genus</label>
                             <input type="text" class="form-control"
-                                   placeholder="Monarda" name="plant1Name"
+                                   placeholder="Monarda" name="plant2Name"
                                    value="Monarda">
                         </div>
 
@@ -1998,7 +1998,7 @@ be greyed out except the plot size.
                         <div class="form-group col-lg-6">
                             <label class="control-label">Species</label>
                             <input type="text" class="form-control"
-                                   placeholder="Didyma Marshalls Delight" name="plant1Strain8Name"
+                                   placeholder="Didyma Marshalls Delight" name="plant2Strain3Name"
                                    value="Didyma Marshalls Delight">
                         </div>
                     </div>
@@ -2021,7 +2021,7 @@ be greyed out except the plot size.
                             <label class="control-label">Flower Coverage<span>*</span></label>
                             <select class="form-control"
                                     required="required"
-                                    name="plant1Strain8Plot8PercentCoverage">
+                                    name="plant2Strain3Plot3PercentCoverage">
                                 <option value=""></option>
                                 <option value="0">0</option>
                                 <option value="1">1%-25%</option>
@@ -2036,7 +2036,7 @@ be greyed out except the plot size.
                             <label class="control-label">Plot Area Dimensions</label>
                             <select class="form-control"
                                     required="required"
-                                    name="plant1Strain8Plot8AreaDbl">
+                                    name="plant2Strain3Plot3AreaDbl">
                                 <option value=""></option>
                                 <option value="1">2'x2'</option>
                                 <option value="2">3'x3'</option>
@@ -2073,7 +2073,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain8Plot8Pollinator1" value="0"
+                                       name="plant2Strain3Plot3Pollinator1" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -2090,7 +2090,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain8Plot8Pollinator2" value="0">
+                                       name="plant2Strain3Plot3Pollinator2" value="0">
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -2106,7 +2106,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain8Plot8Pollinator3" value="0"
+                                       name="plant2Strain3Plot3Pollinator3" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -2125,7 +2125,7 @@ be greyed out except the plot size.
                             </span>
 
                                 <input class="form-control" type="text"
-                                       name="plant1Strain8Plot8Pollinator4" value="0">
+                                       name="plant2Strain3Plot3Pollinator4" value="0">
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -2141,7 +2141,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain8Plot8Pollinator5" value="0"
+                                       name="plant2Strain3Plot3Pollinator5" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -2157,7 +2157,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain8Plot8Pollinator6" value="0"
+                                       name="plant2Strain3Plot3Pollinator6" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -2175,7 +2175,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain8Plot8Pollinator7" value="0">
+                                       name="plant2Strain3Plot3Pollinator7" value="0">
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -2191,7 +2191,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain8Plot8Pollinator8" value="0">
+                                       name="plant2Strain3Plot3Pollinator8" value="0">
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
                                         class="fa fa-plus"></i></button>
@@ -2208,7 +2208,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain8Plot8Pollinator9" value="0"
+                                       name="plant2Strain3Plot3Pollinator9" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -2225,14 +2225,14 @@ be greyed out except the plot size.
                         <div class="form-group col-lg-6">
                             <label class="control-label">Genus</label>
                             <input type="text" class="form-control"
-                                   placeholder="Monarda" name="plant1Name"
+                                   placeholder="Monarda" name="plant2Name"
                                    value="Monarda">
                         </div>
 
                         <div class="form-group col-lg-6">
                             <label class="control-label">Species</label>
                             <input type="text" class="form-control"
-                                   placeholder="X Peters Fancy Fuschia" name="plant1Strain9Name"
+                                   placeholder="X Peters Fancy Fuschia" name="plant2Strain4Name"
                                    value="X Peters Fancy Fuschia">
                         </div>
                     </div>
@@ -2256,7 +2256,7 @@ be greyed out except the plot size.
                             >*</span></label>
                             <select class="form-control"
                                     required="required"
-                                    name="plant1Strain9Plot9PercentCoverage">
+                                    name="plant2Strain4Plot4PercentCoverage">
                                 <option value=""></option>
                                 <option value="0">0</option>
                                 <option value="1">1%-25%</option>
@@ -2270,7 +2270,7 @@ be greyed out except the plot size.
                             <label class="control-label">Plot Area Dimensions</label>
                             <select class="form-control"
                                     required="required"
-                                    name="plant1Strain9Plot9AreaDbl">
+                                    name="plant2Strain4Plot4AreaDbl">
                                 <option value=""></option>
                                 <option value="1">2'x2'</option>
                                 <option value="2">3'x3'</option>
@@ -2306,7 +2306,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain9Plot9Pollinator1" value="0"
+                                       name="plant2Strain4Plot4Pollinator1" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -2323,7 +2323,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain9Plot9Pollinator2" value="0"
+                                       name="plant2Strain4Plot4Pollinator2" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -2340,7 +2340,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain9Plot9Pollinator3" value="0"
+                                       name="plant2Strain4Plot4Pollinator3" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -2358,7 +2358,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain9Plot9Pollinator4" value="0"
+                                       name="plant2Strain4Plot4Pollinator4" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -2375,7 +2375,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain9Plot9Pollinator5" value="0"
+                                       name="plant2Strain4Plot4Pollinator5" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -2392,7 +2392,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain9Plot9Pollinator6" value="0"
+                                       name="plant2Strain4Plot4Pollinator6" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -2410,7 +2410,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain9Plot9Pollinator7" value="0"
+                                       name="plant2Strain4Plot4Pollinator7" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -2427,7 +2427,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain9Plot9Pollinator8" value="0"
+                                       name="plant2Strain4Plot4Pollinator8" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -2444,7 +2444,7 @@ be greyed out except the plot size.
                                         class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
-                                       name="plant1Strain9Plot9Pollinator9" value="0"
+                                       name="plant2Strain4Plot4Pollinator9" value="0"
                                 >
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i
@@ -2462,11 +2462,11 @@ be greyed out except the plot size.
                     <div class="form-group col-lg-12">
                         <label class="control-label">Butterflies &amp; Moths
                             Comments</label>
-                        <textarea rows="3" class="form-control" name="butterfliesMothsCommentStrain"></textarea>
+                        <textarea rows="3" class="form-control" name="butterflyMothComments"></textarea>
                     </div>
                     <div class="form-group col-lg-12">
                         <label class="control-label">Additional Comments?</label>
-                        <textarea rows="3" class="form-control" name="strainComments"></textarea>
+                        <textarea rows="3" class="form-control" name="comments"></textarea>
 
                     </div>
 

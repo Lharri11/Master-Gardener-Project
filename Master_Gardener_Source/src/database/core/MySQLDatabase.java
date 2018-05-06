@@ -1602,10 +1602,19 @@ public class MySQLDatabase implements IDatabase {
 
                     // TODO: Everything prior to this is good to go
 
+                    // set1 = {PVC id, plant id, strain id, visit count number}, potentially multiple rows of this depending on how many PVCs
+                    // are tied to a single dataform
+
+                    //System.out.println("getFetchSize: ");
+                    //System.out.println(set1.getFetchSize());
+                    int lump_sum=0;
                     while (set1.next()) {
+
                         stmt1 = conn.prepareStatement("SELECT plant_name FROM mg_plant WHERE plant_ID = ?");
                         // Use column 2 because that's the plant ID
+                        System.out.println("column 2 before getInt: " + set1.getInt(2));
                         stmt1.setInt(1, set1.getInt(2));
+                        System.out.println("Column 2 after getInt: " +set1.getInt(2));
                         set2 = stmt1.executeQuery();
                         if (set2.next()) {
                             return_list.add(set2.getString(1));
@@ -1621,20 +1630,21 @@ public class MySQLDatabase implements IDatabase {
                             return_list.add(set2.getString(1));
                         }
 
-                        if (set1.next()) {
-                            stmt1 = conn.prepareStatement("SELECT mg_plant_strain.name FROM mg_plant_strain, mg_pollinator_visit " +
-                                    "WHERE mg_pollinator_visit.id = ? AND mg_pollinator_visit.strain_id = mg_plant_strain.strain_id");
-                            stmt1.setInt(1, set1.getInt(3));
-                            set2 = stmt1.executeQuery();
-                        }
 
+                        // get plant strain name
+                        stmt1 = conn.prepareStatement("SELECT mg_plant_strain.name FROM mg_plant_strain, mg_pollinator_visit " +
+                                "WHERE mg_pollinator_visit.id = ? AND mg_pollinator_visit.strain_id = mg_plant_strain.strain_id");
+                        stmt1.setInt(1, set1.getInt(3));
+                        set2 = stmt1.executeQuery();
+
+                        // Add plant strain name
                         if (set2.next()) {
                             return_list.add(set2.getString(1));
                         }
-                        if (set1.next()) {
-                            return_list.add(set1.getString(4));
-                        }
+                        return_list.add(set1.getString(4));
 
+
+                        //set1.next();
 
                     }
                 /*
@@ -3891,13 +3901,19 @@ public class MySQLDatabase implements IDatabase {
             // Get DataForm ID
             index = 1;
             generators_total = 4;
-            stmt4 = conn.prepareStatement("SELECT id FROM mg_data_form WHERE week_number = ? AND garden_id = ? AND county_id = ? AND generator_id1 = ? AND date_collected = ?");
+            stmt4 = conn.prepareStatement("SELECT id FROM mg_data_form WHERE week_number = ? AND garden_id = ? AND county_id = ? AND generator_id1 = ? AND date_collected = ?" +
+                    " AND comments = ? AND butterfly_moth_comments = ? AND wind_status = ? AND cloud_status = ? AND generator_id1 = ?");
 
             stmt4.setInt(1, pdf.getWeek_number());
             stmt4.setInt(2, pdf.getGarden_id());
             stmt4.setInt(3, pdf.getCounty_id());
             stmt4.setInt(4 , pdf.getGenerators().get(0).getUserId());
             stmt4.setDate(5, (java.sql.Date) date_collected);
+            stmt4.setString(6, pdf.getComments());
+            stmt4.setString(7, pdf.getButterflyMothComments());
+            stmt4.setString(8, pdf.getWind_status());
+            stmt4.setString(9, pdf.getCloud_status());
+            stmt4.setInt(10, pdf.getGenerators().get(0).getUserId());
 
             set4 = stmt4.executeQuery();
             //System.out.println(set4.getInt(1));
@@ -3924,14 +3940,12 @@ public class MySQLDatabase implements IDatabase {
                     Plot plot = pdf.getPlots().get(j);
 
                     stmt2 = conn.prepareStatement("UPDATE mg_plot " +
-                            "SET percent_coverage = ?, plot_height = ?, plot_area_dbl = ?, blooms_open_status = ? " +
+                            "SET percent_coverage = ?, plot_area_dbl = ?" +
                             " WHERE plant_id = ? AND plant_strain_id = ?");
                     stmt2.setDouble(1, plot.getPlot_percent_coverage());
-                    stmt2.setDouble(3, plot.getPlot_height());
                     stmt2.setDouble(2, plot.getPlot_area_dbl());
-                    stmt2.setString(4, plot.getPlot_blooms_open_status());
-                    stmt2.setInt(5, plot.getPlant_id());
-                    stmt2.setInt(6, plot.getStrain_id());
+                    stmt2.setInt(3, plot.getPlant_id());
+                    stmt2.setInt(4, plot.getStrain_id());
                     stmt2.executeUpdate();
                 }
                 System.out.println("Inserting Pollinator Visit Count data...");

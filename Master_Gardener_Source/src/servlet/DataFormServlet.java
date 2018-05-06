@@ -46,9 +46,10 @@ public class DataFormServlet extends HttpServlet {
         // 9 Pollinators (Honey Bee, Carpenter Bee, Bumble Bee, Green Metallic Bee, Green Sweat Bee, Dark Sweat Bee, Butterfly and Moth, Other Bees, Other Pollinators)
 
         // Initialization (Loop Variables, ArrayLists, Servlet Variables)
-        int plants_total = 1;
-        int strains_total = 9;
+        int plants_total = 2;
         int pollinators_total = 9;
+        int strain_id = 0;
+        int plot_id = 0;
         PollinatorDataForm dataForm = new PollinatorDataForm(-1, -1, null, -1,
                 null, null,  null, null, null, null, null,
                 0, null, null , 0, null, null, null, null, null);
@@ -213,7 +214,7 @@ public class DataFormServlet extends HttpServlet {
                     //System.out.println(generator_first_name1);
                     //System.out.println(generator_last_name1);
                     //System.out.println(controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1));
-                   // System.out.println(controller.getUserFromUserID(controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1)).getUserId());
+                    // System.out.println(controller.getUserFromUserID(controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1)).getUserId());
 
                     generators.add(controller.getUserFromUserID(controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1)));
 
@@ -287,8 +288,15 @@ public class DataFormServlet extends HttpServlet {
                 //Plants Loop
                 for(int i = 1; i <= plants_total; i++)
                 {
+                    int strains_total = 0;
+                    if(i == 1){
+                        strains_total = 5;
+                    }else if(i == 2){
+                        strains_total = 4;
+                    }
                     //Set Plant
-                    plant_name = req.getParameter("plant" + i + "Name");//Variable from Drop-Down
+                    plant_name = req.getParameter("plant" + i + "Name");
+
                     if ("".equals(plant_name) || plant_name == null) {
                         errorMessage = "Please enter the genus (plant) name for the plot";
                         System.out.println(errorMessage);
@@ -309,6 +317,8 @@ public class DataFormServlet extends HttpServlet {
                     //Strains Loop
                     for(int j = 1; j <= strains_total; j++)
                     {
+                        strain_id++;
+                        plot_id++;
                         //Set Strain
                         strain_name = req.getParameter("plant" + i + "Strain" + j + "Name");//Variable from Drop-Down
                         if ("".equals(strain_name) || strain_name == null) {
@@ -329,11 +339,17 @@ public class DataFormServlet extends HttpServlet {
 
                         //Set Plot
                         try {
-                            plots.add(controller.getPlotByGardenIDAndStrainID(dataForm.getGarden_id(), strains.get(j-1).getStrainID()));
+                            plots.add(controller.getPlotByGardenIDAndStrainID(dataForm.getGarden_id(), strains.get(strain_id-1).getStrainID()));
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }
-                        //plot_height = Double.parseDouble(req.getParameter("plant" + i + "Strain" + j + "Plot" + j + "Height"));
+                        //plot_height = Double.parseDouble(req.getParameter("plant" + plant_num + "Strain" + j + "Plot" + j + "Height"));
+                        System.out.println("i: "+i);
+                        System.out.println("j: "+j);
+                        System.out.println("plant" + i + "Strain" + j + "Plot" + j + "AreaDbl");
+
+                        //System.out.println();
+                        //System.out.println();
                         plot_area_dbl = Double.parseDouble(req.getParameter("plant" + i + "Strain" + j + "Plot" + j + "AreaDbl"));
                         plot_percent_coverage = Double.parseDouble(req.getParameter("plant" + i + "Strain" + j + "Plot" + j + "PercentCoverage"));
                         //plot_blooms_open_status = req.getParameter("plant" + i + "Strain" + j + "Plot" + j + "BloomsOpen");
@@ -342,8 +358,8 @@ public class DataFormServlet extends HttpServlet {
                                 0, 0, 0, null);
                         if(!"".equals(plot_height) && plot_height != 0){ plot.setPlot_height(plot_height); }
                         if(!"".equals(plot_blooms_open_status) && plot_blooms_open_status != null){ plot.setPlot_blooms_open_status(plot_blooms_open_status); }*/
-                        if(!"".equals(plot_area_dbl) && plot_area_dbl != 0){ plots.get(j-1).setPlot_area_dbl(plot_area_dbl); }
-                        if(!"".equals(plot_percent_coverage) && plot_percent_coverage != 0){ plots.get(j-1).setPlot_percent_coverage(plot_percent_coverage); }
+                        if(!"".equals(plot_area_dbl) && plot_area_dbl != 0){ plots.get(plot_id-1).setPlot_area_dbl(plot_area_dbl); }
+                        if(!"".equals(plot_percent_coverage) && plot_percent_coverage != 0){ plots.get(plot_id-1).setPlot_percent_coverage(plot_percent_coverage); }
 
                         // Reset JSP Plot Parameters
                         //req.setAttribute("plant" + i + "Strain" + j + "Plot" + j + "Height", plot_height);
@@ -376,8 +392,8 @@ public class DataFormServlet extends HttpServlet {
 
                             //Set Pollinator Visit Counts Record if Visit Count is > 0
                             if(!"".equals(visit_count) && visit_count != 0) {
-                                PollinatorVisitCount pollinatorVisitCount = new PollinatorVisitCount(dataform_id, k, plots.get(j-1).getPlot_id(), plants.get(i-1).getPlantID(),
-                                        strains.get(j-1).getStrainID(), visit_count);
+                                PollinatorVisitCount pollinatorVisitCount = new PollinatorVisitCount(dataform_id, k, plots.get(plot_id-1).getPlot_id(), plants.get(i-1).getPlantID(),
+                                        strains.get(strain_id-1).getStrainID(), visit_count);
                                 pollinatorVisitCounts.add(pollinatorVisitCount);
                             };
                         }
