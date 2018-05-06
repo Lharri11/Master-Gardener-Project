@@ -77,7 +77,6 @@ public class SearchServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 		throws ServletException, IOException {
 
-
 		//Grab garden name for search page table
 		JSONObject garden = new JSONObject(req.getParameter("garden"));
 		String gardenChosen = null;

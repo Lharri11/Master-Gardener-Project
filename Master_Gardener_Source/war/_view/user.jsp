@@ -184,13 +184,11 @@
             {
                 orderable: false,
                 title: 'Create Dataform'
-
             },
 
             {
                 orderable: false,
                 title: 'Leave Garden'
-
             },
         ],
         "columnDefs": [{
@@ -208,10 +206,20 @@
 
     $('#userGardensTable').on('click', 'button', function () {
         // create an object from a row data
-        var garden = table.row($(this).parents('tr')).data();
+        var gardenName = table.row($(this).parents('tr')).data();
         // fire a function, based on the button id that was clicked
         if (this.id === 'submit-btn') {
-            //submitGardenDataform(garden);
+            var gardenData = {garden: JSON.stringify(gardenName)};
+            alert(gardenData.garden.);
+            try {
+                $.ajax({
+                    type: "POST",
+                    url: "{pageContext.servletContext.contextPath}/dataForm",
+                    data: gardenData
+                });
+            } catch (err) {
+                alert(err.message);
+            }
             window.location.href = "${pageContext.servletContext.contextPath}/dataForm";
         }
     });

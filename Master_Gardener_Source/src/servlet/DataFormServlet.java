@@ -5,6 +5,7 @@ import controller.DataFormController;
 import controller.SearchController;
 import controller.UserController;
 import model.*;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -28,6 +29,12 @@ public class DataFormServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+
+        //Grab garden name from User page table
+        JSONObject garden = new JSONObject(req.getParameter("garden"));
+        String gardenChosen = null;
+        gardenChosen = garden.getString("garden_name");
+        req.setAttribute("gardenName", gardenChosen);
 
         req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
     }

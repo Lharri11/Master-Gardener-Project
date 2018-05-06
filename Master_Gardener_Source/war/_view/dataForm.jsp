@@ -91,7 +91,7 @@ be greyed out except the plot size.
 
                             <input class="form-control"
                                    type="text"
-                                   name="garden_name" value = ${garden_name}>
+                                   name="garden_name" value = "${gardenName}" placeholder = "${gardenName}" disabled>
                         </div>
                     </div>
                     <div class="col-lg-6">
