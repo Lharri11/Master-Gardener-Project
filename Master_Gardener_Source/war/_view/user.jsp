@@ -194,12 +194,12 @@
         "columnDefs": [{
             "targets": -1,       // -1 = last column
             "data": null,        // no data for this column, instead we will show default content, described in 'defaultContent'
-            "defaultContent": "<button id='submit-btn' class='btn btn-primary rounded-pill align-content-lg-center'>Remove</button>"
+            "defaultContent": "<button id='submit-btn_Remove' class='btn btn-primary rounded-pill align-content-lg-center'>Remove</button>"
         },
             {
                 "targets": -2,       // -1 = last column
                 "data": null,        // no data for this column, instead we will show default content, described in 'defaultContent'
-                "defaultContent": "<button id='submit-btn' class='btn btn-primary rounded-pill align-content-lg-center'>Dataform</button>"
+                "defaultContent": "<button id='submit-btn_Dataform' class='btn btn-primary rounded-pill align-content-lg-center'>Dataform</button>"
             }
         ],
     });
@@ -207,14 +207,15 @@
     $('#userGardensTable').on('click', 'button', function () {
         // create an object from a row data
         var gardenName = table.row($(this).parents('tr')).data();
+        //alert(JSON.stringify(gardenName.garden_name))
         // fire a function, based on the button id that was clicked
-        if (this.id === 'submit-btn') {
+        if (this.id === 'submit-btn_Dataform') {
             var gardenData = {garden: JSON.stringify(gardenName)};
-            alert(gardenData.garden.);
+            alert(JSON.stringify(gardenData));
             try {
                 $.ajax({
-                    type: "POST",
-                    url: "{pageContext.servletContext.contextPath}/dataForm",
+                    type: "GET",
+                    url: "${pageContext.servletContext.contextPath}/dataForm",
                     data: gardenData
                 });
             } catch (err) {
