@@ -127,26 +127,6 @@
                                 <input class="form-control" name="editBio" type="text" value="${user.description}">
                             </div>
                         </div>
-                        <%--<div class="form-group row">--%>
-                            <%--<label class="col-lg-3 col-form-label form-control-label">Current Password*</label>--%>
-                            <%--<div class="col-lg-9">--%>
-                                <%--<input class="form-control" name="oldPassword" type="password" value="">--%>
-                                <%--*Required for creating New Password.--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<div class="form-group row">--%>
-                            <%--<label class="col-lg-3 col-form-label form-control-label">New Password</label>--%>
-                            <%--<div class="col-lg-9">--%>
-                                <%--<input class="form-control" name="newPassword" type="password" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"--%>
-                                <%--title="Must contain at least one number, one uppercase letter, at least one lowercase letter and at least 8 or more characters.">--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<div class="form-group row">--%>
-                            <%--<label class="col-lg-3 col-form-label form-control-label">Confirm password</label>--%>
-                            <%--<div class="col-lg-9">--%>
-                                <%--<input class="form-control" name="confirmPassword" type="password" value="">--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
@@ -159,7 +139,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -207,11 +186,10 @@
     $('#userGardensTable').on('click', 'button', function () {
         // create an object from a row data
         var gardenName = table.row($(this).parents('tr')).data();
-        //alert(JSON.stringify(gardenName.garden_name))
+
         // fire a function, based on the button id that was clicked
         if (this.id === 'submit-btn_Dataform') {
             var gardenData = {garden: JSON.stringify(gardenName)};
-            alert(JSON.stringify(gardenData));
             try {
                 $.ajax({
                     type: "GET",
@@ -220,8 +198,9 @@
                 });
             } catch (err) {
                 alert(err.message);
+            } finally{
+                window.location.href = "${pageContext.servletContext.contextPath}/dataForm";
             }
-            window.location.href = "${pageContext.servletContext.contextPath}/dataForm";
         }
     });
 

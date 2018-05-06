@@ -369,9 +369,9 @@ public class DataFormServlet extends HttpServlet {
                         if(!"".equals(plot_percent_coverage) && plot_percent_coverage != 0){ plots.get(plot_id-1).setPlot_percent_coverage(plot_percent_coverage); }
 
                         // Reset JSP Plot Parameters
-                        //req.setAttribute("plant" + i + "Strain" + j + "Plot" + j + "Height", plot_height);
                         req.setAttribute("plant" + i + "Strain" + j + "Plot" + j + "AreaDbl", plot_area_dbl);
                         req.setAttribute("plant" + i + "Strain" + j + "Plot" + j + "PercentCoverage", plot_percent_coverage);
+                        //req.setAttribute("plant" + i + "Strain" + j + "Plot" + j + "Height", plot_height);
                         //req.setAttribute("plant" + i + "Strain" + j + "Plot" + j + "BloomsOpen", plot_blooms_open_status);
 
                         //
