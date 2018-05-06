@@ -76,10 +76,6 @@
                             <p>
                                 ${user.firstName} ${user.lastName} <br>${user.email}
                             </p>
-                            <h6>Bio</h6>
-                            <p>
-                                ${user.description}
-                            </p>
                         </div>
                         <div class="col-md-6 align-content-center">
                             <h5>Wish to add a new garden?</h5>
@@ -89,7 +85,7 @@
 
                         </div>
                         <div class="col-md-12">
-                            <h5 class="mt-2">Gardens you belong to:</h5>
+                            <h5 class="mt-2">Your Gardens:</h5>
                             <br>
                             <table id="userGardensTable" class="table table-striped table-borded"
                                    style="width:100%"></table>

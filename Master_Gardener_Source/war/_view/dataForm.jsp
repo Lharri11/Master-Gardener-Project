@@ -84,8 +84,6 @@ be greyed out except the plot size.
             <div class="tab">
 
                 <input type="hidden" id = "gardenName" value='${garden_name}' >
-                Garden name: ${garden_name}
-                request.getAttribute("garden_name")
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
@@ -99,7 +97,7 @@ be greyed out except the plot size.
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="control-label">Collection Week Number</label>
-                            <input class="form-control" type="text" name="weekNumber" placeholder = "0">
+                            <input class="form-control" type="text" name="weekNumber">
                         </div>
                     </div>
                 </div>
@@ -428,14 +426,12 @@ be greyed out except the plot size.
                         <label class="control-label">Honey Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator1"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -444,14 +440,12 @@ be greyed out except the plot size.
                         <label class="control-label">Carpenter Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator2"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -460,14 +454,12 @@ be greyed out except the plot size.
                         <label class="control-label">Bumble Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator3"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -478,14 +470,12 @@ be greyed out except the plot size.
                         <label class="control-label">Green Metallic Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator4"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -493,14 +483,12 @@ be greyed out except the plot size.
                         <label class="control-label">Green Sweat Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator5"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -508,14 +496,12 @@ be greyed out except the plot size.
                         <label class="control-label">Dark Sweat Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator6"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -526,14 +512,12 @@ be greyed out except the plot size.
                         <label class="control-label">Butterflies &amp; Moths</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator7"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -541,31 +525,26 @@ be greyed out except the plot size.
                         <label class="control-label">Other Bees</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator8"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
-
-
+                    
                     <div class="form-group col-lg-4">
                         <label class="control-label">Other Pollinators</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain1Plot1Pollinator9"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -617,7 +596,6 @@ be greyed out except the plot size.
                         </select>
                     </div>
 
-
                     <div class="form-group col-lg-6">
                         <label class="control-label">Plot Area Dimensions</label>
                         <select class="form-control"
@@ -638,15 +616,16 @@ be greyed out except the plot size.
                     <div class="form-group col-lg-6">
                         <h4>Pollinator Visit Counts</h4>
                     </div>
-
                     <div class="form-group col-lg-6">
-                        <p>
-                            Time will be placed here. Hard set to 5 minutes. At the end, it will lock
-                            the
-                            count fields, but leave the comment section open for butterflies &amp; moths
-                            if
-                            &gt;0
-                        </p>
+                        <div id="chronoExample">
+                            <div class="values">00:00:00</div>
+                            <div>
+                                <button class="startButton">Start</button>
+                                <button class="pauseButton">Pause</button>
+                                <button class="stopButton">Stop</button>
+                                <button class="resetButton">Reset</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -655,14 +634,12 @@ be greyed out except the plot size.
                         <label class="control-label">Honey Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator1"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -671,14 +648,12 @@ be greyed out except the plot size.
                         <label class="control-label">Carpenter Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator2"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -687,14 +662,12 @@ be greyed out except the plot size.
                         <label class="control-label">Bumble Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator3"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -705,14 +678,12 @@ be greyed out except the plot size.
                         <label class="control-label">Green Metallic Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator4"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -720,14 +691,12 @@ be greyed out except the plot size.
                         <label class="control-label">Green Sweat Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator5"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -735,14 +704,12 @@ be greyed out except the plot size.
                         <label class="control-label">Dark Sweat Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator6"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -753,14 +720,12 @@ be greyed out except the plot size.
                         <label class="control-label">Butterflies &amp; Moths</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator7"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -768,38 +733,32 @@ be greyed out except the plot size.
                         <label class="control-label">Other Bees</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator8"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
-
-
+                    
                     <div class="form-group col-lg-4">
                         <label class="control-label">Other Pollinators</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain2Plot2Pollinator9"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
                 </div>
             </div>
-
-
+                
             <%-------------------------------------------------- End Form2 --------------------------------------------------%>
             <%-------------------------------------------------- Begin Form3 --------------------------------------------------%>
             <div class="tab" id="form-submission">
@@ -845,8 +804,7 @@ be greyed out except the plot size.
                             <option value="4">76%-100%</option>
                         </select>
                     </div>
-
-
+                    
                     <div class="form-group col-lg-6">
                         <label class="control-label">Plot Area Dimensions</label>
                         <select class="form-control"
@@ -868,13 +826,15 @@ be greyed out except the plot size.
                         <h4>Pollinator Visit Counts</h4>
                     </div>
                     <div class="form-group col-lg-6">
-                        <p>
-                            Time will be placed here. Hard set to 5 minutes. At the end, it will lock
-                            the
-                            count fields, but leave the comment section open for butterflies &amp; moths
-                            if
-                            &gt;0
-                        </p>
+                        <div id="chronoExample">
+                            <div class="values">00:00:00</div>
+                            <div>
+                                <button class="startButton">Start</button>
+                                <button class="pauseButton">Pause</button>
+                                <button class="stopButton">Stop</button>
+                                <button class="resetButton">Reset</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -883,14 +843,12 @@ be greyed out except the plot size.
                         <label class="control-label">Honey Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator1"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -898,14 +856,12 @@ be greyed out except the plot size.
                         <label class="control-label">Carpenter Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator2"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -913,14 +869,12 @@ be greyed out except the plot size.
                         <label class="control-label">Bumble Bee</label>
                         <div class="input-group">
                                 <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator3"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -930,14 +884,12 @@ be greyed out except the plot size.
                         <label class="control-label">Green Metallic Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator4"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -945,14 +897,12 @@ be greyed out except the plot size.
                         <label class="control-label">Green Sweat Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator5"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -960,14 +910,12 @@ be greyed out except the plot size.
                         <label class="control-label">Dark Sweat Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator6"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -977,14 +925,12 @@ be greyed out except the plot size.
                         <label class="control-label">Butterflies &amp; Moths</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator7"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -992,14 +938,12 @@ be greyed out except the plot size.
                         <label class="control-label">Other Bees</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator8"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1008,14 +952,12 @@ be greyed out except the plot size.
                         <label class="control-label">Other Pollinators</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain3Plot3Pollinator9"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1037,8 +979,8 @@ be greyed out except the plot size.
                         <label class="control-label">Species</label>
 
                         <input type="text" class="form-control"
-                               placeholder="Crème Brulee" name="plant1Strain4Name"
-                               value="Crème Brulee">
+                               placeholder="Cr&egrave;me Brulee" name="plant1Strain4Name"
+                               value="Cr&egrave;me Brulee">
                     </div>
                 </div>
 
@@ -1090,15 +1032,15 @@ be greyed out except the plot size.
                         <h4>Pollinator Visit Counts</h4>
                     </div>
                     <div class="form-group col-lg-6">
-
-                        <p>
-                            Time will be placed here. Hard set to 5 minutes. At the end, it will lock
-                            the
-                            count fields, but leave the comment section open for butterflies &amp; moths
-                            if
-                            &gt;0
-                        </p>
-
+                        <div id="chronoExample">
+                            <div class="values">00:00:00</div>
+                            <div>
+                                <button class="startButton">Start</button>
+                                <button class="pauseButton">Pause</button>
+                                <button class="stopButton">Stop</button>
+                                <button class="resetButton">Reset</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -1107,14 +1049,12 @@ be greyed out except the plot size.
                         <label class="control-label">Honey Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
                                    name="plant1Strain4Plot4Pollinator1" value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1123,14 +1063,12 @@ be greyed out except the plot size.
                         <label class="control-label">Carpenter Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
                                    name="plant1Strain4Plot4Pollinator2" value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
 
@@ -1139,14 +1077,12 @@ be greyed out except the plot size.
                         <label class="control-label">Bumble Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
                                    name="plant1Strain4Plot4Pollinator3" value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1156,14 +1092,12 @@ be greyed out except the plot size.
                         <label class="control-label">Green Metallic Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
                                    name="plant1Strain4Plot4Pollinator4" value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1172,14 +1106,12 @@ be greyed out except the plot size.
                         <label class="control-label">Green Sweat Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
                                    name="plant1Strain4Plot4Pollinator5" value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1188,14 +1120,12 @@ be greyed out except the plot size.
                         <label class="control-label">Dark Sweat Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
                                    name="plant1Strain4Plot4Pollinator6" value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1206,14 +1136,12 @@ be greyed out except the plot size.
                         <label class="control-label">Butterflies &amp; Moths</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
                                    name="plant1Strain4Plot4Pollinator7" value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1222,14 +1150,12 @@ be greyed out except the plot size.
                         <label class="control-label">Other Bees</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
                                    name="plant1Strain4Plot4Pollinator8" value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1237,14 +1163,12 @@ be greyed out except the plot size.
                         <label class="control-label">Other Pollinators</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
                                    name="plant1Strain4Plot4Pollinator9" value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1321,16 +1245,16 @@ be greyed out except the plot size.
                     <div class="form-group col-lg-6">
                         <h4>Pollinator Visit Counts</h4>
                     </div>
-
                     <div class="form-group col-lg-6">
-
-                        <p>
-                            Time will be placed here. Hard set to 5 minutes. At the end, it will lock
-                            the
-                            count fields, but leave the comment section open for butterflies &amp; moths
-                            if
-                            &gt;0
-                        </p>
+                        <div id="chronoExample">
+                            <div class="values">00:00:00</div>
+                            <div>
+                                <button class="startButton">Start</button>
+                                <button class="pauseButton">Pause</button>
+                                <button class="stopButton">Stop</button>
+                                <button class="resetButton">Reset</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -1340,14 +1264,12 @@ be greyed out except the plot size.
                         <label class="control-label">Honey Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain5Plot5Pollinator1"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1356,14 +1278,12 @@ be greyed out except the plot size.
                         <label class="control-label">Carpenter Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
                                    name="plant1Strain5Plot5Pollinator2" value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1372,14 +1292,12 @@ be greyed out except the plot size.
                         <label class="control-label">Bumble Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
                                    name="plant1Strain5Plot5Pollinator3" value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1389,14 +1307,12 @@ be greyed out except the plot size.
                         <label class="control-label">Green Metallic Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
                                    name="plant1Strain5Plot5Pollinator4" value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1405,15 +1321,13 @@ be greyed out except the plot size.
                         <label class="control-label">Green Sweat Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
                                    name="plant1Strain5Plot5Pollinator5" value="0"
                             >
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1421,15 +1335,13 @@ be greyed out except the plot size.
                         <label class="control-label">Dark Sweat Bee</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
                                    name="plant1Strain5Plot5Pollinator6" value="0"
                             >
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1439,15 +1351,13 @@ be greyed out except the plot size.
                         <label class="control-label">Butterflies &amp; Moths</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
                                    name="plant1Strain5Plot5Pollinator7" value="0"
                             >
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1455,14 +1365,12 @@ be greyed out except the plot size.
                         <label class="control-label">Other Bees</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text"
                                    name="plant1Strain5Plot5Pollinator8" value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
                     </div>
@@ -1472,14 +1380,12 @@ be greyed out except the plot size.
                         <label class="control-label">Other Pollinators</label>
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                             <input class="form-control" type="text" name="plant1Strain5Plot5Pollinator9"
                                    value="0">
                             <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                         </div>
 
@@ -1556,18 +1462,18 @@ be greyed out except the plot size.
 
                     <div class="row">
                         <div class="form-group col-lg-6">
-
                             <h4>Pollinator Visit Counts</h4>
-
                         </div>
                         <div class="form-group col-lg-6">
-                            <p>
-                                Time will be placed here. Hard set to 5 minutes. At the end, it will lock
-                                the
-                                count fields, but leave the comment section open for butterflies &amp; moths
-                                if
-                                &gt;0
-                            </p>
+                            <div id="chronoExample">
+                                <div class="values">00:00:00</div>
+                                <div>
+                                    <button class="startButton">Start</button>
+                                    <button class="pauseButton">Pause</button>
+                                    <button class="stopButton">Stop</button>
+                                    <button class="resetButton">Reset</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -1576,14 +1482,12 @@ be greyed out except the plot size.
                             <label class="control-label">Honey Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain1Plot1Pollinator1" value="0">
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -1592,15 +1496,13 @@ be greyed out except the plot size.
                             <label class="control-label">Carpenter Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain1Plot1Pollinator2" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -1608,16 +1510,14 @@ be greyed out except the plot size.
                             <label class="control-label">Bumble Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
 
                                 <input class="form-control" type="text"
                                        name="plant2Strain1Plot1Pollinator3" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -1627,16 +1527,14 @@ be greyed out except the plot size.
                             <label class="control-label">Green Metallic Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
 
                                 <input class="form-control" type="text"
                                        name="plant2Strain1Plot1Pollinator4" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -1645,14 +1543,12 @@ be greyed out except the plot size.
                             <label class="control-label">Green Sweat Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain1Plot1Pollinator5" value="0">
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -1661,15 +1557,13 @@ be greyed out except the plot size.
                             <label class="control-label">Dark Sweat Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain1Plot1Pollinator6" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -1679,15 +1573,13 @@ be greyed out except the plot size.
                             <label class="control-label">Butterflies &amp; Moths</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain1Plot1Pollinator7" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -1696,15 +1588,13 @@ be greyed out except the plot size.
                             <label class="control-label">Other Bees</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain1Plot1Pollinator8" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -1714,16 +1604,14 @@ be greyed out except the plot size.
                             <label class="control-label">Other Pollinators</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
 
                                 <input class="form-control" type="text"
                                        name="plant2Strain1Plot1Pollinator9" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -1801,24 +1689,21 @@ be greyed out except the plot size.
 
                         </div>
                     </div>
-
                     <br>
-
-
                     <div class="row">
                         <div class="form-group col-lg-6">
                             <h4>Pollinator Visit Counts</h4>
-
                         </div>
                         <div class="form-group col-lg-6">
-                            <p>
-                                Time will be placed here. Hard set to 5 minutes. At the end, it will lock
-                                the
-                                count fields, but leave the comment section open for butterflies &amp; moths
-                                if
-                                &gt;0
-                            </p>
-
+                            <div id="chronoExample">
+                                <div class="values">00:00:00</div>
+                                <div>
+                                    <button class="startButton">Start</button>
+                                    <button class="pauseButton">Pause</button>
+                                    <button class="stopButton">Stop</button>
+                                    <button class="resetButton">Reset</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -1827,14 +1712,12 @@ be greyed out except the plot size.
                             <label class="control-label">Honey Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain2Plot2Pollinator1" value="0">
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -1843,15 +1726,13 @@ be greyed out except the plot size.
                             <label class="control-label">Carpenter Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
 
                                 <input class="form-control" type="text"
                                        name="plant2Strain2Plot2Pollinator2" value="0">
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -1860,14 +1741,12 @@ be greyed out except the plot size.
                             <label class="control-label">Bumble Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain2Plot2Pollinator3" value="0">
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -1877,15 +1756,13 @@ be greyed out except the plot size.
                             <label class="control-label">Green Metallic Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain2Plot2Pollinator4" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -1894,15 +1771,13 @@ be greyed out except the plot size.
                             <label class="control-label">Green Sweat Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain2Plot2Pollinator5" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -1911,15 +1786,13 @@ be greyed out except the plot size.
                             <label class="control-label">Dark Sweat Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain2Plot2Pollinator6" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -1929,15 +1802,13 @@ be greyed out except the plot size.
                             <label class="control-label">Butterflies &amp; Moths</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain2Plot2Pollinator7" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -1946,15 +1817,13 @@ be greyed out except the plot size.
                             <label class="control-label">Other Bees</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain2Plot2Pollinator8" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -1963,15 +1832,13 @@ be greyed out except the plot size.
                             <label class="control-label">Other Pollinators</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain2Plot2Pollinator9" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2049,15 +1916,16 @@ be greyed out except the plot size.
                         <div class="form-group col-lg-6">
                             <h4>Pollinator Visit Counts</h4>
                         </div>
-
                         <div class="form-group col-lg-6">
-                            <p>
-                                Time will be placed here. Hard set to 5 minutes. At the end, it will lock
-                                the
-                                count fields, but leave the comment section open for butterflies &amp; moths
-                                if
-                                &gt;0
-                            </p>
+                            <div id="chronoExample">
+                                <div class="values">00:00:00</div>
+                                <div>
+                                    <button class="startButton">Start</button>
+                                    <button class="pauseButton">Pause</button>
+                                    <button class="stopButton">Stop</button>
+                                    <button class="resetButton">Reset</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -2066,15 +1934,13 @@ be greyed out except the plot size.
                             <label class="control-label">Honey Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain3Plot3Pollinator1" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2083,14 +1949,12 @@ be greyed out except the plot size.
                             <label class="control-label">Carpenter Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain3Plot3Pollinator2" value="0">
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2099,15 +1963,13 @@ be greyed out except the plot size.
                             <label class="control-label">Bumble Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain3Plot3Pollinator3" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2117,15 +1979,13 @@ be greyed out except the plot size.
                             <label class="control-label">Green Metallic Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
 
                                 <input class="form-control" type="text"
                                        name="plant2Strain3Plot3Pollinator4" value="0">
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2134,15 +1994,13 @@ be greyed out except the plot size.
                             <label class="control-label">Green Sweat Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain3Plot3Pollinator5" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2150,15 +2008,13 @@ be greyed out except the plot size.
                             <label class="control-label">Dark Sweat Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain3Plot3Pollinator6" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2168,14 +2024,12 @@ be greyed out except the plot size.
                             <label class="control-label">Butterflies &amp; Moths</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain3Plot3Pollinator7" value="0">
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2184,14 +2038,12 @@ be greyed out except the plot size.
                             <label class="control-label">Other Bees</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain3Plot3Pollinator8" value="0">
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2201,15 +2053,13 @@ be greyed out except the plot size.
                             <label class="control-label">Other Pollinators</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain3Plot3Pollinator9" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2284,13 +2134,15 @@ be greyed out except the plot size.
                             <h4>Pollinator Visit Counts</h4>
                         </div>
                         <div class="form-group col-lg-6">
-                            <p>
-                                Time will be placed here. Hard set to 5 minutes. At the end, it will lock
-                                the
-                                count fields, but leave the comment section open for butterflies &amp; moths
-                                if
-                                &gt;0
-                            </p>
+                            <div id="chronoExample">
+                                <div class="values">00:00:00</div>
+                                <div>
+                                    <button class="startButton">Start</button>
+                                    <button class="pauseButton">Pause</button>
+                                    <button class="stopButton">Stop</button>
+                                    <button class="resetButton">Reset</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -2299,15 +2151,13 @@ be greyed out except the plot size.
                             <label class="control-label">Honey Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain4Plot4Pollinator1" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2316,15 +2166,13 @@ be greyed out except the plot size.
                             <label class="control-label">Carpenter Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain4Plot4Pollinator2" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2333,15 +2181,13 @@ be greyed out except the plot size.
                             <label class="control-label">Bumble Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain4Plot4Pollinator3" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2351,15 +2197,13 @@ be greyed out except the plot size.
                             <label class="control-label">Green Metallic Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain4Plot4Pollinator4" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2368,15 +2212,13 @@ be greyed out except the plot size.
                             <label class="control-label">Green Sweat Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain4Plot4Pollinator5" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2385,15 +2227,13 @@ be greyed out except the plot size.
                             <label class="control-label">Dark Sweat Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain4Plot4Pollinator6" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2403,15 +2243,13 @@ be greyed out except the plot size.
                             <label class="control-label">Butterflies &amp; Moths</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain4Plot4Pollinator7" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2420,15 +2258,13 @@ be greyed out except the plot size.
                             <label class="control-label">Other Bees</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain4Plot4Pollinator8" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
@@ -2437,15 +2273,13 @@ be greyed out except the plot size.
                             <label class="control-label">Other Pollinators</label>
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn bg-danger btn-minus" type="button"><i
-                                        class="fa fa-minus"></i></button>
+                                <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
                                 <input class="form-control" type="text"
                                        name="plant2Strain4Plot4Pollinator9" value="0"
                                 >
                                 <span class="input-group-btn">
-                                <button class="btn bg-success btn-plus" type="button"><i
-                                        class="fa fa-plus"></i></button>
+                                <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>

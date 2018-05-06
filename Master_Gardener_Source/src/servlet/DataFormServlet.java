@@ -30,20 +30,19 @@ public class DataFormServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        String username = (String) req.getSession().getAttribute("username");
+        /*String username = (String) req.getSession().getAttribute("username");
         if (username == null) {
             System.out.println("User not logged in or session timed out");
 
             // User is not logged in, or the session expired
             resp.sendRedirect(req.getContextPath() + "/login");
             return;
-        }
+        }*/
 
         if(req.getParameter("garden") != null) {
             JSONObject gardenName = new JSONObject(req.getParameter("garden"));
             String gardenChosen = gardenName.getString("garden_name");
             req.getSession().setAttribute("garden_name", gardenChosen);
-            System.out.println("Testing " + gardenChosen);
         }
 
         req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
@@ -53,8 +52,6 @@ public class DataFormServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        String garden_name = (String)req.getSession().getAttribute("garden_name");
-        System.out.println(garden_name);
         //
         // ------------------------------ Begin DataForm Initialization ------------------------------ //
         //
@@ -91,7 +88,7 @@ public class DataFormServlet extends HttpServlet {
         String generator_last_name3 = null;
         String generator_last_name4 = null;
         String county = null;
-        //String garden_name = null;
+        String garden_name = null;
 
         //DataForm Date Information
         int week_num = 0;
@@ -140,7 +137,7 @@ public class DataFormServlet extends HttpServlet {
             generator_last_name2 = req.getParameter("generatorLastName2");
             generator_last_name3 = req.getParameter("generatorLastName3");
             generator_last_name4 = req.getParameter("generatorLastName4");
-            garden_name = req.getParameter("garden_name");
+            garden_name = (String)req.getSession().getAttribute("garden_name");
 
             //DataForm Date & Time Information
             week_num = Integer.parseInt(req.getParameter("weekNumber"));
@@ -193,20 +190,6 @@ public class DataFormServlet extends HttpServlet {
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
             }
-            /*else if ("".equals(date_generated) || date_generated == null) {
-                errorMessage = "Please enter the DataForm generation date";
-                System.out.println(errorMessage);
-                date_generated = null;
-                req.setAttribute("errorMessage", errorMessage);
-                req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-            }
-            else if ("".equals(plot_blooms_open_status) || plot_blooms_open_status == null) {
-                errorMessage = "Please enter the bloom status of the plot";
-                System.out.println(errorMessage);
-                plot_blooms_open_status = null;
-                req.setAttribute("errorMessage", errorMessage);
-                req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-            }*/
             else if ("".equals(plot_percent_coverage)) {
                 errorMessage = "Please enter flower coverage percentage of the plot";
                 System.out.println(errorMessage);
@@ -226,41 +209,21 @@ public class DataFormServlet extends HttpServlet {
                     controller = new DataFormController();
                     //Set Week Number
                     dataForm.setWeek_number(week_num);
+
                     //Set Garden & County
                     dataForm.setGarden_id(controller.getGardenIDByGardenName(garden_name));
                     dataForm.setCounty_id(controller.getCountyIDByGardenName(garden_name));
+
                     //Set Generators
-                    //System.out.println(generator_first_name1);
-                    //System.out.println(generator_last_name1);
-                    //System.out.println(controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1));
-                    // System.out.println(controller.getUserFromUserID(controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1)).getUserId());
-
+                    int generator_id1 = controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1);
+                    int generator_id2 = controller.getUserIDFromFirstNameAndLastName(generator_first_name2, generator_last_name2);
+                    int generator_id3 = controller.getUserIDFromFirstNameAndLastName(generator_first_name3, generator_last_name3);
+                    int generator_id4 = controller.getUserIDFromFirstNameAndLastName(generator_first_name4, generator_last_name4);
+                    //
                     generators.add(controller.getUserFromUserID(controller.getUserIDFromFirstNameAndLastName(generator_first_name1, generator_last_name1)));
-
-                    if((!"".equals(generator_first_name2) && generator_first_name2 != null) && (!"".equals(generator_last_name2) && generator_last_name2 != null))
-                    {
-                        int generator_id = -1;
-                        generator_id = controller.getUserIDFromFirstNameAndLastName(generator_first_name2, generator_last_name2);
-                        if(generator_id > 0){
-                            generators.add(controller.getUserFromUserID(generator_id));
-                        }
-                    }
-                    if((!"".equals(generator_first_name3) && generator_first_name3 != null) && (!"".equals(generator_last_name3) && generator_last_name3 != null))
-                    {
-                        int generator_id = -1;
-                        generator_id = controller.getUserIDFromFirstNameAndLastName(generator_first_name3, generator_last_name3);
-                        if(generator_id > 0){
-                            generators.add(controller.getUserFromUserID(generator_id));
-                        }
-                    }
-                    if((!"".equals(generator_first_name4) && generator_first_name4 != null) && (!"".equals(generator_last_name4) && generator_last_name4 != null))
-                    {
-                        int generator_id = -1;
-                        generator_id = controller.getUserIDFromFirstNameAndLastName(generator_first_name4, generator_last_name4);
-                        if(generator_id > 0){
-                            generators.add(controller.getUserFromUserID(generator_id));
-                        }
-                    }
+                    if((!"".equals(generator_first_name2) && generator_first_name2 != null) && (!"".equals(generator_last_name2) && generator_last_name2 != null) && (generator_id2 > 0)) { generators.add(controller.getUserFromUserID(generator_id2)); }
+                    if((!"".equals(generator_first_name3) && generator_first_name3 != null) && (!"".equals(generator_last_name3) && generator_last_name3 != null) && (generator_id3 > 0)) { generators.add(controller.getUserFromUserID(generator_id3)); }
+                    if((!"".equals(generator_first_name4) && generator_first_name4 != null) && (!"".equals(generator_last_name4) && generator_last_name4 != null) && (generator_id4 > 0)) { generators.add(controller.getUserFromUserID(generator_id4)); }
 
                     // Set Date & Time
                     dataForm.setDate_collected(date_collected);
@@ -363,9 +326,6 @@ public class DataFormServlet extends HttpServlet {
                             e.printStackTrace();
                         }
                         //plot_height = Double.parseDouble(req.getParameter("plant" + plant_num + "Strain" + j + "Plot" + j + "Height"));
-                        System.out.println("i: "+i);
-                        System.out.println("j: "+j);
-                        System.out.println("plant" + i + "Strain" + j + "Plot" + j + "AreaDbl");
 
                         //System.out.println();
                         //System.out.println();

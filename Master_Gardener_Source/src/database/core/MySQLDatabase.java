@@ -3924,7 +3924,6 @@ public class MySQLDatabase implements IDatabase {
                 // the last DF id + 1
                 dataform_id = set4.getInt(1);
             }
-            System.out.println("dataform id:" + dataform_id);
 
             if (dataform_id == 0) {
                 System.out.println("Error Acquiring DataForm ID");
@@ -3992,7 +3991,7 @@ public class MySQLDatabase implements IDatabase {
         }
 
         if(result) {
-            System.out.println("DataForm successfully generated! Time to graduate :)");
+            System.out.println("All Dataform fields successfully inserted/updated...");
         }
         else {
             System.out.println("DataForm unsuccessfully generated...Time to debug :(");

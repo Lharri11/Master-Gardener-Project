@@ -33,12 +33,7 @@ public class UserController {
 		System.out.println("User's Gardens:");
 		for(int x = 0; x < gardens.size(); x++)
 		{
-			if(x == gardens.size()){
-				System.out.println(gardens.get(x).getGarden_name() + "\n");
-			}
-			else{
-				System.out.println(gardens.get(x).getGarden_name());
-			}
+				System.out.print(gardens.get(x).getGarden_name() + ", ");
 		}
 		if (gardens.isEmpty()) {
 			System.out.println("No gardens in database for that User");
