@@ -25,12 +25,6 @@ public class UserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
-		// TODO: it's kind of really important to comment this out
-		//============================================================================================================
-		//AdminController ctrl = new AdminController();
-		//ctrl.updatePollinatorVisitCountPlotIDs();
-		//============================================================================================================
-
 		String username = (String) req.getSession().getAttribute("username");
 		if (username == null) {
 			System.out.println("User not logged in or session timed out");
@@ -49,17 +43,12 @@ public class UserServlet extends HttpServlet {
 		}
 
 		String userGardens = new Gson().toJson(gardens);
-		System.out.println(userGardens);
-
 		req.setAttribute("userGardens", userGardens);
 
 		User user = new User();
 		controller = new UserController();
 		user = controller.returnUserForUsername(username);
 		req.setAttribute("user", user);
-
-
-
 		req.getRequestDispatcher("/_view/user.jsp").forward(req, resp);
 	}
 
@@ -93,19 +82,6 @@ public class UserServlet extends HttpServlet {
 			resp.sendRedirect(req.getContextPath()+"/search");
 			return;
 		}
-/*
-		portraitLength = user.getPortrait().length;
-		//getDAO().getImage(propose.getId());
-		byte[] userPortrait = new byte[portraitLength];
-
-		resp.reset();
-		resp.setContentType("image/jpg");
-		resp.getOutputStream().write(userPortrait,0,portraitLength);
-		resp.getOutputStream().flush();*/
-
-
-
-
 
 		req.getRequestDispatcher("/_view/user.jsp").forward(req, resp);
 	}

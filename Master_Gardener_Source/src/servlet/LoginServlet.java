@@ -77,7 +77,6 @@ public class LoginServlet extends HttpServlet {
 
 				if(loggedin){
 					req.setAttribute("account", login.returnUserForUsername(username));
-					//req.getRequestDispatcher("/_view/user.jsp").forward(req, resp);
 
 					resp.sendRedirect(req.getContextPath() + "/user");
 				}

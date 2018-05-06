@@ -73,11 +73,9 @@
 <script>
     var allGardens = ${allGardens};
 
-
     var table = $('#allGardensTable').resize().DataTable({
 
         data: allGardens,
-
         columns: [{
             data: 'garden_name',
             className: 'center',
@@ -93,7 +91,7 @@
         "columnDefs": [{
             "targets": -1,       // -1 = last column
             "data": null,        // no data for this column, instead we will show default content, described in 'defaultContent'
-            "defaultContent": "<button id='submit-btn' class='btn btn-primary rounded-pill align-content-lg-center'>Submit</button>"
+            "defaultContent": "<button id='submit-btn' class='btn btn-primary rounded-pill align-content-lg-center'>Join</button>"
         }],
     });
 
@@ -105,7 +103,6 @@
             joinSomeGarden(garden);
         }
     });
-
 
     function joinSomeGarden(joining) {
         var gardenData = {garden: JSON.stringify(joining)};
@@ -119,9 +116,9 @@
         } catch (err) {
             alert(err.message);
         } finally {
-           //alert("You added " + JSON.stringify(joining.garden_name) + " to your account");
+            alert("You added " + JSON.stringify(joining.garden_name) + " to your account");
+            window.location.href = "${pageContext.servletContext.contextPath}/user";
             reloadTable();
-
         }
     }
 

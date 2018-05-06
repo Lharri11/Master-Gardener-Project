@@ -1,12 +1,14 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.LoginController;
 import controller.SignupController;
 import model.User;
 
@@ -25,7 +27,7 @@ public class SignupServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        String user = null;
+        String username = null;
         String pass1 = null;
         String pass2 = null;
         String first_name = null;
@@ -38,9 +40,8 @@ public class SignupServlet extends HttpServlet {
 
 
         if (buttonPress != null) {
-            System.out.println("pressed");
 
-            user = req.getParameter("usernameReg");
+            username = req.getParameter("usernameReg");
             pass1 = req.getParameter("pass1");
             pass2 = req.getParameter("pass2");
             // TODO: This is left intentionally red so that I know to ask Nick to fix the html
@@ -49,10 +50,10 @@ public class SignupServlet extends HttpServlet {
             email = req.getParameter("email");
 
 
-            if ("".equals(user) || user == null) {
+            if ("".equals(username) || username == null) {
                 errorMessageReg = "Invalid username, please re-enter";
                 System.out.println(errorMessageReg);
-                user = null;
+                username = null;
                 req.setAttribute("errorMessageReg", errorMessageReg);
                 req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
             } else if ("".equals(pass1) || pass1 == null) {
@@ -92,20 +93,38 @@ public class SignupServlet extends HttpServlet {
                 req.setAttribute("errorMessageReg", errorMessageReg);
                 req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
             } else {
-                User account = new User(user, pass1, -1, first_name, last_name, email, null);
+                User account = new User(username, pass1, -1, first_name, last_name, email, null);
                 SignupController controller = new SignupController();
 
                 if (controller.createUser(account)) {
                     req.setAttribute("account", account);
-                    req.getRequestDispatcher("/_view/home.jsp").forward(req, resp);
-                } else {
-                    errorMessageReg = "Unexpected Error";
-                    req.setAttribute("errorMessageReg", errorMessageReg);
-                    req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
+
+                    LoginController loginController = new LoginController();
+                    int loginId = 0;
+
+                    try {
+                        loginId = loginController.loginUser(username, pass1);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    if(loginId >= 0){
+                        req.getSession().setAttribute("username", username);
+                        req.getSession().setAttribute("login_id", loginId);
+                        boolean loggedin = true;
+                        req.setAttribute("loggedin", loggedin);
+
+                        req.setAttribute("account", loginController.returnUserForUsername(username));
+                        resp.sendRedirect(req.getContextPath() + "/user");
+                    }
+                    else{
+                        errorMessageReg = "Unexpected Signup Error Occurred.";
+                        System.out.println(errorMessageReg);
+                        req.setAttribute("errorMessageReg", errorMessageReg);
+                        req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
+                    }
                 }
             }
-
-            req.setAttribute("username", user);
+            req.setAttribute("username", username);
             req.setAttribute("password", pass1);
             req.setAttribute("firstname", first_name);
             req.setAttribute("lastname", first_name);

@@ -170,12 +170,8 @@
 <script src="vendor/scrollreveal/scrollreveal.js"></script>
 <script src="vendor/Popper/Popper.js"></script>
 <script src="vendor/DataTables/datatables.js"></script>
-
 <script>
     var userGardens = ${userGardens};
-
-
-
 
     var table = $('#userGardensTable').resize().DataTable({
 
@@ -210,20 +206,21 @@
         ],
     });
 
-   /* $('#userGardensTable').on('click', 'button', function () {
+    $('#userGardensTable').on('click', 'button', function () {
         // create an object from a row data
         var garden = table.row($(this).parents('tr')).data();
         // fire a function, based on the button id that was clicked
         if (this.id === 'submit-btn') {
-            joinSomeGarden(garden);
+            //submitGardenDataform(garden);
+            window.location.href = "${pageContext.servletContext.contextPath}/dataForm";
         }
     });
 
+    /*function submitGardenDataform(joining) {
+        //var gardenData = {garden: JSON.stringify(joining)};
 
-    function joinSomeGarden(joining) {
-        var gardenData = {garden: JSON.stringify(joining)};
-
-        try {
+        //window.location.href = "{pageContext.servletContext.contextPath}/dataForm";
+        <!--try {
             $.ajax({
                 type: "POST",
                 url: "{pageContext.servletContext.contextPath}/search",
@@ -231,25 +228,9 @@
             });
         } catch (err) {
             alert(err.message);
-        } finally {
-            //alert("You added " + JSON.stringify(joining.garden_name) + " to your account");
-            reloadTable();
-
-        }
-    }
-
-    //TODO: This does not work right. It works once and that's it
-    function reloadTable() {
-        var thisreDraw = $("#userGardensTable").DataTable().draw();
-        thisreDraw.draw();
-
+        }-->
     }*/
-
-
-
 </script>
-
-
 
 </body>
 </html>

@@ -87,11 +87,11 @@ be greyed out except the plot size.
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="control-label">This Dataform is for the garden</label>
+                            <label class="control-label">Garden Name</label>
 
                             <input class="form-control"
                                    type="text"
-                                   name="garden_name">
+                                   name="garden_name" value = ${garden_name}>
                         </div>
                     </div>
                     <div class="col-lg-6">
