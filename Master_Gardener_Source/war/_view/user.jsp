@@ -215,7 +215,7 @@
 
     function submitGardenDataform(submit) {
         var gardenData = {garden: JSON.stringify(submit)};
-        alert(JSON.stringify(submit));
+
         try {
             $.ajax({
                 type: "GET",
@@ -228,10 +228,6 @@
             window.location.href = "${pageContext.servletContext.contextPath}/dataForm";
         }
     }
-
-    /*function forward() {
-        window.location.href = "{pageContext.request.contextPath}/dataForm";
-    }*/
 </script>
 
 </body>

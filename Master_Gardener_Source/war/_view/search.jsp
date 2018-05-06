@@ -106,7 +106,7 @@
 
     function joinSomeGarden(joining) {
         var gardenData = {garden: JSON.stringify(joining)};
-        alert(JSON.stringify(joining));
+
         try {
             $.ajax({
                 type: "POST",
@@ -128,9 +128,6 @@
        thisreDraw.draw();
 
     }
-
-    
-
 </script>
 
 

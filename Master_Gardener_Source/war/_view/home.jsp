@@ -85,7 +85,7 @@
         <div class="row">
             <div class="col-lg-12 order-lg-0">
                 <div class="p-5">
-                    <h2 class="display-4">What are we...</h2>
+                    <h2 class="display-4">Our Purpose...</h2>
                     <p>Master Gardener volunteers support Penn State Extension&apos;s educational
                         programs in consumer horticulture. They develop their horticultural expertise
                         through participation in educational training classes conducted by Penn
