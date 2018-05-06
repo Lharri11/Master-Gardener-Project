@@ -261,8 +261,11 @@ public class PollinatorDataForm
 		return plant_name;
 	}
 
+	// These setters need to use the clone() function because we REALLY can't use pointers for them
+	// (The method where these are used calls these setters multiple times, pointers simply WILL NOT work)
+
 	public void setPlant_names(ArrayList<String> plant_name) {
-		this.plant_name = plant_name;
+		this.plant_name = (ArrayList<String>) plant_name.clone();
 	}
 
 	public ArrayList<String> getPollinator_names() {
@@ -270,7 +273,7 @@ public class PollinatorDataForm
 	}
 
 	public void setPollinator_names(ArrayList<String> pollinator_name) {
-		this.pollinator_name = pollinator_name;
+		this.pollinator_name = (ArrayList<String>)pollinator_name.clone();
 	}
 
 	public ArrayList<String> getStrain_names() {
@@ -278,7 +281,7 @@ public class PollinatorDataForm
 	}
 
 	public void setStrain_names(ArrayList<String> strain_name) {
-		this.strain_name = strain_name;
+		this.strain_name = (ArrayList<String>)strain_name.clone();
 	}
 
 	public ArrayList<Integer> getVisit_counts() {
@@ -286,6 +289,6 @@ public class PollinatorDataForm
 	}
 
 	public void setVisit_counts(ArrayList<Integer> visit_counts) {
-		this.visit_counts = visit_counts;
+		this.visit_counts = (ArrayList<Integer>)visit_counts.clone();
 	}
 }

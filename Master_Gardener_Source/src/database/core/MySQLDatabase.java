@@ -1548,7 +1548,7 @@ public class MySQLDatabase implements IDatabase {
         DataSource ds = getMySQLDataSource();
         Connection conn = ds.getConnection();
 
-        // Get list of county IDs
+        // Get list of dataform IDs for the county
         List<Integer> cids = getUnconfirmedDataformIDsByCounty(county);
         List<PollinatorDataForm> return_list = new ArrayList<>();
         //ArrayList<String> return_list = new ArrayList<>();
@@ -1578,11 +1578,6 @@ public class MySQLDatabase implements IDatabase {
                     strain_names.clear();
                     visit_counts.clear();
 
-                    // County id == garden id
-                    // There's some logic later on that does not utilize this, but unless we REALLY
-                    // need those extra CPU cycles, it should be fine to not break anything right now.
-                    pdf.setCounty_id(cids.get(i));
-                    pdf.setGarden_id(cids.get(i));
 
                     // Then, get miscellaneous (easy) fields
                     stmt1 = conn.prepareStatement("SELECT id, temperature, date_collected, date_generated, date_confirmed, monitor_start, monitor_stop,"
@@ -1648,12 +1643,6 @@ public class MySQLDatabase implements IDatabase {
 
                     // TODO: Everything prior might work. Test it all.
 
-                    // set1 = {PVC id, plant id, strain id, visit count number}, potentially multiple rows of this depending on how many PVCs
-                    // are tied to a single dataform
-
-                    //System.out.println("getFetchSize: ");
-                    //System.out.println(set1.getFetchSize());
-                    int lump_sum=0;
                     while (set1.next()) {
 
                         stmt1 = conn.prepareStatement("SELECT plant_name FROM mg_plant WHERE plant_ID = ?");
@@ -1696,16 +1685,15 @@ public class MySQLDatabase implements IDatabase {
                         visit_counts.add(set1.getInt(4));
                         //pdf.setVisit_counts(set1.getInt(4));
                         //return_list.add(set1.getString(4));
-
-                        pdf.setPlant_names(plant_names);
-                        pdf.setPollinator_names(poll_names);
-                        pdf.setStrain_names(strain_names);
-                        pdf.setVisit_counts(visit_counts);
-
                         //set1.next();
 
                     }
+                    pdf.setPlant_names(plant_names);
+                    pdf.setPollinator_names(poll_names);
+                    pdf.setStrain_names(strain_names);
+                    pdf.setVisit_counts(visit_counts);
                     return_list.add(pdf);
+
                     //return_list.add("END");
                 }
             }
