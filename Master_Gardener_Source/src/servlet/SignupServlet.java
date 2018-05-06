@@ -124,7 +124,7 @@ public class SignupServlet extends HttpServlet {
                     }
                 }
             }
-            req.setAttribute("username", username);
+            req.setAttribute("usernameReg", username);
             req.setAttribute("password", pass1);
             req.setAttribute("firstname", first_name);
             req.setAttribute("lastname", first_name);

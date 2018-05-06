@@ -83,7 +83,9 @@ be greyed out except the plot size.
 
             <div class="tab">
 
-
+                <input type="hidden" id = "gardenName" value='${garden_name}' >
+                Garden name: ${garden_name}
+                request.getAttribute("garden_name")
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
@@ -91,22 +93,17 @@ be greyed out except the plot size.
 
                             <input class="form-control"
                                    type="text"
-                                   name="garden_name" value = "${gardenName}" placeholder = "${gardenName}" disabled>
+                                   name="garden_name" value = "${garden_name}" placeholder = "${garden_name}" disabled>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="control-label"
-                            >Collection Week Number</label>
-                            <input class="form-control"
-                                   type="text"
-                                   name="weekNumber">
+                            <label class="control-label">Collection Week Number</label>
+                            <input class="form-control" type="text" name="weekNumber" placeholder = "0">
                         </div>
                     </div>
                 </div>
-
             </div>
-
 
             <%-- Collector Names' Tab --%>
 

@@ -38,41 +38,23 @@ public class DataFormServlet extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/login");
             return;
         }
-       // req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
 
-
-        //Grab garden name from User page table
-        //System.out.println(req.getParameter("gardenNameUser"));
-
-        for (int i = 1; i <= 1; i++) {
-            JSONObject gardenName = new JSONObject(req.getParameter("gardenNameUser"));
-            System.out.println("Working? ");
-            if (gardenName != null) {
-                System.out.println(req.getParameter("gardenNameUser"));
-            } else {
-
-                System.out.println("This is null ");
-            }
-
+        if(req.getParameter("garden") != null) {
+            JSONObject gardenName = new JSONObject(req.getParameter("garden"));
+            String gardenChosen = gardenName.getString("garden_name");
+            req.getSession().setAttribute("garden_name", gardenChosen);
+            System.out.println("Testing " + gardenChosen);
         }
-       // JSONObject gardenName = new JSONObject(req.getParameter("gardenNameUser"));
-       // JSONObject gardenDataName = gardenName.getJSONObject("garden_name");
-        //String gardenChosen = gar
-       // String gardenChosen;
-       // gardenChosen = gardenName.getString("garden_name");
-       // System.out.println("Testing " + gardenChosen);
 
-       // req.setAttribute("gardenName", gardenChosen);
-        //resp.sendRedirect(req.getContextPath()+"/dataForm");
-       req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-
-        //resp.sendRedirect(req.getContextPath() + "/dataForm");
+        req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
+        String garden_name = (String)req.getSession().getAttribute("garden_name");
+        System.out.println(garden_name);
         //
         // ------------------------------ Begin DataForm Initialization ------------------------------ //
         //
@@ -109,7 +91,7 @@ public class DataFormServlet extends HttpServlet {
         String generator_last_name3 = null;
         String generator_last_name4 = null;
         String county = null;
-        String garden_name = null;
+        //String garden_name = null;
 
         //DataForm Date Information
         int week_num = 0;
