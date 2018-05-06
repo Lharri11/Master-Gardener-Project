@@ -230,7 +230,7 @@
     });
 
     function submitGardenDataform(submit) {
-        var dataFormGardenName = {gardenName: JSON.stringify(submit)};
+        var dataFormGardenName = {gardenNameUser: JSON.stringify(submit)};
         //alert(JSON.stringify(submit.garden_name));
         try {
             $.ajax({

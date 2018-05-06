@@ -40,14 +40,15 @@ public class DataFormServlet extends HttpServlet {
         }
 
         //Grab garden name from User page table
-        JSONObject garden = new JSONObject(req.getParameter("gardenName"));
+        System.out.println("Getting here ");
+        JSONObject gardenName = new JSONObject(req.getParameter("gardenNameUser"));
         String gardenChosen;
-        gardenChosen = garden.getString("garden_name");
+        gardenChosen = gardenName.getString("garden_name");
         System.out.println("Testing " + gardenChosen);
 
         req.setAttribute("gardenName", gardenChosen);
 
-        req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
+        //req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
     }
 
     @Override
