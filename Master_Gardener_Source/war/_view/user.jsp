@@ -197,53 +197,81 @@
         "columnDefs": [{
             "targets": -1,       // -1 = last column
             "data": null,        // no data for this column, instead we will show default content, described in 'defaultContent'
-            "defaultContent": "<button id='submit-btn_Remove' class='btn btn-primary rounded-pill align-content-lg-center'>Remove</button>"
+            "defaultContent": "<button id='Remove' class='btn btn-primary rounded-pill align-content-lg-center'>Remove</button>"
         },
             {
                 "targets": -2,       // -1 = last column
                 "data": null,        // no data for this column, instead we will show default content, described in 'defaultContent'
-                "defaultContent": "<button id='submit-btn_Dataform' class='btn btn-primary rounded-pill align-content-lg-center'>Dataform</button>"
+                "defaultContent": "<button id='Dataform' class='btn btn-primary rounded-pill align-content-lg-center'>Dataform</button>"
             }
         ],
     });
 
-    $('#userGardensTable').on('click', 'button', function () {
+    $('#userGardensTable').on('click', 'button', function (e) {
+        //var isSubmitting = false;
         // create an object from a row data
+        e.stopImmediatePropagation();
+        e.preventDefault();
+        var url = "${pageContext.servletContext.contextPath}/dataForm";
         var gardenName = table.row($(this).parents('tr')).data();
         //alert(JSON.stringify(gardenName.garden_name))
         // fire a function, based on the button id that was clicked
-        if (this.id === 'submit-btn_Dataform') {
-            submitGardenDataform(gardenName);
-            /*            var gardenData = {garden: JSON.stringify(gardenName)};
-                        alert(JSON.stringify(gardenData));
-                        try {
-                            $.ajax({
-                                type: "GET",
-                                url: "{pageContext.servletContext.contextPath}/dataForm",
-                                data: gardenData
-                            });
-                        } catch (err) {
-                            alert(err.message);
-                        }
-                        window.location.href = "{pageContext.servletContext.contextPath}/dataForm";*/
-        }
-    });
-
-    function submitGardenDataform(submit) {
-        var dataFormGardenName = {gardenNameUser: JSON.stringify(submit)};
-        //alert(JSON.stringify(submit.garden_name));
-        try {
+        if (this.id === 'Dataform') {
+            var dataFormGardenName = {gardenNameUser: JSON.stringify(gardenName)};
+            // try {
+            //alert("Submitting test");
             $.ajax({
-                type: "GET",
-                url: "${pageContext.servletContext.contextPath}/dataForm",
-                data: dataFormGardenName
-            });
-        } catch (err) {
-            alert(err.message);
+                    // e.stopImmediatePropagation(),
+                    type: "GET",
+                    url: "${pageContext.servletContext.contextPath}/dataForm",
+                    data: dataFormGardenName,
+                    success: function () {
+                        //window.location = "pageContext.request.contextPath}/dataForm";
+                        // alert("Submitting test");
+                        e.stopImmediatePropagation();
+                        forward();
+                    }
+                    //e.stopImmediatePropagation();
+                }
+            )
+            e.stopImmediatePropagation();
         }
-        window.location.href = "${pageContext.servletContext.contextPath}/dataForm";
+
+    });
+    // } catch (err) {
+    //     alert(err.message);
+    //  } finally {
+
+    //  }
 
 
+    /*    function submitGardenDataform(submit) {
+            var dataFormGardenName = {gardenNameUser: JSON.stringify(submit)};
+            var isSubmitting = false;
+            //alert(JSON.stringify(submit.garden_name));
+            if (!isSubmitting) {
+                isSubmitting = true;
+                try {
+                    $.ajax({
+                        type: "GET",
+                        url: "{pageContext.servletContext.contextPath}/dataForm",
+                        data: dataFormGardenName,
+                        success: function () {
+                            isSubmitting = false;
+                        }
+                    });
+                } catch (err) {
+                    alert(err.message);
+                } finally {
+                    window.location.href = "{pageContext.servletContext.contextPath}/dataForm";
+                }
+            }
+
+        }*/
+
+
+    function forward() {
+        window.location = "${pageContext.request.contextPath}/dataForm";
     }
 </script>
 
