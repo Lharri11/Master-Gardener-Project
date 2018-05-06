@@ -91,7 +91,6 @@
                         <div class="col-md-12">
                             <h5 class="mt-2">Gardens you belong to:</h5>
                             <br>
-                            <table id="userGardensTable" class="table table-striped table-borded" style="width:100%"></table>
 
                         </div>
 
@@ -106,13 +105,11 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">First name</label>
                             <div class="col-lg-9">
-                                <input class="form-control" name="editName" type="text" value="${user.firstName}" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Last name</label>
                             <div class="col-lg-9">
-                                <input class="form-control" name="lastname" type="text" value="${user.lastName}" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -189,6 +186,7 @@
 
         // fire a function, based on the button id that was clicked
         if (this.id === 'submit-btn_Dataform') {
+<<<<<<< HEAD
             var gardenData = {garden: JSON.stringify(gardenName)};
             try {
                 $.ajax({
@@ -204,20 +202,14 @@
         }
     });
 
-    /*function submitGardenDataform(joining) {
-        //var gardenData = {garden: JSON.stringify(joining)};
-
-        //window.location.href = "{pageContext.servletContext.contextPath}/dataForm";
-        <!--try {
+    function submitGardenDataform(submit) {
+        var dataFormGardenName = {gardenNameUser: JSON.stringify(submit)};
+        //alert(JSON.stringify(submit.garden_name));
+        try {
             $.ajax({
-                type: "POST",
-                url: "{pageContext.servletContext.contextPath}/search",
-                data: gardenData
             });
         } catch (err) {
             alert(err.message);
-        }-->
-    }*/
 </script>
 
 </body>

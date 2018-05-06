@@ -30,13 +30,25 @@ public class DataFormServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
+        String username = (String) req.getSession().getAttribute("username");
+        if (username == null) {
+            System.out.println("User not logged in or session timed out");
+
+            // User is not logged in, or the session expired
+            resp.sendRedirect(req.getContextPath() + "/login");
+            return;
+        }
+
         //Grab garden name from User page table
-        JSONObject garden = new JSONObject(req.getParameter("garden"));
-        String gardenChosen = null;
-        gardenChosen = garden.getString("garden_name");
+        System.out.println("Getting here ");
+        JSONObject gardenName = new JSONObject(req.getParameter("gardenNameUser"));
+        String gardenChosen;
+        gardenChosen = gardenName.getString("garden_name");
+        System.out.println("Testing " + gardenChosen);
+
         req.setAttribute("gardenName", gardenChosen);
 
-        req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
+        //req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
     }
 
     @Override
