@@ -199,18 +199,26 @@
         "columnDefs": [{
             "targets": -1,       // -1 = last column
             "data": null,        // no data for this column, instead we will show default content, described in 'defaultContent'
+            "defaultContent": "<button id='Remove' class='btn btn-primary rounded-pill align-content-lg-center'>Remove</button>"
         },
             {
                 "targets": -2,       // -1 = last column
                 "data": null,        // no data for this column, instead we will show default content, described in 'defaultContent'
+                "defaultContent": "<button id='Dataform' class='btn btn-primary rounded-pill align-content-lg-center'>Dataform</button>"
             }
         ],
     });
 
+    $('#userGardensTable').on('click', 'button', function (e) {
+        //var isSubmitting = false;
         // create an object from a row data
+        e.stopImmediatePropagation();
+        e.preventDefault();
+        var isSubmitting = true;
         var gardenName = table.row($(this).parents('tr')).data();
 
         // fire a function, based on the button id that was clicked
+<<<<<<< HEAD
         if (this.id === 'submit-btn_Dataform') {
 <<<<<<< HEAD
             var gardenData = {garden: JSON.stringify(gardenName)};
@@ -240,11 +248,67 @@
                         }
                         window.location.href = "{pageContext.servletContext.contextPath}/dataForm";*/
 >>>>>>> 9728f5d89b37bc105c7c7cfa70d9de9549edb050
+=======
+        if (this.id === 'Dataform') {
+            var dataFormGardenName = {gardenNameUser: JSON.stringify(gardenName)};
+            // try {
+            if (isSubmitting) {
+            $.ajax({
+                    // e.stopImmediatePropagation(),
+                   // type: "get",
+                    url: "${pageContext.servletContext.contextPath}/dataForm",
+                    data: dataFormGardenName,
+                    success: function (data) {
+
+                        alert(data);
+                        //window.location = "pageContext.request.contextPath}/dataForm";
+                        // alert("Submitting test");
+                        e.stopImmediatePropagation();
+                        forward();
+                    }
+                    //e.stopImmediatePropagation();
+                })
+            }
+            isSubmitting = false;
+            e.stopImmediatePropagation();
+>>>>>>> a037bacb1962d7ce9b1c956a06514975933de3d6
         }
+
     });
+    // } catch (err) {
+    //     alert(err.message);
+    //  } finally {
+
+    //  }
 
 
+    /*    function submitGardenDataform(submit) {
+            var dataFormGardenName = {gardenNameUser: JSON.stringify(submit)};
+            var isSubmitting = false;
+            //alert(JSON.stringify(submit.garden_name));
+            if (!isSubmitting) {
+                isSubmitting = true;
+                try {
+                    $.ajax({
+                        type: "GET",
+                        url: "{pageContext.servletContext.contextPath}/dataForm",
+                        data: dataFormGardenName,
+                        success: function () {
+                            isSubmitting = false;
+                        }
+                    });
+                } catch (err) {
+                    alert(err.message);
+                } finally {
+                    window.location.href = "{pageContext.servletContext.contextPath}/dataForm";
+                }
+            }
 
+        }*/
+
+
+    function forward() {
+        window.location = "${pageContext.request.contextPath}/dataForm";
     }
 </script>
 
