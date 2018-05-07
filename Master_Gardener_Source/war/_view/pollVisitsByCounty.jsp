@@ -166,27 +166,38 @@
 
 
 <!--============================= Begin Chart Content =============================-->
-<input type="hidden" id="pollinatorString" value='${pollinatorJSON}'>
+<input type="hidden" id="pollinatorString" value='${pollinatorsJSON}' >
+<input type="hidden" id="visitCountString1" value='${visitCountsJSON1}' >
+<input type="hidden" id="visitCountString2" value='${visitCountsJSON2}' >
+<input type="hidden" id="visitCountString3" value='${visitCountsJSON3}' >
+<input type="hidden" id="visitCountString4" value='${visitCountsJSON4}' >
+<input type="hidden" id="visitCountString5" value='${visitCountsJSON5}' >
+<input type="hidden" id="visitCountTotalString1" value='${visitCountsTotal1}' >
+<input type="hidden" id="visitCountTotalString2" value='${visitCountsTotal2}' >
+<input type="hidden" id="visitCountTotalString3" value='${visitCountsTotal3}' >
+<input type="hidden" id="visitCountTotalString4" value='${visitCountsTotal4}' >
+<input type="hidden" id="visitCountTotalString5" value='${visitCountsTotal5}' >
 
 <script>
-    <%-- Adams County --%>
+    <%-- County 1 --%>
     $(document).ready(
-        function () {
-            var json;
-            json = ${pollinatorJSON};
-
+        function() {
+            var pollinators_json = ${pollinatorsJSON};
+            var visit_counts = ${visitCountsJSON1};
             var pollinatorNames = [];
+            var visitCounts = [];
 
-            for (var i = 0; i < json.length; i++) {
-                pollinatorNames.push(json[i].pollinatorName);
+            for (var i = 0; i < pollinators_json.length; i++) {
+                pollinatorNames.push(pollinators_json[i].pollinatorName);
+                visitCounts.push(visit_counts[i]);
             }
 
-            var ctx = document.getElementById("adamsCountyChart").getContext('2d');
+            var ctx = document.getElementById("county1Chart").getContext('2d');
             var adamsCountyChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
                     datasets: [{
-                        data: [75, 109, 69, 0, 79, 9, 25, 20],
+                        data: visitCounts,
                         backgroundColor: [
                             'rgba(255, 0, 0, 0.75)',
                             'rgba(255, 125, 0, 0.75)',
@@ -199,35 +210,36 @@
                         ],
                         label: 'Dataset 1'
                     }],
-                    labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bees", "Other Pollinators"],
+                    labels: pollinatorNames,
                 },
                 options: {
                     responsive: true
                 }
             });
-        }
+        },
     );
 </script>
 
 <script>
-    <%-- Allegheny County --%>
+    <%-- County 2 --%>
     $(document).ready(
-        function () {
-            var json;
-            json = ${pollinatorJSON};
-
+        function() {
+            var pollinators_json = ${pollinatorsJSON};
+            var visit_counts = ${visitCountsJSON2};
             var pollinatorNames = [];
+            var visitCounts = [];
 
-            for (var i = 0; i < json.length; i++) {
-                pollinatorNames.push(json[i].pollinatorName);
+            for (var i = 0; i < pollinators_json.length; i++) {
+                pollinatorNames.push(pollinators_json[i].pollinatorName);
+                visitCounts.push(visit_counts[i]);
             }
 
-            var ctx = document.getElementById("alleghenyCountyChart").getContext('2d');
-            var alleghenyCountyChart = new Chart(ctx, {
+            var ctx = document.getElementById("county2Chart").getContext('2d');
+            var adamsCountyChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
                     datasets: [{
-                        data: [34, 39, 6, 21, 3, 4, 22, 15],
+                        data: visitCounts,
                         backgroundColor: [
                             'rgba(255, 0, 0, 0.75)',
                             'rgba(255, 125, 0, 0.75)',
@@ -240,35 +252,36 @@
                         ],
                         label: 'Dataset 1'
                     }],
-                    labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bees", "Other Pollinators"],
+                    labels: pollinatorNames,
                 },
                 options: {
                     responsive: true
                 }
             });
-        }
+        },
     );
 </script>
 
 <script>
-    <%-- Beaver County --%>
+    <%-- County 3 --%>
     $(document).ready(
-        function () {
-            var json;
-            json = ${pollinatorJSON};
-
+        function() {
+            var pollinators_json = ${pollinatorsJSON};
+            var visit_counts = ${visitCountsJSON3};
             var pollinatorNames = [];
+            var visitCounts = [];
 
-            for (var i = 0; i < json.length; i++) {
-                pollinatorNames.push(json[i].pollinatorName);
+            for (var i = 0; i < pollinators_json.length; i++) {
+                pollinatorNames.push(pollinators_json[i].pollinatorName);
+                visitCounts.push(visit_counts[i]);
             }
 
-            var ctx = document.getElementById("beaverCountyChart").getContext('2d');
-            var beaverCountyChart = new Chart(ctx, {
+            var ctx = document.getElementById("county3Chart").getContext('2d');
+            var adamsCountyChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
                     datasets: [{
-                        data: [8, 1, 2, 12, 26, 6, 12, 9],
+                        data: visitCounts,
                         backgroundColor: [
                             'rgba(255, 0, 0, 0.75)',
                             'rgba(255, 125, 0, 0.75)',
@@ -281,35 +294,36 @@
                         ],
                         label: 'Dataset 1'
                     }],
-                    labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bees", "Other Pollinators"],
+                    labels: pollinatorNames,
                 },
                 options: {
                     responsive: true
                 }
             });
-        }
+        },
     );
 </script>
 
 <script>
-    <%-- Berks County --%>
+    <%-- County 4 --%>
     $(document).ready(
-        function () {
-            var json;
-            json = ${pollinatorJSON};
-
+        function() {
+            var pollinators_json = ${pollinatorsJSON};
+            var visit_counts = ${visitCountsJSON4};
             var pollinatorNames = [];
+            var visitCounts = [];
 
-            for (var i = 0; i < json.length; i++) {
-                pollinatorNames.push(json[i].pollinatorName);
+            for (var i = 0; i < pollinators_json.length; i++) {
+                pollinatorNames.push(pollinators_json[i].pollinatorName);
+                visitCounts.push(visit_counts[i]);
             }
 
-            var ctx = document.getElementById("berksCountyChart").getContext('2d');
-            var berksCountyChart = new Chart(ctx, {
+            var ctx = document.getElementById("county4Chart").getContext('2d');
+            var adamsCountyChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
                     datasets: [{
-                        data: [69, 71, 57, 139, 88, 45, 56, 70],
+                        data: visitCounts,
                         backgroundColor: [
                             'rgba(255, 0, 0, 0.75)',
                             'rgba(255, 125, 0, 0.75)',
@@ -322,35 +336,36 @@
                         ],
                         label: 'Dataset 1'
                     }],
-                    labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bees", "Other Pollinators"],
+                    labels: pollinatorNames,
                 },
                 options: {
                     responsive: true
                 }
             });
-        }
+        },
     );
 </script>
 
 <script>
-    <%-- Bradford County --%>
+    <%-- County 5 --%>
     $(document).ready(
-        function () {
-            var json;
-            json = ${pollinatorJSON};
-
+        function() {
+            var pollinators_json = ${pollinatorsJSON};
+            var visit_counts = ${visitCountsJSON5};
             var pollinatorNames = [];
+            var visitCounts = [];
 
-            for (var i = 0; i < json.length; i++) {
-                pollinatorNames.push(json[i].pollinatorName);
+            for (var i = 0; i < pollinators_json.length; i++) {
+                pollinatorNames.push(pollinators_json[i].pollinatorName);
+                visitCounts.push(visit_counts[i]);
             }
 
-            var ctx = document.getElementById("bradfordCountyChart").getContext('2d');
-            var bradfordCountyChart = new Chart(ctx, {
+            var ctx = document.getElementById("county5Chart").getContext('2d');
+            var adamsCountyChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
                     datasets: [{
-                        data: [124, 84, 0, 63, 131, 10, 20, 53],
+                        data: visitCounts,
                         backgroundColor: [
                             'rgba(255, 0, 0, 0.75)',
                             'rgba(255, 125, 0, 0.75)',
@@ -363,13 +378,13 @@
                         ],
                         label: 'Dataset 1'
                     }],
-                    labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bees", "Other Pollinators"],
+                    labels: pollinatorNames,
                 },
                 options: {
                     responsive: true
                 }
             });
-        }
+        },
     );
 </script>
 <!--============================== End Chart Content ==============================-->

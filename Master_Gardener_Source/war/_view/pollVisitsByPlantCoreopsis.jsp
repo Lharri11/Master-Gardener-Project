@@ -162,321 +162,401 @@
     })(jQuery);
 </script>
 
+<input type="hidden" id="pollinatorsString" value='${pollinatorsJSON}' >
+<input type="hidden" id="visitCountsString1" value='${visitCountsStraightJSON}' >
+<input type="hidden" id="visitCountsString2" value='${visitCountsMoonbeamJSON}' >
+<input type="hidden" id="visitCountsString3" value='${visitCountsDidymaMarshallsJSON}' >
+<input type="hidden" id="visitCountsString4" value='${visitCountsXPetersJSON}' >
+<input type="hidden" id="visitCountsString5" value='${visitCountsTotal}' >
+
 <!-- First graph -->
 <script>
-    var ctx = document.getElementById("myChart").getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bee", "Other Pollinator"],
-            datasets: [{
-                display: false,
-                label: '# of Pollinators',
-                data: [97, 4, 21, 95, 263, 37, 71, 105],
-                backgroundColor: [
-                    'rgba(255, 0 , 0, 0.75)',
-                    'rgba(255, 127, 0, 0.75)',
-                    'rgba(255, 255, 0, 0.75)',
-                    'rgba(0, 255, 0, 0.75)',
-                    'rgba(0, 0, 255, 0.75)',
-                    'rgba(75, 0, 130, 0.75)',
-                    'rgba(148, 0, 211, 0.75)',
-                    'rgba(225, 0, 255, 0.75)'
+    $(document).ready(
+        function() {
+            var pollinators_json = ${pollinatorsJSON};
+            var visit_counts_straight_json = ${visitCountsStraightJSON};
+            var pollinatorNames = [];
+            var visitCountsStraight = [];
 
-                ],
-                borderColor: [
-                    'rgba(255, 0 , 0, 0.75)',
-                    'rgba(255, 127, 0, 0.75)',
-                    'rgba(255, 255, 0, 0.75)',
-                    'rgba(0, 255, 0, 0.75)',
-                    'rgba(0, 0, 255, 0.75)',
-                    'rgba(75, 0, 130, 0.75)',
-                    'rgba(148, 0, 211, 0.75)',
-                    'rgba(225, 0, 255, 0.75)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                xAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        fontSize: 17,
-                        labelString: 'Pollinator'
-                    },
-                    ticks: {
-                        beginAtZero: true,
-                    }
-                }],
-                yAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        fontSize: 17,
-                        labelString: 'Visit Count'
-                    },
-                    ticks: {
-                        beginAtZero: true,
-                    }
-                }]
+            for (var i = 0; i < pollinators_json.length; i++) {
+                pollinatorNames.push(pollinators_json[i].pollinatorName);
+                visitCountsStraight.push(visit_counts_straight_json[i]);
             }
-        }
-    });
+
+            var ctx = document.getElementById("myChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: pollinatorNames,
+                    datasets: [{
+                        display: false,
+                        label: '# of Pollinators',
+                        data: visitCountsStraight,
+                        backgroundColor: [
+                            'rgba(255, 0 , 0, 0.75)',
+                            'rgba(255, 127, 0, 0.75)',
+                            'rgba(255, 255, 0, 0.75)',
+                            'rgba(0, 255, 0, 0.75)',
+                            'rgba(0, 0, 255, 0.75)',
+                            'rgba(75, 0, 130, 0.75)',
+                            'rgba(148, 0, 211, 0.75)',
+                            'rgba(225, 0, 255, 0.75)'
+
+                        ],
+                        borderColor: [
+                            'rgba(255, 0 , 0, 0.75)',
+                            'rgba(255, 127, 0, 0.75)',
+                            'rgba(255, 255, 0, 0.75)',
+                            'rgba(0, 255, 0, 0.75)',
+                            'rgba(0, 0, 255, 0.75)',
+                            'rgba(75, 0, 130, 0.75)',
+                            'rgba(148, 0, 211, 0.75)',
+                            'rgba(225, 0, 255, 0.75)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                fontSize: 17,
+                                labelString: 'Pollinator'
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                fontSize: 17,
+                                labelString: 'Visit Count'
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }]
+                    }
+                }
+            })
+        },
+    );
 </script>
 <!-- Second graph -->
 <script>
-    var ctx = document.getElementById("myChart2").getContext('2d');
-    var myChart2 = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bee", "Other Pollinator"],
-            datasets: [{
-                label: '# of Pollinators',
-                data: [227, 6, 16, 77, 416, 59, 83, 95],
-                backgroundColor: [
-                    'rgba(255, 0 , 0, 0.75)',
-                    'rgba(255, 127, 0, 0.75)',
-                    'rgba(255, 255, 0, 0.75)',
-                    'rgba(0, 255, 0, 0.75)',
-                    'rgba(0, 0, 255, 0.75)',
-                    'rgba(75, 0, 130, 0.75)',
-                    'rgba(148, 0, 211, 0.75)',
-                    'rgba(225, 0, 255, 0.75)'
+    $(document).ready(
+        function() {
+            var pollinators_json = ${pollinatorsJSON};
+            var visit_counts_straight_json = ${visitCountsMoonbeamJSON};
+            var pollinatorNames = [];
+            var visitCountsMoonbeam = [];
 
-                ],
-                borderColor: [
-                    'rgba(255, 0 , 0, 0.75)',
-                    'rgba(255, 127, 0, 0.75)',
-                    'rgba(255, 255, 0, 0.75)',
-                    'rgba(0, 255, 0, 0.75)',
-                    'rgba(0, 0, 255, 0.75)',
-                    'rgba(75, 0, 130, 0.75)',
-                    'rgba(148, 0, 211, 0.75)',
-                    'rgba(225, 0, 255, 0.75)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                xAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        fontSize: 17,
-                        labelString: 'Plant Strain'
-                    },
-                    ticks: {
-                        beginAtZero: true,
-                    }
-                }],
-                yAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        fontSize: 17,
-                        labelString: 'Visit Count'
-                    },
-                    ticks: {
-                        beginAtZero: true,
-                    }
-                }]
+            for (var i = 0; i < pollinators_json.length; i++) {
+                pollinatorNames.push(pollinators_json[i].pollinatorName);
+                visitCountsMoonbeam.push(visit_counts_straight_json[i]);
             }
-        }
-    });
+
+            var ctx = document.getElementById("myChart2").getContext('2d');
+            var myChart2 = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: pollinatorNames,
+                    datasets: [{
+                        display: false,
+                        label: '# of Pollinators',
+                        data: visitCountsMoonbeam,
+                        backgroundColor: [
+                            'rgba(255, 0 , 0, 0.75)',
+                            'rgba(255, 127, 0, 0.75)',
+                            'rgba(255, 255, 0, 0.75)',
+                            'rgba(0, 255, 0, 0.75)',
+                            'rgba(0, 0, 255, 0.75)',
+                            'rgba(75, 0, 130, 0.75)',
+                            'rgba(148, 0, 211, 0.75)',
+                            'rgba(225, 0, 255, 0.75)'
+
+                        ],
+                        borderColor: [
+                            'rgba(255, 0 , 0, 0.75)',
+                            'rgba(255, 127, 0, 0.75)',
+                            'rgba(255, 255, 0, 0.75)',
+                            'rgba(0, 255, 0, 0.75)',
+                            'rgba(0, 0, 255, 0.75)',
+                            'rgba(75, 0, 130, 0.75)',
+                            'rgba(148, 0, 211, 0.75)',
+                            'rgba(225, 0, 255, 0.75)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                fontSize: 17,
+                                labelString: 'Plant Strain'
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                fontSize: 17,
+                                labelString: 'Visit Count'
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }]
+                    }
+                }
+            });
+        },
+    );
 </script>
 <!-- third graph -->
 <script>
-    var ctx = document.getElementById("myChart3").getContext('2d');
-    var myChart3 = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bee", "Other Pollinator"],
-            datasets: [{
-                display: false,
-                label: '# of Pollinators',
-                data: [202, 7, 32, 99, 576, 51, 74, 91],
-                backgroundColor: [
-                    'rgba(255, 0 , 0, 0.75)',
-                    'rgba(255, 127, 0, 0.75)',
-                    'rgba(255, 255, 0, 0.75)',
-                    'rgba(0, 255, 0, 0.75)',
-                    'rgba(0, 0, 255, 0.75)',
-                    'rgba(75, 0, 130, 0.75)',
-                    'rgba(148, 0, 211, 0.75)',
-                    'rgba(225, 0, 255, 0.75)'
+    $(document).ready(
+        function() {
+            var pollinators_json = ${pollinatorsJSON};
+            var visit_counts_zagreb_json = ${visitCountsZagrebJSON};
+            var pollinatorNames = [];
+            var visitCountsZagreb = [];
 
-                ],
-                borderColor: [
-                    'rgba(255, 0 , 0, 0.75)',
-                    'rgba(255, 127, 0, 0.75)',
-                    'rgba(255, 255, 0, 0.75)',
-                    'rgba(0, 255, 0, 0.75)',
-                    'rgba(0, 0, 255, 0.75)',
-                    'rgba(75, 0, 130, 0.75)',
-                    'rgba(148, 0, 211, 0.75)',
-                    'rgba(225, 0, 255, 0.75)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                xAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        fontSize: 17,
-                        labelString: 'Pollinator'
-                    },
-                    ticks: {
-                        beginAtZero: true,
-                    }
-                }],
-                yAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        fontSize: 17,
-                        labelString: 'Visit Count'
-                    },
-                    ticks: {
-                        beginAtZero: true,
-                    }
-                }]
+            for (var i = 0; i < pollinators_json.length; i++) {
+                pollinatorNames.push(pollinators_json[i].pollinatorName);
+                visitCountsZagreb.push(visit_counts_zagreb_json[i]);
             }
-        }
-    });
+
+            var ctx = document.getElementById("myChart3").getContext('2d');
+            var myChart3 = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bee", "Other Pollinator"],
+                    datasets: [{
+                        labels: pollinatorNames,
+                        datasets: [{
+                            display: false,
+                            label: '# of Pollinators',
+                            data: visitCountsZagreb,
+                        backgroundColor: [
+                            'rgba(255, 0 , 0, 0.75)',
+                            'rgba(255, 127, 0, 0.75)',
+                            'rgba(255, 255, 0, 0.75)',
+                            'rgba(0, 255, 0, 0.75)',
+                            'rgba(0, 0, 255, 0.75)',
+                            'rgba(75, 0, 130, 0.75)',
+                            'rgba(148, 0, 211, 0.75)',
+                            'rgba(225, 0, 255, 0.75)'
+
+                        ],
+                        borderColor: [
+                            'rgba(255, 0 , 0, 0.75)',
+                            'rgba(255, 127, 0, 0.75)',
+                            'rgba(255, 255, 0, 0.75)',
+                            'rgba(0, 255, 0, 0.75)',
+                            'rgba(0, 0, 255, 0.75)',
+                            'rgba(75, 0, 130, 0.75)',
+                            'rgba(148, 0, 211, 0.75)',
+                            'rgba(225, 0, 255, 0.75)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                fontSize: 17,
+                                labelString: 'Pollinator'
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                fontSize: 17,
+                                labelString: 'Visit Count'
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }]
+                    }
+                }
+            });
+        },
+    );
 </script>
 
 <!-- fourth graph -->
 <script>
-    var ctx = document.getElementById("myChart4").getContext('2d');
-    var myChart4 = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bee", "Other Pollinator"],
-            datasets: [{
-                display: false,
-                label: '# of Pollinators',
-                data: [132, 7, 38, 70, 386, 68, 92, 150],
-                backgroundColor: [
-                    'rgba(255, 0 , 0, 0.75)',
-                    'rgba(255, 127, 0, 0.75)',
-                    'rgba(255, 255, 0, 0.75)',
-                    'rgba(0, 255, 0, 0.75)',
-                    'rgba(0, 0, 255, 0.75)',
-                    'rgba(75, 0, 130, 0.75)',
-                    'rgba(148, 0, 211, 0.75)',
-                    'rgba(225, 0, 255, 0.75)'
+    $(document).ready(
+        function() {
+            var pollinators_json = ${pollinatorsJSON};
+            var visit_counts_creme_json = ${visitCountsCremeJSON};
+            var pollinatorNames = [];
+            var visitCountsCreme = [];
 
-                ],
-                borderColor: [
-                    'rgba(255, 0 , 0, 0.75)',
-                    'rgba(255, 127, 0, 0.75)',
-                    'rgba(255, 255, 0, 0.75)',
-                    'rgba(0, 255, 0, 0.75)',
-                    'rgba(0, 0, 255, 0.75)',
-                    'rgba(75, 0, 130, 0.75)',
-                    'rgba(148, 0, 211, 0.75)',
-                    'rgba(225, 0, 255, 0.75)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                xAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        fontSize: 17,
-                        labelString: 'Pollinator'
-                    },
-                    ticks: {
-                        beginAtZero: true,
-                    }
-                }],
-                yAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        fontSize: 17,
-                        labelString: 'Visit Count'
-                    },
-                    ticks: {
-                        beginAtZero: true,
-                    }
-                }]
+            for (var i = 0; i < pollinators_json.length; i++) {
+                pollinatorNames.push(pollinators_json[i].pollinatorName);
+                visitCountsCreme.push(visit_counts_creme_json[i]);
             }
-        }
-    });
+
+            var ctx = document.getElementById("myChart4").getContext('2d');
+            var myChart4 = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: pollinatorNames,
+                    datasets: [{
+                        display: false,
+                        label: '# of Pollinators',
+                        data: visitCountsCreme,
+                        backgroundColor: [
+                            'rgba(255, 0 , 0, 0.75)',
+                            'rgba(255, 127, 0, 0.75)',
+                            'rgba(255, 255, 0, 0.75)',
+                            'rgba(0, 255, 0, 0.75)',
+                            'rgba(0, 0, 255, 0.75)',
+                            'rgba(75, 0, 130, 0.75)',
+                            'rgba(148, 0, 211, 0.75)',
+                            'rgba(225, 0, 255, 0.75)'
+
+                        ],
+                        borderColor: [
+                            'rgba(255, 0 , 0, 0.75)',
+                            'rgba(255, 127, 0, 0.75)',
+                            'rgba(255, 255, 0, 0.75)',
+                            'rgba(0, 255, 0, 0.75)',
+                            'rgba(0, 0, 255, 0.75)',
+                            'rgba(75, 0, 130, 0.75)',
+                            'rgba(148, 0, 211, 0.75)',
+                            'rgba(225, 0, 255, 0.75)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                fontSize: 17,
+                                labelString: 'Pollinator'
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                fontSize: 17,
+                                labelString: 'Visit Count'
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }]
+                    }
+                }
+            });
+        },
+    );
 </script>
 
 <!-- Fifth graph -->
 <script>
-    var ctx = document.getElementById("myChart5").getContext('2d');
-    var myChart5 = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bee", "Other Pollinator"],
-            datasets: [{
-                display: false,
-                label: '# of Pollinators',
-                data: [365, 4, 13, 195, 519, 36, 102, 128],
-                backgroundColor: [
-                    'rgba(255, 0 , 0, 0.75)',
-                    'rgba(255, 127, 0, 0.75)',
-                    'rgba(255, 255, 0, 0.75)',
-                    'rgba(0, 255, 0, 0.75)',
-                    'rgba(0, 0, 255, 0.75)',
-                    'rgba(75, 0, 130, 0.75)',
-                    'rgba(148, 0, 211, 0.75)',
-                    'rgba(225, 0, 255, 0.75)'
+    $(document).ready(
+        function() {
+            var pollinators_json = ${pollinatorsJSON};
+            var visit_counts_route_json = ${visitCountsRouteJSON};
+            var pollinatorNames = [];
+            var visitCountsRoute = [];
 
-                ],
-                borderColor: [
-                    'rgba(255, 0 , 0, 0.75)',
-                    'rgba(255, 127, 0, 0.75)',
-                    'rgba(255, 255, 0, 0.75)',
-                    'rgba(0, 255, 0, 0.75)',
-                    'rgba(0, 0, 255, 0.75)',
-                    'rgba(75, 0, 130, 0.75)',
-                    'rgba(148, 0, 211, 0.75)',
-                    'rgba(225, 0, 255, 0.75)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                xAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        fontSize: 17,
-                        labelString: 'Pollinator'
-                    },
-                    ticks: {
-                        beginAtZero: true,
-                    }
-                }],
-                yAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        fontSize: 17,
-                        labelString: 'Visit Count'
-                    },
-                    ticks: {
-                        beginAtZero: true,
-                    }
-                }]
+            for (var i = 0; i < pollinators_json.length; i++) {
+                pollinatorNames.push(pollinators_json[i].pollinatorName);
+                visitCountsRoute.push(visit_counts_route_json[i]);
             }
-        }
-    });
+
+            var ctx = document.getElementById("myChart5").getContext('2d');
+            var myChart5 = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: pollinatorNames,
+                    datasets: [{
+                        display: false,
+                        label: '# of Pollinators',
+                        data: visitCountsRoute,
+                        backgroundColor: [
+                            'rgba(255, 0 , 0, 0.75)',
+                            'rgba(255, 127, 0, 0.75)',
+                            'rgba(255, 255, 0, 0.75)',
+                            'rgba(0, 255, 0, 0.75)',
+                            'rgba(0, 0, 255, 0.75)',
+                            'rgba(75, 0, 130, 0.75)',
+                            'rgba(148, 0, 211, 0.75)',
+                            'rgba(225, 0, 255, 0.75)'
+
+                        ],
+                        borderColor: [
+                            'rgba(255, 0 , 0, 0.75)',
+                            'rgba(255, 127, 0, 0.75)',
+                            'rgba(255, 255, 0, 0.75)',
+                            'rgba(0, 255, 0, 0.75)',
+                            'rgba(0, 0, 255, 0.75)',
+                            'rgba(75, 0, 130, 0.75)',
+                            'rgba(148, 0, 211, 0.75)',
+                            'rgba(225, 0, 255, 0.75)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                fontSize: 17,
+                                labelString: 'Pollinator'
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                fontSize: 17,
+                                labelString: 'Visit Count'
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }]
+                    }
+                }
+            });
+        },
+    );
 </script>
 
 </body>

@@ -124,67 +124,86 @@
 </script>
 
 
-<script>
-    var ctx = document.getElementById("myChart").getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bee", "Other Pollinator"],
-            datasets: [{
-                display: false,
-                label: '# of Pollinators',
-                data: [1910, 760, 862, 809, 2840, 428, 640, 909],
-                backgroundColor: [
-                    'rgba(255, 0 , 0, 0.75)',
-                    'rgba(255, 127, 0, 0.75)',
-                    'rgba(255, 255, 0, 0.75)',
-                    'rgba(0, 255, 0, 0.75)',
-                    'rgba(0, 0, 255, 0.75)',
-                    'rgba(75, 0, 130, 0.75)',
-                    'rgba(148, 0, 211, 0.75)',
-                    'rgba(225, 0, 255, 0.75)'
+<input type="hidden" id="pollinatorsString" value='${pollinatorsJSON}' >
+<input type="hidden" id="visitCountsString" value='${visitCountsJSON}' >
+<input type="hidden" id="visitCountsTotal" value='${visitCountsTotal}' >
 
-                ],
-                borderColor: [
-                    'rgba(255, 0 , 0, 0.75)',
-                    'rgba(255, 127, 0, 0.75)',
-                    'rgba(255, 255, 0, 0.75)',
-                    'rgba(0, 255, 0, 0.75)',
-                    'rgba(0, 0, 255, 0.75)',
-                    'rgba(75, 0, 130, 0.75)',
-                    'rgba(148, 0, 211, 0.75)',
-                    'rgba(225, 0, 255, 0.75)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                xAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        fontSize: 17,
-                        labelString: 'Pollinator'
-                    },
-                    ticks: {
-                        beginAtZero: true,
-                    }
-                }],
-                yAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        fontSize: 17,
-                        labelString: 'Visit Count'
-                    },
-                    ticks: {
-                        beginAtZero: true,
-                    }
-                }]
+<script>
+    $(document).ready(
+        function() {
+            var pollinators_json = ${pollinatorsJSON};
+            var visit_counts_json = ${visitCountsJSON};
+            var pollinatorNames = [];
+            var visitCounts = [];
+
+            for (var i = 0; i < pollinators_json.length; i++) {
+                pollinatorNames.push(pollinators_json[i].pollinatorName);
+                visitCounts.push(visit_counts_json[i]);
             }
-        }
-    });
+
+            var ctx = document.getElementById("myChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: pollinatorNames,
+                    datasets: [{
+                        display: false,
+                        label: '# of Pollinators',
+                        data: visitCounts,
+                        <!-- data: [1910,760,862,809,2840,428,640,909], -->
+                        backgroundColor: [
+                            'rgba(255, 0 , 0, 0.75)',
+                            'rgba(255, 127, 0, 0.75)',
+                            'rgba(255, 255, 0, 0.75)',
+                            'rgba(0, 255, 0, 0.75)',
+                            'rgba(0, 0, 255, 0.75)',
+                            'rgba(75, 0, 130, 0.75)',
+                            'rgba(148, 0, 211, 0.75)',
+                            'rgba(225, 0, 255, 0.75)'
+
+                        ],
+                        borderColor: [
+                            'rgba(255, 0 , 0, 0.75)',
+                            'rgba(255, 127, 0, 0.75)',
+                            'rgba(255, 255, 0, 0.75)',
+                            'rgba(0, 255, 0, 0.75)',
+                            'rgba(0, 0, 255, 0.75)',
+                            'rgba(75, 0, 130, 0.75)',
+                            'rgba(148, 0, 211, 0.75)',
+                            'rgba(225, 0, 255, 0.75)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                fontSize: 17,
+                                labelString: 'Pollinator'
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                fontSize: 17,
+                                labelString: 'Visit Count'
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }]
+                    }
+                }
+            });
+        },
+    );
 </script>
 
 </body>
