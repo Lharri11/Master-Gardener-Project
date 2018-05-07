@@ -126,29 +126,7 @@
                                 <input class="form-control" name="editBio" type="text" value="${user.description}">
                             </div>
                         </div>
-<<<<<<< HEAD
-=======
-                        <%--<div class="form-group row">--%>
-                        <%--<label class="col-lg-3 col-form-label form-control-label">Current Password*</label>--%>
-                        <%--<div class="col-lg-9">--%>
-                        <%--<input class="form-control" name="oldPassword" type="password" value="">--%>
-                        <%--*Required for creating New Password.--%>
-                        <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<div class="form-group row">--%>
-                        <%--<label class="col-lg-3 col-form-label form-control-label">New Password</label>--%>
-                        <%--<div class="col-lg-9">--%>
-                        <%--<input class="form-control" name="newPassword" type="password" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"--%>
-                        <%--title="Must contain at least one number, one uppercase letter, at least one lowercase letter and at least 8 or more characters.">--%>
-                        <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<div class="form-group row">--%>
-                        <%--<label class="col-lg-3 col-form-label form-control-label">Confirm password</label>--%>
-                        <%--<div class="col-lg-9">--%>
-                        <%--<input class="form-control" name="confirmPassword" type="password" value="">--%>
-                        <%--</div>--%>
-                        <%--</div>--%>
->>>>>>> 9728f5d89b37bc105c7c7cfa70d9de9549edb050
+
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
