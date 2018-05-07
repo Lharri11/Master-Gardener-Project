@@ -39,9 +39,12 @@ public interface IDatabase {
 	public String getGardenAddressByGardenID(final int garden_id);
 	public List<User> getAllUsernames() throws SQLException;
 	public List<Garden> getAllGardens() throws SQLException;
-	public List<String> getAllPollinators() throws SQLException;
+	public List<Pollinator> getAllPollinators() throws SQLException;
 	public List<String> getAllPlants() throws SQLException;
 	public List<String> getAllStrains() throws SQLException;
+	public List<Integer> getVisitCountsByPollinator() throws SQLException;
+	public List<Integer> getVisitCountsByPollinatorAndStrainID(final int strain_id) throws SQLException;
+	public List<Integer> getVisitCountsByPollinatorAndCountyID(final int county_id) throws SQLException;
 	public Pair<Pair<List<Integer>, List<String>>, List<Date>> getVisitCountAndPollinatorNameAndDateByCounty(final County county) throws SQLException;
 	public List<Integer> getVisitCountsByCounty(final County county) throws SQLException;
 	public List<String> getPollinatorsNameByCounty(final County county) throws SQLException;
@@ -50,6 +53,7 @@ public interface IDatabase {
 	public List<String> getAllPollinatorsPlantsGardenVisitCount() throws SQLException;
 	public ResultSet adHocQuery(final String[] select_array, final String[] from_array, final String[] where_array) throws SQLException;
 	public List<Garden> getGardensByUser(String user);
+	public List<County> getAllCounties() throws SQLException;
 	public List<Garden> getGardensLikeKeyword(String keyword);
 	public List<Garden> getGardenbyGardenName(String name);
 	public Garden getGardenbyGardenID(int iD);

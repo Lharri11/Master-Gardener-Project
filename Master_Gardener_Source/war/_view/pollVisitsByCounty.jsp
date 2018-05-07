@@ -134,6 +134,7 @@
 </div>
 
 
+
 <!-- Load JS here for greater good =============================-->
 <script src="vendor/jquery/jquery.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
@@ -163,36 +164,32 @@
 </script>
 
 
-
-
 <!--============================= Begin Chart Content =============================-->
-<input type="hidden" id="pollinatorString" value='${pollinatorsJSON}' >
-<input type="hidden" id="visitCountString1" value='${visitCountsJSON1}' >
-<input type="hidden" id="visitCountString2" value='${visitCountsJSON2}' >
-<input type="hidden" id="visitCountString3" value='${visitCountsJSON3}' >
-<input type="hidden" id="visitCountString4" value='${visitCountsJSON4}' >
-<input type="hidden" id="visitCountString5" value='${visitCountsJSON5}' >
-<input type="hidden" id="visitCountTotalString1" value='${visitCountsTotal1}' >
-<input type="hidden" id="visitCountTotalString2" value='${visitCountsTotal2}' >
-<input type="hidden" id="visitCountTotalString3" value='${visitCountsTotal3}' >
-<input type="hidden" id="visitCountTotalString4" value='${visitCountsTotal4}' >
-<input type="hidden" id="visitCountTotalString5" value='${visitCountsTotal5}' >
+<input type="hidden" id="pollinatorString" value='${pollinatorsJSON}'>
+<input type="hidden" id="visitCountString1" value='${visitCountsJSON1}'>
+<input type="hidden" id="visitCountString2" value='${visitCountsJSON2}'>
+<input type="hidden" id="visitCountString3" value='${visitCountsJSON3}'>
+<input type="hidden" id="visitCountString4" value='${visitCountsJSON4}'>
+<input type="hidden" id="visitCountString5" value='${visitCountsJSON5}'>
+<input type="hidden" id="visitCountTotalString1" value='${visitCountsTotal1}'>
+<input type="hidden" id="visitCountTotalString2" value='${visitCountsTotal2}'>
+<input type="hidden" id="visitCountTotalString3" value='${visitCountsTotal3}'>
+<input type="hidden" id="visitCountTotalString4" value='${visitCountsTotal4}'>
+<input type="hidden" id="visitCountTotalString5" value='${visitCountsTotal5}'>
 
 <script>
     <%-- County 1 --%>
     $(document).ready(
-        function() {
+        function () {
             var pollinators_json = ${pollinatorsJSON};
             var visit_counts = ${visitCountsJSON1};
             var pollinatorNames = [];
             var visitCounts = [];
-
             for (var i = 0; i < pollinators_json.length; i++) {
                 pollinatorNames.push(pollinators_json[i].pollinatorName);
                 visitCounts.push(visit_counts[i]);
             }
-
-            var ctx = document.getElementById("county1Chart").getContext('2d');
+            var ctx = document.getElementById("adamsCountyChart").getContext('2d');
             var adamsCountyChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
@@ -223,19 +220,17 @@
 <script>
     <%-- County 2 --%>
     $(document).ready(
-        function() {
+        function () {
             var pollinators_json = ${pollinatorsJSON};
             var visit_counts = ${visitCountsJSON2};
             var pollinatorNames = [];
             var visitCounts = [];
-
             for (var i = 0; i < pollinators_json.length; i++) {
                 pollinatorNames.push(pollinators_json[i].pollinatorName);
                 visitCounts.push(visit_counts[i]);
             }
-
-            var ctx = document.getElementById("county2Chart").getContext('2d');
-            var adamsCountyChart = new Chart(ctx, {
+            var ctx = document.getElementById("alleghenyCountyChart").getContext('2d');
+            var alleghenyCountyChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
                     datasets: [{
@@ -265,19 +260,17 @@
 <script>
     <%-- County 3 --%>
     $(document).ready(
-        function() {
+        function () {
             var pollinators_json = ${pollinatorsJSON};
             var visit_counts = ${visitCountsJSON3};
             var pollinatorNames = [];
             var visitCounts = [];
-
             for (var i = 0; i < pollinators_json.length; i++) {
                 pollinatorNames.push(pollinators_json[i].pollinatorName);
                 visitCounts.push(visit_counts[i]);
             }
-
-            var ctx = document.getElementById("county3Chart").getContext('2d');
-            var adamsCountyChart = new Chart(ctx, {
+            var ctx = document.getElementById("beaverCountyChart").getContext('2d');
+            var beaverCountyChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
                     datasets: [{
@@ -307,19 +300,17 @@
 <script>
     <%-- County 4 --%>
     $(document).ready(
-        function() {
+        function () {
             var pollinators_json = ${pollinatorsJSON};
             var visit_counts = ${visitCountsJSON4};
             var pollinatorNames = [];
             var visitCounts = [];
-
             for (var i = 0; i < pollinators_json.length; i++) {
                 pollinatorNames.push(pollinators_json[i].pollinatorName);
                 visitCounts.push(visit_counts[i]);
             }
-
-            var ctx = document.getElementById("county4Chart").getContext('2d');
-            var adamsCountyChart = new Chart(ctx, {
+            var ctx = document.getElementById("berksCountyChart").getContext('2d');
+            var berksCountyChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
                     datasets: [{
@@ -349,19 +340,17 @@
 <script>
     <%-- County 5 --%>
     $(document).ready(
-        function() {
+        function () {
             var pollinators_json = ${pollinatorsJSON};
             var visit_counts = ${visitCountsJSON5};
             var pollinatorNames = [];
             var visitCounts = [];
-
             for (var i = 0; i < pollinators_json.length; i++) {
                 pollinatorNames.push(pollinators_json[i].pollinatorName);
                 visitCounts.push(visit_counts[i]);
             }
-
-            var ctx = document.getElementById("county5Chart").getContext('2d');
-            var adamsCountyChart = new Chart(ctx, {
+            var ctx = document.getElementById("bradfordCountyChart").getContext('2d');
+            var bradfordCountyChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
                     datasets: [{

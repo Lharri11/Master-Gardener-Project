@@ -88,7 +88,7 @@
 <div class="container global-top-padding">
     <div class="row">
         <div class="col-lg-12">
-            <h2>Pollinator Totals (Total Visits: 9158)</h2>
+            <h2>Pollinator Totals (Total Visits: ${visitCountsTotal})</h2>
             <canvas id="myChart" class="col-lg-12"></canvas>
         </div>
     </div>

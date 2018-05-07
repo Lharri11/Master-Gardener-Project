@@ -86,7 +86,7 @@
 </div>
 
 <div class="container global-top-padding">
-    <h2>Plant: Coreopsis Verticillata (Total Visits: 5109)</h2>
+    <h2>Plant: Coreopsis Verticillata (Total Visits: ${visitCountsTotal})</h2>
     <br><br>
 
     <div class="row">
@@ -162,27 +162,25 @@
     })(jQuery);
 </script>
 
-<input type="hidden" id="pollinatorsString" value='${pollinatorsJSON}' >
-<input type="hidden" id="visitCountsString1" value='${visitCountsStraightJSON}' >
-<input type="hidden" id="visitCountsString2" value='${visitCountsMoonbeamJSON}' >
-<input type="hidden" id="visitCountsString3" value='${visitCountsDidymaMarshallsJSON}' >
-<input type="hidden" id="visitCountsString4" value='${visitCountsXPetersJSON}' >
-<input type="hidden" id="visitCountsString5" value='${visitCountsTotal}' >
+<input type="hidden" id="pollinatorsString" value='${pollinatorsJSON}'>
+<input type="hidden" id="visitCountsString1" value='${visitCountsStraightJSON}'>
+<input type="hidden" id="visitCountsString2" value='${visitCountsMoonbeamJSON}'>
+<input type="hidden" id="visitCountsString3" value='${visitCountsZagrebJSON}'>
+<input type="hidden" id="visitCountsString4" value='${visitCountsDidymaMarshallsJSON}'>
+<input type="hidden" id="visitCountsString5" value='${visitCountsXPetersJSON}'>
 
 <!-- First graph -->
 <script>
     $(document).ready(
-        function() {
+        function () {
             var pollinators_json = ${pollinatorsJSON};
             var visit_counts_straight_json = ${visitCountsStraightJSON};
             var pollinatorNames = [];
             var visitCountsStraight = [];
-
             for (var i = 0; i < pollinators_json.length; i++) {
                 pollinatorNames.push(pollinators_json[i].pollinatorName);
                 visitCountsStraight.push(visit_counts_straight_json[i]);
             }
-
             var ctx = document.getElementById("myChart").getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'bar',
@@ -201,7 +199,6 @@
                             'rgba(75, 0, 130, 0.75)',
                             'rgba(148, 0, 211, 0.75)',
                             'rgba(225, 0, 255, 0.75)'
-
                         ],
                         borderColor: [
                             'rgba(255, 0 , 0, 0.75)',
@@ -249,17 +246,15 @@
 <!-- Second graph -->
 <script>
     $(document).ready(
-        function() {
+        function () {
             var pollinators_json = ${pollinatorsJSON};
             var visit_counts_straight_json = ${visitCountsMoonbeamJSON};
             var pollinatorNames = [];
             var visitCountsMoonbeam = [];
-
             for (var i = 0; i < pollinators_json.length; i++) {
                 pollinatorNames.push(pollinators_json[i].pollinatorName);
                 visitCountsMoonbeam.push(visit_counts_straight_json[i]);
             }
-
             var ctx = document.getElementById("myChart2").getContext('2d');
             var myChart2 = new Chart(ctx, {
                 type: 'bar',
@@ -278,7 +273,6 @@
                             'rgba(75, 0, 130, 0.75)',
                             'rgba(148, 0, 211, 0.75)',
                             'rgba(225, 0, 255, 0.75)'
-
                         ],
                         borderColor: [
                             'rgba(255, 0 , 0, 0.75)',
@@ -326,28 +320,24 @@
 <!-- third graph -->
 <script>
     $(document).ready(
-        function() {
+        function () {
             var pollinators_json = ${pollinatorsJSON};
             var visit_counts_zagreb_json = ${visitCountsZagrebJSON};
             var pollinatorNames = [];
             var visitCountsZagreb = [];
-
             for (var i = 0; i < pollinators_json.length; i++) {
                 pollinatorNames.push(pollinators_json[i].pollinatorName);
                 visitCountsZagreb.push(visit_counts_zagreb_json[i]);
             }
-
             var ctx = document.getElementById("myChart3").getContext('2d');
             var myChart3 = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ["Honey Bee", "Carpenter Bee", "Bumble Bee", "Green Sweat Bee", "Dark Sweat Bee", "Butterfly/Moth", "Other Bee", "Other Pollinator"],
+                    labels: pollinatorNames,
                     datasets: [{
-                        labels: pollinatorNames,
-                        datasets: [{
-                            display: false,
-                            label: '# of Pollinators',
-                            data: visitCountsZagreb,
+                        display: false,
+                        label: '# of Pollinators',
+                        data: visitCountsZagreb,
                         backgroundColor: [
                             'rgba(255, 0 , 0, 0.75)',
                             'rgba(255, 127, 0, 0.75)',
@@ -357,7 +347,6 @@
                             'rgba(75, 0, 130, 0.75)',
                             'rgba(148, 0, 211, 0.75)',
                             'rgba(225, 0, 255, 0.75)'
-
                         ],
                         borderColor: [
                             'rgba(255, 0 , 0, 0.75)',
@@ -402,21 +391,18 @@
         },
     );
 </script>
-
 <!-- fourth graph -->
 <script>
     $(document).ready(
-        function() {
+        function () {
             var pollinators_json = ${pollinatorsJSON};
             var visit_counts_creme_json = ${visitCountsCremeJSON};
             var pollinatorNames = [];
             var visitCountsCreme = [];
-
             for (var i = 0; i < pollinators_json.length; i++) {
                 pollinatorNames.push(pollinators_json[i].pollinatorName);
                 visitCountsCreme.push(visit_counts_creme_json[i]);
             }
-
             var ctx = document.getElementById("myChart4").getContext('2d');
             var myChart4 = new Chart(ctx, {
                 type: 'bar',
@@ -435,7 +421,6 @@
                             'rgba(75, 0, 130, 0.75)',
                             'rgba(148, 0, 211, 0.75)',
                             'rgba(225, 0, 255, 0.75)'
-
                         ],
                         borderColor: [
                             'rgba(255, 0 , 0, 0.75)',
@@ -480,21 +465,18 @@
         },
     );
 </script>
-
 <!-- Fifth graph -->
 <script>
     $(document).ready(
-        function() {
+        function () {
             var pollinators_json = ${pollinatorsJSON};
             var visit_counts_route_json = ${visitCountsRouteJSON};
             var pollinatorNames = [];
             var visitCountsRoute = [];
-
             for (var i = 0; i < pollinators_json.length; i++) {
                 pollinatorNames.push(pollinators_json[i].pollinatorName);
                 visitCountsRoute.push(visit_counts_route_json[i]);
             }
-
             var ctx = document.getElementById("myChart5").getContext('2d');
             var myChart5 = new Chart(ctx, {
                 type: 'bar',
@@ -513,7 +495,6 @@
                             'rgba(75, 0, 130, 0.75)',
                             'rgba(148, 0, 211, 0.75)',
                             'rgba(225, 0, 255, 0.75)'
-
                         ],
                         borderColor: [
                             'rgba(255, 0 , 0, 0.75)',

@@ -87,7 +87,7 @@
 
 <div class="container global-top-padding">
 
-    <h2>Plant: Monarda (Total Visits: 4049)</h2>
+    <h2>Plant: Monarda (Total Visits: ${visitCountsTotal})</h2>
     <br><br>
 
     <div class="row">

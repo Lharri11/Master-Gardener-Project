@@ -60,7 +60,7 @@ public class pollVisitsByPlantCoreopsisServlet extends HttpServlet {
         req.setAttribute("pollinatorsJSON", pollinators_json);
         req.setAttribute("visitCountsStraightJSON", visit_counts_straight_json);
         req.setAttribute("visitCountsMoonbeamJSON", visit_counts_moonbeam_json);
-        req.setAttribute("visitCountsZagredJSON", visit_counts_zagreb_json);
+        req.setAttribute("visitCountsZagrebJSON", visit_counts_zagreb_json);
         req.setAttribute("visitCountsCremeJSON", visit_counts_creme_json);
         req.setAttribute("visitCountsRouteJSON", visit_counts_route_json);
         req.setAttribute("visitCountsTotal", total);
