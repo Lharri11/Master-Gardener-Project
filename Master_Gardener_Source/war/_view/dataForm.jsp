@@ -96,7 +96,7 @@ be greyed out except the plot size.
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="control-label">Collection Week Number</label>
+                            <label class="control-label">Collection Week Number *</label>
                             <input class="form-control" type="text" name="weekNumber">
                         </div>
                     </div>
@@ -304,7 +304,7 @@ be greyed out except the plot size.
 
 
                     <div class="form-group col-lg-4">
-                        <label class="control-label">Wind<span> *</span></label>
+                        <label class="control-label">Wind Status<span> *</span></label>
                         <div class="controls">
 
                             <select class="form-control" name="windStatus"
@@ -2300,19 +2300,16 @@ be greyed out except the plot size.
                         <textarea rows="3" class="form-control" name="comments"></textarea>
 
                     </div>
-
                 </div>
-                <input type="submit" name="dataformSubmit" id="register-submit"
-                       class="form-control btn btn-register"
-                       value="Create DataForm">
+                <br>
+                <input type="submit" name="dataformSubmit" id="register-submit" class="form-control btn btn-register" value="Create DataForm">
             </div>
-
+            <br>
+            <br>
             <div style="overflow:auto;">
                 <div style="float:right;">
                     <button type="button" class="dataform-button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                    <button type="button" id="nextBtn" class="dataform-button"
-                            onclick="nextPrev(1), window.scrollTo(0, 0);">Next
-                    </button>
+                    <button type="button" id="nextBtn" class="dataform-button" onclick="nextPrev(1), window.scrollTo(0, 0);">Next</button>
                 </div>
             </div>
             <!-- Circles which indicates the steps of the form: -->

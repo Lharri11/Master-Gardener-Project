@@ -405,7 +405,7 @@ public class DataFormServlet extends HttpServlet {
                     e.printStackTrace();
                 }
                 System.out.println("DataForm Servlet: DataForm successfully generated! Time to graduate :)");
-                resp.sendRedirect(req.getContextPath() + "/home");
+                resp.sendRedirect(req.getContextPath() + "/user");
             }
         }
     }
