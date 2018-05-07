@@ -35,6 +35,7 @@ public interface IDatabase {
 	public User getUserFromUserID(final int user_id) throws SQLException;
 	public User getUserFromUserName(final String user_name) throws SQLException;
 	public int getUserIDFromFirstNameAndLastName(final String first_name, final String last_name) throws SQLException;
+	public ArrayList<String> getUsernamesFromFirstNameAndLastName(String first_name, String last_name) throws SQLException;
 	public String getGardenAddressByGardenID(final int garden_id);
 	public List<User> getAllUsernames() throws SQLException;
 	public List<Garden> getAllGardens() throws SQLException;

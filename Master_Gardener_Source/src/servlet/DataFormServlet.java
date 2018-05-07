@@ -142,7 +142,9 @@ public class DataFormServlet extends HttpServlet {
             //DataForm Date & Time Information
             week_num = Integer.parseInt(req.getParameter("weekNumber"));
             date_collected = getDateFromParameter(req.getParameter("dateCollected"));
-            date_generated = getDateFromParameter(req.getParameter("dateGenerated"));
+            //date_generated = LocalDate.now();
+            //System.out.println(date_generated);
+                    //getDateFromParameter(req.getParameter("dateGenerated"));
             date_confirmed = getDateFromParameter(req.getParameter("dateConfirmed"));
             start_time = getTimeFromParameter(req.getParameter("startTime"));
             stop_time = getTimeFromParameter(req.getParameter("stopTime"));

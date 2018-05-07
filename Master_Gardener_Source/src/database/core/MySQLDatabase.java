@@ -13,6 +13,7 @@ import java.nio.file.Paths;
 import java.security.SecureRandom;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -1046,6 +1047,38 @@ public class MySQLDatabase implements IDatabase {
             DBUtil.closeQuietly(conn);
         }
         return success;
+    }
+
+    public ArrayList<String> getUsernamesFromFirstNameAndLastName(String first_name, String last_name) throws SQLException
+    {
+        DataSource ds = getMySQLDataSource();
+        Connection conn = ds.getConnection();
+
+        PreparedStatement stmt = null;
+        ResultSet set = null;
+
+        ArrayList<String> usernames = new ArrayList<>();
+        try
+        {
+            stmt = conn.prepareStatement("SELECT user_name FROM mg_user WHERE first_name = ? AND last_name = ?");
+            stmt.setString(1, first_name);
+            stmt.setString(2, last_name);
+
+            set = stmt.executeQuery();
+
+            while(set.next())
+            {
+                usernames.add(set.getString(1));
+            }
+        }
+        finally
+        {
+            DBUtil.closeQuietly(stmt);
+            DBUtil.closeQuietly(set);
+            DBUtil.closeQuietly(conn);
+        }
+
+        return usernames;
     }
 
     private boolean insertUserPortraitByUsername(Connection conn, String username, User user, String filePath) throws SQLException {
@@ -3889,13 +3922,17 @@ public class MySQLDatabase implements IDatabase {
             int generators_total = 4;
             // This is required to make dateCreated and Generated work
             Date date_collected = java.sql.Date.valueOf(pdf.getDate_collected());
-            //Date date_generated = java.sql.Date.valueOf(pdf.getDate_generated());
+
+            java.util.Date currentDate = Calendar.getInstance().getTime();
+            Calendar calendar = Calendar.getInstance();
+            java.sql.Date date_generated = new java.sql.Date(calendar.getTime().getTime());
+
             //Date date_confirmed = java.sql.Date.valueOf(pdf.getDate_confirmed());
 
             // Insert into the main dataform table
             stmt1 = conn.prepareStatement("INSERT INTO mg_data_form (week_number, garden_id, county_id, generator_id1, generator_id2, generator_id3, generator_id4, " +
-                    "date_collected, wind_status, cloud_status, comments, butterfly_moth_comments, confirmed, temperature, monitor_start, monitor_stop)" +
-                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    "date_collected, date_generated, wind_status, cloud_status, comments, butterfly_moth_comments, confirmed, temperature, monitor_start, monitor_stop)" +
+                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             stmt1.setInt(index++, pdf.getWeek_number());
             stmt1.setInt(index++, pdf.getGarden_id());
             stmt1.setInt(index++, pdf.getCounty_id());
@@ -3907,6 +3944,7 @@ public class MySQLDatabase implements IDatabase {
                 stmt1.setInt(index++, -1);
             }
             stmt1.setDate(index++, (java.sql.Date) date_collected);
+            stmt1.setDate(index++, date_generated);
             stmt1.setString(index++, pdf.getWind_status());
             stmt1.setString(index++, pdf.getCloud_status());
             stmt1.setString(index++, pdf.getComments());
@@ -3920,7 +3958,7 @@ public class MySQLDatabase implements IDatabase {
             // Get DataForm ID
             index = 1;
             generators_total = 4;
-            stmt4 = conn.prepareStatement("SELECT id FROM mg_data_form WHERE week_number = ? AND garden_id = ? AND county_id = ? AND generator_id1 = ? AND date_collected = ?" +
+            stmt4 = conn.prepareStatement("SELECT id FROM mg_data_form WHERE week_number = ? AND garden_id = ? AND county_id = ? AND generator_id1 = ? AND date_collected = ? AND date_generated = ?" +
                     " AND comments = ? AND butterfly_moth_comments = ? AND wind_status = ? AND cloud_status = ? AND generator_id1 = ?");
 
             stmt4.setInt(1, pdf.getWeek_number());
@@ -3928,11 +3966,12 @@ public class MySQLDatabase implements IDatabase {
             stmt4.setInt(3, pdf.getCounty_id());
             stmt4.setInt(4 , pdf.getGenerators().get(0).getUserId());
             stmt4.setDate(5, (java.sql.Date) date_collected);
-            stmt4.setString(6, pdf.getComments());
-            stmt4.setString(7, pdf.getButterflyMothComments());
-            stmt4.setString(8, pdf.getWind_status());
-            stmt4.setString(9, pdf.getCloud_status());
-            stmt4.setInt(10, pdf.getGenerators().get(0).getUserId());
+            stmt4.setDate(6, (java.sql.Date) date_generated);
+            stmt4.setString(7, pdf.getComments());
+            stmt4.setString(8, pdf.getButterflyMothComments());
+            stmt4.setString(9, pdf.getWind_status());
+            stmt4.setString(10, pdf.getCloud_status());
+            stmt4.setInt(11, pdf.getGenerators().get(0).getUserId());
 
             set4 = stmt4.executeQuery();
             //System.out.println(set4.getInt(1));
