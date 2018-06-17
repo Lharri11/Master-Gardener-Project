@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>${user.firstName} - Pollinator Preferences</title>
+    <title>User Account - Pollinator Preferences</title>
     <!--pageMeta-->
 
     <!-- Bootstrap core CSS -->

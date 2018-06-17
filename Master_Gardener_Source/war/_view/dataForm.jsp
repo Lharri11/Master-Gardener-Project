@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>${user.firstName} - Pollinator Preferences</title>
+    <title>Dataform Module - Pollinator Preferences</title>
     <!--pageMeta-->
 
     <!-- Bootstrap core CSS -->
@@ -72,81 +72,49 @@ be greyed out except the plot size.
     </div>
 </nav>
 
+<%-- Hidden Dataform fields --%>
+<input type="hidden" class="form-control" id="pollinatorString" name="gardenName" value='${gardenName}'>
 
-
+<%-- Container --%>
 <div class="container dataform-page-top-padding">
     <form id="regForm" action="${pageContext.servletContext.contextPath}/dataForm" method="post"
           class="form-horizontal" role="form" onsubmit=getSubmitTime()>
+        <%-- Container --%>
         <div class="container">
-
-            <%-- Garden Name Tab --%>
-
-            <div class="tab">
-
-                <input type="hidden" id = "gardenName" value='${garden_name}' >
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label class="control-label">Garden Name</label>
-
-                            <input class="form-control"
-                                   type="text"
-                                   name="garden_name" value = "${garden_name}" placeholder = "${garden_name}" disabled>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label class="control-label">Collection Week Number *</label>
-                            <input class="form-control" type="text" name="weekNumber">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <%-- Collector Names' Tab --%>
-
             <div class="tab">
-
                 <%-- Generator 1 --%>
-
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="control-label">First Name<span
-                            > *</span></label>
+                            <label class="control-label">First Name *</label>
                             <div class="controls">
                                 <input type="text" class="form-control"
                                        placeholder="First Name" name="generatorFirstName1" required="required">
                             </div>
-
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="control-label">Last Name<span> *</span></label>
+                            <label class="control-label">Last Name *</label>
                             <div class="controls">
-                                <input type="text" class="form-control"
-                                       placeholder="Last Name" name="generatorLastName1" required="required">
+                                <input type="text" class="form-control" placeholder="Last Name" name="generatorLastName1" required="required">
                             </div>
-
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="control-label">Username<span> *</span></label>
+                            <label class="control-label">Username</label>
                             <div class="controls">
                                 <select class="form-control"
                                         name="userNameSurveyor">
-                                    <option value=""></option>
                                     <option value=""></option>
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <%-- Generator 2 --%>
-
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="form-group">
@@ -170,15 +138,12 @@ be greyed out except the plot size.
                                 <select class="form-control"
                                         name="userNameSurveyor">
                                     <option value=""></option>
-                                    <option value=""></option>
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <%-- Generator 3 --%>
-
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="form-group">
@@ -202,15 +167,12 @@ be greyed out except the plot size.
                                 <select class="form-control"
                                         name="userNameSurveyor">
                                     <option value=""></option>
-                                    <option value=""></option>
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <%-- Generator 4 --%>
-
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="form-group">
@@ -234,17 +196,13 @@ be greyed out except the plot size.
                                 <select class="form-control"
                                         name="userNameSurveyor">
                                     <option value=""></option>
-                                    <option value=""></option>
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
             <%-- Plot Data --%>
-
             <div class="tab">
                 <div class="row">
                     <div class="form-group col-lg-4">
@@ -259,11 +217,8 @@ be greyed out except the plot size.
                             </div>
                         </div>
                     </div>
-
-
                     <div class="form-group col-lg-4">
-                        <label class="control-label">Start Time<span
-                        > *</span></label>
+                        <label class="control-label">Start Time *</label>
                         <div class="input-group date" id="timePickerStart" data-target-input="nearest">
                             <input type="text" class="form-control datetimepicker-input"
                                    data-target="#timePickerStart" name="startTime"/>
@@ -275,7 +230,7 @@ be greyed out except the plot size.
                     </div>
 
                     <div class="form-group col-lg-4">
-                        <label class="control-label">End Time<span> *</span></label>
+                        <label class="control-label">End Time *</label>
                         <div class="input-group date" id="timePickerEnd" data-target-input="nearest">
                             <input type="text" class="form-control datetimepicker-input"
                                    data-target="#timePickerEnd" name="stopTime"/>
@@ -304,7 +259,7 @@ be greyed out except the plot size.
 
 
                     <div class="form-group col-lg-4">
-                        <label class="control-label">Wind Status<span> *</span></label>
+                        <label class="control-label">Wind Status *</label>
                         <div class="controls">
 
                             <select class="form-control" name="windStatus"
@@ -337,14 +292,13 @@ be greyed out except the plot size.
                 </div>
             </div>
 
-
             <%------------------------------------------------------------ Begin DataForm Lists ------------------------------------------------------------%>
             <%-------------------------------------------------- Begin Form1 --------------------------------------------------%>
             <div class="tab" id="form-submission">
 
                 <div class="row">
                     <div class="form-group col-lg-6">
-                        <label class="control-label">Genus</label>
+                        <label class="control-label">Cultivar</label>
                         <input type="text" class="form-control"
                                placeholder="Coreopsis Verticillata" name="plant1Name"
                                value="Coreopsis Verticillata">
@@ -352,7 +306,7 @@ be greyed out except the plot size.
 
 
                     <div class="form-group col-lg-6">
-                        <label class="control-label">Species</label>
+                        <label class="control-label">Genus/Species</label>
                         <input type="text" class="form-control"
                                placeholder="Straight" name="plant1Strain1Name" value="Straight">
                     </div>
@@ -376,13 +330,10 @@ be greyed out except the plot size.
                 <div class="row">
 
                     <div class="form-group col-lg-6">
-                        <label class="control-label">Flower Coverage<span
-                        >*</span></label>
-
-                        <select class="form-control"
-                                name="plant1Strain1Plot1PercentCoverage" required>
+                        <label class="control-label">Flower Coverage *</label>
+                        <select class="form-control" name="plant1Strain1Plot1PercentCoverage" required>
                             <option value=""></option>
-                            <option value="0">0</option>
+                            <option selected value="0">0</option>
                             <option value="1">1%-25%</option>
                             <option value="2">26%-50%</option>
                             <option value="3">51%-75%</option>
@@ -391,8 +342,7 @@ be greyed out except the plot size.
                     </div>
                     <div class="form-group col-lg-6">
                         <label class="control-label">Plot Area Dimensions</label>
-                        <select class="form-control"
-                                name="plant1Strain1Plot1AreaDbl" required>
+                        <select class="form-control" name="plant1Strain1Plot1AreaDbl">
                             <option value=""></option>
                             <option value="1">2'x2'</option>
                             <option value="2">3'x3'</option>
@@ -556,13 +506,13 @@ be greyed out except the plot size.
             <div class="tab" id="form-submission">
                 <div class="row">
                     <div class="form-group col-lg-6">
-                        <label class="control-label">Genus</label>
+                        <label class="control-label">Cultivar</label>
                         <input type="text" class="form-control" placeholder="Coreopsis Verticillata" name="plant1Name"
                                value="Coreopsis Verticillata">
                     </div>
 
                     <div class="form-group col-lg-6">
-                        <label class="control-label">Species</label>
+                        <label class="control-label">Genus/Species</label>
                         <input type="text" class="form-control" placeholder="Moonbeam" name="plant1Strain2Name"
                                value="Moonbeam">
                     </div>
@@ -583,24 +533,21 @@ be greyed out except the plot size.
 
                 <div class="row">
                     <div class="form-group col-lg-6">
-                        <label class="control-label">Flower Coverage<span>*</span></label>
+                        <label class="control-label">Flower Coverage *</label>
                         <select class="form-control"
                                 required="required"
                                 name="plant1Strain2Plot2PercentCoverage">
                             <option value=""></option>
-                            <option value="0">0</option>
+                            <option selected value="0">0</option>
                             <option value="1">1%-25%</option>
                             <option value="2">26%-50%</option>
                             <option value="3">51%-75%</option>
                             <option value="4">76%-100%</option>
                         </select>
                     </div>
-
                     <div class="form-group col-lg-6">
                         <label class="control-label">Plot Area Dimensions</label>
-                        <select class="form-control"
-                                required="required"
-                                name="plant1Strain2Plot2AreaDbl">
+                        <select class="form-control" name="plant1Strain2Plot2AreaDbl">
                             <option value=""></option>
                             <option value="1">2'x2'</option>
                             <option value="2">3'x3'</option>
@@ -609,9 +556,7 @@ be greyed out except the plot size.
                         </select>
                     </div>
                 </div>
-
                 <br>
-
                 <div class="row">
                     <div class="form-group col-lg-6">
                         <h4>Pollinator Visit Counts</h4>
@@ -764,14 +709,14 @@ be greyed out except the plot size.
             <div class="tab" id="form-submission">
                 <div class="row">
                     <div class="form-group col-lg-6">
-                        <label class="control-label">Genus</label>
+                        <label class="control-label">Cultivar</label>
                         <input type="text" class="form-control" placeholder="Coreopsis Verticillata"
                                name="plant1Name"
                                value="Coreopsis Verticillata">
                     </div>
 
                     <div class="form-group col-lg-6">
-                        <label class="control-label">Species</label>
+                        <label class="control-label">Genus/Species</label>
                         <input type="text" class="form-control" placeholder="Zagreb" name="plant1Strain3Name"
                                value="Zagreb">
                     </div>
@@ -792,25 +737,22 @@ be greyed out except the plot size.
 
                 <div class="row">
                     <div class="form-group col-lg-6">
-                        <label class="control-label">Flower Coverage<span>*</span></label>
+                        <label class="control-label">Flower Coverage *</label>
                         <select class="form-control"
                                 required="required"
                                 name="plant1Strain3Plot3PercentCoverage">
                             <option value=""></option>
-                            <option value="0">0</option>
+                            <option selected value="0">0</option>
                             <option value="1">1%-25%</option>
                             <option value="2">26%-50%</option>
                             <option value="3">51%-75%</option>
                             <option value="4">76%-100%</option>
                         </select>
                     </div>
-                    
                     <div class="form-group col-lg-6">
                         <label class="control-label">Plot Area Dimensions</label>
-                        <select class="form-control"
-                                required="required"
-                                name="plant1Strain3Plot3AreaDbl">
-                            <option value=""></option>
+                        <select class="form-control" name="plant1Strain3Plot3AreaDbl">
+                            <option selected value="0"></option>
                             <option value="1">2'x2'</option>
                             <option value="2">3'x3'</option>
                             <option value="3">4'x4'</option>
@@ -818,9 +760,7 @@ be greyed out except the plot size.
                         </select>
                     </div>
                 </div>
-
                 <br>
-
                 <div class="row">
                     <div class="form-group col-lg-6">
                         <h4>Pollinator Visit Counts</h4>
@@ -969,14 +909,14 @@ be greyed out except the plot size.
             <div class="tab" id="form-submission">
                 <div class="row">
                     <div class="col-lg-6 form-group">
-                        <label class="control-label">Genus</label>
+                        <label class="control-label">Cultivar</label>
                         <input type="text" class="form-control"
                                placeholder="Coreopsis Verticillata" name="plant1Name"
                                value="Coreopsis Verticillata">
                     </div>
 
                     <div class="form-group col-lg-6">
-                        <label class="control-label">Species</label>
+                        <label class="control-label">Genus/Species</label>
 
                         <input type="text" class="form-control"
                                placeholder="Cr&egrave;me Brulee" name="plant1Strain4Name"
@@ -999,12 +939,12 @@ be greyed out except the plot size.
 
                 <div class="row">
                     <div class="form-group col-lg-6">
-                        <label class="control-label">Flower Coverage<span>*</span></label>
+                        <label class="control-label">Flower Coverage *</label>
                         <select class="form-control"
                                 required="required"
                                 name="plant1Strain4Plot4PercentCoverage">
                             <option value=""></option>
-                            <option value="0">0</option>
+                            <option selected value="0">0</option>
                             <option value="1">1%-25%</option>
                             <option value="2">26%-50%</option>
                             <option value="3">51%-75%</option>
@@ -1013,10 +953,8 @@ be greyed out except the plot size.
                     </div>
                     <div class="form-group col-lg-6">
                         <label class="control-label">Plot Area Dimensions</label>
-                        <select class="form-control"
-                                required="required"
-                                name="plant1Strain4Plot4AreaDbl">
-                            <option value=""></option>
+                        <select class="form-control" name="plant1Strain4Plot4AreaDbl">
+                            <option selected value="0"></option>
                             <option value="1">2'x2'</option>
                             <option value="2">3'x3'</option>
                             <option value="3">4'x4'</option>
@@ -1024,9 +962,7 @@ be greyed out except the plot size.
                         </select>
                     </div>
                 </div>
-
                 <br>
-
                 <div class="row">
                     <div class="form-group col-lg-6">
                         <h4>Pollinator Visit Counts</h4>
@@ -1043,7 +979,6 @@ be greyed out except the plot size.
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="form-group col-lg-4">
                         <label class="control-label">Honey Bee</label>
@@ -1058,7 +993,6 @@ be greyed out except the plot size.
                             </span>
                         </div>
                     </div>
-
                     <div class="form-group col-lg-4">
                         <label class="control-label">Carpenter Bee</label>
                         <div class="input-group">
@@ -1180,13 +1114,13 @@ be greyed out except the plot size.
             <div class="tab" id="form-submission">
                 <div class="row">
                     <div class="form-group col-lg-6">
-                        <label class="control-label">Genus</label>
+                        <label class="control-label">Cultivar</label>
                         <input type="text" class="form-control"
                                placeholder="Coreopsis Verticillata" name="plant1Name"
                                value="Coreopsis Verticillata">
                     </div>
                     <div class="form-group col-lg-6">
-                        <label class="control-label">Species</label>
+                        <label class="control-label">Genus/Species</label>
 
                         <input type="text" class="form-control"
                                placeholder="Route 66" name="plant1Strain5Name" value="Route 66">
@@ -1209,28 +1143,22 @@ be greyed out except the plot size.
 
                 <div class="row">
                     <div class="form-group col-lg-6">
-                        <label class="control-label">Flower Coverage<span
-                        >*</span></label>
+                        <label class="control-label">Flower Coverage *</label>
                         <select class="form-control"
                                 required="required"
                                 name="plant1Strain5Plot5PercentCoverage">
                             <option value=""></option>
-                            <option value="0">0</option>
+                            <option selected value="0">0</option>
                             <option value="1">1%-25%</option>
                             <option value="2">26%-50%</option>
                             <option value="3">51%-75%</option>
                             <option value="4">76%-100%</option>
                         </select>
-
                     </div>
                     <div class="form-group col-lg-6">
-
                         <label class="control-label">Plot Area Dimensions</label>
-
-                        <select class="form-control"
-                                required="required"
-                                name="plant1Strain5Plot5AreaDbl">
-                            <option value=""></option>
+                        <select class="form-control" name="plant1Strain5Plot5AreaDbl">
+                            <option selected value="0"></option>
                             <option value="1">2'x2'</option>
                             <option value="2">3'x3'</option>
                             <option value="3">4'x4'</option>
@@ -1238,9 +1166,7 @@ be greyed out except the plot size.
                         </select>
                     </div>
                 </div>
-
                 <br>
-
                 <div class="row">
                     <div class="form-group col-lg-6">
                         <h4>Pollinator Visit Counts</h4>
@@ -1401,13 +1327,13 @@ be greyed out except the plot size.
                     <div class="row">
                         <div class="form-group col-lg-6">
 
-                            <label class="control-label">Genus</label>
+                            <label class="control-label">Cultivar</label>
                             <input type="text" class="form-control"
                                    placeholder="Monarda" name="plant2Name"
                                    value="Monarda">
                         </div>
                         <div class="form-group col-lg-6">
-                            <label class="control-label">Species</label>
+                            <label class="control-label">Genus/Species</label>
                             <input type="text" class="form-control"
                                    placeholder="Didyma Straight" name="plant2Strain1Name" value="Didyma Straight">
                         </div>
@@ -1428,28 +1354,22 @@ be greyed out except the plot size.
 
                     <div class="row">
                         <div class="form-group col-lg-6">
-                            <label class="control-label">Flower Coverage<span>*</span></label>
+                            <label class="control-label">Flower Coverage *</label>
                             <select class="form-control"
                                     required="required"
                                     name="plant2Strain1Plot1PercentCoverage">
                                 <option value=""></option>
-                                <option value="0">0</option>
+                                <option selected value="0">0</option>
                                 <option value="1">1%-25%</option>
                                 <option value="2">26%-50%</option>
                                 <option value="3">51%-75%</option>
                                 <option value="4">76%-100%</option>
                             </select>
                         </div>
-
-
                         <div class="form-group col-lg-6">
-
                             <label class="control-label">Plot Area Dimensions</label>
-
-                            <select class="form-control"
-                                    required="required"
-                                    name="plant2Strain1Plot1AreaDbl">
-                                <option value=""></option>
+                            <select class="form-control" name="plant2Strain1Plot1AreaDbl">
+                                <option selected value="0"></option>
                                 <option value="1">2'x2'</option>
                                 <option value="2">3'x3'</option>
                                 <option value="3">4'x4'</option>
@@ -1457,9 +1377,7 @@ be greyed out except the plot size.
                             </select>
                         </div>
                     </div>
-
                     <br>
-
                     <div class="row">
                         <div class="form-group col-lg-6">
                             <h4>Pollinator Visit Counts</h4>
@@ -1476,7 +1394,6 @@ be greyed out except the plot size.
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="form-group col-lg-4">
                             <label class="control-label">Honey Bee</label>
@@ -1491,17 +1408,14 @@ be greyed out except the plot size.
                             </span>
                             </div>
                         </div>
-
                         <div class="form-group col-lg-4">
                             <label class="control-label">Carpenter Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
-                                <input class="form-control" type="text"
-                                       name="plant2Strain1Plot1Pollinator2" value="0"
-                                >
-                                <span class="input-group-btn">
+                            <input class="form-control" type="text" name="plant2Strain1Plot1Pollinator2" value="0">
+                            <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
@@ -1512,10 +1426,7 @@ be greyed out except the plot size.
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
-
-                                <input class="form-control" type="text"
-                                       name="plant2Strain1Plot1Pollinator3" value="0"
-                                >
+                                <input class="form-control" type="text" name="plant2Strain1Plot1Pollinator3" value="0">
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
@@ -1529,40 +1440,32 @@ be greyed out except the plot size.
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
-
-                                <input class="form-control" type="text"
-                                       name="plant2Strain1Plot1Pollinator4" value="0"
-                                >
-                                <span class="input-group-btn">
+                            <input class="form-control" type="text" name="plant2Strain1Plot1Pollinator4" value="0">
+                            <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
-
                         <div class="form-group col-lg-4">
                             <label class="control-label">Green Sweat Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
-                                <input class="form-control" type="text"
-                                       name="plant2Strain1Plot1Pollinator5" value="0">
-                                <span class="input-group-btn">
+                            <input class="form-control" type="text" name="plant2Strain1Plot1Pollinator5" value="0">
+                            <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
-
                         <div class="form-group col-lg-4">
                             <label class="control-label">Dark Sweat Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
-                                <input class="form-control" type="text"
-                                       name="plant2Strain1Plot1Pollinator6" value="0"
-                                >
-                                <span class="input-group-btn">
+                            <input class="form-control" type="text"name="plant2Strain1Plot1Pollinator6" value="0">
+                            <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
@@ -1575,80 +1478,56 @@ be greyed out except the plot size.
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
-                                <input class="form-control" type="text"
-                                       name="plant2Strain1Plot1Pollinator7" value="0"
-                                >
-                                <span class="input-group-btn">
+                            <input class="form-control" type="text" name="plant2Strain1Plot1Pollinator7" value="0">
+                            <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
-
                         <div class="form-group col-lg-4">
                             <label class="control-label">Other Bees</label>
                             <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
-                                <input class="form-control" type="text"
-                                       name="plant2Strain1Plot1Pollinator8" value="0"
-                                >
-                                <span class="input-group-btn">
+                            <input class="form-control" type="text" name="plant2Strain1Plot1Pollinator8" value="0">
+                            <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
-
-
                         <div class="form-group col-lg-4">
                             <label class="control-label">Other Pollinators</label>
                             <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
-
-                                <input class="form-control" type="text"
-                                       name="plant2Strain1Plot1Pollinator9" value="0"
-                                >
-                                <span class="input-group-btn">
+                            <input class="form-control" type="text" name="plant2Strain1Plot1Pollinator9" value="0">
+                            <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <%-------------------------------------------------- End Form6 --------------------------------------------------%>
                 <%-------------------------------------------------- Begin Form7 --------------------------------------------------%>
                 <div class="tab" id="form-submission">
                     <div class="row">
                         <div class="form-group col-lg-6">
-                            <label class="control-label">Genus</label>
-
-                            <input type="text" class="form-control"
-                                   placeholder="Monarda" name="plant2Name"
-                                   value="Monarda">
-
+                            <label class="control-label">Cultivar</label>
+                            <input type="text" class="form-control" placeholder="Monarda" name="plant2Name" value="Monarda">
                         </div>
-
                         <div class="form-group col-lg-6">
-
-                            <label class="control-label"
-                            >Species</label>
-
-                            <input type="text" class="form-control"
-                                   placeholder="Didyma Petite Delight" name="plant2Strain2Name"
+                            <label class="control-label">Genus/Species</label>
+                            <input type="text" class="form-control" placeholder="Didyma Petite Delight" name="plant2Strain2Name"
                                    value="Didyma Petite Delight">
                         </div>
-
                     </div>
-
                     <br>
-
                     <div class="row">
                         <div class="form-group">
                             <h4>Plot Survey</h4>
-
                             <p>
                                 If plant strain is not blooming, select '0' for Flower Coverage and continue to
                                 the
@@ -1656,37 +1535,28 @@ be greyed out except the plot size.
                             </p>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="form-group col-lg-6">
 
-                            <label class="control-label">Flower Coverage<span
-                            >*</span></label>
-                            <select class="form-control"
-                                    required="required"
-                                    name="plant2Strain2Plot2PercentCoverage">
+                            <label class="control-label">Flower Coverage *</label>
+                            <select class="form-control"required="required" name="plant2Strain2Plot2PercentCoverage">
                                 <option value=""></option>
-                                <option value="0">0</option>
+                                <option selected value="0">0</option>
                                 <option value="1">1%-25%</option>
                                 <option value="2">26%-50%</option>
                                 <option value="3">51%-75%</option>
                                 <option value="4">76%-100%</option>
                             </select>
                         </div>
-
-
                         <div class="form-group col-lg-6">
                             <label class="control-label">Plot Area Dimensions</label>
-                            <select class="form-control"
-                                    required="required"
-                                    name="plant2Strain2Plot2AreaDbl">
-                                <option value=""></option>
+                            <select class="form-control" name="plant2Strain2Plot2AreaDbl">
+                                <option selected value="0"></option>
                                 <option value="1">2'x2'</option>
                                 <option value="2">3'x3'</option>
                                 <option value="3">4'x4'</option>
                                 <option value="4">Greater</option>
                             </select>
-
                         </div>
                     </div>
                     <br>
@@ -1706,7 +1576,6 @@ be greyed out except the plot size.
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="form-group col-lg-4">
                             <label class="control-label">Honey Bee</label>
@@ -1852,7 +1721,7 @@ be greyed out except the plot size.
                 <div class="tab" id="form-submission">
                     <div class="row">
                         <div class="form-group col-lg-6">
-                            <label class="control-label">Genus</label>
+                            <label class="control-label">Cultivar</label>
                             <input type="text" class="form-control"
                                    placeholder="Monarda" name="plant2Name"
                                    value="Monarda">
@@ -1860,7 +1729,7 @@ be greyed out except the plot size.
 
 
                         <div class="form-group col-lg-6">
-                            <label class="control-label">Species</label>
+                            <label class="control-label">Genus/Species</label>
                             <input type="text" class="form-control"
                                    placeholder="Didyma Marshalls Delight" name="plant2Strain3Name"
                                    value="Didyma Marshalls Delight">
@@ -1882,12 +1751,12 @@ be greyed out except the plot size.
 
                     <div class="row">
                         <div class="form-group col-lg-6">
-                            <label class="control-label">Flower Coverage<span>*</span></label>
+                            <label class="control-label">Flower Coverage *</label>
                             <select class="form-control"
                                     required="required"
                                     name="plant2Strain3Plot3PercentCoverage">
                                 <option value=""></option>
-                                <option value="0">0</option>
+                                <option selected value="0">0</option>
                                 <option value="1">1%-25%</option>
                                 <option value="2">26%-50%</option>
                                 <option value="3">51%-75%</option>
@@ -1898,10 +1767,8 @@ be greyed out except the plot size.
 
                         <div class="form-group col-lg-6">
                             <label class="control-label">Plot Area Dimensions</label>
-                            <select class="form-control"
-                                    required="required"
-                                    name="plant2Strain3Plot3AreaDbl">
-                                <option value=""></option>
+                            <select class="form-control" name="plant2Strain3Plot3AreaDbl">
+                                <option selected value="0"></option>
                                 <option value="1">2'x2'</option>
                                 <option value="2">3'x3'</option>
                                 <option value="3">4'x4'</option>
@@ -2070,14 +1937,14 @@ be greyed out except the plot size.
                 <div class="tab" id="form-submission">
                     <div class="row">
                         <div class="form-group col-lg-6">
-                            <label class="control-label">Genus</label>
+                            <label class="control-label">Cultivar</label>
                             <input type="text" class="form-control"
                                    placeholder="Monarda" name="plant2Name"
                                    value="Monarda">
                         </div>
 
                         <div class="form-group col-lg-6">
-                            <label class="control-label">Species</label>
+                            <label class="control-label">Genus/Species</label>
                             <input type="text" class="form-control"
                                    placeholder="X Peters Fancy Fuschia" name="plant2Strain4Name"
                                    value="X Peters Fancy Fuschia">
@@ -2096,29 +1963,24 @@ be greyed out except the plot size.
                             </p>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="form-group col-lg-6">
-                            <label class="control-label">Flower Coverage<span
-                            >*</span></label>
+                            <label class="control-label">Flower Coverage *</label>
                             <select class="form-control"
                                     required="required"
                                     name="plant2Strain4Plot4PercentCoverage">
                                 <option value=""></option>
-                                <option value="0">0</option>
+                                <option selected value="0">0</option>
                                 <option value="1">1%-25%</option>
                                 <option value="2">26%-50%</option>
                                 <option value="3">51%-75%</option>
                                 <option value="4">76%-100%</option>
                             </select>
                         </div>
-
                         <div class="form-group col-lg-6">
                             <label class="control-label">Plot Area Dimensions</label>
-                            <select class="form-control"
-                                    required="required"
-                                    name="plant2Strain4Plot4AreaDbl">
-                                <option value=""></option>
+                            <select class="form-control" name="plant2Strain4Plot4AreaDbl">
+                                <option selected value="0"></option>
                                 <option value="1">2'x2'</option>
                                 <option value="2">3'x3'</option>
                                 <option value="3">4'x4'</option>
@@ -2183,10 +2045,8 @@ be greyed out except the plot size.
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
-                                <input class="form-control" type="text"
-                                       name="plant2Strain4Plot4Pollinator3" value="0"
-                                >
-                                <span class="input-group-btn">
+                            <input class="form-control" type="text" name="plant2Strain4Plot4Pollinator3" value="0">
+                            <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
@@ -2199,40 +2059,32 @@ be greyed out except the plot size.
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
-                                <input class="form-control" type="text"
-                                       name="plant2Strain4Plot4Pollinator4" value="0"
-                                >
-                                <span class="input-group-btn">
+                            <input class="form-control" type="text" name="plant2Strain4Plot4Pollinator4" value="0">
+                            <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
-
                         <div class="form-group col-lg-4">
                             <label class="control-label">Green Sweat Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
-                                <input class="form-control" type="text"
-                                       name="plant2Strain4Plot4Pollinator5" value="0"
-                                >
+                                <input class="form-control" type="text" name="plant2Strain4Plot4Pollinator5" value="0">
                                 <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
-
                         <div class="form-group col-lg-4">
                             <label class="control-label">Dark Sweat Bee</label>
                             <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
-                                <input class="form-control" type="text"
-                                       name="plant2Strain4Plot4Pollinator6" value="0"
-                                >
-                                <span class="input-group-btn">
+                            <input class="form-control" type="text" name="plant2Strain4Plot4Pollinator6" value="0">
+                            <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
@@ -2245,46 +2097,37 @@ be greyed out except the plot size.
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
-                                <input class="form-control" type="text"
-                                       name="plant2Strain4Plot4Pollinator7" value="0"
-                                >
-                                <span class="input-group-btn">
+                            <input class="form-control" type="text" name="plant2Strain4Plot4Pollinator7" value="0">
+                            <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
-
                         <div class="form-group col-lg-4">
                             <label class="control-label">Other Bees</label>
                             <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
-                                <input class="form-control" type="text"
-                                       name="plant2Strain4Plot4Pollinator8" value="0"
-                                >
-                                <span class="input-group-btn">
+                                <input class="form-control" type="text" name="plant2Strain4Plot4Pollinator8" value="0">
+                            <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
-
                         <div class="form-group col-lg-4">
                             <label class="control-label">Other Pollinators</label>
                             <div class="input-group">
                             <span class="input-group-btn">
                                 <button class="btn bg-danger btn-minus" type="button"><i class="fa fa-minus"></i></button>
                             </span>
-                                <input class="form-control" type="text"
-                                       name="plant2Strain4Plot4Pollinator9" value="0"
-                                >
-                                <span class="input-group-btn">
+                            <input class="form-control" type="text"name="plant2Strain4Plot4Pollinator9" value="0">
+                            <span class="input-group-btn">
                                 <button class="btn bg-success btn-plus" type="button"><i class="fa fa-plus"></i></button>
                             </span>
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <%-------------------------------------------------- End Form9 --------------------------------------------------%>
             <%------------------------------------------------------------ End DataForm Lists ------------------------------------------------------------%>
@@ -2332,7 +2175,6 @@ be greyed out except the plot size.
     </form>
 </div>
 
-
 <script src="vendor/jquery/jquery.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
 <script src="vendor/jquery-easing/jquery.easing.js"></script>
@@ -2343,7 +2185,6 @@ be greyed out except the plot size.
 <script src="vendor/Tempus-Dominus/js/tempusdominus-bootstrap-4.min.js"></script>
 <script src="vendor/EasyTimer/js/easytimer.js"></script>
 
-
 <script>
     $(function () {
         $('#collectionDate').datetimepicker({
@@ -2351,7 +2192,6 @@ be greyed out except the plot size.
         });
     });
 </script>
-
 <script>
     $(function () {
         $('#timePickerStart').datetimepicker({
@@ -2359,7 +2199,6 @@ be greyed out except the plot size.
         });
     });
 </script>
-
 <script>
     $(function () {
         $('#timePickerEnd').datetimepicker({
@@ -2367,14 +2206,6 @@ be greyed out except the plot size.
         });
     });
 </script>
-
-
-<script>
-
-
-</script>
-
-
 <script>
     function getSubmitTime() {
         var date = new Date();
@@ -2387,8 +2218,6 @@ be greyed out except the plot size.
         document.getElementById('dataFormSubmit').value = time;
     }
 </script>
-
-
 <script>
     var currentTab = 0; // Current tab is set to be the first tab (0)
     showTab(currentTab); // Display the current tab
@@ -2436,7 +2265,6 @@ be greyed out except the plot size.
         showTab(currentTab);
     }
 
-
     function validateForm() {
         // This function deals with validation of the form fields
         var x, y, i, valid = true;
@@ -2470,8 +2298,6 @@ be greyed out except the plot size.
         x[n].className += " active";
     }
 </script>
-
-
 <script>
     $('.btn-minus').on('click', function () {
         $(this).parent().siblings('input').val(parseInt($(this).parent().siblings('input').val()) - 1)
@@ -2506,7 +2332,6 @@ be greyed out except the plot size.
         $('#chronoExample .values').html(timer.getTimeValues().toString());
     });
 </script>
-
 
 </body>
 </html>
