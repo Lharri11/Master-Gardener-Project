@@ -11,6 +11,7 @@ import java.util.List;
 import database.core.DatabaseProvider;
 import database.core.MySQLDatabase;
 import database.core.IDatabase;
+import model.GardenMember;
 import model.User;
 //import model.ObjectHandler;
  
@@ -55,5 +56,16 @@ public class UserController {
 	public int getUserModeratorStatus(String username) throws SQLException
 	{
 		return database.getModeratorStatusByUsername(username);
+	}
+
+	public boolean deleteUserFromGarden(String gardenName, String username) throws SQLException {
+		boolean worked = false;
+		int GardenID = database.getGardenIDByGardenName(gardenName);
+		Garden thisGarden = database.getGardenbyGardenID(GardenID);
+		User User = database.queryForUserByUsername(username);
+		//GardenMember gardenMember = new GardenMember(thisGarden.getGarden_id(), User.getUserId());
+		worked = database.deleteUserFromGarden(User,thisGarden);
+
+		return worked;
 	}
 }

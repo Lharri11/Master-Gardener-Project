@@ -188,7 +188,10 @@
         // fire a function, based on the button id that was clicked
         if (this.id === 'Dataform') {
             submitGardenDataform(garden)
+        } else if (this.id === 'Remove') {
+            deleteUserFromGarden(garden)
         }
+
     });
 
     function submitGardenDataform(submit) {
@@ -206,6 +209,24 @@
             window.location.href = "${pageContext.servletContext.contextPath}/dataForm";
         }
     }
+
+    function deleteUserFromGarden (toDelete) {
+        var gardenDelete = {garden1: JSON.stringify(toDelete)};
+
+        try {
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.servletContext.contextPath}/user",
+                data: gardenDelete
+            });
+        } catch (err) {
+            alert(err.message);
+        } finally {
+            window.location = "${pageContext.servletContext.contextPath}/user";
+        }
+
+    }
+
 </script>
 
 </body>

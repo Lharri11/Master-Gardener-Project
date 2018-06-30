@@ -15,6 +15,7 @@ import controller.AdminController;
 import controller.UserController;
 import model.User;
 import model.Garden;
+import org.json.JSONObject;
 
 @SuppressWarnings("Duplicates")
 public class UserServlet extends HttpServlet {
@@ -56,7 +57,6 @@ public class UserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		int gardenID = 0;
-		int portraitLength = 0;
 
 		String username = req.getSession().getAttribute("username").toString();
 		User user = new User();
@@ -77,10 +77,18 @@ public class UserServlet extends HttpServlet {
 			}
 		}
 
-		if(keyword != null){
-			req.getSession().setAttribute("keyword", keyword);
-			resp.sendRedirect(req.getContextPath()+"/search");
-			return;
+		if(req.getParameter("garden1") != null) {
+			JSONObject gardenName = new JSONObject(req.getParameter("garden1"));
+			String gardenNameToDelete = gardenName.getString("garden_name");
+			System.out.println(user.getUsername());
+			String activeUser = user.getUsername();
+			try {
+				controller.deleteUserFromGarden(gardenNameToDelete,activeUser);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} /*finally {
+				req.getRequestDispatcher("/_view/user.jsp").forward(req, resp);
+			}*/
 		}
 
 		req.getRequestDispatcher("/_view/user.jsp").forward(req, resp);
