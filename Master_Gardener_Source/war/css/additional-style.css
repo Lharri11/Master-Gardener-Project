@@ -449,6 +449,21 @@ header.masthead .bg-circle-4 {
     background-color: #4CAF50;
 }
 
+/*
+::-webkit-input-placeholder {
+    font-style: italic;
+}
+:-moz-placeholder { !* older Firefox*!
+    font-style: italic;
+}
+::-moz-placeholder { !* Firefox 19+ *!
+    font-style: italic;
+}
+:-ms-input-placeholder {
+    font-style: italic;
+}
+*/
+
 /* Dataform Page - End */
 
 
