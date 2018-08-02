@@ -2411,6 +2411,8 @@ be greyed out except the plot size.
             document.getElementById("nextBtn").innerHTML = "Submit";
         } else {
             document.getElementById("nextBtn").innerHTML = "Next";
+            timer.reset();
+            timer.stop();
         }
         // ... and run a function that displays the correct step indicator:
         fixStepIndicator(n)
