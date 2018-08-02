@@ -10,7 +10,7 @@ public class PollinatorDataForm
 	private int county_id;
 	private int who_submitted_id;
 	private int who_confirmed_id;
-	private int week_number;
+	//private int week_number;
 	private int temperature;
 	private ArrayList<Plot> plots;
 	private ArrayList<PollinatorVisitCount> visitCounts;
@@ -37,7 +37,7 @@ public class PollinatorDataForm
 	private ArrayList<String> strain_name = null;
 	private ArrayList<Integer> visit_counts = null;
 
-	public PollinatorDataForm(int garden_id, int county_id, ArrayList<User> generators, int week_number, LocalDate date_collected,
+	public PollinatorDataForm(int garden_id, int county_id, ArrayList<User> generators, LocalDate date_collected,
 							  LocalDate date_generated, LocalDate date_confirmed, String wind_status, String cloud_status, String comments,
 							  String butterfly_moth_comments, int temperature, LocalTime monitor_start, LocalTime monitor_stop, int confirmed,
 							  ArrayList<Plant> plants, ArrayList<PlantStrain> strains, ArrayList<Plot> plots, ArrayList<Pollinator> pollinators,
@@ -46,7 +46,7 @@ public class PollinatorDataForm
 		this.garden_id = garden_id;
 		this.county_id = county_id;
 		this.generators = generators;
-		this.week_number = week_number;
+		//this.week_number = week_number;
 		this.date_collected = date_collected;
 		this.date_generated = date_generated;
 		this.date_confirmed = date_confirmed;
@@ -113,13 +113,13 @@ public class PollinatorDataForm
 		this.who_confirmed_id = who_confirmed_id;
 	}
 
-	public int getWeek_number() {
+	/*public int getWeek_number() {
 		return week_number;
 	}
 
 	public void setWeek_number(int week_number) {
 		this.week_number = week_number;
-	}
+	}*/
 
 	public int getTemperature() {
 		return temperature;

@@ -66,7 +66,7 @@ public class DataFormServlet extends HttpServlet {
         int pollinators_total = 9;
         int strain_id = 0;
         int plot_id = 0;
-        PollinatorDataForm dataForm = new PollinatorDataForm(-1, -1, null, -1,
+        PollinatorDataForm dataForm = new PollinatorDataForm(-1, -1, null,
                 null, null,  null, null, null, null, null,
                 0, null, null , 0, null, null, null, null, null);
         ArrayList<User> generators = new ArrayList<User>();
@@ -140,7 +140,7 @@ public class DataFormServlet extends HttpServlet {
             garden_name = (String)req.getSession().getAttribute("garden_name");
 
             //DataForm Date & Time Information
-            week_num = Integer.parseInt(req.getParameter("weekNumber"));
+            //week_num = Integer.parseInt(req.getParameter("weekNumber"));
             date_collected = getDateFromParameter(req.getParameter("dateCollected"));
             //date_generated = LocalDate.now();
             //System.out.println(date_generated);
@@ -157,14 +157,7 @@ public class DataFormServlet extends HttpServlet {
             comments = req.getParameter("comments");
             butterfly_moth_comments = req.getParameter("butterflyMothComments");
 
-            if ("".equals(week_num) || week_num == 0) {
-                errorMessage = "Please enter the Data Collection Cycle week number";
-                System.out.println(errorMessage);
-                week_num = 0;
-                req.setAttribute("errorMessage", errorMessage);
-                req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
-            }
-            else if ("".equals(generator_first_name1) || generator_first_name1 == null) {
+            if ("".equals(generator_first_name1) || generator_first_name1 == null) {
                 errorMessage = "Missing first name. Please enter the first and last name of at least one (1) DataForm Generator";
                 System.out.println(errorMessage);
                 generator_first_name1 = null;
@@ -199,6 +192,13 @@ public class DataFormServlet extends HttpServlet {
                 req.setAttribute("errorMessage", errorMessage);
                 req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
             }
+            else if ("".equals(plot_area_dbl)) {
+                errorMessage = "Please enter the area dimensions of the plot";
+                System.out.println(errorMessage);
+                plot_area_dbl = 0;
+                req.setAttribute("errorMessage", errorMessage);
+                req.getRequestDispatcher("/_view/dataForm.jsp").forward(req, resp);
+            }
             else {
 
                 System.out.println("DataForm Servlet: All *required* parameters accepted successfully");
@@ -210,7 +210,7 @@ public class DataFormServlet extends HttpServlet {
 
                     controller = new DataFormController();
                     //Set Week Number
-                    dataForm.setWeek_number(week_num);
+                    //dataForm.setWeek_number(week_num);
 
                     //Set Garden & County
                     dataForm.setGarden_id(controller.getGardenIDByGardenName(garden_name));
@@ -242,7 +242,7 @@ public class DataFormServlet extends HttpServlet {
                     if(!"".equals(butterfly_moth_comments) && butterfly_moth_comments != null){ dataForm.setButterflyMothComments(butterfly_moth_comments); }
 
                     // Reset JSP DataForm Parameters
-                    req.setAttribute("weekNumber", week_num);
+                    //req.setAttribute("weekNumber", week_num);
                     req.setAttribute("gardenName", garden_name);
                     req.setAttribute("generatorFirstName1", generator_first_name1); req.setAttribute("generatorLastName1", generator_first_name1);
                     req.setAttribute("generatorFirstName2", generator_first_name2); req.setAttribute("generatorLastName2", generator_first_name2);
@@ -393,7 +393,7 @@ public class DataFormServlet extends HttpServlet {
                         dataForm.getDate_collected(), dataForm.getDate_generated(), dataForm.getDate_confirmed(), dataForm.getWind_status(), dataForm.getCloud_status(),
                         dataForm.getComments(),dataForm.getButterflyMothComments(), dataForm.getTemperature(), dataForm.getMonitor_start(), dataForm.getMonitor_stop(),
                         0, dataForm.getPlants(), dataForm.getPlantStrains(), dataForm.getPlots(), dataForm.getPollinators(), dataForm.getPollinatorVisitCounts() );*/
-                PollinatorDataForm pdf = new PollinatorDataForm(dataForm.getGarden_id(), dataForm.getCounty_id(), generators, dataForm.getWeek_number(),
+                PollinatorDataForm pdf = new PollinatorDataForm(dataForm.getGarden_id(), dataForm.getCounty_id(), generators,
                         dataForm.getDate_collected(), null, null, dataForm.getWind_status(), dataForm.getCloud_status(),
                         dataForm.getComments(),dataForm.getButterflyMothComments(), dataForm.getTemperature(), dataForm.getMonitor_start(), dataForm.getMonitor_stop(),
                         0, plants, strains, plots, pollinators, pollinatorVisitCounts);

@@ -1739,7 +1739,7 @@ public class MySQLDatabase implements IDatabase {
                     // Side note: Must always re-initialize the variables plant_names, ... , visit_counts (shown below)
                     // since the constructor does not handle them. (Design choice; the only place we use these
                     // names is in this method)
-                    PollinatorDataForm pdf = new PollinatorDataForm(-1, -1, null, -1, null, null, null, null,
+                    PollinatorDataForm pdf = new PollinatorDataForm(-1, -1, null, null, null, null, null,
                             null, null, null, -1, null, null, 0, null, null, null, null, null);
                     plant_names.clear();
                     poll_names.clear();
@@ -4065,10 +4065,9 @@ public class MySQLDatabase implements IDatabase {
             //Date date_confirmed = java.sql.Date.valueOf(pdf.getDate_confirmed());
 
             // Insert into the main dataform table
-            stmt1 = conn.prepareStatement("INSERT INTO mg_data_form (week_number, garden_id, county_id, generator_id1, generator_id2, generator_id3, generator_id4, " +
+            stmt1 = conn.prepareStatement("INSERT INTO mg_data_form (garden_id, county_id, generator_id1, generator_id2, generator_id3, generator_id4, " +
                     "date_collected, date_generated, wind_status, cloud_status, comments, butterfly_moth_comments, confirmed, temperature, monitor_start, monitor_stop)" +
                     " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            stmt1.setInt(index++, pdf.getWeek_number());
             stmt1.setInt(index++, pdf.getGarden_id());
             stmt1.setInt(index++, pdf.getCounty_id());
             //Generator ID Solution
@@ -4093,20 +4092,19 @@ public class MySQLDatabase implements IDatabase {
             // Get DataForm ID
             index = 1;
             generators_total = 4;
-            stmt4 = conn.prepareStatement("SELECT id FROM mg_data_form WHERE week_number = ? AND garden_id = ? AND county_id = ? AND generator_id1 = ? AND date_collected = ? AND date_generated = ?" +
+            stmt4 = conn.prepareStatement("SELECT id FROM mg_data_form WHERE garden_id = ? AND county_id = ? AND generator_id1 = ? AND date_collected = ? AND date_generated = ?" +
                     " AND comments = ? AND butterfly_moth_comments = ? AND wind_status = ? AND cloud_status = ? AND generator_id1 = ?");
 
-            stmt4.setInt(1, pdf.getWeek_number());
-            stmt4.setInt(2, pdf.getGarden_id());
-            stmt4.setInt(3, pdf.getCounty_id());
-            stmt4.setInt(4 , pdf.getGenerators().get(0).getUserId());
-            stmt4.setDate(5, (java.sql.Date) date_collected);
-            stmt4.setDate(6, (java.sql.Date) date_generated);
-            stmt4.setString(7, pdf.getComments());
-            stmt4.setString(8, pdf.getButterflyMothComments());
-            stmt4.setString(9, pdf.getWind_status());
-            stmt4.setString(10, pdf.getCloud_status());
-            stmt4.setInt(11, pdf.getGenerators().get(0).getUserId());
+            stmt4.setInt(1, pdf.getGarden_id());
+            stmt4.setInt(2, pdf.getCounty_id());
+            stmt4.setInt(3 , pdf.getGenerators().get(0).getUserId());
+            stmt4.setDate(4, (java.sql.Date) date_collected);
+            stmt4.setDate(5, (java.sql.Date) date_generated);
+            stmt4.setString(6, pdf.getComments());
+            stmt4.setString(7, pdf.getButterflyMothComments());
+            stmt4.setString(8, pdf.getWind_status());
+            stmt4.setString(9, pdf.getCloud_status());
+            stmt4.setInt(10, pdf.getGenerators().get(0).getUserId());
 
             set4 = stmt4.executeQuery();
             //System.out.println(set4.getInt(1));
